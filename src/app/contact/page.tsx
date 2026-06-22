@@ -124,8 +124,8 @@ export default function ContactPage() {
       </section>
 
       {/* ── MAIN CONTENT ─────────────────────────────────────── */}
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px 80px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '380px 1fr', gap: '32px', alignItems: 'start' }}>
+      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px 80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '380px 1fr', gap: '32px', alignItems: 'start' }} className="contact-grid">
 
           {/* ── LEFT — Contact Info ────────────────────────────── */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -242,10 +242,10 @@ export default function ContactPage() {
             background: 'rgba(13,27,75,0.25)',
             border: '1px solid rgba(79,142,247,0.12)',
             borderRadius: '24px',
-            padding: '40px',
+            padding: '32px',
             backdropFilter: 'blur(20px)',
             boxShadow: '0 24px 80px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)',
-          }}>
+          }} className="form-container">
 
             {status === 'success' ? (
               /* Success state */
@@ -276,7 +276,7 @@ export default function ContactPage() {
                 </h2>
 
                 {/* Row 1: Name + Email */}
-                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px', marginBottom:'14px' }}>
+                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px', marginBottom:'14px' }} className="form-row">
                   <div>
                     <label style={{ fontFamily:'var(--font-space)',fontSize:'12px',fontWeight:'500',color:'rgba(255,255,255,0.4)',letterSpacing:'0.08em',display:'block',marginBottom:'8px' }}>
                       NAME *
@@ -308,7 +308,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Row 2: Phone + Company */}
-                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px', marginBottom:'14px' }}>
+                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px', marginBottom:'14px' }} className="form-row">
                   <div>
                     <label style={{ fontFamily:'var(--font-space)',fontSize:'12px',fontWeight:'500',color:'rgba(255,255,255,0.4)',letterSpacing:'0.08em',display:'block',marginBottom:'8px' }}>
                       PHONE (OPTIONAL)
@@ -338,7 +338,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Row 3: Service + Budget */}
-                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px', marginBottom:'14px' }}>
+                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px', marginBottom:'14px' }} className="form-row">
                   <div>
                     <label style={{ fontFamily:'var(--font-space)',fontSize:'12px',fontWeight:'500',color:'rgba(255,255,255,0.4)',letterSpacing:'0.08em',display:'block',marginBottom:'8px' }}>
                       SERVICE NEEDED *
@@ -451,7 +451,21 @@ export default function ContactPage() {
         {/* Mobile responsive override */}
         <style>{`
           @media (max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr !important; }
+            .contact-grid {
+              grid-template-columns: 1fr !important;
+              gap: 24px !important;
+            }
+            .form-container {
+              padding: 24px !important;
+            }
+            .form-row {
+              grid-template-columns: 1fr !important;
+            }
+          }
+          @media (max-width: 480px) {
+            .form-container {
+              padding: 20px !important;
+            }
           }
           @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
           @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }

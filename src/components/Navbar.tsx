@@ -274,20 +274,6 @@ export default function Navbar() {
           pointerEvents:           mobileOpen ? 'all' : 'none',
         }}
       >
-        <div
-          className="absolute top-6 left-6 flex items-center gap-2.5"
-          style={{ opacity: mobileOpen ? 1 : 0, transition: 'opacity 0.3s ease 0.1s' }}
-        >
-          <Image
-            src="/favicon.png"
-            alt="ZYVONE"
-            width={28}
-            height={28}
-            priority
-          />
-          <span className="font-sans font-bold text-[18px] tracking-[0.05em] text-white">ZYVONE</span>
-        </div>
-
         <nav className="flex flex-col items-center gap-2" aria-label="Mobile navigation">
           {[...NAV_LINKS, { label: 'Contact', href: '/contact' }].map((link, i) => (
             <Link
