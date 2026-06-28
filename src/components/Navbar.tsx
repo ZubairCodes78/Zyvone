@@ -197,21 +197,21 @@ export default function Navbar() {
                   backdropFilter: 'blur(8px)',
                   transition:     'all 0.2s ease',
                   letterSpacing:  '0.01em',
-                  boxShadow:      '0 4px 24px rgba(212,245,60,0.25)',
+                  boxShadow:      '0 0 20px rgba(212,245,60,0.25), inset 0 1px 0 rgba(255,255,255,0.3)',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement
                   el.style.background   = '#B8D932'
                   el.style.borderColor  = '#B8D932'
                   el.style.transform    = 'scale(1.03)'
-                  el.style.boxShadow    = '0 6px 30px rgba(212,245,60,0.40)'
+                  el.style.boxShadow    = '0 0 30px rgba(212,245,60,0.40), inset 0 1px 0 rgba(255,255,255,0.4)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLElement
                   el.style.background   = '#D4F53C'
                   el.style.borderColor  = '#D4F53C'
                   el.style.transform    = 'scale(1)'
-                  el.style.boxShadow    = '0 4px 24px rgba(212,245,60,0.25)'
+                  el.style.boxShadow    = '0 0 20px rgba(212,245,60,0.25), inset 0 1px 0 rgba(255,255,255,0.3)'
                 }}
               >
                 Start a project
