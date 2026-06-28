@@ -28,10 +28,11 @@ export const metadata: Metadata = {
   },
   title: { default: "ZYVONE — We Build Systems. Not Services.", template: "%s — ZYVONE" },
   description: "ZYVONE is a premium digital company building AI automation, web systems, and brand experiences for founders. Based in Pakistan. Built for the world.",
-  keywords: ["AI automation", "web development", "brand experience", "digital agency", "Pakistan", "systems", "automation", "SaaS"],
-  authors: [{ name: "ZYVONE" }],
+  keywords: ["AI automation", "web development", "brand experience", "digital agency", "Pakistan", "systems", "automation", "SaaS", "custom software", "business automation"],
+  authors: [{ name: "ZYVONE", url: "https://zyvone.site" }],
   creator: "ZYVONE",
   publisher: "ZYVONE",
+  category: "Technology",
   openGraph: {
     type: "website",
     url: "https://zyvone.site",
@@ -48,17 +49,20 @@ export const metadata: Metadata = {
       }
     ],
     locale: "en_US",
+    countryName: "Pakistan",
   },
   twitter: {
     card: "summary_large_image",
-    images: ['https://zyvone.site/og-image'],
+    site: "@zyvone",
     creator: "@zyvone",
+    images: ['https://zyvone.site/og-image'],
   },
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
   themeColor: "#060B18",
   viewport: {
     width: "device-width",
@@ -110,7 +114,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${space.variable} ${instrument.variable}`}>
+    <html lang="en" className={`${space.variable} ${instrument.variable} scroll-smooth`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -119,10 +123,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="antialiased">
         <ScrollProgress />
         <Navbar />
-        <main id="main">{children}</main>
+        <main id="main" className="min-h-screen">{children}</main>
         <Footer />
         <WAButton />
       </body>
