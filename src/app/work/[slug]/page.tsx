@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getProject, projects } from '@/lib/projects'
 import type { Metadata } from 'next'
+import { ToolmaticVisual, PDFMasterVisual, CanttDentalVisual, BeforeAfterVisual, StatsDashboardVisual, AIAutomationVisual } from '@/components/ProjectVisuals'
 
 export async function generateStaticParams() {
   return projects.map(p => ({ slug: p.slug }))
@@ -212,35 +213,73 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </section>
 
       {/* ── GALLERY ───────────────────────────────────────── */}
-      {project.gallery && project.gallery.length > 0 && (
-        <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 32px', marginBottom:'80px' }}>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:arc,letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:'32px' }}>
-            Project Gallery
-          </p>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(400px, 1fr))', gap:'24px' }}>
-            {project.gallery.map((image, i) => (
-              <div key={i} style={{
-                borderRadius:'16px', overflow:'hidden',
-                boxShadow:'0 10px 40px rgba(0,0,0,0.3)',
-                background: `linear-gradient(135deg, ${navy} 0%, ${dark} 100%)`,
-                height: '300px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <div style={{ textAlign: 'center' }}>
-                  <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:fog }}>
-                    Gallery Image {i + 1}
-                  </p>
-                  <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',color:'rgba(255,255,255,0.3)' }}>
-                    AI-generated image coming soon
-                  </p>
+      <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 32px', marginBottom:'80px' }}>
+        <div style={{ margin:'56px 0', display:'flex', flexDirection:'column', gap:'16px' }}>
+
+          {project.slug === 'toolmatic' && (
+            <>
+              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
+                <ToolmaticVisual height={380} />
+              </div>
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px' }}>
+                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
+                  <StatsDashboardVisual height={240} />
+                </div>
+                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
+                  <AIAutomationVisual height={240} />
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
-      )}
+            </>
+          )}
+
+          {project.slug === 'pdfmaster' && (
+            <>
+              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
+                <PDFMasterVisual height={380} />
+              </div>
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px' }}>
+                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
+                  <ToolmaticVisual height={240} />
+                </div>
+                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
+                  <StatsDashboardVisual height={240} />
+                </div>
+              </div>
+              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
+                <AIAutomationVisual height={320} />
+              </div>
+            </>
+          )}
+
+          {project.slug === 'cantt-dental-care' && (
+            <>
+              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
+                <CanttDentalVisual height={380} />
+              </div>
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px' }}>
+                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
+                  <BeforeAfterVisual height={240} />
+                </div>
+                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
+                  <StatsDashboardVisual height={240} />
+                </div>
+              </div>
+              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
+                <AIAutomationVisual height={320} />
+              </div>
+            </>
+          )}
+
+          <p style={{
+            fontFamily:'var(--font-space), sans-serif',
+            fontSize:'11px', color:'rgba(255,255,255,0.22)',
+            textAlign:'center', letterSpacing:'0.05em',
+            marginTop:'4px',
+          }}>
+            System visualization — built in code
+          </p>
+        </div>
+      </section>
 
       {/* ── BEFORE/AFTER ─────────────────────────────────── */}
       {project.beforeImage && project.afterImage && (
@@ -330,12 +369,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </p>
           <Link href="/contact" style={{
             display:'inline-flex', alignItems:'center', gap:'8px',
-            background:'linear-gradient(135deg, #1A3A8F, #4F8EF7)',
-            border:'1px solid rgba(79,142,247,0.4)',
+            background:'#D4F53C',
+            border:'1px solid #D4F53C',
             borderRadius:'100px', padding:'14px 32px',
             fontFamily:'var(--font-space),sans-serif', fontSize:'15px',
-            fontWeight:'600', color:white, textDecoration:'none',
-            boxShadow:'0 4px 24px rgba(79,142,247,0.25)',
+            fontWeight:'600', color:'#060B18', textDecoration:'none',
+            boxShadow:'0 4px 24px rgba(212,245,60,0.25)',
             transition:'all 0.2s ease',
           }}>
             Start a project →

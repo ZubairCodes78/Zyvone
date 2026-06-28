@@ -40,19 +40,18 @@ export const metadata: Metadata = {
     description: "Premium digital company. AI automation, web development, brand experience.",
     images: [
       {
-        url: "/og.png",
+        url: 'https://zyvone.site/og-image',
         width: 1200,
         height: 630,
-        alt: "ZYVONE — Premium Digital Company",
-      },
+        alt: 'ZYVONE — We Build Systems. Not Services.',
+        type: 'image/png',
+      }
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZYVONE — We Build Systems. Not Services.",
-    description: "Premium digital company. AI automation, web development, brand experience.",
-    images: ["/og.png"],
+    images: ['https://zyvone.site/og-image'],
     creator: "@zyvone",
   },
   icons: {

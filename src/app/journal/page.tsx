@@ -80,7 +80,13 @@ export default function Journal() {
           </p>
           <div ref={useReveal(200)} className="mt-10">
             <Link href="/contact"
-              className="inline-block bg-lime text-primary-bg font-semibold px-9 py-4 rounded-full hover:bg-lime-dim scale-[1.02] transition-all duration-200">
+              className="inline-flex items-center gap-2 font-semibold text-[14px] px-9 py-4 rounded-full scale-[1.02] transition-all duration-200"
+              style={{
+                background: '#D4F53C',
+                border: '1px solid #D4F53C',
+                color: '#060B18',
+                boxShadow: '0 4px 24px rgba(212,245,60,0.25)'
+              }}>
               Start a conversation →
             </Link>
           </div>

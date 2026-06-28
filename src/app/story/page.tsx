@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function StoryPage() {
   const dark    = '#060B18'
   const navy    = '#0D1B4B'
-  const arc     = '#4F8EF7'
+  const signal  = '#D4F53C'
   const white   = '#FFFFFF'
   const fog     = 'rgba(255,255,255,0.50)'
   const lineDark = 'rgba(255,255,255,0.07)'
@@ -63,7 +63,7 @@ export default function StoryPage() {
           backgroundSize:'60px 60px',
         }}/>
         <div style={{ maxWidth:'760px', margin:'0 auto', padding:'0 32px', position:'relative', zIndex:1 }}>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:arc,letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:'20px' }}>
+          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:signal,letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:'20px' }}>
             Our Story
           </p>
           <h1 style={{
@@ -73,7 +73,7 @@ export default function StoryPage() {
           }}>
             From college friends<br />
             to{' '}
-            <span style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',color:arc }}>
+            <span style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',color:signal }}>
               digital company.
             </span>
           </h1>
@@ -89,7 +89,7 @@ export default function StoryPage() {
           {/* Vertical line */}
           <div style={{
             position:'absolute', left:'0', top:'8px', bottom:'0',
-            width:'1px', background:`linear-gradient(180deg, ${arc} 0%, transparent 100%)`,
+            width:'1px', background:`linear-gradient(180deg, ${signal} 0%, transparent 100%)`,
             opacity:0.3,
           }}/>
 
@@ -102,18 +102,18 @@ export default function StoryPage() {
               <div style={{
                 position:'absolute', left:'-5px', top:'6px',
                 width:'11px', height:'11px', borderRadius:'50%',
-                background: i === chapters.length-1 ? arc : 'transparent',
-                border:`1.5px solid ${arc}`,
-                boxShadow: i === chapters.length-1 ? `0 0 12px rgba(79,142,247,0.5)` : 'none',
+                background: i === chapters.length-1 ? signal : 'transparent',
+                border:`1.5px solid ${signal}`,
+                boxShadow: i === chapters.length-1 ? `0 0 12px rgba(212,245,60,0.5)` : 'none',
               }}/>
 
               {/* Year + tag */}
               <div style={{ display:'flex', alignItems:'center', gap:'12px', marginBottom:'12px' }}>
-                <span style={{ fontFamily:'var(--font-space)',fontSize:'13px',fontWeight:'700',color:arc }}>{ch.year}</span>
+                <span style={{ fontFamily:'var(--font-space)',fontSize:'13px',fontWeight:'700',color:signal }}>{ch.year}</span>
                 <span style={{
                   fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'500',
-                  color:'rgba(79,142,247,0.6)',letterSpacing:'0.08em',textTransform:'uppercase',
-                  background:'rgba(79,142,247,0.08)',border:'1px solid rgba(79,142,247,0.15)',
+                  color:'rgba(212,245,60,0.6)',letterSpacing:'0.08em',textTransform:'uppercase',
+                  background:'rgba(212,245,60,0.08)',border:'1px solid rgba(212,245,60,0.15)',
                   borderRadius:'100px',padding:'2px 10px',
                 }}>
                   {ch.tag}
@@ -146,12 +146,12 @@ export default function StoryPage() {
           <p style={{ fontFamily:'var(--font-space)',fontSize:'14px',color:'rgba(255,255,255,0.25)',marginBottom:'32px' }}>— Muhammad Zubair</p>
           <Link href="/contact" style={{
             display:'inline-flex',alignItems:'center',gap:'8px',
-            background:'linear-gradient(135deg,#1A3A8F,#4F8EF7)',
-            border:'1px solid rgba(79,142,247,0.4)',
+            background:'#D4F53C',
+            border:'1px solid #D4F53C',
             borderRadius:'100px',padding:'14px 32px',
             fontFamily:'var(--font-space),sans-serif',fontSize:'15px',
-            fontWeight:'600',color:white,textDecoration:'none',
-            boxShadow:'0 4px 24px rgba(79,142,247,0.25)',
+            fontWeight:'600',color:'#060B18',textDecoration:'none',
+            boxShadow:'0 4px 24px rgba(212,245,60,0.25)',
           }}>
             Build with us →
           </Link>

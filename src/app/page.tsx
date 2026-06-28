@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useReveal } from '@/hooks/useReveal'
+import { ToolmaticVisual, PDFMasterVisual, CanttDentalVisual } from '@/components/ProjectVisuals'
 
 export default function Home() {
   return (
@@ -31,7 +32,13 @@ export default function Home() {
           
           <div className="flex gap-4 justify-center mt-10">
             <Link href="/contact"
-              className="bg-lime text-primary-bg font-semibold text-[14px] px-7 py-3.5 rounded-full hover:bg-lime-dim scale-[1.02] transition-all duration-200">
+              className="inline-flex items-center gap-2 font-semibold text-[14px] px-7 py-3.5 rounded-full scale-[1.02] transition-all duration-200"
+              style={{
+                background: '#D4F53C',
+                border: '1px solid #D4F53C',
+                color: '#060B18',
+                boxShadow: '0 4px 24px rgba(212,245,60,0.25)'
+              }}>
               Start a project →
             </Link>
             <Link href="/work"
@@ -83,13 +90,8 @@ export default function Home() {
             {/* Work Card 1 - Toolmatic */}
             <div ref={useReveal(100)} className="rounded-2xl overflow-hidden glass-card hover:border-lime/20 hover:translate-y-[-2px] transition-all duration-300">
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-[60%] bg-surface h-[360px] relative flex items-center justify-center">
-                  <span className="font-sans font-black text-white/4 absolute text-[200px]">01</span>
-                  <svg width="120" height="120" viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="50" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                    <circle cx="60" cy="60" r="30" fill="#D4F53C" opacity="0.2"/>
-                    <circle cx="60" cy="60" r="10" fill="#D4F53C"/>
-                  </svg>
+                <div className="md:w-[60%] bg-surface h-[360px] relative overflow-hidden">
+                  <ToolmaticVisual height={360} />
                 </div>
                 <div className="md:w-[40%] p-12 flex flex-col justify-center">
                   <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-3">AI Tools Platform</p>
@@ -115,13 +117,8 @@ export default function Home() {
             {/* Work Card 2 - PDFMaster */}
             <div ref={useReveal(200)} className="rounded-2xl overflow-hidden glass-card hover:border-lime/20 hover:translate-y-[-2px] transition-all duration-300">
               <div className="flex flex-col md:flex-row-reverse">
-                <div className="md:w-[40%] bg-surface h-[360px] relative flex items-center justify-center">
-                  <span className="font-sans font-black text-white/4 absolute text-[200px]">02</span>
-                  <svg width="120" height="120" viewBox="0 0 120 120">
-                    <rect x="20" y="20" width="80" height="80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                    <rect x="35" y="35" width="50" height="50" fill="#D4F53C" opacity="0.2"/>
-                    <rect x="50" y="50" width="20" height="20" fill="#D4F53C"/>
-                  </svg>
+                <div className="md:w-[40%] bg-surface h-[360px] relative overflow-hidden">
+                  <PDFMasterVisual height={360} />
                 </div>
                 <div className="md:w-[60%] p-12 flex flex-col justify-center">
                   <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-3">PDF & Document Tools</p>
@@ -147,13 +144,8 @@ export default function Home() {
             {/* Work Card 3 - Cantt Dental Care */}
             <div ref={useReveal(300)} className="rounded-2xl overflow-hidden glass-card hover:border-lime/20 hover:translate-y-[-2px] transition-all duration-300">
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-[60%] bg-surface h-[360px] relative flex items-center justify-center">
-                  <span className="font-sans font-black text-white/4 absolute text-[200px]">03</span>
-                  <svg width="120" height="120" viewBox="0 0 120 120">
-                    <polygon points="60,20 100,80 20,80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                    <polygon points="60,40 80,70 40,70" fill="#D4F53C" opacity="0.2"/>
-                    <polygon points="60,55 70,65 50,65" fill="#D4F53C"/>
-                  </svg>
+                <div className="md:w-[60%] bg-surface h-[360px] relative overflow-hidden">
+                  <CanttDentalVisual height={360} />
                 </div>
                 <div className="md:w-[40%] p-12 flex flex-col justify-center">
                   <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-3">Healthcare</p>

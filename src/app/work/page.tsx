@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useReveal } from '@/hooks/useReveal'
 import { projects } from '@/lib/projects'
+import { ToolmaticVisual, PDFMasterVisual, CanttDentalVisual } from '@/components/ProjectVisuals'
 
 export default function Work() {
   const workProjects = projects.map(p => ({
@@ -42,37 +43,44 @@ export default function Work() {
               <div key={i} ref={useReveal(i * 100)} className="rounded-2xl overflow-hidden glass-card hover:border-lime/20 hover:translate-y-[-2px] transition-all duration-300">
                 <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className={`md:w-[60%] bg-surface h-[360px] relative overflow-hidden ${i % 2 === 0 ? '' : 'md:w-[40%]'}`}>
-                    <span className="font-sans font-black text-white/4 absolute text-[200px] z-10">{project.num}</span>
-                    <div className="w-full h-full bg-gradient-to-br from-primary-brand to-surface flex items-center justify-center">
-                      {i % 4 === 0 && (
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                          <circle cx="60" cy="60" r="50" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                          <circle cx="60" cy="60" r="30" fill="#D4F53C" opacity="0.2"/>
-                          <circle cx="60" cy="60" r="10" fill="#D4F53C"/>
-                        </svg>
-                      )}
-                      {i % 4 === 1 && (
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                          <rect x="20" y="20" width="80" height="80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                          <rect x="35" y="35" width="50" height="50" fill="#D4F53C" opacity="0.2"/>
-                          <rect x="50" y="50" width="20" height="20" fill="#D4F53C"/>
-                        </svg>
-                      )}
-                      {i % 4 === 2 && (
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                          <polygon points="60,20 100,80 20,80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                          <polygon points="60,40 80,70 40,70" fill="#D4F53C" opacity="0.2"/>
-                          <polygon points="60,55 70,65 50,65" fill="#D4F53C"/>
-                        </svg>
-                      )}
-                      {i % 4 === 3 && (
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                          <path d="M20,60 Q40,20 60,60 T100,60" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                          <path d="M30,60 Q50,30 60,60 T90,60" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.5"/>
-                          <circle cx="60" cy="60" r="8" fill="#D4F53C"/>
-                        </svg>
-                      )}
-                    </div>
+                    {project.slug === 'toolmatic' && <ToolmaticVisual height={360} />}
+                    {project.slug === 'pdfmaster' && <PDFMasterVisual height={360} />}
+                    {project.slug === 'cantt-dental-care' && <CanttDentalVisual height={360} />}
+                    {!project.slug && (
+                      <>
+                        <span className="font-sans font-black text-white/4 absolute text-[200px] z-10">{project.num}</span>
+                        <div className="w-full h-full bg-gradient-to-br from-primary-brand to-surface flex items-center justify-center">
+                          {i % 4 === 0 && (
+                            <svg width="120" height="120" viewBox="0 0 120 120">
+                              <circle cx="60" cy="60" r="50" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
+                              <circle cx="60" cy="60" r="30" fill="#D4F53C" opacity="0.2"/>
+                              <circle cx="60" cy="60" r="10" fill="#D4F53C"/>
+                            </svg>
+                          )}
+                          {i % 4 === 1 && (
+                            <svg width="120" height="120" viewBox="0 0 120 120">
+                              <rect x="20" y="20" width="80" height="80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
+                              <rect x="35" y="35" width="50" height="50" fill="#D4F53C" opacity="0.2"/>
+                              <rect x="50" y="50" width="20" height="20" fill="#D4F53C"/>
+                            </svg>
+                          )}
+                          {i % 4 === 2 && (
+                            <svg width="120" height="120" viewBox="0 0 120 120">
+                              <polygon points="60,20 100,80 20,80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
+                              <polygon points="60,40 80,70 40,70" fill="#D4F53C" opacity="0.2"/>
+                              <polygon points="60,55 70,65 50,65" fill="#D4F53C"/>
+                            </svg>
+                          )}
+                          {i % 4 === 3 && (
+                            <svg width="120" height="120" viewBox="0 0 120 120">
+                              <path d="M20,60 Q40,20 60,60 T100,60" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
+                              <path d="M30,60 Q50,30 60,60 T90,60" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.5"/>
+                              <circle cx="60" cy="60" r="8" fill="#D4F53C"/>
+                            </svg>
+                          )}
+                        </div>
+                      </>
+                    )}
                   </div>
                   <div className={`md:w-[40%] p-12 flex flex-col justify-center ${i % 2 === 0 ? '' : 'md:w-[60%]'}`}>
                     <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-3">{project.industry}</p>
@@ -114,7 +122,13 @@ export default function Work() {
               <p className="font-sans text-[16px] text-text-secondary mt-1">Let's see if we're the right fit.</p>
             </div>
             <Link href="/contact"
-              className="bg-lime text-primary-bg font-semibold px-7 py-3.5 rounded-full hover:bg-lime-dim scale-[1.02] transition-all duration-200 whitespace-nowrap">
+              className="inline-flex items-center gap-2 font-semibold text-[14px] px-7 py-3.5 rounded-full scale-[1.02] transition-all duration-200 whitespace-nowrap"
+              style={{
+                background: '#D4F53C',
+                border: '1px solid #D4F53C',
+                color: '#060B18',
+                boxShadow: '0 4px 24px rgba(212,245,60,0.25)'
+              }}>
               Start a project →
             </Link>
           </div>

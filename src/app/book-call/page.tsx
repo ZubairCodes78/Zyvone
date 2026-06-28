@@ -9,11 +9,11 @@ export default function BookCall() {
       <section className="bg-primary-bg pt-52 pb-20 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">BOOK A CALL</p>
+            <p className="font-sans text-[11px] font-medium text-signal uppercase tracking-[0.14em] mb-6">BOOK A CALL</p>
             <h1 className="font-sans font-bold text-white tracking-[-0.03em] leading-[0.95] mb-6"
               style={{ fontSize: 'clamp(52px, 7vw, 88px)' }}>
               Free 15-minute<br />
-              <span className="font-display italic text-lime">audit.</span>
+              <span className="font-display italic text-signal">audit.</span>
             </h1>
             <p className="font-sans text-[19px] text-white/40 mt-6 max-w-lg leading-[1.75]">
               No pitch. No pressure. Just clarity on what's possible for your business.
@@ -32,8 +32,8 @@ export default function BookCall() {
             </h2>
             <div className="space-y-6">
               <div className="flex gap-4">
-                <div className="w-8 h-8 rounded-full bg-lime/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="font-sans font-bold text-[14px] text-lime">1</span>
+                <div className="w-8 h-8 rounded-full bg-signal/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="font-sans font-bold text-[14px] text-signal">1</span>
                 </div>
                 <div>
                   <h3 className="font-sans font-semibold text-[18px] text-white mb-1">We review your situation</h3>
@@ -44,8 +44,8 @@ export default function BookCall() {
               </div>
 
               <div className="flex gap-4">
-                <div className="w-8 h-8 rounded-full bg-lime/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="font-sans font-bold text-[14px] text-lime">2</span>
+                <div className="w-8 h-8 rounded-full bg-signal/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="font-sans font-bold text-[14px] text-signal">2</span>
                 </div>
                 <div>
                   <h3 className="font-sans font-semibold text-[18px] text-white mb-1">We identify opportunities</h3>
@@ -56,8 +56,8 @@ export default function BookCall() {
               </div>
 
               <div className="flex gap-4">
-                <div className="w-8 h-8 rounded-full bg-lime/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="font-sans font-bold text-[14px] text-lime">3</span>
+                <div className="w-8 h-8 rounded-full bg-signal/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="font-sans font-bold text-[14px] text-signal">3</span>
                 </div>
                 <div>
                   <h3 className="font-sans font-semibold text-[18px] text-white mb-1">We give you a clear path</h3>
@@ -83,7 +83,13 @@ export default function BookCall() {
           </p>
           <div ref={useReveal(200)} className="mt-10">
             <a href="https://calendly.com" target="_blank" rel="noopener noreferrer"
-              className="inline-block bg-lime text-primary-bg font-semibold px-9 py-4 rounded-full hover:bg-lime-dim scale-[1.02] transition-all duration-200">
+              className="inline-flex items-center gap-2 font-semibold text-[14px] px-9 py-4 rounded-full scale-[1.02] transition-all duration-200"
+              style={{
+                background: '#D4F53C',
+                border: '1px solid #D4F53C',
+                color: '#060B18',
+                boxShadow: '0 4px 24px rgba(212,245,60,0.25)'
+              }}>
               Book via Calendly →
             </a>
           </div>
@@ -104,7 +110,7 @@ export default function BookCall() {
       <section className="bg-secondary-bg py-28 px-6">
         <div className="max-w-[720px] mx-auto">
           <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">FAQ</p>
+            <p className="font-sans text-[11px] font-medium text-signal uppercase tracking-[0.14em] mb-6">FAQ</p>
             <h2 className="font-sans font-bold text-text-primary tracking-[-0.02em] leading-[1.1] mb-12"
               style={{ fontSize: 'clamp(28px, 3.5vw, 40px)' }}>
               Common questions.

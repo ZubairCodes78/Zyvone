@@ -32,7 +32,7 @@ export default function ServicePage({
       <section className="bg-primary-bg pt-52 pb-20 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">{subtitle}</p>
+            <p className="font-sans text-[11px] font-medium text-signal uppercase tracking-[0.14em] mb-6">{subtitle}</p>
             <h1 className="font-sans font-bold text-white tracking-[-0.03em] leading-[0.95] mb-6"
               style={{ fontSize: 'clamp(52px, 7vw, 88px)' }}>
               {title}
@@ -79,7 +79,13 @@ export default function ServicePage({
             </h2>
             <div ref={useReveal(100)} className="mt-10">
               <Link href={cta.link}
-                className="inline-block bg-lime text-primary-bg font-semibold px-9 py-4 rounded-full hover:bg-lime-dim scale-[1.02] transition-all duration-200">
+                className="inline-flex items-center gap-2 font-semibold text-[14px] px-9 py-4 rounded-full scale-[1.02] transition-all duration-200"
+                style={{
+                  background: '#D4F53C',
+                  border: '1px solid #D4F53C',
+                  color: '#060B18',
+                  boxShadow: '0 4px 24px rgba(212,245,60,0.25)'
+                }}>
                 {cta.text}
               </Link>
             </div>
