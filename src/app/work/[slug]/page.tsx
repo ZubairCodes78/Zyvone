@@ -37,8 +37,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       {/* ── HERO ─────────────────────────────────────────── */}
       <section style={{
         background: `linear-gradient(180deg, ${navy} 0%, ${dark} 100%)`,
-        paddingTop: '160px',
-        paddingBottom: '80px',
+        paddingTop: '120px',
+        paddingBottom: '60px',
         position: 'relative',
         overflow: 'hidden',
       }}>
@@ -48,13 +48,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           backgroundSize:'60px 60px',
         }}/>
 
-        <div style={{ maxWidth:'1000px', margin:'0 auto', padding:'0 32px', position:'relative', zIndex:1 }}>
+        <div style={{ maxWidth:'1000px', margin:'0 auto', padding:'0 20px', position:'relative', zIndex:1 }}>
           {/* Back link */}
           <Link href="/work" style={{
             display:'inline-flex', alignItems:'center', gap:'6px',
             fontFamily:'var(--font-space),sans-serif', fontSize:'13px',
             fontWeight:'500', color:fog, textDecoration:'none',
-            marginBottom:'32px',
+            marginBottom:'24px',
             transition:'color 0.2s ease',
           }}>
             ← Back to work
@@ -81,16 +81,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
           {/* Overview */}
           <p style={{
-            fontFamily:'var(--font-space),sans-serif', fontSize:'18px',
-            color:fog, lineHeight:'1.75', maxWidth:'640px', marginBottom:'40px',
+            fontFamily:'var(--font-space),sans-serif', fontSize:'16px',
+            color:fog, lineHeight:'1.75', maxWidth:'640px', marginBottom:'32px',
           }}>
             {project.overview}
           </p>
 
           {/* Stats row */}
-          <div style={{ display:'flex', alignItems:'center', gap:'32px', flexWrap:'wrap' }}>
+          <div style={{ display:'flex', alignItems:'center', gap:'24px', flexWrap:'wrap' }}>
             <div>
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'40px',fontWeight:'700',color:arc,margin:0,lineHeight:1 }}>
+              <p style={{ fontFamily:'var(--font-space)',fontSize:'32px',fontWeight:'700',color:arc,margin:0,lineHeight:1 }}>
                 {project.result}
               </p>
               <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:fog,margin:'4px 0 0' }}>
@@ -118,12 +118,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </section>
 
       {/* ── HERO IMAGE ───────────────────────────────────── */}
-      <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 32px', marginBottom:'80px' }}>
+      <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 20px', marginBottom:'60px' }}>
         <div style={{
           borderRadius:'24px', overflow:'hidden',
           boxShadow:'0 20px 60px rgba(0,0,0,0.5)',
           background: `linear-gradient(135deg, ${navy} 0%, ${dark} 100%)`,
-          height: '500px',
+          height: '400px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

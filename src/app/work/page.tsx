@@ -20,7 +20,7 @@ export default function Work() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary-bg pt-52 pb-20 px-6">
+      <section className="bg-primary-bg pt-40 md:pt-52 pb-16 md:pb-20 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
             <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">WORK</p>
@@ -36,13 +36,13 @@ export default function Work() {
       </section>
 
       {/* Projects */}
-      <section className="bg-primary-bg pb-28 px-6">
+      <section className="bg-primary-bg pb-20 md:pb-28 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div className="space-y-8">
             {workProjects.map((project, i) => (
               <div key={i} ref={useReveal(i * 100)} className="rounded-2xl overflow-hidden glass-card hover:border-lime/20 hover:translate-y-[-2px] transition-all duration-300">
                 <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className={`md:w-[60%] bg-surface h-[360px] relative overflow-hidden ${i % 2 === 0 ? '' : 'md:w-[40%]'}`}>
+                  <div className={`md:w-[60%] bg-surface h-[280px] md:h-[360px] relative overflow-hidden ${i % 2 === 0 ? '' : 'md:w-[40%]'}`}>
                     {project.slug === 'toolmatic' && <ToolmaticVisual height={360} />}
                     {project.slug === 'pdfmaster' && <PDFMasterVisual height={360} />}
                     {project.slug === 'cantt-dental-care' && <CanttDentalVisual height={360} />}
@@ -82,14 +82,14 @@ export default function Work() {
                       </>
                     )}
                   </div>
-                  <div className={`md:w-[40%] p-12 flex flex-col justify-center ${i % 2 === 0 ? '' : 'md:w-[60%]'}`}>
+                  <div className={`md:w-[40%] p-8 md:p-12 flex flex-col justify-center ${i % 2 === 0 ? '' : 'md:w-[60%]'}`}>
                     <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-3">{project.industry}</p>
-                    <h3 className="font-sans font-bold text-[28px] text-white mb-3">{project.name}</h3>
-                    <p className="font-sans text-[16px] text-white/50 leading-[1.7] mb-6 max-w-[340px]">
+                    <h3 className="font-sans font-bold text-[22px] md:text-[28px] text-white mb-3">{project.name}</h3>
+                    <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.7] mb-6 max-w-[340px]">
                       {project.outcome}
                     </p>
-                    <p className="font-sans font-bold text-[48px] text-lime">{project.result}</p>
-                    <p className="font-sans text-[13px] text-white/40 mt-1">{project.resultLabel}</p>
+                    <p className="font-sans font-bold text-[40px] md:text-[48px] text-lime">{project.result}</p>
+                    <p className="font-sans text-[12px] md:text-[13px] text-white/40 mt-1">{project.resultLabel}</p>
                     <div className="flex items-center gap-3 mt-6">
                       {project.slug ? (
                         <Link href={`/work/${project.slug}`} className="font-sans text-lime hover:gap-2 inline-flex items-center gap-1 transition-all">
@@ -116,13 +116,13 @@ export default function Work() {
           </div>
 
           {/* CTA Card */}
-          <div ref={useReveal(600)} className="glass-card rounded-2xl p-12 flex flex-col md:flex-row justify-between items-center gap-6 mt-10 mb-16">
+          <div ref={useReveal(600)} className="glass-card rounded-2xl p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-6 mt-8 md:mt-10 mb-12 md:mb-16">
             <div>
-              <h3 className="font-sans font-bold text-[26px] text-text-primary">Have a project?</h3>
-              <p className="font-sans text-[16px] text-text-secondary mt-1">Let's see if we're the right fit.</p>
+              <h3 className="font-sans font-bold text-[22px] md:text-[26px] text-text-primary">Have a project?</h3>
+              <p className="font-sans text-[15px] md:text-[16px] text-text-secondary mt-1">Let's see if we're the right fit.</p>
             </div>
             <Link href="/contact"
-              className="inline-flex items-center gap-2 font-semibold text-[14px] px-7 py-3.5 rounded-full scale-[1.02] transition-all duration-200 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-6 md:px-7 py-3.5 md:py-4 rounded-full scale-[1.02] transition-all duration-200 whitespace-nowrap min-h-[48px]"
               style={{
                 background: '#D4F53C',
                 border: '1px solid #D4F53C',

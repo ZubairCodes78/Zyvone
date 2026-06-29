@@ -30,9 +30,9 @@ export default function Home() {
             serious companies run on. Not deliverables — infrastructure.
           </p>
           
-          <div className="flex gap-4 justify-center mt-10">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-10 w-full max-w-[400px] mx-auto">
             <Link href="/contact"
-              className="inline-flex items-center gap-2 font-semibold text-[14px] px-7 py-3.5 rounded-full scale-[1.02] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-7 py-4 rounded-full scale-[1.02] transition-all duration-200 min-h-[48px]"
               style={{
                 background: '#D4F53C',
                 border: '1px solid #D4F53C',
@@ -42,7 +42,7 @@ export default function Home() {
               Start a project →
             </Link>
             <Link href="/work"
-              className="border border-glass-border text-white/70 hover:text-white hover:border-glass-hover text-[14px] px-7 py-3.5 rounded-full transition-all duration-200">
+              className="inline-flex items-center justify-center border border-glass-border text-white/70 hover:text-white hover:border-glass-hover text-[14px] px-7 py-4 rounded-full transition-all duration-200 min-h-[48px]">
               View our work
             </Link>
           </div>
@@ -314,20 +314,20 @@ export default function Home() {
       {/* SECTION 6 — FOUNDER VOICE */}
       <section className="bg-secondary-bg py-28 px-6">
         <div className="max-w-[800px] mx-auto">
-          <div ref={useReveal()} className="glass-card rounded-3xl p-14">
-            <p className="font-display text-text-muted/20 leading-[1] mb-4" style={{ fontSize: '100px' }}>"</p>
+          <div ref={useReveal()} className="glass-card rounded-3xl p-8 md:p-14">
+            <p className="font-display text-text-muted/20 leading-[1] mb-4" style={{ fontSize: 'clamp(60px, 8vw, 100px)' }}>"</p>
             <blockquote className="font-sans text-text-primary leading-[1.6] mb-10"
-              style={{ fontSize: 'clamp(20px, 2.5vw, 26px)' }}>
+              style={{ fontSize: 'clamp(18px, 2.5vw, 26px)' }}>
               Most agencies sell you hours. Hours don't compound.<br />
               We build systems. Systems compound forever.
             </blockquote>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-primary-brand flex items-center justify-center">
-                <span className="font-sans font-bold text-[18px] text-lime">Z</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-8">
+              <div className="w-14 h-14 sm:w-12 sm:h-12 rounded-full bg-primary-brand flex items-center justify-center flex-shrink-0">
+                <span className="font-sans font-bold text-[20px] sm:text-[18px] text-lime">Z</span>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                 <p className="font-sans font-semibold text-[16px] text-text-primary">Muhammad Zubair</p>
-                <div className="w-px h-4 line-light" />
+                <div className="hidden sm:block w-px h-4 line-light" />
                 <p className="font-sans text-[14px] text-text-secondary">Founder, ZYVONE</p>
               </div>
             </div>

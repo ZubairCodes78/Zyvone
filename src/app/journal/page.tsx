@@ -33,7 +33,7 @@ export default function Journal() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary-bg pt-52 pb-20 px-6">
+      <section className="bg-primary-bg pt-40 md:pt-52 pb-16 md:pb-20 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
             <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">JOURNAL</p>
@@ -49,14 +49,14 @@ export default function Journal() {
       </section>
 
       {/* Articles */}
-      <section className="bg-primary-bg py-20 px-6">
+      <section className="bg-primary-bg py-16 md:py-20 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div className="space-y-8">
             {articles.map((article, i) => (
-              <div key={i} ref={useReveal(i * 100)} className="border-b border-line-dark pb-8 last:border-b-0">
-                <p className="font-sans text-[13px] text-white/30 mb-2">{article.date}</p>
-                <h3 className="font-sans font-bold text-[26px] text-white mb-2">{article.title}</h3>
-                <p className="font-sans text-[17px] text-white/50 leading-[1.7] mb-4 max-w-2xl">
+              <div key={i} ref={useReveal(i * 100)} className="border-b border-line-dark pb-6 md:pb-8 last:border-b-0">
+                <p className="font-sans text-[12px] md:text-[13px] text-white/30 mb-2">{article.date}</p>
+                <h3 className="font-sans font-bold text-[20px] md:text-[26px] text-white mb-2">{article.title}</h3>
+                <p className="font-sans text-[15px] md:text-[17px] text-white/50 leading-[1.7] mb-4 max-w-2xl">
                   {article.excerpt}
                 </p>
                 <Link href={`/journal/${article.slug}`} className="font-sans text-lime hover:underline">
@@ -69,18 +69,18 @@ export default function Journal() {
       </section>
 
       {/* CTA */}
-      <section className="bg-secondary-bg py-24 px-6 text-center">
+      <section className="bg-secondary-bg py-20 md:py-24 px-6 text-center">
         <div className="max-w-[1360px] mx-auto">
           <h2 ref={useReveal()} className="font-sans font-bold text-text-primary tracking-[-0.02em] leading-[1.1] max-w-[640px] mx-auto"
-            style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
+            style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>
             Want to build systems?
           </h2>
-          <p ref={useReveal(100)} className="font-sans text-[18px] text-text-secondary mt-4">
+          <p ref={useReveal(100)} className="font-sans text-[16px] md:text-[18px] text-text-secondary mt-4">
             Let's figure out what's possible for your business.
           </p>
-          <div ref={useReveal(200)} className="mt-10">
+          <div ref={useReveal(200)} className="mt-8 md:mt-10">
             <Link href="/contact"
-              className="inline-flex items-center gap-2 font-semibold text-[14px] px-9 py-4 rounded-full scale-[1.02] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-7 md:px-9 py-4 rounded-full scale-[1.02] transition-all duration-200 min-h-[48px]"
               style={{
                 background: '#D4F53C',
                 border: '1px solid #D4F53C',

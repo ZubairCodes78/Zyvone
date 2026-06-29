@@ -54,7 +54,7 @@ export default function StoryPage() {
       {/* Hero */}
       <section style={{
         background:`linear-gradient(180deg, ${navy} 0%, ${dark} 100%)`,
-        paddingTop:'160px', paddingBottom:'80px',
+        paddingTop:'120px', paddingBottom:'60px',
         position:'relative', overflow:'hidden',
       }}>
         <div style={{
@@ -62,7 +62,7 @@ export default function StoryPage() {
           backgroundImage:`linear-gradient(${lineDark} 1px,transparent 1px),linear-gradient(90deg,${lineDark} 1px,transparent 1px)`,
           backgroundSize:'60px 60px',
         }}/>
-        <div style={{ maxWidth:'760px', margin:'0 auto', padding:'0 32px', position:'relative', zIndex:1 }}>
+        <div style={{ maxWidth:'760px', margin:'0 auto', padding:'0 24px', position:'relative', zIndex:1 }}>
           <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:signal,letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:'20px' }}>
             Our Story
           </p>
@@ -84,7 +84,7 @@ export default function StoryPage() {
       </section>
 
       {/* Timeline */}
-      <section style={{ maxWidth:'760px', margin:'0 auto', padding:'80px 32px' }}>
+      <section style={{ maxWidth:'760px', margin:'0 auto', padding:'60px 24px' }}>
         <div style={{ position:'relative' }}>
           {/* Vertical line */}
           <div style={{
@@ -95,7 +95,7 @@ export default function StoryPage() {
 
           {chapters.map((ch, i) => (
             <div key={ch.year} style={{
-              paddingLeft:'40px', paddingBottom: i < chapters.length-1 ? '64px' : '0',
+              paddingLeft:'32px', paddingBottom: i < chapters.length-1 ? '48px' : '0',
               position:'relative',
             }}>
               {/* Dot */}
@@ -108,7 +108,7 @@ export default function StoryPage() {
               }}/>
 
               {/* Year + tag */}
-              <div style={{ display:'flex', alignItems:'center', gap:'12px', marginBottom:'12px' }}>
+              <div style={{ display:'flex', alignItems:'center', gap:'8px', marginBottom:'10px', flexWrap:'wrap' }}>
                 <span style={{ fontFamily:'var(--font-space)',fontSize:'13px',fontWeight:'700',color:signal }}>{ch.year}</span>
                 <span style={{
                   fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'500',
@@ -122,13 +122,13 @@ export default function StoryPage() {
 
               <h2 style={{
                 fontFamily:'var(--font-space)',fontWeight:'700',
-                fontSize:'clamp(22px,3vw,30px)',lineHeight:'1.2',
-                letterSpacing:'-0.02em',color:white,marginBottom:'16px',
+                fontSize:'clamp(20px,4vw,30px)',lineHeight:'1.2',
+                letterSpacing:'-0.02em',color:white,marginBottom:'12px',
               }}>
                 {ch.title}
               </h2>
 
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'17px',color:fog,lineHeight:'1.8',margin:0 }}>
+              <p style={{ fontFamily:'var(--font-space)',fontSize:'15px',color:fog,lineHeight:'1.75',margin:0 }}>
                 {ch.body}
               </p>
             </div>
@@ -137,21 +137,22 @@ export default function StoryPage() {
 
         {/* Final CTA */}
         <div style={{
-          marginTop:'80px', paddingTop:'56px', borderTop:`1px solid ${lineDark}`,
+          marginTop:'60px', paddingTop:'40px', borderTop:`1px solid ${lineDark}`,
           textAlign:'center',
         }}>
-          <p style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',fontSize:'24px',color:fog,marginBottom:'24px',lineHeight:'1.5' }}>
+          <p style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',fontSize:'20px',color:fog,marginBottom:'20px',lineHeight:'1.5' }}>
             "The story isn't finished. This is just where we are."
           </p>
           <p style={{ fontFamily:'var(--font-space)',fontSize:'14px',color:'rgba(255,255,255,0.25)',marginBottom:'32px' }}>— Muhammad Zubair</p>
           <Link href="/contact" style={{
-            display:'inline-flex',alignItems:'center',gap:'8px',
+            display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'8px',
             background:'#D4F53C',
             border:'1px solid #D4F53C',
-            borderRadius:'100px',padding:'14px 32px',
-            fontFamily:'var(--font-space),sans-serif',fontSize:'15px',
+            borderRadius:'100px',padding:'12px 28px',
+            fontFamily:'var(--font-space),sans-serif',fontSize:'14px',
             fontWeight:'600',color:'#060B18',textDecoration:'none',
             boxShadow:'0 4px 24px rgba(212,245,60,0.25)',
+            minWidth:'fit-content',
           }}>
             Build with us →
           </Link>

@@ -57,8 +57,8 @@ export default function ContactPage() {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section style={{
         background: 'linear-gradient(180deg, #0D1B4B 0%, #060B18 100%)',
-        paddingTop: '160px',
-        paddingBottom: '80px',
+        paddingTop: '120px',
+        paddingBottom: '60px',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
@@ -79,7 +79,7 @@ export default function ContactPage() {
           pointerEvents: 'none',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '640px', margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '640px', margin: '0 auto', padding: '0 20px' }}>
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -124,7 +124,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── MAIN CONTENT ─────────────────────────────────────── */}
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px 80px' }}>
+      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px 60px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '380px 1fr', gap: '32px', alignItems: 'start' }} className="contact-grid">
 
           {/* ── LEFT — Contact Info ────────────────────────────── */}

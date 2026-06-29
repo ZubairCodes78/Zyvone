@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: 'About',    href: '/about'     },
   { label: 'Story',    href: '/story'     },
   { label: 'Journal',  href: '/journal'   },
+  { label: 'Social',   href: '/social'    },
 ]
 
 export default function Navbar() {
@@ -223,7 +224,7 @@ export default function Navbar() {
 
             {/* ── MOBILE HAMBURGER ──────────────────────────── */}
             <button
-              className="md:hidden flex flex-col justify-center gap-[5px] w-9 h-9 rounded-lg focus-visible:outline-2 focus-visible:outline-lime"
+              className="md:hidden flex flex-col justify-center gap-[5px] w-12 h-12 rounded-lg focus-visible:outline-2 focus-visible:outline-lime focus-visible:outline-offset-2"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -280,9 +281,9 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="font-sans font-bold text-white focus-visible:outline-2 focus-visible:outline-lime rounded px-4 py-2"
+              className="font-sans font-bold text-white focus-visible:outline-2 focus-visible:outline-lime rounded px-4 py-3 min-h-[48px] flex items-center"
               style={{
-                fontSize:    'clamp(32px, 8vw, 52px)',
+                fontSize:    'clamp(28px, 7vw, 48px)',
                 lineHeight:  '1.1',
                 letterSpacing: '-0.02em',
                 opacity:     mobileOpen ? 1 : 0,
@@ -302,9 +303,9 @@ export default function Navbar() {
           style={{ opacity: mobileOpen ? 1 : 0, transition: 'opacity 0.3s ease 0.5s' }}
         >
           {[
-            { label: 'Instagram', href: 'https://instagram.com/zubair.zyvone' },
-            { label: 'LinkedIn',  href: 'https://linkedin.com' },
-            { label: 'WhatsApp',  href: 'https://wa.me/923XXXXXXXXX' },
+            { label: 'Instagram', href: 'https://www.instagram.com/zyvone.official/' },
+            { label: 'X', href: 'https://x.com/zyvone12' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zyvone-limited/' },
           ].map(s => (
             <a
               key={s.label}

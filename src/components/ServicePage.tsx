@@ -29,7 +29,7 @@ export default function ServicePage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary-bg pt-52 pb-20 px-6">
+      <section className="bg-primary-bg pt-40 md:pt-52 pb-16 md:pb-20 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
             <p className="font-sans text-[11px] font-medium text-signal uppercase tracking-[0.14em] mb-6">{subtitle}</p>
@@ -45,21 +45,21 @@ export default function ServicePage({
       </section>
 
       {/* Sections */}
-      <section className="bg-primary-bg py-20 px-6">
+      <section className="bg-primary-bg py-16 md:py-20 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div className="space-y-16">
             {sections.map((section, i) => (
-              <div key={i} ref={useReveal(i * 100)} className="flex flex-col md:flex-row gap-8 items-start">
+              <div key={i} ref={useReveal(i * 100)} className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                 <div className="md:w-1/3">
                   {section.icon && (
-                    <div className="w-16 h-16 mb-6 flex items-center justify-center">
+                    <div className="w-12 h-12 md:w-16 md:h-16 mb-4 md:mb-6 flex items-center justify-center">
                       {section.icon}
                     </div>
                   )}
-                  <h3 className="font-sans font-bold text-[24px] text-white">{section.title}</h3>
+                  <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-white">{section.title}</h3>
                 </div>
                 <div className="md:w-2/3">
-                  <p className="font-sans text-[18px] text-white/55 leading-[1.8]">
+                  <p className="font-sans text-[16px] md:text-[18px] text-white/55 leading-[1.8]">
                     {section.content}
                   </p>
                 </div>
@@ -71,15 +71,15 @@ export default function ServicePage({
 
       {/* CTA */}
       {cta && (
-        <section className="bg-primary-brand py-24 px-6 text-center">
+        <section className="bg-primary-brand py-20 md:py-24 px-6 text-center">
           <div className="max-w-[1360px] mx-auto">
             <h2 ref={useReveal()} className="font-sans font-bold text-text-primary tracking-[-0.02em] leading-[1.1] max-w-[640px] mx-auto"
-              style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
+              style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>
               Ready to get started?
             </h2>
-            <div ref={useReveal(100)} className="mt-10">
+            <div ref={useReveal(100)} className="mt-8 md:mt-10">
               <Link href={cta.link}
-                className="inline-flex items-center gap-2 font-semibold text-[14px] px-9 py-4 rounded-full scale-[1.02] transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-7 md:px-9 py-4 rounded-full scale-[1.02] transition-all duration-200 min-h-[48px]"
                 style={{
                   background: '#D4F53C',
                   border: '1px solid #D4F53C',

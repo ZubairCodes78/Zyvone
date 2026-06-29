@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary-bg pt-52 pb-28 px-6">
+      <section className="bg-primary-bg pt-40 md:pt-52 pb-20 md:pb-28 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
             <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">ABOUT ZYVONE</p>
@@ -24,7 +24,7 @@ export default function About() {
       </section>
 
       {/* Philosophy */}
-      <section className="bg-secondary-bg py-28 px-6">
+      <section className="bg-secondary-bg py-20 md:py-28 px-6">
         <div className="max-w-[720px] mx-auto">
           <div ref={useReveal()}>
             <h2 className="font-sans font-bold text-text-primary tracking-[-0.02em] leading-[1.1] mb-8"
@@ -44,7 +44,7 @@ export default function About() {
       </section>
 
       {/* Founders */}
-      <section className="bg-primary-bg py-28 px-6">
+      <section className="bg-primary-bg py-20 md:py-28 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
             <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">THE TEAM</p>
@@ -56,26 +56,26 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Zubair */}
-            <div ref={useReveal(100)} className="glass-card rounded-2xl p-12">
-              <div className="w-16 h-16 rounded-full bg-primary-brand flex items-center justify-center mb-6">
-                <span className="font-sans font-bold text-[28px] text-lime">Z</span>
+            <div ref={useReveal(100)} className="glass-card rounded-2xl p-8 md:p-12">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary-brand flex items-center justify-center mb-6">
+                <span className="font-sans font-bold text-[24px] md:text-[28px] text-lime">Z</span>
               </div>
-              <h3 className="font-sans font-bold text-[24px] text-white mb-1">Muhammad Zubair</h3>
-              <p className="font-sans text-[14px] text-white/40 mb-5">Founder — Web Development & AI Systems</p>
-              <p className="font-sans text-[16px] text-white/55 leading-[1.75]">
+              <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-white mb-1">Muhammad Zubair</h3>
+              <p className="font-sans text-[13px] md:text-[14px] text-white/40 mb-5">Founder — Web Development & AI Systems</p>
+              <p className="font-sans text-[15px] md:text-[16px] text-white/55 leading-[1.75]">
                 Zubair builds the systems. Obsessed with AI automation, web architecture,
                 and making businesses run without their founders having to babysit them.
               </p>
             </div>
 
             {/* Hashir */}
-            <div ref={useReveal(150)} className="glass-card rounded-2xl p-12">
-              <div className="w-16 h-16 rounded-full bg-primary-brand flex items-center justify-center mb-6">
-                <span className="font-sans font-bold text-[28px] text-lime">H</span>
+            <div ref={useReveal(150)} className="glass-card rounded-2xl p-8 md:p-12">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary-brand flex items-center justify-center mb-6">
+                <span className="font-sans font-bold text-[24px] md:text-[28px] text-lime">H</span>
               </div>
-              <h3 className="font-sans font-bold text-[24px] text-white mb-1">Hashir</h3>
-              <p className="font-sans text-[14px] text-white/40 mb-5">Co-Founder — Creative Strategy & Brand</p>
-              <p className="font-sans text-[16px] text-white/55 leading-[1.75]">
+              <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-white mb-1">Hashir</h3>
+              <p className="font-sans text-[13px] md:text-[14px] text-white/40 mb-5">Co-Founder — Creative Strategy & Brand</p>
+              <p className="font-sans text-[15px] md:text-[16px] text-white/55 leading-[1.75]">
                 Hashir ensures everything ZYVONE builds doesn't just work — it looks and
                 feels like something worth trusting. The creative force behind every project.
               </p>
@@ -85,7 +85,7 @@ export default function About() {
       </section>
 
       {/* Principles */}
-      <section className="bg-secondary-bg py-28 px-6">
+      <section className="bg-secondary-bg py-20 md:py-28 px-6">
         <div className="max-w-[1360px] mx-auto">
           <div ref={useReveal()}>
             <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">HOW WE WORK</p>
@@ -118,11 +118,11 @@ export default function About() {
                 body: 'We measure success by what changes in your business — revenue, time recovered, systems running.'
               },
             ].map((principle, i) => (
-              <div key={i} ref={useReveal(i * 100)} className="flex gap-6 py-8 border-b border-line-dark">
-                <p className="font-sans font-bold text-[13px] text-text-muted min-w-[32px]">{principle.num}</p>
+              <div key={i} ref={useReveal(i * 100)} className="flex gap-4 md:gap-6 py-6 md:py-8 border-b border-line-dark">
+                <p className="font-sans font-bold text-[13px] text-text-muted min-w-[28px] md:min-w-[32px]">{principle.num}</p>
                 <div>
-                  <h3 className="font-sans font-semibold text-[20px] text-text-primary mb-1.5">{principle.title}</h3>
-                  <p className="font-sans text-[16px] text-text-secondary leading-[1.7]">{principle.body}</p>
+                  <h3 className="font-sans font-semibold text-[18px] md:text-[20px] text-text-primary mb-1.5">{principle.title}</h3>
+                  <p className="font-sans text-[15px] md:text-[16px] text-text-secondary leading-[1.7]">{principle.body}</p>
                 </div>
               </div>
             ))}
@@ -131,18 +131,18 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary-brand py-24 px-6 text-center">
+      <section className="bg-primary-brand py-20 md:py-24 px-6 text-center">
         <div className="max-w-[1360px] mx-auto">
           <h2 ref={useReveal()} className="font-sans font-bold text-text-primary tracking-[-0.02em] leading-[1.1]"
-            style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
+            style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>
             Work with us.
           </h2>
-          <p ref={useReveal(100)} className="font-sans text-[18px] text-text-secondary mt-3">
+          <p ref={useReveal(100)} className="font-sans text-[16px] md:text-[18px] text-text-secondary mt-3">
             Let's figure out if we're the right fit.
           </p>
           <div ref={useReveal(200)}>
             <Link href="/contact"
-              className="inline-flex items-center gap-2 font-semibold text-[14px] px-9 py-4 rounded-full mt-8 scale-[1.02] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-7 md:px-9 py-4 rounded-full mt-6 md:mt-8 scale-[1.02] transition-all duration-200 min-h-[48px]"
               style={{
                 background: '#D4F53C',
                 border: '1px solid #D4F53C',
