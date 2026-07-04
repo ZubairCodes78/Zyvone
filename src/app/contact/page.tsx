@@ -66,7 +66,7 @@ export default function ContactPage() {
         {/* Grid texture */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: `linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(212,245,60,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(212,245,60,0.04) 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
         }} />
 
@@ -75,7 +75,7 @@ export default function ContactPage() {
           position: 'absolute', top: '30%', left: '50%',
           transform: 'translate(-50%,-50%)',
           width: '600px', height: '300px', borderRadius: '50%',
-          background: 'radial-gradient(ellipse, rgba(79,142,247,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(212,245,60,0.12) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -83,14 +83,14 @@ export default function ContactPage() {
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(79,142,247,0.1)',
-            border: '1px solid rgba(79,142,247,0.25)',
+            background: 'rgba(212,245,60,0.1)',
+            border: '1px solid rgba(212,245,60,0.25)',
             borderRadius: '100px',
             padding: '6px 16px',
             marginBottom: '28px',
           }}>
-            <span style={{ width:'8px', height:'8px', borderRadius:'50%', background:'#4F8EF7', display:'block', animation:'pulse 2s infinite' }} />
-            <span style={{ fontFamily:'var(--font-space)',fontSize:'12px',fontWeight:'500',color:'rgba(79,142,247,0.9)',letterSpacing:'0.08em' }}>
+            <span style={{ width:'8px', height:'8px', borderRadius:'50%', background:'#D4F53C', display:'block', animation:'pulse 2s infinite' }} />
+            <span style={{ fontFamily:'var(--font-space)',fontSize:'12px',fontWeight:'500',color:'rgba(212,245,60,0.9)',letterSpacing:'0.08em' }}>
               AVAILABLE FOR NEW PROJECTS
             </span>
           </div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
             marginBottom: '20px',
           }}>
             Let's build your{' '}
-            <span style={{ fontFamily: 'var(--font-instrument), serif', fontStyle: 'italic', color: '#4F8EF7' }}>
+            <span style={{ fontFamily: 'var(--font-instrument), serif', fontStyle: 'italic', color: '#D4F53C' }}>
               system.
             </span>
           </h1>
@@ -409,21 +409,21 @@ export default function ContactPage() {
                     width: '100%',
                     padding: '16px 24px',
                     background: status === 'sending'
-                      ? 'rgba(79,142,247,0.3)'
-                      : 'linear-gradient(135deg, #1A3A8F 0%, #4F8EF7 100%)',
-                    border: '1px solid rgba(79,142,247,0.4)',
+                      ? 'rgba(212,245,60,0.3)'
+                      : '#D4F53C',
+                    border: '1px solid #D4F53C',
                     borderRadius: '12px',
                     fontFamily: 'var(--font-space), sans-serif',
                     fontSize: '15px',
                     fontWeight: '600',
-                    color: '#FFFFFF',
+                    color: '#060B18',
                     cursor: status === 'sending' ? 'not-allowed' : 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '8px',
                     transition: 'all 0.2s ease',
-                    boxShadow: '0 4px 24px rgba(79,142,247,0.25)',
+                    boxShadow: '0 4px 24px rgba(212,245,60,0.25)',
                   }}
                 >
                   {status === 'sending' ? (

@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getProject, projects } from '@/lib/projects'
 import type { Metadata } from 'next'
-import { ToolmaticVisual, PDFMasterVisual, CanttDentalVisual, BeforeAfterVisual, StatsDashboardVisual, AIAutomationVisual } from '@/components/ProjectVisuals'
 
 export async function generateStaticParams() {
   return projects.map(p => ({ slug: p.slug }))
@@ -117,24 +116,134 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
-      {/* ── HERO IMAGE ───────────────────────────────────── */}
+      {/* ── PROJECT VISUAL ───────────────────────────────────── */}
       <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 20px', marginBottom:'60px' }}>
         <div style={{
-          borderRadius:'24px', overflow:'hidden',
-          boxShadow:'0 20px 60px rgba(0,0,0,0.5)',
-          background: `linear-gradient(135deg, ${navy} 0%, ${dark} 100%)`,
-          height: '400px',
+          background: '#111827',
+          border: '1px solid #1e2a3a',
+          borderRadius: '16px',
+          minHeight: '320px',
+          padding: '48px',
           display: 'flex',
-          alignItems: 'center',
+          flexDirection: 'column',
           justifyContent: 'center',
+          alignItems: 'center',
         }}>
-          <div style={{ textAlign: 'center' }}>
-            <p style={{ fontFamily:'var(--font-space)',fontSize:'14px',color:fog,marginBottom:'16px' }}>
-              Project Visual
-            </p>
-            <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:'rgba(255,255,255,0.3)' }}>
-              AI-generated image coming soon
-            </p>
+          {/* Tag */}
+          <p style={{
+            fontFamily:'var(--font-space),sans-serif',
+            fontSize:'11px',
+            fontWeight:'600',
+            color:'#4F8B8D',
+            letterSpacing:'0.12em',
+            textTransform:'uppercase',
+            marginBottom:'32px',
+            alignSelf: 'flex-start',
+          }}>
+            {project.slug === 'cantt-dental-care' && 'Healthcare / Local SEO'}
+            {project.slug === 'pdfmaster' && 'PDF Tools / Web Development'}
+            {project.slug === 'toolmatic' && 'AI Tools / Web Development'}
+          </p>
+
+          {/* Center stat */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+            {project.slug === 'cantt-dental-care' && (
+              <span style={{
+                fontFamily:'var(--font-space),sans-serif',
+                fontSize:'96px',
+                fontWeight:'900',
+                color:'#D4F53C',
+                lineHeight:1,
+              }}>
+                #1
+              </span>
+            )}
+            {project.slug === 'pdfmaster' && (
+              <span style={{
+                fontFamily:'var(--font-space),sans-serif',
+                fontSize:'96px',
+                fontWeight:'900',
+                color:'#D4F53C',
+                lineHeight:1,
+              }}>
+                50+
+              </span>
+            )}
+            {project.slug === 'toolmatic' && (
+              <>
+                <span style={{
+                  fontFamily:'var(--font-space),sans-serif',
+                  fontSize:'72px',
+                  fontWeight:'900',
+                  color:'#D4F53C',
+                  lineHeight:1,
+                }}>
+                  Live
+                </span>
+                <span style={{
+                  width:'8px',
+                  height:'8px',
+                  borderRadius:'50%',
+                  background:'#22c55e',
+                  animation:'pulse 2s infinite',
+                }} />
+              </>
+            )}
+          </div>
+
+          {/* Description */}
+          <p style={{
+            fontFamily:'var(--font-space),sans-serif',
+            fontSize:'14px',
+            color:'#8892a4',
+            marginBottom:'48px',
+          }}>
+            {project.slug === 'cantt-dental-care' && 'Local Google Ranking'}
+            {project.slug === 'pdfmaster' && 'Tools Built & Deployed'}
+            {project.slug === 'toolmatic' && 'Platform in Production'}
+          </p>
+
+          {/* Stat pills */}
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {project.slug === 'cantt-dental-care' && ['90 Days', '20+ Reviews', '98 PageSpeed'].map((stat) => (
+              <span key={stat} style={{
+                fontFamily:'var(--font-space),sans-serif',
+                fontSize:'13px',
+                color:'#8892a4',
+                background:'rgba(30,42,58,0.5)',
+                border:'1px solid #4F8B8D',
+                borderRadius:'8px',
+                padding:'8px 16px',
+              }}>
+                {stat}
+              </span>
+            ))}
+            {project.slug === 'pdfmaster' && ['0 Sign-ups', 'Client-side', 'Sub-3s Load'].map((stat) => (
+              <span key={stat} style={{
+                fontFamily:'var(--font-space),sans-serif',
+                fontSize:'13px',
+                color:'#8892a4',
+                background:'rgba(30,42,58,0.5)',
+                border:'1px solid #4F8B8D',
+                borderRadius:'8px',
+                padding:'8px 16px',
+              }}>
+                {stat}
+              </span>
+            ))}
+            {project.slug === 'toolmatic' && ['Next.js 14', 'Vercel Edge', 'SEO-Optimized'].map((stat) => (
+              <span key={stat} style={{
+                fontFamily:'var(--font-space),sans-serif',
+                fontSize:'13px',
+                color:'#8892a4',
+                background:'rgba(30,42,58,0.5)',
+                border:'1px solid #4F8B8D',
+                borderRadius:'8px',
+                padding:'8px 16px',
+              }}>
+                {stat}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -212,155 +321,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
-      {/* ── GALLERY ───────────────────────────────────────── */}
-      <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 32px', marginBottom:'80px' }}>
-        <div style={{ margin:'56px 0', display:'flex', flexDirection:'column', gap:'16px' }}>
-
-          {project.slug === 'toolmatic' && (
-            <>
-              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
-                <ToolmaticVisual height={380} />
-              </div>
-              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px' }}>
-                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
-                  <StatsDashboardVisual height={240} />
-                </div>
-                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
-                  <AIAutomationVisual height={240} />
-                </div>
-              </div>
-            </>
-          )}
-
-          {project.slug === 'pdfmaster' && (
-            <>
-              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
-                <PDFMasterVisual height={380} />
-              </div>
-              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px' }}>
-                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
-                  <ToolmaticVisual height={240} />
-                </div>
-                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
-                  <StatsDashboardVisual height={240} />
-                </div>
-              </div>
-              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
-                <AIAutomationVisual height={320} />
-              </div>
-            </>
-          )}
-
-          {project.slug === 'cantt-dental-care' && (
-            <>
-              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
-                <CanttDentalVisual height={380} />
-              </div>
-              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px' }}>
-                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
-                  <BeforeAfterVisual height={240} />
-                </div>
-                <div style={{ borderRadius:'12px', overflow:'hidden' }}>
-                  <StatsDashboardVisual height={240} />
-                </div>
-              </div>
-              <div style={{ borderRadius:'16px', overflow:'hidden' }}>
-                <AIAutomationVisual height={320} />
-              </div>
-            </>
-          )}
-
-          <p style={{
-            fontFamily:'var(--font-space), sans-serif',
-            fontSize:'11px', color:'rgba(255,255,255,0.22)',
-            textAlign:'center', letterSpacing:'0.05em',
-            marginTop:'4px',
-          }}>
-            System visualization — built in code
-          </p>
-        </div>
-      </section>
-
-      {/* ── BEFORE/AFTER ─────────────────────────────────── */}
-      {project.beforeImage && project.afterImage && (
-        <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 32px', marginBottom:'80px' }}>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:arc,letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:'32px' }}>
-            Before / After
-          </p>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(500px, 1fr))', gap:'24px' }}>
-            <div>
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:fog,marginBottom:'12px' }}>Before</p>
-              <div style={{
-                borderRadius:'16px', overflow:'hidden',
-                boxShadow:'0 10px 40px rgba(0,0,0,0.3)',
-                background: `linear-gradient(135deg, ${navy} 0%, ${dark} 100%)`,
-                height: '350px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <div style={{ textAlign: 'center' }}>
-                  <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:fog }}>
-                    Before Transformation
-                  </p>
-                  <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',color:'rgba(255,255,255,0.3)' }}>
-                    AI-generated image coming soon
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:fog,marginBottom:'12px' }}>After</p>
-              <div style={{
-                borderRadius:'16px', overflow:'hidden',
-                boxShadow:'0 10px 40px rgba(0,0,0,0.3)',
-                background: `linear-gradient(135deg, ${navy} 0%, ${dark} 100%)`,
-                height: '350px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <div style={{ textAlign: 'center' }}>
-                  <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:fog }}>
-                    After Transformation
-                  </p>
-                  <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',color:'rgba(255,255,255,0.3)' }}>
-                    AI-generated image coming soon
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── ARCHITECTURE ──────────────────────────────────── */}
-      {project.architecture && (
-        <section style={{ maxWidth:'1360px', margin:'0 auto', padding:'0 32px', marginBottom:'80px' }}>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:arc,letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:'32px' }}>
-            System Architecture
-          </p>
-          <div style={{
-            borderRadius:'16px', overflow:'hidden',
-            boxShadow:'0 10px 40px rgba(0,0,0,0.3)',
-            background: `linear-gradient(135deg, ${navy} 0%, ${dark} 100%)`,
-            height: '400px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            <div style={{ textAlign: 'center' }}>
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'14px',color:fog,marginBottom:'16px' }}>
-                System Architecture Diagram
-              </p>
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:'rgba(255,255,255,0.3)' }}>
-                AI-generated diagram coming soon
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── CTA ───────────────────────────────────────────── */}
       <section style={{ maxWidth:'760px', margin:'0 auto', padding:'0 32px 80px' }}>
         <div style={{ textAlign:'center', paddingTop:'40px', borderTop:`1px solid ${lineDark}` }}>
@@ -381,6 +341,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </Link>
         </div>
       </section>
+
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+      `}</style>
     </main>
   )
 }
