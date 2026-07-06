@@ -45,7 +45,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'ZYVONE — We Build Systems. Not Services.',
-        type: 'image/png',
       }
     ],
     locale: "en_US",
