@@ -194,7 +194,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',fontWeight:'600',color:'rgba(79,142,247,0.8)',margin:0 }}>Email</p>
-                  <p style={{ fontFamily:'var(--font-space)',fontSize:'15px',fontWeight:'600',color:'#FFFFFF',margin:0 }}>hashir@zubaircodes.site</p>
+                  <p style={{ fontFamily:'var(--font-space)',fontSize:'15px',fontWeight:'600',color:'#FFFFFF',margin:0 }}>zubair@zyvone.site</p>
                 </div>
               </div>
               <p style={{ fontFamily:'var(--font-space)',fontSize:'13px',color:'rgba(255,255,255,0.35)',margin:0 }}>
