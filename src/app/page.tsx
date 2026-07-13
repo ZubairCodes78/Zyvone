@@ -13,23 +13,23 @@ export default function Home() {
           backgroundImage: 'radial-gradient(circle, #D4F53C 1px, transparent 1px)',
           backgroundSize: '48px 48px'
         }} />
-        
+
         <div className="max-w-[900px] mx-auto text-center relative z-10">
           <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">
             Digital Company — Systems · Products · Experiences
           </p>
-          
+
           <h1 className="font-sans font-bold text-white tracking-[-0.03em] leading-[0.95] mb-8"
             style={{ fontSize: 'clamp(64px, 8vw, 100px)' }}>
             We build<br />
             <span className="font-display italic text-lime">infrastructure.</span>
           </h1>
-          
+
           <p className="font-sans text-[19px] text-white/50 leading-[1.75] max-w-[560px] mx-auto">
             ZYVONE builds the systems, products, and digital experiences
             serious companies run on. Not deliverables — infrastructure.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-10 w-full max-w-[400px] mx-auto">
             <Link href="/contact"
               className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-7 py-4 rounded-full scale-[1.02] transition-all duration-200 min-h-[48px]"
@@ -47,7 +47,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        
+
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
           <div className="w-px h-12 bg-gradient-to-b from-white/0 to-lime/50 animate-pulse" />

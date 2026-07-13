@@ -6,20 +6,20 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
 const NAV_LINKS = [
-  { label: 'Work',     href: '/work'      },
+  { label: 'Work', href: '/work' },
   { label: 'Services', href: '/#services' },
-  { label: 'About',    href: '/about'     },
-  { label: 'Story',    href: '/story'     },
-  { label: 'Journal',  href: '/journal'   },
-  { label: 'Social',   href: '/social'    },
+  { label: 'About', href: '/about' },
+  { label: 'Story', href: '/story' },
+  { label: 'Journal', href: '/journal' },
+  { label: 'Social', href: '/social' },
 ]
 
 export default function Navbar() {
-  const [scrollY, setScrollY]       = useState(0)
-  const [visible, setVisible]       = useState(true)
+  const [scrollY, setScrollY] = useState(0)
+  const [visible, setVisible] = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
   const lastScrollY = useRef(0)
-  const pathname    = usePathname()
+  const pathname = usePathname()
 
   // Scroll direction tracking — hide on scroll down, show on scroll up
   const handleScroll = useCallback(() => {
@@ -77,9 +77,9 @@ export default function Navbar() {
           style={{
             // When scrolled: centered pill with max-width
             // When at top: full-width container
-            maxWidth:      scrolled ? '860px'  : '100%',
-            margin:        scrolled ? '14px auto 0' : '0 auto',
-            padding:       scrolled ? '0 20px' : '0',
+            maxWidth: scrolled ? '860px' : '100%',
+            margin: scrolled ? '14px auto 0' : '0 auto',
+            padding: scrolled ? '0 20px' : '0',
           }}
         >
           <nav
@@ -122,7 +122,7 @@ export default function Navbar() {
               <div
                 className="flex items-center justify-center flex-shrink-0 transition-all duration-500"
                 style={{
-                  width:  scrolled ? '28px' : '34px',
+                  width: scrolled ? '28px' : '34px',
                   height: scrolled ? '28px' : '34px',
                 }}
               >
@@ -153,11 +153,11 @@ export default function Navbar() {
                     href={link.href}
                     className="relative group focus-visible:outline-2 focus-visible:outline-lime focus-visible:outline-offset-4 rounded"
                     style={{
-                      fontFamily:    'var(--font-space), sans-serif',
-                      fontSize:      '14px',
-                      fontWeight:    '500',
-                      color:         isActive ? '#FFFFFF' : 'rgba(255,255,255,0.55)',
-                      transition:    'color 0.2s ease',
+                      fontFamily: 'var(--font-space), sans-serif',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      color: isActive ? '#FFFFFF' : 'rgba(255,255,255,0.55)',
+                      transition: 'color 0.2s ease',
                       letterSpacing: '0.01em',
                     }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#FFFFFF' }}
@@ -184,40 +184,40 @@ export default function Navbar() {
                 href="/contact"
                 className="focus-visible:outline-2 focus-visible:outline-lime focus-visible:outline-offset-4"
                 style={{
-                  display:        'inline-flex',
-                  alignItems:     'center',
-                  gap:            '6px',
-                  fontFamily:     'var(--font-space), sans-serif',
-                  fontSize:       '13px',
-                  fontWeight:     '600',
-                  color:          '#060B18',
-                  background:     '#D4F53C',
-                  border:         '1px solid #D4F53C',
-                  borderRadius:   '100px',
-                  padding:        scrolled ? '7px 18px' : '9px 22px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontFamily: 'var(--font-space), sans-serif',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  color: '#060B18',
+                  background: '#D4F53C',
+                  border: '1px solid #D4F53C',
+                  borderRadius: '100px',
+                  padding: scrolled ? '7px 18px' : '9px 22px',
                   backdropFilter: 'blur(8px)',
-                  transition:     'all 0.2s ease',
-                  letterSpacing:  '0.01em',
-                  boxShadow:      '0 0 20px rgba(212,245,60,0.25), inset 0 1px 0 rgba(255,255,255,0.3)',
+                  transition: 'all 0.2s ease',
+                  letterSpacing: '0.01em',
+                  boxShadow: '0 0 20px rgba(212,245,60,0.25), inset 0 1px 0 rgba(255,255,255,0.3)',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement
-                  el.style.background   = '#B8D932'
-                  el.style.borderColor  = '#B8D932'
-                  el.style.transform    = 'scale(1.03)'
-                  el.style.boxShadow    = '0 0 30px rgba(212,245,60,0.40), inset 0 1px 0 rgba(255,255,255,0.4)'
+                  el.style.background = '#B8D932'
+                  el.style.borderColor = '#B8D932'
+                  el.style.transform = 'scale(1.03)'
+                  el.style.boxShadow = '0 0 30px rgba(212,245,60,0.40), inset 0 1px 0 rgba(255,255,255,0.4)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLElement
-                  el.style.background   = '#D4F53C'
-                  el.style.borderColor  = '#D4F53C'
-                  el.style.transform    = 'scale(1)'
-                  el.style.boxShadow    = '0 0 20px rgba(212,245,60,0.25), inset 0 1px 0 rgba(255,255,255,0.3)'
+                  el.style.background = '#D4F53C'
+                  el.style.borderColor = '#D4F53C'
+                  el.style.transform = 'scale(1)'
+                  el.style.boxShadow = '0 0 20px rgba(212,245,60,0.25), inset 0 1px 0 rgba(255,255,255,0.3)'
                 }}
               >
                 Start a project
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
             </div>
@@ -231,22 +231,22 @@ export default function Navbar() {
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               style={{
                 background: mobileOpen ? 'rgba(212,245,60,0.12)' : 'transparent',
-                border:     mobileOpen ? '1px solid rgba(212,245,60,0.25)' : '1px solid transparent',
+                border: mobileOpen ? '1px solid rgba(212,245,60,0.25)' : '1px solid transparent',
                 transition: 'all 0.2s ease',
-                padding:    '6px',
+                padding: '6px',
               }}
             >
-              {[0,1,2].map(i => (
+              {[0, 1, 2].map(i => (
                 <span
                   key={i}
                   className="w-full rounded-full bg-white transition-all duration-300 origin-center"
                   style={{
-                    height:    '1.5px',
-                    opacity:   i === 1 && mobileOpen ? 0 : 1,
+                    height: '1.5px',
+                    opacity: i === 1 && mobileOpen ? 0 : 1,
                     transform: mobileOpen
                       ? i === 0 ? 'rotate(45deg) translateY(6.5px)'
-                      : i === 2 ? 'rotate(-45deg) translateY(-6.5px)'
-                      : 'none'
+                        : i === 2 ? 'rotate(-45deg) translateY(-6.5px)'
+                          : 'none'
                       : 'none',
                   }}
                 />
@@ -266,13 +266,13 @@ export default function Navbar() {
         aria-hidden={!mobileOpen}
         className="fixed inset-0 z-40 flex flex-col items-center justify-center"
         style={{
-          background:              'rgba(5,7,10,0.92)',
-          backdropFilter:          'blur(40px) saturate(180%)',
-          WebkitBackdropFilter:    'blur(40px) saturate(180%)',
-          opacity:                 mobileOpen ? 1 : 0,
-          visibility:              mobileOpen ? 'visible' : 'hidden',
-          transition:              'opacity 0.35s ease, visibility 0.35s ease',
-          pointerEvents:           mobileOpen ? 'all' : 'none',
+          background: 'rgba(5,7,10,0.92)',
+          backdropFilter: 'blur(40px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+          opacity: mobileOpen ? 1 : 0,
+          visibility: mobileOpen ? 'visible' : 'hidden',
+          transition: 'opacity 0.35s ease, visibility 0.35s ease',
+          pointerEvents: mobileOpen ? 'all' : 'none',
         }}
       >
         <nav className="flex flex-col items-center gap-2" aria-label="Mobile navigation">
@@ -283,12 +283,12 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="font-sans font-bold text-white focus-visible:outline-2 focus-visible:outline-lime rounded px-4 py-3 min-h-[48px] flex items-center"
               style={{
-                fontSize:    'clamp(28px, 7vw, 48px)',
-                lineHeight:  '1.1',
+                fontSize: 'clamp(28px, 7vw, 48px)',
+                lineHeight: '1.1',
                 letterSpacing: '-0.02em',
-                opacity:     mobileOpen ? 1 : 0,
-                transform:   mobileOpen ? 'none' : 'translateY(20px)',
-                transition:  `opacity 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 55 + 80}ms, transform 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 55 + 80}ms, color 0.15s ease`,
+                opacity: mobileOpen ? 1 : 0,
+                transform: mobileOpen ? 'none' : 'translateY(20px)',
+                transition: `opacity 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 55 + 80}ms, transform 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 55 + 80}ms, color 0.15s ease`,
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#D4F53C' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#FFFFFF' }}
