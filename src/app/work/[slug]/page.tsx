@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getProject, projects } from '@/lib/projects'
-import { FadeIn } from '@/components/premium'
-import { Button } from '@/components/premium'
+import { RevealWrapper } from '@/components/ui/RevealWrapper'
+import { Button } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 
 export async function generateStaticParams() {
@@ -26,96 +26,110 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   if (!project) notFound()
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-primary-bg min-h-screen">
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-[1200px] mx-auto">
-          <FadeIn>
-            <Link href="/work" className="inline-flex items-center gap-2 text-sm font-semibold mb-6" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#6B7280' }}>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <section className="pt-32 pb-16 px-6">
+        <div className="max-w-[1000px] mx-auto">
+          <RevealWrapper>
+            <Link href="/work" className="inline-flex items-center gap-2 text-sm font-medium mb-6 text-text-secondary hover:text-lime transition-colors">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M10 3L4 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Back to work
             </Link>
-          </FadeIn>
+          </RevealWrapper>
 
-          <FadeIn delay={0.1}>
-            <div className="inline-block px-4 py-1.5 rounded-full bg-[#D4F53C]/10 text-[#0D0B61] text-sm font-semibold mb-6" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
-              {project.industry} · {project.tag}
+          <RevealWrapper delay={100}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-lime-glow border border-lime/20 mb-6">
+              <span className="font-inter text-xs font-semibold uppercase tracking-wider text-lime">
+                {project.industry}
+              </span>
+              <span className="text-lime/30">·</span>
+              <span className="font-inter text-xs font-semibold uppercase tracking-wider text-lime">
+                {project.tag}
+              </span>
             </div>
-          </FadeIn>
+          </RevealWrapper>
 
-          <FadeIn delay={0.2}>
-            <h1 className="font-bold tracking-tight mb-6" style={{
-              fontFamily: 'var(--font-sora), sans-serif',
-              fontSize: 'clamp(36px, 5vw, 64px)',
-              color: '#0D0B61',
-              lineHeight: 1.05,
-            }}>
+          <RevealWrapper delay={200}>
+            <h1 className="font-sora font-bold text-4xl md:text-5xl lg:text-6xl text-text-primary tracking-tight leading-[1.15] mb-6">
               {project.title}
             </h1>
-          </FadeIn>
+          </RevealWrapper>
 
-          <FadeIn delay={0.3}>
-            <p className="text-xl leading-relaxed max-w-[700px] mb-8" style={{
-              fontFamily: 'var(--font-inter), sans-serif',
-              color: '#6B7280',
-            }}>
+          <RevealWrapper delay={300}>
+            <p className="font-inter text-lg text-text-secondary leading-relaxed max-w-[700px] mb-8">
               {project.overview}
             </p>
-          </FadeIn>
+          </RevealWrapper>
 
-          <FadeIn delay={0.4}>
-            <div className="flex flex-wrap items-center gap-8">
-              <div>
-                <p className="font-bold text-4xl" style={{ fontFamily: 'var(--font-sora), sans-serif', color: '#D4F53C' }}>
-                  {project.result}
-                </p>
-                <p className="text-sm mt-1" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#9CA3AF' }}>
-                  {project.resultLabel}
-                </p>
+          <RevealWrapper delay={400}>
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="flex items-center gap-3">
+                <div className="px-4 py-2 rounded-xl bg-lime-glow border border-lime/20">
+                  <p className="font-sora font-bold text-3xl text-lime leading-none tracking-tight">
+                    {project.result}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-inter text-xs font-semibold uppercase tracking-wider text-text-muted">
+                    {project.resultLabel}
+                  </p>
+                </div>
               </div>
 
               {project.link && (
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0D0B61]/10 border border-[#0D0B61]/20 text-sm font-semibold text-[#0D0B61] hover:bg-[#0D0B61]/15 transition-all" style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-lime text-primary-bg font-semibold text-sm hover:bg-lime/90 transition-all">
                   View live site
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M1 11L11 1M11 1H5M11 1v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path d="M2 8h12M9 4l5 4-5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
               )}
             </div>
-          </FadeIn>
+          </RevealWrapper>
         </div>
       </section>
 
       {/* Project Visual */}
-      <section className="px-6 pb-20">
-        <div className="max-w-[1200px] mx-auto">
-          <FadeIn delay={0.5}>
-            <div className="rounded-2xl bg-[#F8FAFC] border border-gray-100 p-12 md:p-16">
+      <section className="px-6 pb-16">
+        <div className="max-w-[1000px] mx-auto">
+          <RevealWrapper delay={500}>
+            <div className="rounded-2xl bg-surface border border-line-dark p-8 md:p-12">
               <div className="flex flex-col items-center justify-center text-center">
-                <p className="text-xs font-semibold uppercase tracking-wider mb-8" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#4F8B8D' }}>
-                  {project.slug === 'cantt-dental-care' && 'Healthcare / Local SEO'}
-                  {project.slug === 'pdfmaster' && 'PDF Tools / Web Development'}
-                  {project.slug === 'toolmatic' && 'AI Tools / Web Development'}
-                </p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-glow border border-lime/20 mb-8">
+                  <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
+                  <p className="font-inter text-xs font-semibold uppercase tracking-widest text-lime">
+                    {project.slug === 'cantt-dental-care' && 'Healthcare / Local SEO'}
+                    {project.slug === 'pdfmaster' && 'PDF Tools / Web Development'}
+                    {project.slug === 'toolmatic' && 'AI Tools / Web Development'}
+                    {project.slug === 'al-raheem-engineering' && 'Manufacturing / Machinery'}
+                  </p>
+                </div>
 
                 <div className="flex items-center gap-4 mb-4">
                   {project.slug === 'cantt-dental-care' && (
-                    <span className="font-bold text-7xl md:text-8xl" style={{ fontFamily: 'var(--font-sora), sans-serif', color: '#D4F53C', lineHeight: 1 }}>
+                    <span className="font-sora font-bold text-6xl md:text-7xl text-lime leading-none tracking-tight">
                       #1
                     </span>
                   )}
                   {project.slug === 'pdfmaster' && (
-                    <span className="font-bold text-7xl md:text-8xl" style={{ fontFamily: 'var(--font-sora), sans-serif', color: '#D4F53C', lineHeight: 1 }}>
+                    <span className="font-sora font-bold text-6xl md:text-7xl text-lime leading-none tracking-tight">
                       50+
                     </span>
                   )}
                   {project.slug === 'toolmatic' && (
                     <>
-                      <span className="font-bold text-5xl md:text-6xl" style={{ fontFamily: 'var(--font-sora), sans-serif', color: '#D4F53C', lineHeight: 1 }}>
+                      <span className="font-sora font-bold text-4xl md:text-5xl text-lime leading-none tracking-tight">
+                        Live
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    </>
+                  )}
+                  {project.slug === 'al-raheem-engineering' && (
+                    <>
+                      <span className="font-sora font-bold text-4xl md:text-5xl text-lime leading-none tracking-tight">
                         Live
                       </span>
                       <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -123,32 +137,38 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   )}
                 </div>
 
-                <p className="text-base mb-12" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#9CA3AF' }}>
+                <p className="font-inter text-lg font-medium mb-10 text-text-primary">
                   {project.slug === 'cantt-dental-care' && 'Local Google Ranking'}
                   {project.slug === 'pdfmaster' && 'Tools Built & Deployed'}
                   {project.slug === 'toolmatic' && 'Platform in Production'}
+                  {project.slug === 'al-raheem-engineering' && 'Professional Website'}
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-3">
                   {project.slug === 'cantt-dental-care' && ['90 Days', '20+ Reviews', '98 PageSpeed'].map((stat) => (
-                    <span key={stat} className="px-4 py-2 rounded-lg bg-white border border-[#4F8B8D] text-sm" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#9CA3AF' }}>
-                      {stat}
-                    </span>
+                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
+                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
+                    </div>
                   ))}
                   {project.slug === 'pdfmaster' && ['0 Sign-ups', 'Client-side', 'Sub-3s Load'].map((stat) => (
-                    <span key={stat} className="px-4 py-2 rounded-lg bg-white border border-[#4F8B8D] text-sm" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#9CA3AF' }}>
-                      {stat}
-                    </span>
+                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
+                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
+                    </div>
                   ))}
                   {project.slug === 'toolmatic' && ['Next.js 14', 'Vercel Edge', 'SEO-Optimized'].map((stat) => (
-                    <span key={stat} className="px-4 py-2 rounded-lg bg-white border border-[#4F8B8D] text-sm" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#9CA3AF' }}>
-                      {stat}
-                    </span>
+                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
+                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
+                    </div>
+                  ))}
+                  {project.slug === 'al-raheem-engineering' && ['Corporate', 'Portfolio', 'SEO'].map((stat) => (
+                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
+                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
+                    </div>
                   ))}
                 </div>
               </div>
             </div>
-          </FadeIn>
+          </RevealWrapper>
         </div>
       </section>
 
@@ -156,94 +176,93 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <section className="px-6 pb-20">
         <div className="max-w-[760px] mx-auto">
           {/* The Problem */}
-          <FadeIn delay={0.6}>
+          <RevealWrapper delay={600}>
             <div className="mb-14">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#4F8B8D' }}>
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider mb-4 text-text-secondary">
                 The Problem
               </p>
-              <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#6B7280' }}>
+              <p className="font-inter text-lg leading-relaxed text-text-secondary">
                 {project.problem}
               </p>
             </div>
-          </FadeIn>
+          </RevealWrapper>
 
-          <div className="h-px bg-gray-200 mb-14" />
+          <div className="h-px bg-line-dark mb-14" />
 
           {/* Our Approach */}
-          <FadeIn delay={0.7}>
+          <RevealWrapper delay={700}>
             <div className="mb-14">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#4F8B8D' }}>
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider mb-4 text-text-secondary">
                 Our Approach
               </p>
-              <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#6B7280' }}>
+              <p className="font-inter text-lg leading-relaxed text-text-secondary">
                 {project.approach}
               </p>
             </div>
-          </FadeIn>
+          </RevealWrapper>
 
-          <div className="h-px bg-gray-200 mb-14" />
+          <div className="h-px bg-line-dark mb-14" />
 
           {/* What We Built */}
-          <FadeIn delay={0.8}>
+          <RevealWrapper delay={800}>
             <div className="mb-14">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-6" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#4F8B8D' }}>
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider mb-6 text-text-secondary">
                 What We Built
               </p>
               <ul className="space-y-3">
                 {project.execution.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#4F8B8D] mt-2 flex-shrink-0" />
-                    <span className="text-base leading-relaxed" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#6B7280' }}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-lime mt-2 flex-shrink-0" />
+                    <span className="font-inter text-base leading-relaxed text-text-secondary">
                       {item}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
-          </FadeIn>
+          </RevealWrapper>
 
-          <div className="h-px bg-gray-200 mb-14" />
+          <div className="h-px bg-line-dark mb-14" />
 
           {/* Outcome */}
-          <FadeIn delay={0.9}>
-            <div className="p-8 rounded-2xl bg-[#0D0B61]/5 border border-[#0D0B61]/10 mb-14">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#4F8B8D' }}>
+          <RevealWrapper delay={900}>
+            <div className="p-8 rounded-2xl bg-lime-glow border border-lime/20 mb-14">
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider mb-4 text-text-secondary">
                 The Outcome
               </p>
-              <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#0D0B61' }}>
+              <p className="font-inter text-lg leading-relaxed text-text-primary">
                 {project.outcome}
               </p>
             </div>
-          </FadeIn>
+          </RevealWrapper>
 
           {/* Reflection */}
-          <FadeIn delay={1.0}>
-            <div className="p-8 rounded-2xl bg-[#F8FAFC] border border-gray-100">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#9CA3AF' }}>
+          <RevealWrapper delay={1000}>
+            <div className="p-8 rounded-2xl bg-surface border border-line-dark">
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider mb-4 text-text-muted">
                 Zubair's Reflection
               </p>
-              <p className="text-lg leading-relaxed italic" style={{ fontFamily: 'var(--font-sora), sans-serif', color: '#6B7280' }}>
+              <p className="font-sora text-lg leading-relaxed italic text-text-secondary">
                 "{project.reflection}"
               </p>
             </div>
-          </FadeIn>
+          </RevealWrapper>
         </div>
       </section>
 
       {/* CTA */}
       <section className="px-6 pb-20">
-        <div className="max-w-[760px] mx-auto text-center pt-12 border-t border-gray-200">
-          <FadeIn delay={1.1}>
-            <p className="text-lg mb-6" style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#6B7280' }}>
+        <div className="max-w-[760px] mx-auto text-center pt-12 border-t border-line-dark">
+          <RevealWrapper delay={1100}>
+            <p className="font-inter text-lg mb-6 text-text-secondary">
               Want a system like this for your business?
             </p>
-            <Button variant="primary" size="lg" href="/contact">
-              Start a project
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
-                <path d="M2 8h12M9 4l5 4-5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Button>
-          </FadeIn>
+            <Link href="/contact">
+              <Button variant="primary" size="large">
+                Start a project
+              </Button>
+            </Link>
+          </RevealWrapper>
         </div>
       </section>
     </main>

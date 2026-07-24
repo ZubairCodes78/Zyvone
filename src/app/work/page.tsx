@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { useReveal } from '@/hooks/useReveal'
 import { projects } from '@/lib/projects'
-import { ToolmaticVisual, PDFMasterVisual, CanttDentalVisual } from '@/components/ProjectVisuals'
+import { ToolmaticVisual, PDFMasterVisual, CanttDentalVisual, AlRaheemEngineeringVisual } from '@/components/ProjectVisuals'
 
 export default function Work() {
   const workProjects = projects.map(p => ({
@@ -46,6 +46,7 @@ export default function Work() {
                     {project.slug === 'toolmatic' && <ToolmaticVisual height={360} />}
                     {project.slug === 'pdfmaster' && <PDFMasterVisual height={360} />}
                     {project.slug === 'cantt-dental-care' && <CanttDentalVisual height={360} />}
+                    {project.slug === 'al-raheem-engineering' && <AlRaheemEngineeringVisual height={360} />}
                     {!project.slug && (
                       <>
                         <span className="font-sans font-black text-white/4 absolute text-[200px] z-10">{project.num}</span>

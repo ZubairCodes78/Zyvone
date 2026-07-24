@@ -38,9 +38,9 @@ export default function Footer() {
       </div>
 
       {/* 4-column grid */}
-      <div className="max-w-[1360px] mx-auto px-6 md:px-10 py-12 md:py-14 border-y border-line-dark bg-secondary-bg">
+      <div className="max-w-[1360px] mx-auto px-6 md:px-10 py-12 md:py-14 border-y border-line-dark bg-secondary-bg" suppressHydrationWarning>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          <div>
+          <div suppressHydrationWarning>
             <h4 className="text-white/20 text-[11px] font-medium uppercase tracking-widest mb-5">Systems</h4>
             <ul className="space-y-3">
               <li><Link href="/services/automation" className="text-white/40 hover:text-white transition-colors text-[14px]">AI Automation</Link></li>
@@ -49,7 +49,7 @@ export default function Footer() {
               <li><Link href="/services/marketing" className="text-white/40 hover:text-white transition-colors text-[14px]">Growth & Marketing</Link></li>
             </ul>
           </div>
-          <div>
+          <div suppressHydrationWarning>
             <h4 className="text-white/20 text-[11px] font-medium uppercase tracking-widest mb-5">Company</h4>
             <ul className="space-y-3">
               <li><Link href="/about" className="text-white/40 hover:text-white transition-colors text-[14px]">About</Link></li>
@@ -59,14 +59,14 @@ export default function Footer() {
               <li><Link href="/book-call" className="text-white/40 hover:text-white transition-colors text-[14px]">Book a Call</Link></li>
             </ul>
           </div>
-          <div>
+          <div suppressHydrationWarning>
             <h4 className="text-white/20 text-[11px] font-medium uppercase tracking-widest mb-5">Legal</h4>
             <ul className="space-y-3">
               <li><Link href="/privacy" className="text-white/40 hover:text-white transition-colors text-[14px]">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-white/40 hover:text-white transition-colors text-[14px]">Terms of Service</Link></li>
             </ul>
           </div>
-          <div>
+          <div suppressHydrationWarning>
             <h4 className="text-white/20 text-[11px] font-medium uppercase tracking-widest mb-5">Connect</h4>
             <ul className="space-y-3">
               <li><a href="https://wa.me/923167697273" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white transition-colors text-[14px]">WhatsApp</a></li>

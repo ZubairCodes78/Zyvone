@@ -122,7 +122,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <ScrollProgress />
         <Navbar />
         <main id="main" className="min-h-screen">{children}</main>

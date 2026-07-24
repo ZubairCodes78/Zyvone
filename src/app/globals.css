@@ -5,11 +5,14 @@
   --color-primary-bg: #05070A;
   --color-secondary-bg: #0B1020;
   --color-surface: #111827;
+  --color-card: #F8FAFC;
+  --color-white: #FFFFFF;
 
   /* ── BRAND COLORS ────────────────────────────────────────── */
   --color-primary-brand: #0D0B61;
   --color-secondary-brand: #294669;
   --color-support-accent: #4F8B8D;
+  --color-primary: #D4F53C;
 
   /* ── HIGHLIGHT (LIME - SIGNATURE) ─────────────────────────── */
   --color-lime: #D4F53C;
@@ -20,10 +23,13 @@
   --color-text-primary: #F8FAFC;
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
+  --color-ink: #0D0B61;
+  --color-muted: #6B7280;
 
   /* ── STRUCTURAL ──────────────────────────────────────────── */
   --color-line-dark: rgba(255, 255, 255, 0.06);
   --color-line-light: rgba(255, 255, 255, 0.08);
+  --color-border: #E5E7EB;
 
   /* ── LIQUID GLASS SYSTEM ─────────────────────────────────── */
   --color-glass-surface: rgba(255, 255, 255, 0.05);
@@ -35,6 +41,12 @@
   /* ── FONTS ───────────────────────────────────────────────── */
   --font-sans: var(--font-space);
   --font-display: var(--font-instrument);
+  --font-sora: var(--font-space);
+  --font-inter: var(--font-space);
+
+  /* ── FONT SIZES ──────────────────────────────────────────── */
+  --font-size-h1: clamp(36px, 5vw, 64px);
+  --font-size-body-lg: 1.125rem;
 }
 
 *,

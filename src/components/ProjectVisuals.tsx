@@ -235,6 +235,92 @@ export function CanttDentalVisual({ height = 320 }: { height?: number }) {
   )
 }
 
+/* ─── AL RAHEEM ENGINEERING ───────────────────────────── */
+export function AlRaheemEngineeringVisual({ height = 320 }: { height?: number }) {
+  return (
+    <div style={{ width:'100%', height:`${height}px`, position:'relative', overflow:'hidden',
+      background:`linear-gradient(145deg,#060b18 0%,#0d1f35 100%)` }}>
+      <style>{KF}</style>
+      <svg width="100%" height="100%" viewBox="0 0 640 320" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <radialGradient id="are-g" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor={C.signal} stopOpacity="0.14"/>
+            <stop offset="100%" stopColor={C.signal} stopOpacity="0"/>
+          </radialGradient>
+          <pattern id="are-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <path d="M32 0L0 0 0 32" fill="none" stroke="rgba(212,245,60,0.06)" strokeWidth="0.8"/>
+          </pattern>
+        </defs>
+        <rect width="640" height="320" fill="url(#are-grid)"/>
+        <ellipse cx="320" cy="160" rx="220" ry="140" fill="url(#are-g)"/>
+
+        {/* Packing Machine */}
+        <g style={{animation:'zy-fy 4s ease-in-out infinite'}}>
+          {/* Machine base */}
+          <rect x="180" y="140" width="280" height="120" rx="8" fill={C.slate} stroke={C.signal} strokeWidth="1.2" strokeOpacity="0.5"/>
+          
+          {/* Machine body */}
+          <rect x="200" y="80" width="240" height="70" rx="6" fill={C.deep} stroke={C.signal} strokeWidth="0.8" strokeOpacity="0.4"/>
+          
+          {/* Control panel */}
+          <rect x="380" y="90" width="50" height="50" rx="4" fill="rgba(212,245,60,0.1)" stroke={C.signal} strokeWidth="0.6" strokeOpacity="0.3"/>
+          <circle cx="405" cy="105" r="8" fill={C.signal} opacity="0.6"/>
+          <rect x="390" y="120" width="30" height="4" rx="2" fill={C.signal} opacity="0.4"/>
+          <rect x="390" y="128" width="30" height="4" rx="2" fill={C.signal} opacity="0.4"/>
+          
+          {/* Conveyor belt */}
+          <rect x="200" y="180" width="200" height="20" rx="3" fill="rgba(212,245,60,0.05)" stroke={C.signal} strokeWidth="0.5" strokeOpacity="0.3"/>
+          {[40,80,120,160].map((x,i)=>(
+            <circle key={i} cx={200+x} cy="190" r="6" fill={C.deep} stroke={C.signal} strokeWidth="0.8" strokeOpacity="0.4">
+              <animate attributeName="cx" values={`${200+x};${200+x+40};${200+x}`} dur="3s" repeatCount="indefinite"/>
+            </circle>
+          ))}
+          
+          {/* Product boxes on conveyor */}
+          {[{x:220,y:165},{x:280,y:165},{x:340,y:165}].map((box,i)=>(
+            <rect key={i} x={box.x} y={box.y} width="30" height="25" rx="2" fill="rgba(212,245,60,0.15)" stroke={C.signal} strokeWidth="0.5" strokeOpacity="0.4">
+              <animate attributeName="x" values={`${box.x};${box.x+40};${box.x}`} dur="3s" repeatCount="indefinite"/>
+            </rect>
+          ))}
+          
+          {/* Machine arms/packaging unit */}
+          <line x1="200" y1="80" x2="200" y2="140" stroke={C.signal} strokeWidth="2" strokeOpacity="0.5"/>
+          <line x1="440" y1="80" x2="440" y2="140" stroke={C.signal} strokeWidth="2" strokeOpacity="0.5"/>
+          <rect x="190" y="70" width="20" height="15" rx="2" fill={C.signal} opacity="0.5"/>
+          <rect x="430" y="70" width="20" height="15" rx="2" fill={C.signal} opacity="0.5"/>
+          
+          {/* Logo text */}
+          <text x="320" y="118" fontSize="10" fill={C.signal} textAnchor="middle" fontFamily="monospace" fontWeight="bold">AL RAHEEM</text>
+          <text x="320" y="130" fontSize="7" fill={C.fog} textAnchor="middle" fontFamily="monospace">PACKAGING MACHINES</text>
+        </g>
+
+        {/* Product cards floating */}
+        {[
+          {x:60,y:60,w:100,h:70,d:0},
+          {x:480,y:60,w:100,h:70,d:0.4},
+          {x:60,y:190,w:100,h:70,d:0.8},
+          {x:480,y:190,w:100,h:70,d:1.2},
+        ].map((card,i)=>(
+          <g key={i} style={{animation:`zy-fy 3.5s ease-in-out ${card.d}s infinite`}}>
+            <rect x={card.x} y={card.y} width={card.w} height={card.h} rx="8" fill={C.deep} stroke={C.signal} strokeWidth="0.7" strokeOpacity="0.4"/>
+            <rect x={card.x+8} y={card.y+8} width={card.w-16} height="12" rx="4" fill="rgba(212,245,60,0.1)"/>
+            <rect x={card.x+8} y={card.y+26} width={card.w-16} height="8" rx="3" fill={C.fog} opacity="0.2"/>
+            <rect x={card.x+8} y={card.y+38} width={card.w-24} height="8" rx="3" fill={C.fog} opacity="0.15"/>
+            <rect x={card.x+8} y={card.y+50} width="30" height="12" rx="4" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.3)" strokeWidth="0.5"/>
+            <text x={card.x+23} y={card.y+59} fontSize="6" fill={C.green} textAnchor="middle" fontFamily="monospace">VIEW</text>
+          </g>
+        ))}
+
+        {/* Stats bar */}
+        <rect x="180" y="276" width="280" height="28" rx="14" fill="rgba(212,245,60,0.08)" stroke={C.signal} strokeWidth="0.6" strokeOpacity="0.4"/>
+        <circle cx="198" cy="290" r="4.5" fill={C.green}><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
+        <text x="212" y="294" fontSize="8" fill={C.green} fontFamily="monospace">50+ Machines</text>
+        <text x="320" y="294" fontSize="8" fill={C.fog} textAnchor="middle" fontFamily="monospace">· Automatic · Semi-Auto · Custom</text>
+      </svg>
+    </div>
+  )
+}
+
 /* ─── AI AUTOMATION visual ───────────────────────────── */
 export function AIAutomationVisual({ height = 320 }: { height?: number }) {
   return (
