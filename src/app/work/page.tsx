@@ -2,113 +2,113 @@
 import Link from 'next/link'
 import { useReveal } from '@/hooks/useReveal'
 import { projects } from '@/lib/projects'
-import { ToolmaticVisual, PDFMasterVisual, CanttDentalVisual, AlRaheemEngineeringVisual } from '@/components/ProjectVisuals'
+import { ProjectImage } from '@/components/ProjectImage'
 
 export default function Work() {
   const workProjects = projects.map(p => ({
     num: p.id,
     industry: p.industry,
     name: p.title,
+    shortName: p.shortTitle,
     outcome: p.overview,
     tag: p.tag,
     result: p.result,
     resultLabel: p.resultLabel,
-    link: p.link,
     slug: p.slug,
+    link: p.link,
   }))
 
   return (
-    <>
-      {/* Hero */}
-      <section className="bg-primary-bg pt-40 md:pt-52 pb-16 md:pb-20 px-6">
+    <main className="bg-primary-bg min-h-screen">
+      {/* Header */}
+      <section className="bg-primary-bg pt-32 pb-16 md:pb-24 px-6">
         <div className="max-w-[1360px] mx-auto">
-          <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">WORK</p>
-            <h1 className="font-sans font-bold text-white tracking-[-0.02em] leading-[1.1] mb-4"
-              style={{ fontSize: 'clamp(52px, 7vw, 88px)' }}>
-              Selected projects.
-            </h1>
-            <p className="font-sans text-[19px] text-white/40 mt-4">
-              A curated record of thinking, not just delivery.
-            </p>
-          </div>
+          <p className="font-sans text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-4">Portfolio</p>
+          <h1 className="font-sans font-bold text-[52px] md:text-[64px] text-white tracking-[-0.02em] leading-[1.1]">
+            Selected Work
+          </h1>
+          <p className="font-sans text-[18px] text-white/50 max-w-[520px] mt-6">
+            Real projects. Real results. No templates.
+          </p>
         </div>
       </section>
 
       {/* Projects */}
       <section className="bg-primary-bg pb-20 md:pb-28 px-6">
         <div className="max-w-[1360px] mx-auto">
-          <div className="space-y-8">
+          <div className="space-y-[120px]">
             {workProjects.map((project, i) => (
-              <div key={i} ref={useReveal(i * 100)} className="rounded-2xl overflow-hidden glass-card hover:border-lime/20 hover:translate-y-[-2px] transition-all duration-300">
-                <div className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className={`md:w-[60%] bg-surface h-[280px] md:h-[360px] relative overflow-hidden ${i % 2 === 0 ? '' : 'md:w-[40%]'}`}>
-                    {project.slug === 'toolmatic' && <ToolmaticVisual height={360} />}
-                    {project.slug === 'pdfmaster' && <PDFMasterVisual height={360} />}
-                    {project.slug === 'cantt-dental-care' && <CanttDentalVisual height={360} />}
-                    {project.slug === 'al-raheem-engineering' && <AlRaheemEngineeringVisual height={360} />}
-                    {!project.slug && (
-                      <>
-                        <span className="font-sans font-black text-white/4 absolute text-[200px] z-10">{project.num}</span>
-                        <div className="w-full h-full bg-gradient-to-br from-primary-brand to-surface flex items-center justify-center">
-                          {i % 4 === 0 && (
-                            <svg width="120" height="120" viewBox="0 0 120 120">
-                              <circle cx="60" cy="60" r="50" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                              <circle cx="60" cy="60" r="30" fill="#D4F53C" opacity="0.2"/>
-                              <circle cx="60" cy="60" r="10" fill="#D4F53C"/>
-                            </svg>
-                          )}
-                          {i % 4 === 1 && (
-                            <svg width="120" height="120" viewBox="0 0 120 120">
-                              <rect x="20" y="20" width="80" height="80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                              <rect x="35" y="35" width="50" height="50" fill="#D4F53C" opacity="0.2"/>
-                              <rect x="50" y="50" width="20" height="20" fill="#D4F53C"/>
-                            </svg>
-                          )}
-                          {i % 4 === 2 && (
-                            <svg width="120" height="120" viewBox="0 0 120 120">
-                              <polygon points="60,20 100,80 20,80" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                              <polygon points="60,40 80,70 40,70" fill="#D4F53C" opacity="0.2"/>
-                              <polygon points="60,55 70,65 50,65" fill="#D4F53C"/>
-                            </svg>
-                          )}
-                          {i % 4 === 3 && (
-                            <svg width="120" height="120" viewBox="0 0 120 120">
-                              <path d="M20,60 Q40,20 60,60 T100,60" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.3"/>
-                              <path d="M30,60 Q50,30 60,60 T90,60" fill="none" stroke="#D4F53C" strokeWidth="2" opacity="0.5"/>
-                              <circle cx="60" cy="60" r="8" fill="#D4F53C"/>
-                            </svg>
-                          )}
-                        </div>
-                      </>
-                    )}
+              <div key={i} ref={useReveal(i * 100)} className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-12 hover:-translate-y-6 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300">
+                <div className="flex flex-col gap-12">
+                  {/* Image - Full width */}
+                  <div className="w-full">
+                    {project.slug === 'toolmatic' && <ProjectImage src="/images/toolmatic.png" alt="Toolmatic" priority={i === 0} />}
+                    {project.slug === 'pdfmaster' && <ProjectImage src="/images/pdfmaster.png" alt="PDFMaster" />}
+                    {project.slug === 'cantt-dental-care' && <ProjectImage src="/images/cantt-dental-care.png" alt="Cantt Dental Care" />}
+                    {project.slug === 'al-raheem-engineering' && <ProjectImage src="/images/al-raheem-engineering.png" alt="Al Raheem Engineering" />}
                   </div>
-                  <div className={`md:w-[40%] p-8 md:p-12 flex flex-col justify-center ${i % 2 === 0 ? '' : 'md:w-[60%]'}`}>
-                    <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-3">{project.industry}</p>
-                    <h3 className="font-sans font-bold text-[22px] md:text-[28px] text-white mb-3">{project.name}</h3>
-                    <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.7] mb-6 max-w-[340px]">
+
+                  {/* Content - Full width */}
+                  <div className="w-full flex flex-col justify-center">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+                      <div>
+                        <p className="font-sans text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-3">{project.industry}</p>
+                        <h3 className="font-sans font-bold text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1]">
+                          {project.shortName}
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        {project.link && (
+                          <a 
+                            href={project.link} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="px-6 py-3 bg-lime text-black font-sans font-bold text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors hover:translate-x-1"
+                          >
+                            View Live →
+                          </a>
+                        )}
+                        {project.slug && (
+                          <Link 
+                            href={`/work/${project.slug}`} 
+                            className="px-6 py-3 border border-white/20 text-white font-sans font-medium text-[14px] uppercase tracking-wider rounded hover:border-lime/50 hover:text-lime transition-colors hover:translate-x-1"
+                          >
+                            Case Study
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+
+                    <p className="font-sans text-[16px] text-white/50 leading-[1.6] mb-8">
                       {project.outcome}
                     </p>
-                    <p className="font-sans font-bold text-[40px] md:text-[48px] text-lime">{project.result}</p>
-                    <p className="font-sans text-[12px] md:text-[13px] text-white/40 mt-1">{project.resultLabel}</p>
-                    <div className="flex items-center gap-3 mt-6">
-                      {project.slug ? (
-                        <Link href={`/work/${project.slug}`} className="font-sans text-lime hover:gap-2 inline-flex items-center gap-1 transition-all">
-                          View case study →
-                        </Link>
-                      ) : (
-                        <Link href="/contact" className="font-sans text-lime hover:gap-2 inline-flex items-center gap-1 transition-all">
-                          View case study →
-                        </Link>
-                      )}
-                      {project.link && (
-                        <>
-                          <span className="text-white/20">|</span>
-                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="font-sans text-lime hover:gap-2 inline-flex items-center gap-1 transition-all">
-                            View live →
-                          </a>
-                        </>
-                      )}
+
+                    {/* Metadata */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                      <div>
+                        <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Industry</p>
+                        <p className="font-sans text-[15px] text-white">{project.industry}</p>
+                      </div>
+                      <div>
+                        <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Year</p>
+                        <p className="font-sans text-[15px] text-white">2024</p>
+                      </div>
+                      <div>
+                        <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Services</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">UI/UX</span>
+                          <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Frontend</span>
+                          <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Backend</span>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Stack</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Next.js</span>
+                          <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">TypeScript</span>
+                          <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Tailwind</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -117,24 +117,21 @@ export default function Work() {
           </div>
 
           {/* CTA Card */}
-          <div ref={useReveal(600)} className="glass-card rounded-2xl p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-6 mt-8 md:mt-10 mb-12 md:mb-16">
-            <div>
-              <h3 className="font-sans font-bold text-[22px] md:text-[26px] text-text-primary">Have a project?</h3>
-              <p className="font-sans text-[15px] md:text-[16px] text-text-secondary mt-1">Let's see if we're the right fit.</p>
-            </div>
-            <Link href="/contact"
-              className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-6 md:px-7 py-3.5 md:py-4 rounded-full scale-[1.02] transition-all duration-200 whitespace-nowrap min-h-[48px]"
-              style={{
-                background: '#D4F53C',
-                border: '1px solid #D4F53C',
-                color: '#060B18',
-                boxShadow: '0 4px 24px rgba(212,245,60,0.25)'
-              }}>
-              Start a project →
+          <div ref={useReveal(400)} className="mt-16 rounded-[28px] bg-[#0B1020] border border-white/6 p-12 md:p-16 text-center">
+            <h2 className="font-sans font-bold text-[40px] md:text-[48px] text-white tracking-[-0.02em] mb-4">
+              Want to work together?
+            </h2>
+            <p className="font-sans text-[18px] text-white/50 mb-8 max-w-[520px] mx-auto">
+              We're always looking for interesting projects. Let's build something great.
+            </p>
+            <Link href="/contact">
+              <button className="px-8 py-4 bg-lime text-black font-sans font-bold text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors">
+                Get in touch
+              </button>
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }

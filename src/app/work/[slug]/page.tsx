@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getProject, projects } from '@/lib/projects'
 import { RevealWrapper } from '@/components/ui/RevealWrapper'
 import { Button } from '@/components/ui/Button'
+import { ProjectImage } from '@/components/ProjectImage'
 import type { Metadata } from 'next'
 
 export async function generateStaticParams() {
@@ -96,78 +97,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <section className="px-6 pb-16">
         <div className="max-w-[1000px] mx-auto">
           <RevealWrapper delay={500}>
-            <div className="rounded-2xl bg-surface border border-line-dark p-8 md:p-12">
-              <div className="flex flex-col items-center justify-center text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-glow border border-lime/20 mb-8">
-                  <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
-                  <p className="font-inter text-xs font-semibold uppercase tracking-widest text-lime">
-                    {project.slug === 'cantt-dental-care' && 'Healthcare / Local SEO'}
-                    {project.slug === 'pdfmaster' && 'PDF Tools / Web Development'}
-                    {project.slug === 'toolmatic' && 'AI Tools / Web Development'}
-                    {project.slug === 'al-raheem-engineering' && 'Manufacturing / Machinery'}
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-4 mb-4">
-                  {project.slug === 'cantt-dental-care' && (
-                    <span className="font-sora font-bold text-6xl md:text-7xl text-lime leading-none tracking-tight">
-                      #1
-                    </span>
-                  )}
-                  {project.slug === 'pdfmaster' && (
-                    <span className="font-sora font-bold text-6xl md:text-7xl text-lime leading-none tracking-tight">
-                      50+
-                    </span>
-                  )}
-                  {project.slug === 'toolmatic' && (
-                    <>
-                      <span className="font-sora font-bold text-4xl md:text-5xl text-lime leading-none tracking-tight">
-                        Live
-                      </span>
-                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    </>
-                  )}
-                  {project.slug === 'al-raheem-engineering' && (
-                    <>
-                      <span className="font-sora font-bold text-4xl md:text-5xl text-lime leading-none tracking-tight">
-                        Live
-                      </span>
-                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    </>
-                  )}
-                </div>
-
-                <p className="font-inter text-lg font-medium mb-10 text-text-primary">
-                  {project.slug === 'cantt-dental-care' && 'Local Google Ranking'}
-                  {project.slug === 'pdfmaster' && 'Tools Built & Deployed'}
-                  {project.slug === 'toolmatic' && 'Platform in Production'}
-                  {project.slug === 'al-raheem-engineering' && 'Professional Website'}
-                </p>
-
-                <div className="flex flex-wrap justify-center gap-3">
-                  {project.slug === 'cantt-dental-care' && ['90 Days', '20+ Reviews', '98 PageSpeed'].map((stat) => (
-                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
-                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
-                    </div>
-                  ))}
-                  {project.slug === 'pdfmaster' && ['0 Sign-ups', 'Client-side', 'Sub-3s Load'].map((stat) => (
-                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
-                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
-                    </div>
-                  ))}
-                  {project.slug === 'toolmatic' && ['Next.js 14', 'Vercel Edge', 'SEO-Optimized'].map((stat) => (
-                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
-                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
-                    </div>
-                  ))}
-                  {project.slug === 'al-raheem-engineering' && ['Corporate', 'Portfolio', 'SEO'].map((stat) => (
-                    <div key={stat} className="px-4 py-2 rounded-lg bg-glass-surface border border-glass-border">
-                      <span className="font-inter text-sm font-medium text-text-primary">{stat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ProjectImage src={project.heroImage} alt={project.title} className="w-full" />
           </RevealWrapper>
         </div>
       </section>
