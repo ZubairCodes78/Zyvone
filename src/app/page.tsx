@@ -66,56 +66,56 @@ export default function Home() {
 
           <div className="space-y-[120px]">
             {/* Toolmatic */}
-            <div ref={useReveal(100)} className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-12 hover:-translate-y-6 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300">
-              <div className="flex flex-col gap-12">
+            <div ref={useReveal(100)} className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-6 md:p-12 hover:-translate-y-6 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300">
+              <div className="flex flex-col gap-8 md:gap-12">
                 <div className="w-full">
                   <ProjectImage src="/images/toolmatic.png" alt="Toolmatic" priority />
                 </div>
                 <div className="w-full flex flex-col justify-center">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6 mb-6">
                     <div>
-                      <p className="font-sans text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-3">AI Tools Platform</p>
-                      <h3 className="font-sans font-bold text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1]">
+                      <p className="font-sans text-[11px] md:text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-2 md:mb-3">AI Tools Platform</p>
+                      <h3 className="font-sans font-bold text-[28px] md:text-[36px] lg:text-[48px] text-white tracking-[-0.02em] leading-[1.1]">
                         Toolmatic
                       </h3>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <a href="https://toolmatic.site" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-lime text-black font-sans font-bold text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors hover:translate-x-1">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <a href="https://toolmatic.site" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 md:px-6 md:py-3 bg-lime text-black font-sans font-bold text-[13px] md:text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors hover:translate-x-1">
                         View Live →
                       </a>
-                      <Link href="/work/toolmatic" className="px-6 py-3 border border-white/20 text-white font-sans font-medium text-[14px] uppercase tracking-wider rounded hover:border-lime/50 hover:text-lime transition-colors hover:translate-x-1">
+                      <Link href="/work/toolmatic" className="px-5 py-2.5 md:px-6 md:py-3 border border-white/20 text-white font-sans font-medium text-[13px] md:text-[14px] uppercase tracking-wider rounded hover:border-lime/50 hover:text-lime transition-colors hover:translate-x-1">
                         Case Study
                       </Link>
                     </div>
                   </div>
 
-                  <p className="font-sans text-[16px] text-white/50 leading-[1.6] mb-8">
+                  <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.6] mb-6 md:mb-8">
                     A modern AI tools discovery platform designed to help users explore, compare, and access the best AI applications through a fast, premium experience.
                   </p>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Industry</p>
-                      <p className="font-sans text-[15px] text-white">AI Tools Platform</p>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Industry</p>
+                      <p className="font-sans text-[14px] md:text-[15px] text-white">AI Tools Platform</p>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Year</p>
-                      <p className="font-sans text-[15px] text-white">2024</p>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Year</p>
+                      <p className="font-sans text-[14px] md:text-[15px] text-white">2024</p>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Services</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">UI/UX</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Frontend</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Backend</span>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Services</p>
+                      <div className="flex flex-wrap gap-1 md:gap-1.5">
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">UI/UX</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Frontend</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Backend</span>
                       </div>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Stack</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Next.js</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">TypeScript</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Tailwind</span>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Stack</p>
+                      <div className="flex flex-wrap gap-1 md:gap-1.5">
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Next.js</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">TypeScript</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Tailwind</span>
                       </div>
                     </div>
                   </div>
@@ -124,56 +124,56 @@ export default function Home() {
             </div>
 
             {/* PDFMaster */}
-            <div ref={useReveal(200)} className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-12 hover:-translate-y-6 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300">
-              <div className="flex flex-col gap-12">
+            <div ref={useReveal(200)} className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-6 md:p-12 hover:-translate-y-6 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300">
+              <div className="flex flex-col gap-8 md:gap-12">
                 <div className="w-full">
                   <ProjectImage src="/images/pdfmaster.png" alt="PDFMaster" />
                 </div>
                 <div className="w-full flex flex-col justify-center">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6 mb-6">
                     <div>
-                      <p className="font-sans text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-3">PDF & Document Suite</p>
-                      <h3 className="font-sans font-bold text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1]">
+                      <p className="font-sans text-[11px] md:text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-2 md:mb-3">PDF & Document Suite</p>
+                      <h3 className="font-sans font-bold text-[28px] md:text-[36px] lg:text-[48px] text-white tracking-[-0.02em] leading-[1.1]">
                         PDFMaster
                       </h3>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <a href="https://pdfmaster.site" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-lime text-black font-sans font-bold text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors hover:translate-x-1">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <a href="https://pdfmaster.site" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 md:px-6 md:py-3 bg-lime text-black font-sans font-bold text-[13px] md:text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors hover:translate-x-1">
                         View Live →
                       </a>
-                      <Link href="/work/pdfmaster" className="px-6 py-3 border border-white/20 text-white font-sans font-medium text-[14px] uppercase tracking-wider rounded hover:border-lime/50 hover:text-lime transition-colors hover:translate-x-1">
+                      <Link href="/work/pdfmaster" className="px-5 py-2.5 md:px-6 md:py-3 border border-white/20 text-white font-sans font-medium text-[13px] md:text-[14px] uppercase tracking-wider rounded hover:border-lime/50 hover:text-lime transition-colors hover:translate-x-1">
                         Case Study
                       </Link>
                     </div>
                   </div>
 
-                  <p className="font-sans text-[16px] text-white/50 leading-[1.6] mb-8">
+                  <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.6] mb-6 md:mb-8">
                     A complete PDF toolkit featuring merge, split, compress, convert, and editing tools with a modern SaaS experience.
                   </p>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Industry</p>
-                      <p className="font-sans text-[15px] text-white">PDF & Document Tools</p>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Industry</p>
+                      <p className="font-sans text-[14px] md:text-[15px] text-white">PDF & Document Tools</p>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Year</p>
-                      <p className="font-sans text-[15px] text-white">2024</p>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Year</p>
+                      <p className="font-sans text-[14px] md:text-[15px] text-white">2024</p>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Services</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">UI/UX</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Frontend</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Backend</span>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Services</p>
+                      <div className="flex flex-wrap gap-1 md:gap-1.5">
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">UI/UX</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Frontend</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Backend</span>
                       </div>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Stack</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Next.js</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">TypeScript</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Tailwind</span>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Stack</p>
+                      <div className="flex flex-wrap gap-1 md:gap-1.5">
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Next.js</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">TypeScript</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Tailwind</span>
                       </div>
                     </div>
                   </div>
@@ -182,56 +182,56 @@ export default function Home() {
             </div>
 
             {/* Cantt Dental Care */}
-            <div ref={useReveal(300)} className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-12 hover:-translate-y-6 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300">
-              <div className="flex flex-col gap-12">
+            <div ref={useReveal(300)} className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-6 md:p-12 hover:-translate-y-6 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300">
+              <div className="flex flex-col gap-8 md:gap-12">
                 <div className="w-full">
                   <ProjectImage src="/images/cantt-dental-care.png" alt="Cantt Dental Care" />
                 </div>
                 <div className="w-full flex flex-col justify-center">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6 mb-6">
                     <div>
-                      <p className="font-sans text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-3">Healthcare Website</p>
-                      <h3 className="font-sans font-bold text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1]">
+                      <p className="font-sans text-[11px] md:text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-2 md:mb-3">Healthcare Website</p>
+                      <h3 className="font-sans font-bold text-[28px] md:text-[36px] lg:text-[48px] text-white tracking-[-0.02em] leading-[1.1]">
                         Cantt Dental Care
                       </h3>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <a href="https://canttdentalcare.com" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-lime text-black font-sans font-bold text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors hover:translate-x-1">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <a href="https://canttdentalcare.com" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 md:px-6 md:py-3 bg-lime text-black font-sans font-bold text-[13px] md:text-[14px] uppercase tracking-wider rounded hover:bg-lime/90 transition-colors hover:translate-x-1">
                         View Live →
                       </a>
-                      <Link href="/work/cantt-dental-care" className="px-6 py-3 border border-white/20 text-white font-sans font-medium text-[14px] uppercase tracking-wider rounded hover:border-lime/50 hover:text-lime transition-colors hover:translate-x-1">
+                      <Link href="/work/cantt-dental-care" className="px-5 py-2.5 md:px-6 md:py-3 border border-white/20 text-white font-sans font-medium text-[13px] md:text-[14px] uppercase tracking-wider rounded hover:border-lime/50 hover:text-lime transition-colors hover:translate-x-1">
                         Case Study
                       </Link>
                     </div>
                   </div>
 
-                  <p className="font-sans text-[16px] text-white/50 leading-[1.6] mb-8">
+                  <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.6] mb-6 md:mb-8">
                     A premium dental clinic website focused on appointment booking, patient trust, and local SEO with a clean healthcare experience.
                   </p>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Industry</p>
-                      <p className="font-sans text-[15px] text-white">Healthcare</p>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Industry</p>
+                      <p className="font-sans text-[14px] md:text-[15px] text-white">Healthcare</p>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Year</p>
-                      <p className="font-sans text-[15px] text-white">2024</p>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Year</p>
+                      <p className="font-sans text-[14px] md:text-[15px] text-white">2024</p>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Services</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">UI/UX</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Frontend</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Local SEO</span>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Services</p>
+                      <div className="flex flex-wrap gap-1 md:gap-1.5">
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">UI/UX</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Frontend</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Local SEO</span>
                       </div>
                     </div>
                     <div>
-                      <p className="font-sans text-[11px] font-medium text-white/30 uppercase tracking-wider mb-2">Stack</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Next.js</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">TypeScript</span>
-                        <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[12px] text-white/70">Tailwind</span>
+                      <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Stack</p>
+                      <div className="flex flex-wrap gap-1 md:gap-1.5">
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Next.js</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">TypeScript</span>
+                        <span className="px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">Tailwind</span>
                       </div>
                     </div>
                   </div>
