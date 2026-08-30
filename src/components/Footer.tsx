@@ -79,7 +79,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="max-w-[1360px] mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="max-w-[1360px] mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 bg-primary-bg">
         <p className="text-white/20 text-[13px]">© 2025 ZYVONE. All rights reserved.</p>
         <p className="text-white/20 text-[13px]">Built by ZYVONE</p>
       </div>

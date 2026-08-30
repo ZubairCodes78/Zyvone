@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 }
 
 export default function StoryPage() {
-  const dark    = '#060B18'
-  const navy    = '#0D1B4B'
-  const signal  = '#D4F53C'
-  const white   = '#FFFFFF'
-  const fog     = 'rgba(255,255,255,0.50)'
-  const lineDark = 'rgba(255,255,255,0.07)'
+  const bg        = '#05070A'
+  const lightBg   = '#0B1020'
+  const primary   = '#D4F53C'
+  const secondary = '#D4F53C'
+  const textDark  = '#FFFFFF'
+  const textMuted = 'rgba(255, 255, 255, 0.55)'
+  const border    = 'rgba(255, 255, 255, 0.08)'
 
   const chapters = [
     {
@@ -49,35 +50,36 @@ export default function StoryPage() {
   ]
 
   return (
-    <main style={{ background: dark, minHeight: '100vh' }}>
+    <main style={{ background: bg, minHeight: '100vh' }}>
 
       {/* Hero */}
       <section style={{
-        background:`linear-gradient(180deg, ${navy} 0%, ${dark} 100%)`,
-        paddingTop:'120px', paddingBottom:'60px',
+        background: `radial-gradient(ellipse at 50% 0%, rgba(212,245,60,0.06) 0%, ${bg} 75%)`,
+        paddingTop:'140px', paddingBottom:'60px',
         position:'relative', overflow:'hidden',
       }}>
         <div style={{
           position:'absolute', inset:0, pointerEvents:'none',
-          backgroundImage:`linear-gradient(${lineDark} 1px,transparent 1px),linear-gradient(90deg,${lineDark} 1px,transparent 1px)`,
+          backgroundImage:`linear-gradient(${border} 1px,transparent 1px),linear-gradient(90deg,${border} 1px,transparent 1px)`,
           backgroundSize:'60px 60px',
+          opacity: 0.2,
         }}/>
         <div style={{ maxWidth:'760px', margin:'0 auto', padding:'0 24px', position:'relative', zIndex:1 }}>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:signal,letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:'20px' }}>
+          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:primary,letterSpacing:'0.14em',textTransform:'uppercase',marginBottom:'20px' }}>
             Our Story
           </p>
           <h1 style={{
             fontFamily:'var(--font-space)',fontWeight:'700',
             fontSize:'clamp(40px,6vw,72px)',lineHeight:'1.05',
-            letterSpacing:'-0.03em',color:white,marginBottom:'24px',
+            letterSpacing:'-0.03em',color:textDark,marginBottom:'24px',
           }}>
             From college friends<br />
             to{' '}
-            <span style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',color:signal }}>
+            <span style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',color:primary }}>
               digital company.
             </span>
           </h1>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'18px',color:fog,lineHeight:'1.75' }}>
+          <p style={{ fontFamily:'var(--font-space)',fontSize:'18px',color:textMuted,lineHeight:'1.75' }}>
             The real story — no success theater, no manufactured origin myth. Just what actually happened.
           </p>
         </div>
@@ -89,8 +91,8 @@ export default function StoryPage() {
           {/* Vertical line */}
           <div style={{
             position:'absolute', left:'0', top:'8px', bottom:'0',
-            width:'1px', background:`linear-gradient(180deg, ${signal} 0%, transparent 100%)`,
-            opacity:0.3,
+            width:'1px', background:`linear-gradient(180deg, ${primary} 0%, ${border} 100%)`,
+            opacity:0.4,
           }}/>
 
           {chapters.map((ch, i) => (
@@ -102,18 +104,18 @@ export default function StoryPage() {
               <div style={{
                 position:'absolute', left:'-5px', top:'6px',
                 width:'11px', height:'11px', borderRadius:'50%',
-                background: i === chapters.length-1 ? signal : 'transparent',
-                border:`1.5px solid ${signal}`,
+                background: i === chapters.length-1 ? primary : bg,
+                border:`1.5px solid ${primary}`,
                 boxShadow: i === chapters.length-1 ? `0 0 12px rgba(212,245,60,0.5)` : 'none',
               }}/>
 
               {/* Year + tag */}
               <div style={{ display:'flex', alignItems:'center', gap:'8px', marginBottom:'10px', flexWrap:'wrap' }}>
-                <span style={{ fontFamily:'var(--font-space)',fontSize:'13px',fontWeight:'700',color:signal }}>{ch.year}</span>
+                <span style={{ fontFamily:'var(--font-space)',fontSize:'13px',fontWeight:'700',color:primary }}>{ch.year}</span>
                 <span style={{
-                  fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'500',
-                  color:'rgba(212,245,60,0.6)',letterSpacing:'0.08em',textTransform:'uppercase',
-                  background:'rgba(212,245,60,0.08)',border:'1px solid rgba(212,245,60,0.15)',
+                  fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',
+                  color:'rgba(255,255,255,0.7)',letterSpacing:'0.08em',textTransform:'uppercase',
+                  background:lightBg,border:`1px solid ${border}`,
                   borderRadius:'100px',padding:'2px 10px',
                 }}>
                   {ch.tag}
@@ -123,12 +125,12 @@ export default function StoryPage() {
               <h2 style={{
                 fontFamily:'var(--font-space)',fontWeight:'700',
                 fontSize:'clamp(20px,4vw,30px)',lineHeight:'1.2',
-                letterSpacing:'-0.02em',color:white,marginBottom:'12px',
+                letterSpacing:'-0.02em',color:textDark,marginBottom:'12px',
               }}>
                 {ch.title}
               </h2>
 
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'15px',color:fog,lineHeight:'1.75',margin:0 }}>
+              <p style={{ fontFamily:'var(--font-space)',fontSize:'15px',color:textMuted,lineHeight:'1.75',margin:0 }}>
                 {ch.body}
               </p>
             </div>
@@ -137,20 +139,20 @@ export default function StoryPage() {
 
         {/* Final CTA */}
         <div style={{
-          marginTop:'60px', paddingTop:'40px', borderTop:`1px solid ${lineDark}`,
+          marginTop:'60px', paddingTop:'40px', borderTop:`1px solid ${border}`,
           textAlign:'center',
         }}>
-          <p style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',fontSize:'20px',color:fog,marginBottom:'20px',lineHeight:'1.5' }}>
+          <p style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',fontSize:'20px',color:textDark,marginBottom:'20px',lineHeight:'1.5' }}>
             "The story isn't finished. This is just where we are."
           </p>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'14px',color:'rgba(255,255,255,0.25)',marginBottom:'32px' }}>— Muhammad Zubair</p>
+          <p style={{ fontFamily:'var(--font-space)',fontSize:'14px',color:textMuted,marginBottom:'32px' }}>— Muhammad Zubair</p>
           <Link href="/contact" style={{
             display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'8px',
-            background:'#D4F53C',
-            border:'1px solid #D4F53C',
+            background:primary,
+            border:`1px solid ${primary}`,
             borderRadius:'100px',padding:'12px 28px',
             fontFamily:'var(--font-space),sans-serif',fontSize:'14px',
-            fontWeight:'600',color:'#060B18',textDecoration:'none',
+            fontWeight:'700',color:'#060B18',textDecoration:'none',
             boxShadow:'0 4px 24px rgba(212,245,60,0.25)',
             minWidth:'fit-content',
           }}>

@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
-  themeColor: "#060B18",
+  themeColor: "#05070A",
   viewport: {
     width: "device-width",
     initialScale: 1,

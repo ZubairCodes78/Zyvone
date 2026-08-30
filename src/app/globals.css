@@ -4,32 +4,34 @@
   /* ── CORE BACKGROUNDS ────────────────────────────────────── */
   --color-primary-bg: #05070A;
   --color-secondary-bg: #0B1020;
-  --color-surface: #111827;
-  --color-card: #F8FAFC;
+  --color-surface: #0B1020;
+  --color-card: #0B1020;
   --color-white: #FFFFFF;
-
-  /* ── BRAND COLORS ────────────────────────────────────────── */
-  --color-primary-brand: #0D0B61;
-  --color-secondary-brand: #294669;
-  --color-support-accent: #4F8B8D;
-  --color-primary: #D4F53C;
 
   /* ── HIGHLIGHT (LIME - SIGNATURE) ─────────────────────────── */
   --color-lime: #D4F53C;
   --color-lime-dim: #B8D932;
   --color-lime-glow: rgba(212, 245, 60, 0.15);
 
+  /* ── BRAND ALIASES ───────────────────────────────────────── */
+  --color-primary-brand: #D4F53C;
+  --color-secondary-brand: #B8D932;
+  --color-support-accent: #D4F53C;
+  --color-primary: #D4F53C;
+  --color-hover-blue: #B8D932;
+  --color-light-blue: rgba(212, 245, 60, 0.08);
+
   /* ── TEXT COLORS ──────────────────────────────────────────── */
   --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
+  --color-text-secondary: rgba(248, 250, 252, 0.70);
   --color-text-muted: #64748B;
-  --color-ink: #0D0B61;
-  --color-muted: #6B7280;
+  --color-ink: #F8FAFC;
+  --color-muted: rgba(255, 255, 255, 0.50);
 
   /* ── STRUCTURAL ──────────────────────────────────────────── */
   --color-line-dark: rgba(255, 255, 255, 0.06);
   --color-line-light: rgba(255, 255, 255, 0.08);
-  --color-border: #E5E7EB;
+  --color-border: rgba(255, 255, 255, 0.08);
 
   /* ── LIQUID GLASS SYSTEM ─────────────────────────────────── */
   --color-glass-surface: rgba(255, 255, 255, 0.05);

@@ -13,12 +13,12 @@ export function Button({
   className = '', 
   ...props 
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200'
+  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer'
   
   const variantStyles = {
-    primary: 'bg-primary text-ink hover:bg-primary/90 shadow-primary',
-    secondary: 'bg-card border border-border text-ink hover:border-primary/30 hover:shadow-card-hover',
-    ghost: 'text-muted hover:text-ink hover:bg-card',
+    primary: 'bg-lime text-black hover:bg-lime/90 shadow-[0_4px_24px_rgba(212,245,60,0.25)] font-bold',
+    secondary: 'border border-white/10 text-white/70 hover:text-white hover:border-white/20 bg-white/5',
+    ghost: 'text-white/50 hover:text-white hover:bg-white/5',
   }
   
   const sizeStyles = {

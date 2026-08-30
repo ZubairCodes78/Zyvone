@@ -87,8 +87,8 @@ export default function Navbar() {
             style={{
               // ── LIQUID GLASS MATERIAL ──────────────────────
               background: scrolled
-                ? 'rgba(13, 11, 97, 0.50)'       // Premium brand glass when scrolled
-                : 'transparent',                  // Transparent at top
+                ? 'rgba(6, 11, 24, 0.75)'       // Deep glass tint when floating
+                : 'transparent',                // Transparent at top
               backdropFilter: scrolled
                 ? 'blur(28px) saturate(180%)'
                 : 'none',
@@ -96,14 +96,14 @@ export default function Navbar() {
                 ? 'blur(28px) saturate(180%)'
                 : 'none',
               border: scrolled
-                ? '1px solid rgba(255,255,255,0.10)'
+                ? '1px solid rgba(255, 255, 255, 0.08)'
                 : 'none',
               borderBottom: scrolled
                 ? undefined
-                : '1px solid rgba(255,255,255,0.04)',
+                : '1px solid rgba(255, 255, 255, 0.04)',
               borderRadius: scrolled ? '100px' : '0',   // Full pill radius when floating
               boxShadow: scrolled
-                ? '0 8px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 0.5px rgba(212,245,60,0.12)'
+                ? '0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.04)'
                 : 'none',
               padding: scrolled ? '0 28px' : '0 40px',
               transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1)',

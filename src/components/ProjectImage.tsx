@@ -16,7 +16,7 @@ export function ProjectImage({ src, alt, className = '', priority = false }: Pro
   return (
     <div 
       ref={containerRef}
-      className={`relative w-full bg-gradient-to-b from-[#10192d] to-[#0a0f1d] overflow-hidden group ${className}`}
+      className={`relative w-full bg-gradient-to-b from-[#10192d] to-[#0a0f1d] rounded-2xl overflow-hidden group ${className}`}
     >
       <Image
         src={src}

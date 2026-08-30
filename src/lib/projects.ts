@@ -1,30 +1,97 @@
 export interface Project {
-  slug:        string
-  id:          string
-  industry:    string
-  title:       string
-  shortTitle:  string
-  tag:         string
-  result:      string
-  resultLabel: string
-  link:        string | null
-  overview:    string
-  problem:     string
-  approach:    string
-  execution:   string[]
-  outcome:     string
-  reflection:  string
-  heroImage:   string
-  gallery:     string[]
-  beforeImage: string | null
-  afterImage:  string | null
-  architecture: string | null
+  slug:         string
+  id:           string
+  industry:     string
+  title:        string
+  shortTitle:   string
+  tag:          string
+  result:       string
+  resultLabel:  string
+  link:         string | null
+  overview:     string
+  problem:      string
+  approach:     string
+  execution:    string[]
+  outcome:      string
+  reflection:   string
+  heroImage:    string
+  gallery?:     string[]
+  beforeImage?: string | null
+  afterImage?:  string | null
+  architecture?: string | null
+  year?:        string
+  services?:    string[]
+  stack?:       string[]
 }
 
 export const projects: Project[] = [
   {
-    slug:        'toolmatic',
+    slug:        'wearomnia',
     id:          '01',
+    industry:    'Fashion & Apparel',
+    title:       'WearOmnia — Modest Fashion E-Commerce Brand',
+    shortTitle:  'WearOmnia',
+    tag:         'Fashion E-commerce',
+    result:      'Live',
+    resultLabel: 'E-commerce Store',
+    link:        'https://wearomnia.com/',
+    overview:    'An e-commerce experience for a modern modest-fashion brand, designed around elegant product discovery, collections, shopping flows and a refined customer journey.',
+    problem:     'WearOmnia began with an intimate community following on social media. As demand grew across Pakistan, managing customer inquiries, order confirmations, and collection showcases through direct messages created operational friction and lacked the elevated brand polish expected of luxury modest fashion.',
+    approach:    'We designed and built a bespoke direct-to-consumer digital storefront that mirrors the poise and craftsmanship of the garments. The experience prioritizes tactile visual presentation, seamless collection browsing, friction-free guest checkout with Cash on Delivery (COD), and integrated WhatsApp customer support for rapid sizing consultations.',
+    execution: [
+      'Designed an editorial, high-fashion visual identity with refined typography and neutral palettes',
+      'Built a frictionless shopping experience featuring instant catalog browsing and product discovery',
+      'Implemented seamless guest checkout with Cash on Delivery (COD) tailored for nationwide Pakistani logistics',
+      'Integrated direct WhatsApp customer support for real-time sizing assistance and order inquiries',
+      'Engineered a mobile-first responsive architecture ensuring sub-second page transitions and crisp imagery',
+      'Structured transparent customer policies for 7-day exchanges, shipping timelines, and order tracking',
+    ],
+    outcome:     'WearOmnia successfully transitioned from an Instagram-based boutique to a full-fledged independent e-commerce brand. Customers across Pakistan now experience an effortless shopping flow, from collection discovery to doorstep delivery.',
+    reflection:  'In modest fashion, trust is built through elegance and clarity. When the digital storefront honors the quality of the fabric and makes purchasing frictionless, the brand naturally commands the premium respect it deserves.',
+    heroImage:   '/images/wearomnia.png',
+    gallery:     [],
+    beforeImage: null,
+    afterImage:  null,
+    architecture: null,
+    year:        '2025',
+    services:    ['UI/UX', 'Web Development', 'E-commerce'],
+    stack:       ['Next.js', 'TypeScript', 'Tailwind'],
+  },
+  {
+    slug:        'amin-raisat-hosiery',
+    id:          '02',
+    industry:    'Fashion / Hosiery',
+    title:       'Amin Raisat Hosiery — Pure Cotton D2C E-Commerce Store',
+    shortTitle:  'Amin Raisat Hosiery',
+    tag:         'E-commerce Store',
+    result:      'Live',
+    resultLabel: 'D2C Platform',
+    link:        'https://aminhosiery.com/',
+    overview:    'A modern direct-to-customer e-commerce store for pure cotton hosiery, built around product variants, easy ordering, COD, WhatsApp support and wholesale purchasing.',
+    problem:     'As an established Faisalabad manufacturer of 100% fine combed cotton vests and innerwear, Amin Raisat Hosiery relied heavily on traditional offline distribution. To capture direct-to-consumer demand across Pakistan, they needed a digital store that made sizing selection, quality comparison, and ordering effortless.',
+    approach:    'We developed a high-performance e-commerce platform that highlights fabric authenticity and craftsmanship. The store provides clear quality tier comparisons (Standard vs. High Quality taped seams), bundle offers (Free Delivery on 3+ pieces), multi-variant size selection, instant WhatsApp ordering, and a dedicated wholesale quotation portal for B2B buyers.',
+    execution: [
+      'Built a high-performance Next.js e-commerce store with seamless dark and light mode support',
+      'Architected intuitive product variant selectors for sizes, colors, and quality grades',
+      'Implemented automated multi-piece bundle incentives with Cash on Delivery (COD) across Pakistan',
+      'Engineered direct WhatsApp order placement for shoppers preferring conversational commerce',
+      'Created a dedicated B2B wholesale portal for bulk inquiries and commercial trade quotations',
+      'Optimized Core Web Vitals and image delivery for fast mobile loading across all network conditions',
+    ],
+    outcome:     'Amin Raisat Hosiery established a thriving nationwide D2C channel alongside their industrial trade presence. Customers throughout Pakistan can conveniently order genuine combed cotton innerwear directly from the manufacturer with complete confidence.',
+    reflection:  'For heritage manufacturers going D2C, clarity beats complexity every time. Transparent quality comparisons, straightforward sizing, and localized payment options like COD make direct ordering a natural choice for shoppers.',
+    heroImage:   '/images/amin-raisat-hosiery.png',
+    gallery:     [],
+    beforeImage: null,
+    afterImage:  null,
+    architecture: null,
+    year:        '2025',
+    services:    ['UI/UX', 'Web Development', 'E-commerce'],
+    stack:       ['Next.js', 'TypeScript', 'Tailwind'],
+  },
+  {
+    slug:        'toolmatic',
+    id:          '03',
     industry:    'AI Tools Platform',
     title:       'Toolmatic — Free Online AI Tools Platform',
     shortTitle:  'Toolmatic',
@@ -49,10 +116,13 @@ export const projects: Project[] = [
     beforeImage: null,
     afterImage:  null,
     architecture: '/projects/toolmatic-architecture.jpg',
+    year:        '2024',
+    services:    ['UI/UX', 'Frontend', 'Backend'],
+    stack:       ['Next.js', 'TypeScript', 'Tailwind'],
   },
   {
     slug:        'pdfmaster',
-    id:          '02',
+    id:          '04',
     industry:    'PDF & Document Tools',
     title:       'PDFMaster — Document Processing Platform',
     shortTitle:  'PDFMaster',
@@ -77,10 +147,13 @@ export const projects: Project[] = [
     beforeImage: null,
     afterImage:  null,
     architecture: '/projects/pdfmaster-architecture.jpg',
+    year:        '2024',
+    services:    ['UI/UX', 'Frontend', 'Backend'],
+    stack:       ['Next.js', 'TypeScript', 'Tailwind'],
   },
   {
     slug:        'cantt-dental-care',
-    id:          '03',
+    id:          '05',
     industry:    'Healthcare',
     title:       'Cantt Dental Care — Clinic Digital Presence',
     shortTitle:  'Cantt Dental Care',
@@ -106,10 +179,13 @@ export const projects: Project[] = [
     beforeImage: '/projects/cantt-dental-care-before.jpg',
     afterImage:  '/projects/cantt-dental-care-after.jpg',
     architecture: '/projects/cantt-dental-care-architecture.jpg',
+    year:        '2024',
+    services:    ['UI/UX', 'Frontend', 'Local SEO'],
+    stack:       ['Next.js', 'TypeScript', 'Tailwind'],
   },
   {
     slug:        'al-raheem-engineering',
-    id:          '04',
+    id:          '06',
     industry:    'Manufacturing & Machinery',
     title:       'Al Raheem Engineering — Packing Machine Manufacturer',
     shortTitle:  'Al Raheem Engineering',
@@ -135,6 +211,9 @@ export const projects: Project[] = [
     beforeImage: null,
     afterImage:  null,
     architecture: '/projects/al-raheem-engineering-architecture.jpg',
+    year:        '2024',
+    services:    ['UI/UX', 'Web Development', 'B2B Catalog'],
+    stack:       ['Next.js', 'TypeScript', 'Tailwind'],
   },
 ]
 
