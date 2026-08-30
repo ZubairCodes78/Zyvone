@@ -1,54 +1,63 @@
 @import "tailwindcss";
 
-@theme inline {
-  /* ── CORE BACKGROUNDS ────────────────────────────────────── */
-  --color-primary-bg: #05070A;
-  --color-secondary-bg: #0B1020;
-  --color-surface: #0B1020;
-  --color-card: #0B1020;
-  --color-white: #FFFFFF;
+:root {
+  --bg: #0a0a0a;
+  --bg-surface: #161616;
+  --bg-elevated: #161616;
+  --bg-overlay: rgba(10, 10, 10, 0.75);
 
-  /* ── HIGHLIGHT (LIME - SIGNATURE) ─────────────────────────── */
-  --color-lime: #D4F53C;
-  --color-lime-dim: #B8D932;
-  --color-lime-glow: rgba(212, 245, 60, 0.15);
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --border-subtle: rgba(255, 255, 255, 0.06);
 
-  /* ── BRAND ALIASES ───────────────────────────────────────── */
-  --color-primary-brand: #D4F53C;
-  --color-secondary-brand: #B8D932;
-  --color-support-accent: #D4F53C;
-  --color-primary: #D4F53C;
-  --color-hover-blue: #B8D932;
-  --color-light-blue: rgba(212, 245, 60, 0.08);
+  --text-primary: #f2f1ec;
+  --text-secondary: #9a9a9a;
+  --text-tertiary: #6b6b6b;
+  --text-disabled: #444444;
 
-  /* ── TEXT COLORS ──────────────────────────────────────────── */
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: rgba(248, 250, 252, 0.70);
-  --color-text-muted: #64748B;
-  --color-ink: #F8FAFC;
-  --color-muted: rgba(255, 255, 255, 0.50);
+  --accent: #c8ed35;
+  --accent-hover: #d5ff5b;
+  --accent-shadow: rgba(200, 237, 53, 0.15);
 
-  /* ── STRUCTURAL ──────────────────────────────────────────── */
-  --color-line-dark: rgba(255, 255, 255, 0.06);
-  --color-line-light: rgba(255, 255, 255, 0.08);
-  --color-border: rgba(255, 255, 255, 0.08);
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-newsreader), "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
 
-  /* ── LIQUID GLASS SYSTEM ─────────────────────────────────── */
-  --color-glass-surface: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.10);
-  --color-glass-hover: rgba(255, 255, 255, 0.08);
-  --color-glass-shine: rgba(255, 255, 255, 0.03);
-  --color-glass-premium: rgba(13, 11, 97, 0.40);
+  --fs-display: clamp(42px, 6.5vw, 76px);
+  --fs-h1:      clamp(32px, 4.5vw, 48px);
+  --fs-h2:      clamp(24px, 3vw, 32px);
+  --fs-h3:      clamp(18px, 2vw, 22px);
+  --fs-body:    17px;
+  --fs-body-sm: 14px;
+  --fs-meta:    12px;
+  --fs-mono:    13px;
 
-  /* ── FONTS ───────────────────────────────────────────────── */
-  --font-sans: var(--font-space);
-  --font-display: var(--font-instrument);
-  --font-sora: var(--font-space);
-  --font-inter: var(--font-space);
+  --lh-display: 1.04;
+  --lh-h1: 1.08;
+  --lh-h2: 1.2;
+  --lh-h3: 1.3;
+  --lh-body: 1.6;
 
-  /* ── FONT SIZES ──────────────────────────────────────────── */
-  --font-size-h1: clamp(36px, 5vw, 64px);
-  --font-size-body-lg: 1.125rem;
+  --tracking-eyebrow: 0.08em;
+  --tracking-tight: -0.02em;
+
+  --max-w-outer: 1280px;
+  --max-w-content: 1200px;
+  --max-w-text:    760px;
+  --max-w-hero:    840px;
+
+  --section-y-desktop: 120px;
+  --section-y-mobile:  64px;
+
+  --radius-btn: 8px;
+  --radius-card: 14px;
+  --radius-modal: 18px;
+  --radius-pill: 999px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-normal: 220ms;
+  --dur-reveal: 450ms;
 }
 
 *,
@@ -58,127 +67,288 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  background-color: var(--bg);
 }
 
 body {
-  font-family: var(--font-space), sans-serif;
-  background: #05070A;
-  color: #F8FAFC;
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: #D4F53C;
-  color: #05070A;
+  background: var(--accent);
+  color: #0a0a0a;
 }
 
-/* ── PAGE TRANSITIONS ─────────────────────────────────────── */
-@keyframes fadeIn {
+:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 10px var(--accent-shadow) !important;
+}
+
+/* ── SIGNATURE DISPLAY ACCENT (WEIGHT 600 SEMIBOLD) ─────────── */
+.font-display-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent) !important;
+  letter-spacing: -0.015em;
+  display: inline-block;
+}
+
+/* ── GLOBAL RULE: ACCENT TEXT ENFORCES 600 SEMIBOLD ─────────── */
+.text-accent,
+.text-lime,
+[data-accent-text],
+.accent-text {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+
+/* ── TYPOGRAPHY UTILITIES ───────────────────────────────────── */
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.eyebrow-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.eyebrow-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* ── BUTTONS ────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--accent);
+  color: #0a0a0a;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  /* Prevent label wrapping at any width */
+  white-space: nowrap;
+  /* 44px minimum touch target height per a11y guidelines */
+  min-height: 44px;
+  padding: 10px 22px;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--accent);
+  transition: background-color var(--dur-fast) ease-out,
+              border-color var(--dur-fast) ease-out,
+              transform var(--dur-fast) ease-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  min-height: 44px;
+  padding: 10px 22px;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--border);
+  transition: border-color var(--dur-fast) ease-out,
+              background-color var(--dur-fast) ease-out,
+              transform var(--dur-fast) ease-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+/* ── BUTTON PAIR ROW — responsive stacking ───────────────────── */
+/* When two buttons share a row (.btn-row), they stack full-width  */
+/* below 420px and sit side-by-side (each flexible) above it.     */
+.btn-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-row .btn-primary,
+.btn-row .btn-ghost {
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+@media (max-width: 420px) {
+  .btn-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-row .btn-primary,
+  .btn-row .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── FORM FIELDS ────────────────────────────────────────────── */
+.form-field {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-btn);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  transition: border-color var(--dur-normal) var(--ease-out),
+              box-shadow var(--dur-normal) var(--ease-out);
+  cursor: text;
+  outline: none;
+}
+
+.form-field::placeholder {
+  color: var(--text-disabled);
+}
+
+.form-field:hover {
+  border-color: var(--border-strong);
+}
+
+.form-field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200, 237, 53, 0.08);
+}
+
+select.form-field {
+  cursor: pointer;
+}
+
+/* ── GLOBAL LINK / INTERACTIVE TRANSITION BASELINE ──────────── */
+a,
+button {
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+  transition-duration: var(--dur-normal);
+  transition-timing-function: var(--ease-out);
+}
+
+/* ── CARD HOVER INTERACTION ─────────────────────────────────── */
+.card-surface {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  transition: transform var(--dur-normal) var(--ease-out),
+              border-color var(--dur-normal) var(--ease-out),
+              box-shadow var(--dur-normal) var(--ease-out);
+}
+
+.card-surface:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ── SUPPRESS DEV OVERLAYS / COMPILING BADGES ────────────────── */
+nextjs-portal,
+#nextjs-dev-indicator,
+[data-nextjs-toast],
+[data-nextjs-dev-indicator],
+[data-nextjs-route-announcer] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ── ENTRANCE AND STAGGER ANIMATIONS ───────────────────────── */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.animate-reveal {
+  animation: fadeInUp var(--dur-reveal) var(--ease-out) forwards;
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-main {
-  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+.stagger-1 { animation: fadeInUp 450ms var(--ease-out) 0ms forwards; }
+.stagger-2 { animation: fadeInUp 450ms var(--ease-out) 70ms forwards; }
+.stagger-3 { animation: fadeInUp 450ms var(--ease-out) 140ms forwards; }
+.stagger-4 { animation: fadeInUp 450ms var(--ease-out) 210ms forwards; }
+.stagger-5 { animation: fadeInUp 450ms var(--ease-out) 280ms forwards; }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  main {
-    animation: none;
+    scroll-behavior: auto !important;
+    transform: none !important;
   }
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
+/* ── ACCESSIBILITY SKIP LINK ────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--accent);
+  color: #0a0a0a;
+  padding: 10px 18px;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  transition: top var(--dur-fast) var(--ease-out);
+  text-decoration: none;
 }
 
-@keyframes cursorPulse {
-
-  0%,
-  100% {
-    transform: scale(1)
-  }
-
-  50% {
-    transform: scale(0.85)
-  }
-}
-
-/* ── LIQUID GLASS UTILITY CLASSES ─────────────────────────── */
-.glass-surface {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-.glass-premium {
-  background: rgba(13, 11, 97, 0.40);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.07);
-}
-
-.glass-card {
-  background: rgba(17, 24, 39, 0.60);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-/* ── LIME ACCENT UTILITIES ─────────────────────────────────── */
-.lime-glow {
-  box-shadow: 0 0 40px rgba(212, 245, 60, 0.15);
-}
-
-.lime-text-glow {
-  text-shadow: 0 0 30px rgba(212, 245, 60, 0.30);
+.skip-link:focus {
+  top: 20px;
 }

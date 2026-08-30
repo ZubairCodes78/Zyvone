@@ -1,144 +1,207 @@
 'use client'
+
+import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { useReveal } from '@/hooks/useReveal'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { projects } from '@/lib/projects'
-import { ProjectImage } from '@/components/ProjectImage'
+import { RevealWrapper } from '@/components/ui/RevealWrapper'
 
-export default function Work() {
+type YearFilter = 'ALL' | '2026'
+
+export default function WorkPage() {
+  const router = useRouter()
+  const [filter, setFilter] = useState<YearFilter>('ALL')
+
+  const openModal = (slug: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault()
+    router.push(`/work/${slug}`, { scroll: false })
+  }
+
+  const filteredProjects = useMemo(() => {
+    return projects
+  }, [])
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://zyvone.site',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Work',
+        item: 'https://zyvone.site/work',
+      },
+    ],
+  }
+
   return (
-    <main className="bg-primary-bg min-h-screen">
+    <div className="pt-[140px] md:pt-[180px] pb-24 md:pb-36 px-6 md:px-12 lg:px-16 max-w-[var(--max-w-content)] mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Header */}
-      <section className="bg-primary-bg pt-32 pb-16 md:pb-24 px-6">
-        <div className="max-w-[1360px] mx-auto">
-          <p className="font-sans text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-4">Portfolio</p>
-          <h1 className="font-sans font-bold text-[52px] md:text-[64px] text-white tracking-[-0.02em] leading-[1.1]">
-            Selected Work
-          </h1>
-          <p className="font-sans text-[18px] text-white/50 max-w-[580px] mt-6 leading-relaxed">
-            Real systems, digital products, and e-commerce experiences built for enduring performance. No templates.
-          </p>
-        </div>
-      </section>
+      <div className="max-w-[var(--max-w-hero)] mb-12 md:mb-16">
+        <span className="eyebrow-label block mb-4">PORTFOLIO</span>
+        <h1
+          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          style={{ fontSize: 'var(--fs-h1)' }}
+        >
+          Work
+        </h1>
+        <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.6]">
+          Software infrastructure, high-performance web systems, and digital platforms engineered to compound.
+        </p>
+      </div>
 
-      {/* Projects */}
-      <section className="bg-primary-bg pb-20 md:pb-28 px-6">
-        <div className="max-w-[1360px] mx-auto">
-          <div className="space-y-[96px] md:space-y-[120px]">
-            {projects.map((project, i) => (
-              <div 
-                key={project.slug} 
-                ref={useReveal(i * 75)} 
-                className="rounded-[28px] overflow-hidden bg-[#0B1020] border border-white/6 p-6 md:p-12 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 hover:border-lime/20 transition-all duration-300 group"
-              >
-                <div className="flex flex-col gap-8 md:gap-12">
-                  {/* Image - Full width */}
-                  <div className="w-full">
-                    <ProjectImage 
-                      src={project.heroImage} 
-                      alt={project.title} 
-                      priority={i < 2} 
-                    />
-                  </div>
+      {/* Editorial Year Filter */}
+      <div className="flex items-center gap-8 md:gap-10 pb-6 mb-14 border-b border-[var(--border)]">
+        {(['ALL', '2026'] as YearFilter[]).map((tab) => {
+          const isSelected = filter === tab
+          return (
+            <button
+              key={tab}
+              type="button"
+              onClick={() => setFilter(tab)}
+              className={`relative pb-2 font-mono text-[13px] md:text-[14px] tracking-wider transition-all duration-200 cursor-pointer ${
+                isSelected
+                  ? 'font-bold text-[var(--accent)]'
+                  : 'font-medium text-[var(--text-tertiary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <span>{tab}</span>
+              {isSelected && (
+                <span className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-[var(--accent)] transition-all duration-200" />
+              )}
+            </button>
+          )
+        })}
+      </div>
 
-                  {/* Content - Full width */}
-                  <div className="w-full flex flex-col justify-center">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6 mb-6">
-                      <div>
-                        <div className="flex items-center gap-2 mb-2 md:mb-3">
-                          <span className="font-sans text-[11px] md:text-[12px] font-medium text-lime uppercase tracking-[0.14em]">
-                            {project.industry}
-                          </span>
-                          <span className="text-white/20">/</span>
-                          <span className="font-sans text-[11px] md:text-[12px] font-medium text-white/40 uppercase tracking-[0.12em]">
-                            {project.tag}
-                          </span>
-                        </div>
-                        <h2 className="font-sans font-bold text-[28px] md:text-[36px] lg:text-[44px] text-white tracking-[-0.02em] leading-[1.1]">
-                          {project.shortTitle}
-                        </h2>
-                      </div>
-                      <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
-                        {project.link && (
-                          <a 
-                            href={project.link} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="px-5 py-2.5 md:px-6 md:py-3 bg-lime text-black font-sans font-bold text-[13px] md:text-[14px] uppercase tracking-wider rounded-lg hover:bg-lime/90 transition-all hover:translate-x-0.5 shadow-md shadow-black/30"
-                          >
-                            View Live →
-                          </a>
-                        )}
-                        {project.slug && (
-                          <Link 
-                            href={`/work/${project.slug}`} 
-                            className="px-5 py-2.5 md:px-6 md:py-3 border border-white/20 text-white font-sans font-medium text-[13px] md:text-[14px] uppercase tracking-wider rounded-lg hover:border-lime/50 hover:text-lime transition-all hover:translate-x-0.5"
-                          >
-                            Case Study
-                          </Link>
-                        )}
+      {/* Project Grid / Sections with Filter Animation */}
+      <RevealWrapper>
+        <div key={filter} className="space-y-20 md:space-y-28 animate-filter-fade">
+          <section>
+            <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[var(--border)]">
+              <span className="font-mono text-[20px] font-bold text-[var(--accent)]">2026</span>
+              <span className="eyebrow-label text-[11px] text-[var(--text-secondary)]">
+                Active Systems, Platforms &amp; Digital Infrastructure
+              </span>
+            </div>
+
+            <div className="space-y-10 md:space-y-12">
+              {filteredProjects.map((project) => (
+                <div
+                  key={project.slug}
+                  className="card-surface p-6 md:p-8 transition-all duration-200 group cursor-pointer"
+                  onClick={(e) => openModal(project.slug, e)}
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    {/* Visual: Image 7/12 */}
+                    <div className="lg:col-span-7 relative aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)]">
+                      <Image
+                        src={project.heroImage}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-[250ms] ease-out group-hover:scale-[1.02]"
+                        sizes="(max-width: 1024px) 100vw, 58vw"
+                      />
+                      <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-2">
+                        <span className="px-3 py-1 rounded-full bg-[var(--bg-overlay)] backdrop-blur-md border border-[var(--border)] font-mono text-[11px] font-semibold text-[var(--accent)]">
+                          {project.result}
+                        </span>
                       </div>
                     </div>
 
-                    <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.65] mb-6 md:mb-8 max-w-[1000px]">
-                      {project.overview}
-                    </p>
+                    {/* Copy & Structured Metadata: 5/12 */}
+                    <div className="lg:col-span-5 flex flex-col justify-center">
+                      {/* Project Metadata: YEAR / PROJECT NAME / CATEGORY */}
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-mono text-[12px] font-semibold text-[var(--accent)]">2026</span>
+                        <span className="text-[var(--text-disabled)]">·</span>
+                        <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)]">{project.category}</span>
+                      </div>
 
-                    {/* Metadata */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-white/6">
-                      <div>
-                        <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Industry</p>
-                        <p className="font-sans text-[13px] md:text-[14px] text-white font-medium">{project.industry}</p>
+                      <h2
+                        className="font-sans font-semibold text-[24px] md:text-[28px] text-[var(--text-primary)] tracking-tight leading-tight mb-3 group-hover:text-[var(--accent)] transition-colors uppercase"
+                      >
+                        {project.name || project.shortTitle}
+                      </h2>
+
+                      <p className="font-sans text-[15px] text-[var(--text-secondary)] leading-[1.65] mb-6">
+                        {project.overview}
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-2 pt-4 border-t border-[var(--border-subtle)] mb-6 font-mono text-[11px] text-[var(--text-tertiary)]">
+                        <div>Stack: {project.stack.slice(0, 2).join(', ')}</div>
+                        <div>Architecture: {project.resultLabel}</div>
                       </div>
-                      <div>
-                        <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Year</p>
-                        <p className="font-sans text-[13px] md:text-[14px] text-white font-medium">{project.year || '2024'}</p>
+
+                      <div className="btn-row mt-1">
+                        <button
+                          type="button"
+                          onClick={(e) => openModal(project.slug, e)}
+                          className="btn-primary"
+                        >
+                          <span>Case study</span>
+                          <span aria-hidden="true">→</span>
+                        </button>
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="btn-ghost"
+                          >
+                            <span>Live site</span>
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        )}
                       </div>
-                      <div>
-                        <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Services</p>
-                        <div className="flex flex-wrap gap-1 md:gap-1.5">
-                          {(project.services || ['UI/UX', 'Web Development']).map((srv, idx) => (
-                            <span key={idx} className="px-2 py-0.5 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">
-                              {srv}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      {project.stack && project.stack.length > 0 && (
-                        <div>
-                          <p className="font-sans text-[10px] md:text-[11px] font-medium text-white/30 uppercase tracking-wider mb-1.5 md:mb-2">Stack</p>
-                          <div className="flex flex-wrap gap-1 md:gap-1.5">
-                            {project.stack.map((stk, idx) => (
-                              <span key={idx} className="px-2 py-0.5 md:py-1 rounded bg-white/5 border border-white/10 text-[11px] md:text-[12px] text-white/70">
-                                {stk}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Card */}
-          <div ref={useReveal(200)} className="mt-20 md:mt-24 rounded-[28px] bg-[#0B1020] border border-white/6 p-10 md:p-16 text-center">
-            <p className="font-sans text-[12px] font-medium text-lime uppercase tracking-[0.14em] mb-3">Initiative</p>
-            <h2 className="font-sans font-bold text-[36px] md:text-[48px] text-white tracking-[-0.02em] mb-4">
-              Want to build something serious?
-            </h2>
-            <p className="font-sans text-[16px] md:text-[18px] text-white/50 mb-8 max-w-[540px] mx-auto leading-relaxed">
-              We collaborate with ambitious founders and companies to build enduring web systems, platforms, and e-commerce experiences.
-            </p>
-            <Link href="/contact">
-              <button className="px-8 py-4 bg-lime text-black font-sans font-bold text-[14px] uppercase tracking-wider rounded-full hover:bg-lime/90 transition-all shadow-lg shadow-lime/20 hover:scale-[1.02] cursor-pointer">
-                Start a conversation
-              </button>
-            </Link>
-          </div>
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
-    </main>
+      </RevealWrapper>
+
+      {/* Bottom Link to Capabilities */}
+      <div className="flex justify-end pt-12 mt-16 border-t border-[var(--border)]">
+        <Link
+          href="/#services"
+          className="font-sans font-medium text-[15px] text-[var(--accent)] hover:underline inline-flex items-center gap-2"
+        >
+          <span>Explore our capabilities</span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+
+      <style jsx global>{`
+        @keyframes filterFade {
+          from {
+            opacity: 0;
+            transform: translateY(8px) scale(0.995);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .animate-filter-fade {
+          animation: filterFade 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
+    </div>
   )
 }

@@ -1,165 +1,342 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Our Story',
-  description: 'From college friends to a $100K+ agency — the real story of how ZYVONE was built.',
-  alternates: { canonical: 'https://zyvone.site/story' },
-}
+import React, { useEffect, useState, useRef, useCallback } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { RevealWrapper } from '@/components/ui/RevealWrapper'
+
+const chapters = [
+  {
+    year: '2021',
+    chapter: 'CHAPTER 01',
+    title: 'Two friends. One laptop. Fiverr.',
+    body: 'It started with necessity and curiosity. Zubair and Hashir were university friends with more ambition than capital. Fiverr was the initial launchpad — taking on small frontend fixes, debugging scripts, and rapid client prototypes.',
+    image: '/images/story/chapter-1-freelance.svg',
+  },
+  {
+    year: '2022',
+    chapter: 'CHAPTER 02',
+    title: 'Every project was a lesson we paid for.',
+    body: 'The first year taught us how standard agency projects fail. We saw clients receive deliverables that broke as soon as traffic scaled. We realized that selling linear hours created fragile outputs rather than compounding leverage.',
+    image: '/images/story/chapter-2-architecture.svg',
+  },
+  {
+    year: '2023',
+    chapter: 'CHAPTER 03',
+    title: 'Stop selling time. Start building systems.',
+    body: 'We made a deliberate architectural pivot: reject one-off disposable tasks and only engineer permanent digital infrastructure. We began implementing edge computing, automated pipelines, and full-stack custom solutions.',
+    image: '/images/story/chapter-3-systems.svg',
+  },
+  {
+    year: '2024',
+    chapter: 'CHAPTER 04',
+    title: 'The shift to enterprise software and platforms.',
+    body: 'We scaled production with flagship platforms — Toolmatic, PDFMaster, healthcare systems for Cantt Dental Care, and industrial machinery catalogs for Al Raheem Engineering — validating our systems-first doctrine.',
+    image: '/images/story/chapter-4-enterprise.svg',
+  },
+  {
+    year: '2025',
+    chapter: 'CHAPTER 05',
+    title: 'ZYVONE — A digital company for serious builders.',
+    body: 'ZYVONE stands as an integrated digital product studio. We partner with ambitious founders worldwide to design, engineer, and deploy the software systems, platforms, and commerce engines their businesses run on.',
+    image: '/images/story/chapter-5-zyvone-range.svg',
+  },
+]
 
 export default function StoryPage() {
-  const bg        = '#05070A'
-  const lightBg   = '#0B1020'
-  const primary   = '#D4F53C'
-  const secondary = '#D4F53C'
-  const textDark  = '#FFFFFF'
-  const textMuted = 'rgba(255, 255, 255, 0.55)'
-  const border    = 'rgba(255, 255, 255, 0.08)'
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [activeChapterIdx, setActiveChapterIdx] = useState(0)
 
-  const chapters = [
-    {
-      year: '2021',
-      tag:  'The Beginning',
-      title:'Two friends. One laptop. Fiverr.',
-      body: `It started the way most things do — with necessity and boredom. Zubair and Hashir were college students in Pakistan with more ambition than money. Fiverr was the first move. Small jobs. Web tweaks. Logo requests at $5 a piece. Nothing glamorous. But it was the first time someone paid them for something they built — and that feeling didn't go away.`,
-    },
-    {
-      year: '2022',
-      tag:  'Learning in Public',
-      title:'Every project was a lesson we paid for.',
-      body: `The first year on Fiverr was expensive in ways money can't measure. They undercharged for projects that took three times as long as expected. They said yes to clients who made the work impossible. They delivered things they weren't proud of. But they also learned — fast. By the end of year one, they understood something most freelancers take years to figure out: the problem was never the skill. The problem was the structure.`,
-    },
-    {
-      year: '2023',
-      tag:  'The Shift',
-      title:'Stop selling time. Start building systems.',
-      body: `The realization came during a late-night client call. The client was asking for the same fix — again — that had been delivered six months earlier. Not because the work was bad. Because the work was a patch, not a system. That conversation changed everything. Zubair and Hashir stopped taking any project that didn't have a structural answer. Not a fix. A system that would make the fix unnecessary forever.`,
-    },
-    {
-      year: '2024',
-      tag:  'Zubair Codes',
-      title:'The first real agency. Built under the wrong name.',
-      body: `"Zubair Codes" was the first proper brand. A real website. A real portfolio. Real service packages. The work improved dramatically — AI automation projects, web systems for clients in Pakistan and the UAE, full digital infrastructure builds. Revenue crossed $100K. The team grew from two people to a small operation. But something was off. The name said one person. The ambition said company. The name had to change.`,
-    },
-    {
-      year: '2025',
-      tag:  'ZYVONE',
-      title:'A name that sounds like what we\'re building.',
-      body: `ZYVONE is not a rebrand. It's a declaration. The same two founders. The same obsession with building things that actually work. But now with the right name, the right positioning, and the right understanding of what we're actually doing — not building websites. Not running campaigns. Building the digital infrastructure that serious businesses run on. That's what ZYVONE is. That's what it will always be.`,
-    },
-  ]
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const chapterRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  const handleScroll = useCallback(() => {
+    const section = timelineRef.current
+    if (!section) return
+
+    const rect = section.getBoundingClientRect()
+    const viewportHeight = window.innerHeight
+
+    // Progress calculation strictly bounded between top threshold (180px) and end of section
+    const topThreshold = 180
+    const scrollableDistance = rect.height - viewportHeight * 0.4
+    const scrolled = topThreshold - rect.top
+    const progress = Math.min(Math.max(scrolled / (scrollableDistance || 1), 0), 1)
+    setScrollProgress(progress)
+
+    // Active chapter determination based on card center distance to viewport focus line
+    const focusY = viewportHeight * 0.38
+    let minDistance = Infinity
+    let activeIdx = 0
+
+    chapterRefs.current.forEach((ref, idx) => {
+      if (!ref) return
+      const cardRect = ref.getBoundingClientRect()
+      const cardCenter = cardRect.top + cardRect.height / 2
+      const dist = Math.abs(cardCenter - focusY)
+      if (dist < minDistance) {
+        minDistance = dist
+        activeIdx = idx
+      }
+    })
+
+    setActiveChapterIdx(activeIdx)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
+
+  const scrollToChapter = (idx: number) => {
+    const ref = chapterRefs.current[idx]
+    if (ref) {
+      const y = ref.getBoundingClientRect().top + window.scrollY - 160
+      window.scrollTo({ top: y, behavior: 'smooth' })
+    }
+  }
 
   return (
-    <main style={{ background: bg, minHeight: '100vh' }}>
-
-      {/* Hero */}
-      <section style={{
-        background: `radial-gradient(ellipse at 50% 0%, rgba(212,245,60,0.06) 0%, ${bg} 75%)`,
-        paddingTop:'140px', paddingBottom:'60px',
-        position:'relative', overflow:'hidden',
-      }}>
-        <div style={{
-          position:'absolute', inset:0, pointerEvents:'none',
-          backgroundImage:`linear-gradient(${border} 1px,transparent 1px),linear-gradient(90deg,${border} 1px,transparent 1px)`,
-          backgroundSize:'60px 60px',
-          opacity: 0.2,
-        }}/>
-        <div style={{ maxWidth:'760px', margin:'0 auto', padding:'0 24px', position:'relative', zIndex:1 }}>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',color:primary,letterSpacing:'0.14em',textTransform:'uppercase',marginBottom:'20px' }}>
-            Our Story
-          </p>
-          <h1 style={{
-            fontFamily:'var(--font-space)',fontWeight:'700',
-            fontSize:'clamp(40px,6vw,72px)',lineHeight:'1.05',
-            letterSpacing:'-0.03em',color:textDark,marginBottom:'24px',
-          }}>
-            From college friends<br />
-            to{' '}
-            <span style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',color:primary }}>
-              digital company.
-            </span>
-          </h1>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'18px',color:textMuted,lineHeight:'1.75' }}>
-            The real story — no success theater, no manufactured origin myth. Just what actually happened.
-          </p>
-        </div>
+    <div className="pt-[140px] md:pt-[180px] pb-24 md:pb-36 px-6 md:px-12 lg:px-16 max-w-[var(--max-w-content)] mx-auto">
+      {/* Header */}
+      <section className="max-w-[var(--max-w-hero)] mb-12 md:mb-16 pb-8 border-b border-[var(--border)]">
+        <span className="eyebrow-mono block mb-4">OUR STORY</span>
+        <h1
+          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          style={{ fontSize: 'var(--fs-h1)' }}
+        >
+          From college friends to{' '}
+          <span className="font-display-accent">digital company.</span>
+        </h1>
+        <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.7]">
+          The real story — no success theater, no manufactured origin myth. Just what actually happened and what we learned building systems.
+        </p>
       </section>
 
-      {/* Timeline */}
-      <section style={{ maxWidth:'760px', margin:'0 auto', padding:'60px 24px' }}>
-        <div style={{ position:'relative' }}>
-          {/* Vertical line */}
-          <div style={{
-            position:'absolute', left:'0', top:'8px', bottom:'0',
-            width:'1px', background:`linear-gradient(180deg, ${primary} 0%, ${border} 100%)`,
-            opacity:0.4,
-          }}/>
+      {/* Timeline Section with Non-Overlapping Vertical Side Rail */}
+      <section ref={timelineRef} className="relative mb-20 md:mb-28">
+        
+        {/* Main Layout: Rail Column + Chapter Cards Column */}
+        <div className="flex gap-6 lg:gap-12 relative">
 
-          {chapters.map((ch, i) => (
-            <div key={ch.year} style={{
-              paddingLeft:'32px', paddingBottom: i < chapters.length-1 ? '48px' : '0',
-              position:'relative',
-            }}>
-              {/* Dot */}
-              <div style={{
-                position:'absolute', left:'-5px', top:'6px',
-                width:'11px', height:'11px', borderRadius:'50%',
-                background: i === chapters.length-1 ? primary : bg,
-                border:`1.5px solid ${primary}`,
-                boxShadow: i === chapters.length-1 ? `0 0 12px rgba(212,245,60,0.5)` : 'none',
-              }}/>
+          {/* ── DESKTOP: Vertical Side Rail Column (Width: 100px) ────────────────── */}
+          <div className="hidden lg:block w-[100px] flex-shrink-0 relative select-none" aria-hidden="true">
+            <div className="sticky top-[170px] py-2">
+              <div className="relative flex flex-col items-start justify-between h-[360px]">
+                
+                {/* Fixed Vertical Line Track (positioned at left: 72px) */}
+                <div className="absolute top-3 bottom-3 left-[72px] -translate-x-1/2 w-[2px] bg-[var(--border-strong)] rounded-full z-0" />
 
-              {/* Year + tag */}
-              <div style={{ display:'flex', alignItems:'center', gap:'8px', marginBottom:'10px', flexWrap:'wrap' }}>
-                <span style={{ fontFamily:'var(--font-space)',fontSize:'13px',fontWeight:'700',color:primary }}>{ch.year}</span>
-                <span style={{
-                  fontFamily:'var(--font-space)',fontSize:'11px',fontWeight:'600',
-                  color:'rgba(255,255,255,0.7)',letterSpacing:'0.08em',textTransform:'uppercase',
-                  background:lightBg,border:`1px solid ${border}`,
-                  borderRadius:'100px',padding:'2px 10px',
-                }}>
-                  {ch.tag}
-                </span>
+                {/* Real-time Lime Progress Fill Line */}
+                <div
+                  className="absolute top-3 left-[72px] -translate-x-1/2 w-[2px] bg-[var(--accent)] rounded-full z-0 story-timeline-fill"
+                  style={{ height: `calc(${scrollProgress * 100}% * 0.93)` }}
+                />
+
+                {/* Year Nodes Array */}
+                {chapters.map((ch, idx) => {
+                  const nodeRatio = idx / (chapters.length - 1)
+                  const isPassed = scrollProgress >= nodeRatio && idx <= activeChapterIdx
+                  const isActive = activeChapterIdx === idx
+
+                  return (
+                    <div
+                      key={ch.year}
+                      onClick={() => scrollToChapter(idx)}
+                      className="relative z-10 flex items-center w-full cursor-pointer group py-1"
+                    >
+                      {/* Left Column: Year Text Label (52px wide, right-aligned, 20px gap to line) */}
+                      <div className="w-[52px] text-right pr-4">
+                        <span
+                          className="font-mono text-[13px] font-semibold transition-all duration-300 inline-block"
+                          style={{
+                            color: isActive
+                              ? 'var(--accent)'
+                              : isPassed
+                              ? 'var(--accent)'
+                              : 'var(--text-tertiary)',
+                            opacity: isActive ? 1 : isPassed ? 0.75 : 0.35,
+                          }}
+                        >
+                          {ch.year}
+                        </span>
+                      </div>
+
+                      {/* Right Column: Centered Dot over the Line (40px wide container, center at 72px) */}
+                      <div className="w-[40px] flex items-center justify-center">
+                        <div
+                          className="rounded-full story-dot flex-shrink-0"
+                          style={{
+                            width: isActive ? '16px' : '8px',
+                            height: isActive ? '16px' : '8px',
+                            background: isActive
+                              ? 'var(--accent)'
+                              : isPassed
+                              ? 'var(--accent)'
+                              : 'var(--border-strong)',
+                            border: isActive ? '3px solid var(--bg)' : 'none',
+                            boxShadow: isActive
+                              ? '0 0 0 4px rgba(200,237,53,0.18), 0 0 16px rgba(200,237,53,0.38)'
+                              : 'none',
+                            transition: 'width 300ms ease, height 300ms ease, background 300ms ease, box-shadow 300ms ease',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
-
-              <h2 style={{
-                fontFamily:'var(--font-space)',fontWeight:'700',
-                fontSize:'clamp(20px,4vw,30px)',lineHeight:'1.2',
-                letterSpacing:'-0.02em',color:textDark,marginBottom:'12px',
-              }}>
-                {ch.title}
-              </h2>
-
-              <p style={{ fontFamily:'var(--font-space)',fontSize:'15px',color:textMuted,lineHeight:'1.75',margin:0 }}>
-                {ch.body}
-              </p>
             </div>
-          ))}
+          </div>
+
+          {/* ── MOBILE: Left-Edge Vertical Progress Line ──────────────────── */}
+          <div className="lg:hidden absolute left-1.5 top-2 bottom-2 w-[2px] pointer-events-none" aria-hidden="true">
+            <div className="absolute inset-0 bg-[var(--border-strong)] rounded-full" />
+            <div
+              className="absolute top-0 left-0 w-[2px] bg-[var(--accent)] rounded-full story-timeline-fill"
+              style={{ height: `${scrollProgress * 100}%` }}
+            />
+          </div>
+
+          {/* ── Chapter Cards Column ──────────────────────────────────────── */}
+          <div className="flex-1 space-y-10 md:space-y-12 pl-6 lg:pl-0">
+            {chapters.map((ch, idx) => {
+              const isImageLeft = idx % 2 === 1
+              const isActive = activeChapterIdx === idx
+
+              return (
+                <div
+                  key={ch.year}
+                  ref={(el) => { chapterRefs.current[idx] = el }}
+                >
+                  <RevealWrapper delay={idx * 55}>
+                    <div className="card-surface p-6 md:p-10">
+
+                      {/* Desktop 2-Column Grid Inside Card */}
+                      <div className="hidden lg:grid lg:grid-cols-12 gap-8 items-center">
+                        <div className={`lg:col-span-8 ${isImageLeft ? 'lg:order-2' : 'lg:order-1'}`}>
+                          <div className="flex items-center gap-3 mb-3">
+                            <span
+                              className="font-mono text-[15px] font-semibold transition-colors duration-300"
+                              style={{ color: 'var(--accent)', opacity: isActive ? 1 : 0.65 }}
+                            >
+                              {ch.year}
+                            </span>
+                            <span className="text-[var(--text-disabled)]">/</span>
+                            <span className="eyebrow-mono text-[11px] text-[var(--text-tertiary)]">{ch.chapter}</span>
+                          </div>
+                          <h2
+                            className="font-sans font-semibold text-[var(--text-primary)] tracking-tight mb-4"
+                            style={{ fontSize: 'var(--fs-h3)' }}
+                          >
+                            {ch.title}
+                          </h2>
+                          <p className="font-sans text-[15px] text-[var(--text-secondary)] leading-[1.75]">
+                            {ch.body}
+                          </p>
+                        </div>
+
+                        {ch.image && (
+                          <div className={`lg:col-span-4 ${isImageLeft ? 'lg:order-1' : 'lg:order-2'}`}>
+                            <div className="relative aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] border border-[var(--border)]">
+                              <Image
+                                src={ch.image}
+                                alt={`${ch.year} — ${ch.chapter}`}
+                                fill
+                                className="object-cover object-top transition-transform duration-[250ms] ease-out hover:scale-[1.02]"
+                                sizes="(max-width: 1024px) 100vw, 320px"
+                              />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Mobile Stacked Layout */}
+                      <div className="lg:hidden">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span
+                            className="font-mono text-[14px] font-semibold"
+                            style={{ color: 'var(--accent)', opacity: isActive ? 1 : 0.6, transition: 'opacity 300ms ease-out' }}
+                          >
+                            {ch.year}
+                          </span>
+                          <span className="text-[var(--text-disabled)] text-sm">/</span>
+                          <span className="eyebrow-mono text-[10px] text-[var(--text-tertiary)]">{ch.chapter}</span>
+                        </div>
+
+                        {ch.image && (
+                          <div className="relative w-full aspect-[16/9] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] border border-[var(--border)] mb-4">
+                            <Image
+                              src={ch.image}
+                              alt={`${ch.year} — ${ch.chapter}`}
+                              fill
+                              className="object-cover object-top"
+                              sizes="100vw"
+                            />
+                          </div>
+                        )}
+
+                        <h2
+                          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight mb-3"
+                          style={{ fontSize: 'var(--fs-h3)' }}
+                        >
+                          {ch.title}
+                        </h2>
+                        <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-[1.75]">
+                          {ch.body}
+                        </p>
+                      </div>
+
+                    </div>
+                  </RevealWrapper>
+                </div>
+              )
+            })}
+          </div>
+
         </div>
 
-        {/* Final CTA */}
-        <div style={{
-          marginTop:'60px', paddingTop:'40px', borderTop:`1px solid ${border}`,
-          textAlign:'center',
-        }}>
-          <p style={{ fontFamily:'var(--font-instrument),serif',fontStyle:'italic',fontSize:'20px',color:textDark,marginBottom:'20px',lineHeight:'1.5' }}>
-            "The story isn't finished. This is just where we are."
-          </p>
-          <p style={{ fontFamily:'var(--font-space)',fontSize:'14px',color:textMuted,marginBottom:'32px' }}>— Muhammad Zubair</p>
-          <Link href="/contact" style={{
-            display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'8px',
-            background:primary,
-            border:`1px solid ${primary}`,
-            borderRadius:'100px',padding:'12px 28px',
-            fontFamily:'var(--font-space),sans-serif',fontSize:'14px',
-            fontWeight:'700',color:'#060B18',textDecoration:'none',
-            boxShadow:'0 4px 24px rgba(212,245,60,0.25)',
-            minWidth:'fit-content',
-          }}>
-            Build with us →
-          </Link>
-        </div>
       </section>
-    </main>
+
+      {/* Founder Quote & Bottom CTA */}
+      <RevealWrapper>
+        <section className="text-center p-10 md:p-14 rounded-[var(--radius-card)] bg-[var(--bg-elevated)] border border-[var(--border)]">
+          <p className="font-sans text-[20px] md:text-[24px] text-[var(--text-primary)] mb-4 max-w-[620px] mx-auto leading-[1.4]">
+            &ldquo;The story isn&apos;t finished. This is just where we are.&rdquo;
+          </p>
+          <p className="eyebrow-mono text-[11px] text-[var(--text-tertiary)] mb-8 font-semibold">
+            — MUHAMMAD ZUBAIR, CO-FOUNDER
+          </p>
+          <Link href="/contact" className="btn-primary">
+            <span>Build with us</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </section>
+      </RevealWrapper>
+
+      <style jsx global>{`
+        .story-timeline-fill {
+          will-change: height;
+          transform: translateZ(0);
+        }
+        .story-dot {
+          will-change: width, height, box-shadow;
+          transform: translateZ(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .story-timeline-fill {
+            transition: none !important;
+            will-change: auto;
+          }
+          .story-dot {
+            transition: none !important;
+            width: 8px !important;
+            height: 8px !important;
+            box-shadow: none !important;
+          }
+        }
+      `}</style>
+    </div>
   )
 }

@@ -8,12 +8,12 @@ export default function Terms() {
         <p className="font-sans text-[14px] text-text-secondary mb-8">
           Last updated: January 2025
         </p>
-        
+
         <div className="space-y-8">
           <section>
             <h2 className="font-sans font-semibold text-[20px] text-text-primary mb-3">Acceptance of Terms</h2>
             <p className="font-sans text-[16px] text-text-secondary leading-[1.8]">
-              By accessing or using ZYVONE's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+              By accessing or using ZYVONE&apos;s services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
             </p>
           </section>
 

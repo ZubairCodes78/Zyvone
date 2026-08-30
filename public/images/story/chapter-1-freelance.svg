@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#0D0D0D"/>
+  <rect x="15" y="15" width="770" height="470" rx="12" fill="#141414" stroke="#242424" stroke-width="1.5"/>
+
+  <!-- Window chrome -->
+  <rect x="15" y="15" width="770" height="48" rx="12" fill="#1A1A1A"/>
+  <circle cx="44" cy="39" r="5.5" fill="#FF5F5A"/>
+  <circle cx="63" cy="39" r="5.5" fill="#FFBD2E"/>
+  <circle cx="82" cy="39" r="5.5" fill="#28C840"/>
+  <text x="400" y="44" fill="#555555" font-family="monospace" font-size="12" text-anchor="middle">bash — zyvone-freelance — 2021</text>
+
+  <!-- Terminal output -->
+  <text x="45" y="95" fill="#555555" font-family="monospace" font-size="13">Last login: Sat Oct 9 22:14:03 on ttys002</text>
+
+  <text x="45" y="130" fill="#C8ED35" font-family="monospace" font-size="14">hashir@macbook</text>
+  <text x="170" y="130" fill="#F2F1EC" font-family="monospace" font-size="14"> ~/client-work $</text>
+  <text x="340" y="130" fill="#F2F1EC" font-family="monospace" font-size="14"> npx create-react-app client-fix</text>
+
+  <text x="45" y="162" fill="#777777" font-family="monospace" font-size="12">Creating a new React app in /client-fix...</text>
+  <text x="45" y="185" fill="#777777" font-family="monospace" font-size="12">Installing packages. This might take a couple of minutes.</text>
+  <text x="45" y="208" fill="#28C840" font-family="monospace" font-size="12">✓ Success! Created client-fix</text>
+
+  <!-- Fiverr-order comment block -->
+  <rect x="45" y="235" width="710" height="2" fill="#222222"/>
+
+  <rect x="45" y="255" width="710" height="140" rx="8" fill="#101010" stroke="#2A2A2A"/>
+  <text x="65" y="282" fill="#555555" font-family="monospace" font-size="12">// ORDER #FVR-2847 — Quick nav-bar fix for client</text>
+  <text x="65" y="310" fill="#555555" font-family="monospace" font-size="12">// Delivery: 2 days | Budget: $35</text>
+  <text x="65" y="338" fill="#C8ED35" font-family="monospace" font-size="13">const</text>
+  <text x="110" y="338" fill="#F2F1EC" font-family="monospace" font-size="13"> order = { task: <text fill="#98C379" font-family="monospace" font-size="13">"responsive navbar"</text>, done: <text fill="#61AFEF" font-family="monospace" font-size="13">true</text> };</text>
+
+  <text x="45" y="430" fill="#C8ED35" font-family="monospace" font-size="14">hashir@macbook</text>
+  <text x="170" y="430" fill="#F2F1EC" font-family="monospace" font-size="14"> ~/client-work $</text>
+  <rect x="342" y="416" width="10" height="18" fill="#F2F1EC" opacity="0.7"/>
+</svg>

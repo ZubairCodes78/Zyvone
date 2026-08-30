@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#0D0D0D"/>
+  <rect x="15" y="15" width="770" height="420" rx="12" fill="#141414" stroke="#242424" stroke-width="1.5"/>
+  
+  <text x="45" y="55" fill="#C8ED35" font-family="monospace" font-size="12" font-weight="bold">OPERATIONAL AUDIT // 02</text>
+  <text x="45" y="85" fill="#F2F1EC" font-family="sans-serif" font-size="20" font-weight="600">The Real Cost of Manual Work in High-Growth Companies</text>
+
+  <!-- Metric dashboard comparison -->
+  <g transform="translate(45, 115)">
+    <!-- Metric 1: Hours Lost -->
+    <rect x="0" y="0" width="220" height="130" rx="8" fill="#181818" stroke="#2A2A2A"/>
+    <text x="25" y="32" fill="#888888" font-family="sans-serif" font-size="11" font-weight="bold">MANUAL COPY-PASTE DRAG</text>
+    <text x="25" y="70" fill="#FF5E6C" font-family="monospace" font-size="28" font-weight="bold">-340 hrs</text>
+    <text x="25" y="100" fill="#666666" font-family="monospace" font-size="11">Per team / quarter</text>
+
+    <!-- Metric 2: Error Rate -->
+    <rect x="245" y="0" width="220" height="130" rx="8" fill="#181818" stroke="#2A2A2A"/>
+    <text x="270" y="32" fill="#888888" font-family="sans-serif" font-size="11" font-weight="bold">HUMAN CONTEXT LOSS</text>
+    <text x="270" y="70" fill="#FFB020" font-family="monospace" font-size="28" font-weight="bold">14.2%</text>
+    <text x="270" y="100" fill="#666666" font-family="monospace" font-size="11">Data inconsistency rate</text>
+
+    <!-- Metric 3: Automated Solution -->
+    <rect x="490" y="0" width="220" height="130" rx="8" fill="#162416" stroke="#264426"/>
+    <text x="515" y="32" fill="#A0CCA0" font-family="sans-serif" font-size="11" font-weight="bold">AUTOMATED PIPELINE</text>
+    <text x="515" y="70" fill="#C8ED35" font-family="monospace" font-size="28" font-weight="bold">&lt;100ms</text>
+    <text x="515" y="100" fill="#709970" font-family="monospace" font-size="11">Zero human latency</text>
+
+    <!-- Bottom Flow Bar -->
+    <rect x="0" y="150" width="710" height="120" rx="8" fill="#0E1218" stroke="#1A2838"/>
+    <text x="25" y="180" fill="#7FA4D4" font-family="monospace" font-size="12" font-weight="bold">AUTOMATION ARCHITECTURE</text>
+    <text x="25" y="210" fill="#CCCCCC" font-family="sans-serif" font-size="13">Raw Customer Data Ingestion → Webhook Event Trigger → Automated Data Transformation → DB State Sync</text>
+    <text x="25" y="240" fill="#6080A0" font-family="monospace" font-size="11">Deterministic Execution · Zero manual bottlenecks · Instant customer feedback loop</text>
+  </g>
+</svg>

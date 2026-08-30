@@ -1,96 +1,87 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import type { Metadata } from 'next'
+import { articles, getArticle, getRelatedArticles } from '@/lib/articles'
+import ArticleReadingClient from './ArticleReadingClient'
 
-const articles: Record<string, { title: string; date: string; content: string }> = {
-  'why-systems-beat-services': {
-    title: 'Why Systems Beat Services',
-    date: 'JAN 15, 2025',
-    content: `Most agencies sell you hours. Hours don't compound. Systems do. Here's why we take a different approach.
+export async function generateStaticParams() {
+  return articles.map((a) => ({ slug: a.slug }))
+}
 
-When you pay for services, you're paying for someone's time. That time is finite. It doesn't scale. It doesn't get better with repetition. It's a linear exchange: money for hours.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const article = getArticle(slug)
 
-Systems are different. A system is designed to work without human intervention. Once built, it scales infinitely. It gets better with data. It compounds over time.
+  if (!article) return { title: 'Article Not Found' }
 
-This is why ZYVONE focuses on systems, not services. We don't just build you a website. We build the infrastructure that makes your business run without you.`
-  },
-  'cost-of-manual-work': {
-    title: 'The Cost of Manual Work',
-    date: 'DEC 20, 2024',
-    content: `Every hour spent on manual tasks is an hour not spent on growth. We break down the numbers.
-
-The average business owner spends 20+ hours per week on manual tasks: data entry, follow-up emails, reporting, scheduling. That's 1,000 hours per year. At $100/hour, that's $100,000 of lost opportunity cost.
-
-The solution isn't to work harder. It's to build systems that eliminate the manual layer entirely. AI automation, integrated workflows, smart scheduling — these aren't luxuries. They're necessities for any business that wants to scale.`
-  },
-  'ai-automation-where-to-start': {
-    title: 'AI Automation: Where to Start',
-    date: 'NOV 10, 2024',
-    content: `Not every process should be automated. Here's how to identify the high-impact opportunities.
-
-The mistake most businesses make is trying to automate everything at once. That's a recipe for failure. Instead, start with the processes that:
-
-1. Are repetitive and rule-based
-2. Take significant time
-3. Have clear success metrics
-4. Don't require complex judgment
-
-Email follow-ups, data entry, reporting, scheduling — these are the low-hanging fruit. Automate these first, measure the impact, then move to more complex processes.`
-  },
-  'building-for-scale': {
-    title: 'Building for Scale',
-    date: 'OCT 05, 2024',
-    content: `Architecture-first development. Why technical decisions made today determine your ability to scale tomorrow.
-
-Most codebases are built for the present, not the future. They work fine when you have 100 users. They break at 10,000. They collapse at 100,000.
-
-Building for scale means making architectural decisions before you need them. It means choosing technologies that can grow. It means designing systems that can handle 10x traffic without breaking.
-
-This is why ZYVONE takes an architecture-first approach. We don't just build what you need today. We build what you'll need tomorrow.`
+  return {
+    title: article.title,
+    description: article.excerpt,
+    alternates: {
+      canonical: `https://zyvone.site/journal/${article.slug}`,
+    },
+    openGraph: {
+      title: `${article.title} — ZYVONE Journal`,
+      description: article.excerpt,
+      type: 'article',
+      url: `https://zyvone.site/journal/${article.slug}`,
+      publishedTime: article.dateISO,
+      images: [
+        {
+          url: `https://zyvone.site${article.heroImage}`,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
   }
 }
 
-export async function generateStaticParams() {
-  return Object.keys(articles).map(slug => ({ slug }))
-}
-
-export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
-  const article = articles[slug]
-  
+  const article = getArticle(slug)
+
   if (!article) notFound()
 
+  const related = getRelatedArticles(slug)
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    image: `https://zyvone.site${article.heroImage}`,
+    datePublished: article.dateISO,
+    author: {
+      '@type': 'Organization',
+      name: 'ZYVONE',
+      url: 'https://zyvone.site',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ZYVONE',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://zyvone.site/favicon.png',
+      },
+    },
+  }
+
   return (
-    <main className="bg-primary-bg min-h-screen">
-      {/* Hero */}
-      <section className="pt-52 pb-20 px-6">
-        <div className="max-w-[760px] mx-auto">
-          <p className="font-sans text-[11px] font-medium text-signal uppercase tracking-[0.14em] mb-6">{article.date}</p>
-          <h1 className="font-sans font-bold text-white tracking-[-0.02em] leading-[1.1] mb-6"
-            style={{ fontSize: 'clamp(40px, 6vw, 64px)' }}>
-            {article.title}
-          </h1>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="pb-32 px-6">
-        <div className="max-w-[760px] mx-auto">
-          <div className="prose prose-invert prose-lg">
-            {article.content.split('\n\n').map((paragraph, i) => (
-              <p key={i} className="font-sans text-[18px] text-white/60 leading-[1.8] mb-6">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-
-          {/* Back to journal */}
-          <div className="mt-16 pt-8 border-t border-line-dark">
-            <Link href="/journal" className="font-sans text-signal hover:underline inline-flex items-center gap-2">
-              ← Back to Journal
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
+    <div className="pt-[140px] md:pt-[180px] pb-24 md:pb-36 px-6 md:px-12 lg:px-16 max-w-[var(--max-w-content)] mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <ArticleReadingClient article={article} related={related} />
+    </div>
   )
 }

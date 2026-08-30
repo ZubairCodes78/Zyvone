@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#0D0D0D"/>
+  <rect x="15" y="15" width="770" height="420" rx="12" fill="#141414" stroke="#242424" stroke-width="1.5"/>
+  
+  <text x="45" y="55" fill="#C8ED35" font-family="monospace" font-size="12" font-weight="bold">AI ORCHESTRATION // 03</text>
+  <text x="45" y="85" fill="#F2F1EC" font-family="sans-serif" font-size="20" font-weight="600">AI Automation: Where Most Companies Get It Wrong</text>
+
+  <!-- Node Orchestration Pipeline -->
+  <g transform="translate(45, 120)">
+    <!-- Node 1: Input -->
+    <rect x="0" y="50" width="160" height="85" rx="8" fill="#181818" stroke="#333333"/>
+    <text x="80" y="85" fill="#C8ED35" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">EVENT / DATA</text>
+    <text x="80" y="108" fill="#888888" font-family="sans-serif" font-size="11" text-anchor="middle">API / Webhook / DB</text>
+
+    <!-- Edge 1 -->
+    <line x1="160" y1="92" x2="210" y2="92" stroke="#C8ED35" stroke-width="2"/>
+    <circle cx="210" cy="92" r="3" fill="#C8ED35"/>
+
+    <!-- Node 2: Vector Search -->
+    <rect x="210" y="0" width="170" height="85" rx="8" fill="#181818" stroke="#333333"/>
+    <text x="295" y="35" fill="#C8ED35" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">VECTOR RAG DB</text>
+    <text x="295" y="58" fill="#888888" font-family="sans-serif" font-size="11" text-anchor="middle">Context Ingestion</text>
+
+    <!-- Node 3: LLM Engine -->
+    <rect x="210" y="105" width="170" height="85" rx="8" fill="#181818" stroke="#333333"/>
+    <text x="295" y="140" fill="#C8ED35" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">LLM REASONER</text>
+    <text x="295" y="163" fill="#888888" font-family="sans-serif" font-size="11" text-anchor="middle">Schema Validation</text>
+
+    <!-- Edge 2 -->
+    <line x1="380" y1="42" x2="430" y2="92" stroke="#444444" stroke-width="1.5"/>
+    <line x1="380" y1="147" x2="430" y2="92" stroke="#C8ED35" stroke-width="2"/>
+
+    <!-- Node 4: Autonomous Tool Dispatch -->
+    <rect x="430" y="50" width="160" height="85" rx="8" fill="#162416" stroke="#264426"/>
+    <text x="510" y="85" fill="#C8ED35" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">TOOL DISPATCH</text>
+    <text x="510" y="108" fill="#90B090" font-family="sans-serif" font-size="11" text-anchor="middle">Autonomous Action</text>
+
+    <!-- Edge 3 -->
+    <line x1="590" y1="92" x2="640" y2="92" stroke="#C8ED35" stroke-width="2"/>
+
+    <!-- Node 5: Output Sync -->
+    <rect x="640" y="50" width="70" height="85" rx="8" fill="#1A1A1A" stroke="#333333"/>
+    <text x="675" y="88" fill="#F2F1EC" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">STATE</text>
+    <text x="675" y="108" fill="#666666" font-family="monospace" font-size="9" text-anchor="middle">MUTATE</text>
+
+    <!-- Bottom summary banner -->
+    <rect x="0" y="210" width="710" height="50" rx="6" fill="#1A1A1A" stroke="#262626"/>
+    <text x="355" y="240" fill="#AAAAAA" font-family="monospace" font-size="11" text-anchor="middle">RAG-Augmented Pipelines · Strict JSON Type Contracts · Sub-200ms Decision Execution</text>
+  </g>
+</svg>

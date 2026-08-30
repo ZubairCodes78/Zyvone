@@ -1,97 +1,212 @@
 'use client'
-import Link from 'next/link'
-import { useReveal } from '@/hooks/useReveal'
 
-export default function Journal() {
-  const articles = [
-    {
-      date: 'JAN 15, 2025',
-      title: 'Why Systems Beat Services',
-      excerpt: 'Most agencies sell you hours. Hours don\'t compound. Systems do. Here\'s why we take a different approach.',
-      slug: 'why-systems-beat-services'
-    },
-    {
-      date: 'DEC 20, 2024',
-      title: 'The Cost of Manual Work',
-      excerpt: 'Every hour spent on manual tasks is an hour not spent on growth. We break down the numbers.',
-      slug: 'cost-of-manual-work'
-    },
-    {
-      date: 'NOV 10, 2024',
-      title: 'AI Automation: Where to Start',
-      excerpt: 'Not every process should be automated. Here\'s how to identify the high-impact opportunities.',
-      slug: 'ai-automation-where-to-start'
-    },
-    {
-      date: 'OCT 05, 2024',
-      title: 'Building for Scale',
-      excerpt: 'Architecture-first development. Why technical decisions made today determine your ability to scale tomorrow.',
-      slug: 'building-for-scale'
-    },
-  ]
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { articles } from '@/lib/articles'
+import { RevealWrapper } from '@/components/ui/RevealWrapper'
+
+export default function JournalPage() {
+  const featured = articles[0]
+  const restArticles = articles.slice(1)
+
+  const [hoveredImage, setHoveredImage] = useState<string | null>(null)
+  const [cursorY, setCursorY] = useState(0)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorY(e.clientY)
+    }
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
 
   return (
-    <>
-      {/* Hero */}
-      <section className="bg-primary-bg pt-40 md:pt-52 pb-16 md:pb-20 px-6">
-        <div className="max-w-[1360px] mx-auto">
-          <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">JOURNAL</p>
-            <h1 className="font-sans font-bold text-white tracking-[-0.02em] leading-[1.1] mb-4"
-              style={{ fontSize: 'clamp(52px, 7vw, 88px)' }}>
-              Thinking in public.
-            </h1>
-            <p className="font-sans text-[19px] text-white/40 mt-4">
-              What we're learning about building systems, not deliverables.
-            </p>
-          </div>
-        </div>
+    <div className="pt-[140px] md:pt-[180px] pb-24 md:pb-36 px-6 md:px-12 lg:px-16 max-w-[var(--max-w-content)] mx-auto">
+      {/* Header */}
+      <section className="max-w-[var(--max-w-hero)] mb-16 md:mb-20 pb-10 border-b border-[var(--border)]">
+        <span className="eyebrow-label block mb-4">JOURNAL</span>
+        <h1
+          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          style={{ fontSize: 'var(--fs-h1)' }}
+        >
+          Thinking in public.
+        </h1>
+        <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.6]">
+          Observations, technical blueprints, and operational frameworks from engineering digital systems.
+        </p>
       </section>
 
-      {/* Articles */}
-      <section className="bg-primary-bg py-16 md:py-20 px-6">
-        <div className="max-w-[1360px] mx-auto">
-          <div className="space-y-8">
-            {articles.map((article, i) => (
-              <div key={i} ref={useReveal(i * 100)} className="border-b border-line-dark pb-6 md:pb-8 last:border-b-0">
-                <p className="font-sans text-[12px] md:text-[13px] text-white/30 mb-2">{article.date}</p>
-                <h3 className="font-sans font-bold text-[20px] md:text-[26px] text-white mb-2">{article.title}</h3>
-                <p className="font-sans text-[15px] md:text-[17px] text-white/50 leading-[1.7] mb-4 max-w-2xl">
-                  {article.excerpt}
-                </p>
-                <Link href={`/journal/${article.slug}`} className="font-sans text-lime hover:underline">
-                  Read article →
-                </Link>
+      {/* Featured Article Hero (Image + larger type) */}
+      {featured && (
+        <RevealWrapper>
+          <section className="mb-20 md:mb-24">
+            <div className="card-surface p-6 md:p-10 group">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                {/* Cover Image */}
+                <div className="lg:col-span-7">
+                  <Link href={`/journal/${featured.slug}`} className="block">
+                    <div className="relative w-full aspect-[16/9] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)]">
+                      <Image
+                        src={featured.heroImage}
+                        alt={featured.title}
+                        fill
+                        priority
+                        className="object-cover object-top transition-transform duration-[250ms] ease-out group-hover:scale-[1.02]"
+                        sizes="(max-width: 1024px) 100vw, 58vw"
+                      />
+                    </div>
+                  </Link>
+                </div>
+
+                {/* Info */}
+                <div className="lg:col-span-5 flex flex-col justify-center">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="eyebrow-label text-[11px] text-[var(--accent)]">{featured.category}</span>
+                    <span className="text-[var(--text-disabled)]">·</span>
+                    <span className="font-mono text-[12px] text-[var(--text-tertiary)]">{featured.date}</span>
+                    <span className="text-[var(--text-disabled)]">·</span>
+                    <span className="font-mono text-[12px] text-[var(--text-tertiary)]">{featured.readTime} min read</span>
+                  </div>
+
+                  <Link href={`/journal/${featured.slug}`}>
+                    <h2
+                      className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-tight mb-4 group-hover:text-[var(--accent)] transition-colors"
+                      style={{ fontSize: 'clamp(22px, 2.5vw, 32px)' }}
+                    >
+                      {featured.title}
+                    </h2>
+                  </Link>
+
+                  <p className="font-sans text-[15px] text-[var(--text-secondary)] leading-[1.65] mb-8">
+                    {featured.excerpt}
+                  </p>
+
+                  <div>
+                    <Link
+                      href={`/journal/${featured.slug}`}
+                      className="btn-primary"
+                    >
+                      <span>Read essay</span>
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </RevealWrapper>
+      )}
+
+      {/* Floating Cursor Y Follower Image (Desktop fine pointer only) */}
+      <div
+        className="pointer-preview hidden fixed right-12 z-30 w-[240px] h-[150px] rounded-[var(--radius-card)] overflow-hidden border border-[var(--border-strong)] shadow-2xl bg-[var(--bg)] pointer-events-none transition-opacity duration-[150ms] ease-out"
+        style={{
+          top: `${cursorY - 75}px`,
+          opacity: hoveredImage ? 1 : 0,
+        }}
+        aria-hidden="true"
+      >
+        {hoveredImage && (
+          <Image
+            src={hoveredImage}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="240px"
+          />
+        )}
+      </div>
+
+      {/* Articles List */}
+      <RevealWrapper>
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center justify-between pb-4 mb-6 border-b border-[var(--border)]">
+            <span className="eyebrow-label text-[11px]">ALL ESSAYS</span>
+            <span className="font-mono text-[12px] text-[var(--text-tertiary)]">{articles.length} ESSAYS</span>
+          </div>
+
+          <div className="divide-y divide-[var(--border)] border-b border-[var(--border)]">
+            {restArticles.map((article) => (
+              <div
+                key={article.slug}
+                onMouseEnter={() => setHoveredImage(article.heroImage)}
+                onMouseLeave={() => setHoveredImage(null)}
+                className="py-8 md:py-9 flex flex-col md:flex-row md:items-center justify-between gap-6 group"
+              >
+                {/* Left / Main Column */}
+                <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 max-w-[800px]">
+                  {/* Thumbnail Image (Visible on mobile & stacked) */}
+                  <div className="relative w-full sm:w-[160px] aspect-[16/10] sm:aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg-surface)] border border-[var(--border)] flex-shrink-0">
+                    <Image
+                      src={article.heroImage}
+                      alt={article.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 160px"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="eyebrow-label text-[11px] text-[var(--accent)]">{article.category}</span>
+                      <span className="text-[var(--text-disabled)]">·</span>
+                      <span className="font-mono text-[11px] text-[var(--text-tertiary)]">{article.date}</span>
+                      <span className="text-[var(--text-disabled)]">·</span>
+                      <span className="font-mono text-[11px] text-[var(--text-tertiary)]">{article.readTime} min read</span>
+                    </div>
+
+                    <Link href={`/journal/${article.slug}`}>
+                      <h3
+                        className="font-sans font-semibold text-[var(--text-primary)] tracking-tight mb-2 group-hover:text-[var(--accent)] transition-colors"
+                        style={{ fontSize: 'var(--fs-h3)' }}
+                      >
+                        {article.title}
+                      </h3>
+                    </Link>
+
+                    <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed line-clamp-2 mb-3">
+                      {article.excerpt}
+                    </p>
+
+                    <Link
+                      href={`/journal/${article.slug}`}
+                      className="font-sans font-semibold text-[13px] text-[var(--accent)] hover:underline inline-flex items-center gap-1.5"
+                    >
+                      <span>Read essay</span>
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </RevealWrapper>
 
-      {/* CTA */}
-      <section className="bg-secondary-bg py-20 md:py-24 px-6 text-center">
-        <div className="max-w-[1360px] mx-auto">
-          <h2 ref={useReveal()} className="font-sans font-bold text-text-primary tracking-[-0.02em] leading-[1.1] max-w-[640px] mx-auto"
-            style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>
-            Want to build systems?
+      {/* Dedicated CTA Band */}
+      <RevealWrapper>
+        <section className="text-center p-10 md:p-14 rounded-[var(--radius-card)] bg-[var(--bg-elevated)] border border-[var(--border)]">
+          <h2 className="font-sans font-semibold text-[24px] md:text-[32px] text-[var(--text-primary)] mb-3 tracking-tight">
+            Have something to build?
           </h2>
-          <p ref={useReveal(100)} className="font-sans text-[16px] md:text-[18px] text-text-secondary mt-4">
-            Let's figure out what's possible for your business.
+          <p className="font-sans text-[15px] md:text-[16px] text-[var(--text-secondary)] mb-8 max-w-[480px] mx-auto leading-relaxed">
+            Let&apos;s talk about what you&apos;re trying to build and how to engineer it for leverage.
           </p>
-          <div ref={useReveal(200)} className="mt-8 md:mt-10">
-            <Link href="/contact"
-              className="inline-flex items-center justify-center gap-2 font-semibold text-[14px] px-7 md:px-9 py-4 rounded-full scale-[1.02] transition-all duration-200 min-h-[48px]"
-              style={{
-                background: '#D4F53C',
-                border: '1px solid #D4F53C',
-                color: '#060B18',
-                boxShadow: '0 4px 24px rgba(212,245,60,0.25)'
-              }}>
-              Start a conversation →
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+          <Link href="/contact" className="btn-primary">
+            <span>Start a conversation</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </section>
+      </RevealWrapper>
+
+      <style jsx global>{`
+        @media (pointer: fine) and (min-width: 1024px) {
+          .pointer-preview {
+            display: block;
+          }
+        }
+      `}</style>
+    </div>
   )
 }

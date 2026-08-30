@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+
+import React, { useEffect, useRef, useState } from 'react'
 
 interface RevealWrapperProps {
   children: React.ReactNode
@@ -10,7 +11,7 @@ interface RevealWrapperProps {
 export function RevealWrapper({ children, delay = 0, className = '' }: RevealWrapperProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  
+
   useEffect(() => {
     const element = ref.current
     if (!element) return
@@ -18,25 +19,26 @@ export function RevealWrapper({ children, delay = 0, className = '' }: RevealWra
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
+          if (delay > 0) {
+            setTimeout(() => setIsVisible(true), delay)
+          } else {
             setIsVisible(true)
-          }, delay)
+          }
           observer.unobserve(element)
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     )
 
     observer.observe(element)
-
     return () => observer.disconnect()
   }, [delay])
 
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-600 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+      className={`${className} transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[12px]'
       }`}
     >
       {children}

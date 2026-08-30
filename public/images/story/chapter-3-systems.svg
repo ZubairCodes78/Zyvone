@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#0D0D0D"/>
+  <rect x="15" y="15" width="770" height="470" rx="12" fill="#141414" stroke="#242424" stroke-width="1.5"/>
+
+  <text x="44" y="54" fill="#888888" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="0.08em">AUTOMATION PIPELINE // 2023</text>
+  <text x="44" y="80" fill="#F2F1EC" font-family="sans-serif" font-size="17" font-weight="600">Stop selling time. Start engineering automated systems.</text>
+
+  <!-- Pipeline Nodes -->
+  <!-- Node 1: Trigger -->
+  <rect x="44" y="115" width="145" height="90" rx="8" fill="#181818" stroke="#2A2A2A" stroke-width="1.5"/>
+  <text x="117" y="150" fill="#888888" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">TRIGGER</text>
+  <text x="117" y="175" fill="#F2F1EC" font-family="sans-serif" font-size="13" text-anchor="middle">Form Submit</text>
+  <text x="117" y="192" fill="#666666" font-family="monospace" font-size="11" text-anchor="middle">API / Webhook</text>
+
+  <!-- Arrow 1 -->
+  <line x1="189" y1="160" x2="222" y2="160" stroke="#C8ED35" stroke-width="2"/>
+  <polygon points="222,155 232,160 222,165" fill="#C8ED35"/>
+
+  <!-- Node 2: Transform -->
+  <rect x="232" y="115" width="145" height="90" rx="8" fill="#152215" stroke="#254425" stroke-width="1.5"/>
+  <text x="305" y="150" fill="#A0CCA0" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">TRANSFORM</text>
+  <text x="305" y="175" fill="#F2F1EC" font-family="sans-serif" font-size="13" text-anchor="middle">Validate + Map</text>
+  <text x="305" y="192" fill="#709970" font-family="monospace" font-size="11" text-anchor="middle">Schema → JSON</text>
+
+  <!-- Arrow 2 -->
+  <line x1="377" y1="160" x2="410" y2="160" stroke="#C8ED35" stroke-width="2"/>
+  <polygon points="410,155 420,160 410,165" fill="#C8ED35"/>
+
+  <!-- Node 3: Route -->
+  <rect x="420" y="115" width="145" height="90" rx="8" fill="#181818" stroke="#2A2A2A" stroke-width="1.5"/>
+  <text x="493" y="150" fill="#888888" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ROUTE</text>
+  <text x="493" y="175" fill="#F2F1EC" font-family="sans-serif" font-size="13" text-anchor="middle">Conditional Logic</text>
+  <text x="493" y="192" fill="#666666" font-family="monospace" font-size="11" text-anchor="middle">if type === 'urgent'</text>
+
+  <!-- Arrow 3 -->
+  <line x1="565" y1="160" x2="598" y2="160" stroke="#C8ED35" stroke-width="2"/>
+  <polygon points="598,155 608,160 598,165" fill="#C8ED35"/>
+
+  <!-- Node 4: Action -->
+  <rect x="608" y="115" width="148" height="90" rx="8" fill="#1C301C" stroke="#356635" stroke-width="1.5"/>
+  <text x="682" y="150" fill="#C8ED35" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ACTION</text>
+  <text x="682" y="175" fill="#E0FFE0" font-family="sans-serif" font-size="13" text-anchor="middle">DB Write + Notify</text>
+  <text x="682" y="192" fill="#88BB88" font-family="monospace" font-size="11" text-anchor="middle">0 manual steps</text>
+
+  <!-- Divider -->
+  <rect x="44" y="228" width="712" height="1" fill="#222222"/>
+
+  <!-- Before / After comparison -->
+  <rect x="44" y="250" width="340" height="200" rx="8" fill="#181818" stroke="#2A2A2A"/>
+  <text x="65" y="280" fill="#FF5E6C" font-family="sans-serif" font-size="13" font-weight="bold">BEFORE (Selling Time)</text>
+  <text x="65" y="310" fill="#C08080" font-family="monospace" font-size="12">Client submits → you check email</text>
+  <text x="65" y="335" fill="#C08080" font-family="monospace" font-size="12">→ copy to spreadsheet</text>
+  <text x="65" y="360" fill="#C08080" font-family="monospace" font-size="12">→ reply manually within 24h</text>
+  <text x="65" y="390" fill="#AA4444" font-family="monospace" font-size="12">~3h/day of manual overhead</text>
+  <text x="65" y="415" fill="#AA4444" font-family="monospace" font-size="12">Breaks at 3x volume</text>
+
+  <rect x="416" y="250" width="340" height="200" rx="8" fill="#111A11" stroke="#254425"/>
+  <text x="436" y="280" fill="#C8ED35" font-family="sans-serif" font-size="13" font-weight="bold">AFTER (Building Systems)</text>
+  <text x="436" y="310" fill="#90B090" font-family="monospace" font-size="12">Form submit → auto-validated</text>
+  <text x="436" y="335" fill="#90B090" font-family="monospace" font-size="12">→ DB record + Slack ping</text>
+  <text x="436" y="360" fill="#90B090" font-family="monospace" font-size="12">→ reply sent in &lt;60 seconds</text>
+  <text x="436" y="390" fill="#C8ED35" font-family="monospace" font-size="12">0 manual overhead</text>
+  <text x="436" y="415" fill="#C8ED35" font-family="monospace" font-size="12">Scales to 100x volume</text>
+</svg>

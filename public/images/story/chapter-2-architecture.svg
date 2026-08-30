@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#0D0D0D"/>
+  <rect x="15" y="15" width="770" height="470" rx="12" fill="#141414" stroke="#242424" stroke-width="1.5"/>
+
+  <text x="44" y="54" fill="#888888" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="0.08em">LESSON LEDGER // 2022</text>
+  <text x="44" y="80" fill="#F2F1EC" font-family="sans-serif" font-size="17" font-weight="600">What we learned delivering 30+ client projects</text>
+
+  <!-- Left Column: What Kills Agencies -->
+  <rect x="44" y="102" width="340" height="340" rx="8" fill="#1A1010" stroke="#3D2020" stroke-width="1.5"/>
+  <rect x="44" y="102" width="340" height="44" rx="8" fill="#2E1818"/>
+  <text x="214" y="129" fill="#FF5E6C" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">WHAT BREAKS PROJECTS</text>
+  <text x="64" y="175" fill="#C08080" font-family="sans-serif" font-size="14">✗  Scoping by feelings, not specs</text>
+  <text x="64" y="210" fill="#C08080" font-family="sans-serif" font-size="14">✗  No staging env for client review</text>
+  <text x="64" y="245" fill="#C08080" font-family="sans-serif" font-size="14">✗  Last-minute design changes</text>
+  <text x="64" y="280" fill="#C08080" font-family="sans-serif" font-size="14">✗  No contract = no protection</text>
+  <text x="64" y="315" fill="#C08080" font-family="sans-serif" font-size="14">✗  Chasing payments post-delivery</text>
+  <text x="64" y="360" fill="#AA4444" font-family="monospace" font-size="12">RESULT: FRAGILE, UNPREDICTABLE</text>
+  <text x="64" y="382" fill="#AA4444" font-family="monospace" font-size="12">WORK THAT DOESN'T SCALE</text>
+
+  <!-- Right Column: What We Applied -->
+  <rect x="416" y="102" width="340" height="340" rx="8" fill="#111A11" stroke="#254425" stroke-width="1.5"/>
+  <rect x="416" y="102" width="340" height="44" rx="8" fill="#182E18"/>
+  <text x="586" y="129" fill="#C8ED35" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">WHAT WE STARTED DOING</text>
+  <text x="436" y="175" fill="#90B090" font-family="sans-serif" font-size="14">✓  Fixed scope + written contracts</text>
+  <text x="436" y="210" fill="#90B090" font-family="sans-serif" font-size="14">✓  Staged review before delivery</text>
+  <text x="436" y="245" fill="#90B090" font-family="sans-serif" font-size="14">✓  50% upfront, no exceptions</text>
+  <text x="436" y="280" fill="#90B090" font-family="sans-serif" font-size="14">✓  Fewer clients, deeper work</text>
+  <text x="436" y="315" fill="#90B090" font-family="sans-serif" font-size="14">✓  Systems over one-off fixes</text>
+  <text x="436" y="360" fill="#C8ED35" font-family="monospace" font-size="12">RESULT: PREDICTABLE DELIVERY,</text>
+  <text x="436" y="382" fill="#C8ED35" font-family="monospace" font-size="12">COMPOUNDING REPUTATION</text>
+</svg>

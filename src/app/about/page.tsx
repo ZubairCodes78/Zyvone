@@ -1,156 +1,200 @@
-'use client'
+import React from 'react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { useReveal } from '@/hooks/useReveal'
+import { RevealWrapper } from '@/components/ui/RevealWrapper'
 
-export default function About() {
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Built by founders. For founders. ZYVONE is a digital product studio with a specific point of view on how modern businesses should be built.',
+  alternates: {
+    canonical: 'https://zyvone.site/about',
+  },
+}
+
+export default function AboutPage() {
+  const principles = [
+    {
+      num: '01',
+      title: 'Systems over deliverables',
+      body: "We don't hand over a file and disappear. We design for long-term operational leverage.",
+    },
+    {
+      num: '02',
+      title: 'Engineering through design',
+      body: 'Good design without engineering is decoration. We merge both disciplines into one product mindset.',
+    },
+    {
+      num: '03',
+      title: 'Speed as a feature',
+      body: 'Sub-100ms page loads, instant API responses and zero-friction UX are requirements.',
+    },
+    {
+      num: '04',
+      title: 'Outcome over output',
+      body: 'We measure success by what changes in your business — revenue, time recovered, systems running.',
+    },
+  ]
+
+  const founders = [
+    {
+      name: 'Muhammad Zubair',
+      role: 'Co-Founder — Strategy & Engineering',
+      bio: 'Leads product architecture, technical strategy and client relationships. Focused on building software systems that compound over time.',
+      initial: 'Z',
+      links: [
+        { label: 'LinkedIn', url: 'https://www.linkedin.com/in/zubaircodes/' },
+        { label: 'X', url: 'https://x.com/zubaircodes78' },
+        { label: 'GitHub', url: 'https://github.com/ZubairCodes78' },
+      ],
+    },
+    {
+      name: 'Hashir Ahmed',
+      role: 'Co-Founder — Design & Systems',
+      bio: 'Leads visual design, UX research and front-end engineering. Translates complex product problems into clear, elegant interfaces.',
+      initial: 'H',
+      links: [
+        { label: 'Instagram', url: 'https://www.instagram.com/co.founder.zyvone/' },
+        { label: 'LinkedIn', url: 'https://www.linkedin.com/in/hashir-ahmad327/' },
+        { label: 'X', url: 'https://x.com/HashirAhmad327' },
+      ],
+    },
+  ]
+
   return (
-    <>
-      {/* Hero */}
-      <section className="bg-primary-bg pt-40 md:pt-52 pb-20 md:pb-28 px-6">
-        <div className="max-w-[1360px] mx-auto">
-          <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">ABOUT ZYVONE</p>
-            <h1 className="font-sans font-bold text-white tracking-[-0.03em] leading-[0.95] mb-6"
-              style={{ fontSize: 'clamp(52px, 7vw, 88px)' }}>
-              Built by founders.<br />
-              <span className="font-display italic text-lime">For founders.</span>
-            </h1>
-            <p className="font-sans text-[19px] text-white/50 mt-6 max-w-lg leading-[1.75]">
-              ZYVONE is not a typical agency. We are a digital company
-              with a specific point of view on how modern businesses should be built.
-            </p>
-          </div>
-        </div>
+    <div className="pt-[140px] md:pt-[180px] pb-24 md:pb-36 px-6 md:px-12 lg:px-16 max-w-[var(--max-w-content)] mx-auto">
+      {/* Header */}
+      <section className="max-w-[var(--max-w-hero)] mb-14 md:mb-20 pb-10 border-b border-[var(--border)]">
+        <span className="eyebrow-mono block mb-4">ABOUT ZYVONE</span>
+        <h1
+          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          style={{ fontSize: 'var(--fs-h1)' }}
+        >
+          Built by founders.{' '}
+          <span className="font-display-accent">
+            For founders.
+          </span>
+        </h1>
+        <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.7]">
+          ZYVONE is not a typical agency. We are a digital product studio with a specific point of view on how modern businesses should be built.
+        </p>
       </section>
 
-      {/* Philosophy */}
-      <section className="bg-secondary-bg border-y border-line-dark py-20 md:py-28 px-6">
-        <div className="max-w-[720px] mx-auto">
-          <div ref={useReveal()}>
-            <h2 className="font-sans font-bold text-white tracking-[-0.02em] leading-[1.1] mb-8"
-              style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
-              We build systems. Not deliverables.
-            </h2>
-            <p className="font-sans text-[18px] text-white/60 leading-[1.8] mb-6">
-              ZYVONE was founded by Zubair and Hashir — two builders who decided that the
-              agency model was broken. Agencies sell time. Time doesn't compound. Systems do.
+      {/* Philosophy Section */}
+      <RevealWrapper>
+        <section className="max-w-[var(--max-w-text)] mb-20 md:mb-28">
+          <h2
+            className="font-sans font-semibold text-[var(--text-primary)] tracking-tight mb-6"
+            style={{ fontSize: 'var(--fs-h2)' }}
+          >
+            We build systems.{' '}
+            <span className="font-display-accent">
+              Not deliverables.
+            </span>
+          </h2>
+          <div className="space-y-6 font-sans text-[var(--text-secondary)] text-[16px] md:text-[17px] leading-[1.75]">
+            <p>
+              ZYVONE was founded by Zubair and Hashir — two builders who decided the agency model was broken. Agencies sell time. Time doesn&apos;t compound. Systems do.
             </p>
-            <p className="font-sans text-[18px] text-white/60 leading-[1.8]">
-              We take a small number of projects. We go deep on each one. We measure success
-              by what changes in your business — not by what we deliver to your inbox.
+            <p>
+              We take a small number of projects. We go deep on each one. We measure success by what changes in your business — not by what we deliver to your inbox.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </RevealWrapper>
 
-      {/* Founders */}
-      <section className="bg-primary-bg py-20 md:py-28 px-6">
-        <div className="max-w-[1360px] mx-auto">
-          <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">THE TEAM</p>
-            <h2 className="font-sans font-bold text-white tracking-[-0.02em] leading-[1.1] mb-16"
-              style={{ fontSize: 'clamp(36px, 4vw, 56px)' }}>
-              The people behind the work.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {/* Zubair */}
-            <div ref={useReveal(100)} className="rounded-[28px] p-8 md:p-12 border border-white/6 bg-[#0B1020] hover:border-lime/20 transition-all">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6">
-                <span className="font-sans font-bold text-[24px] md:text-[28px] text-lime">Z</span>
-              </div>
-              <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-white mb-1">Muhammad Zubair</h3>
-              <p className="font-sans text-[13px] md:text-[14px] text-lime mb-5 font-medium">Founder — Web Development & AI Systems</p>
-              <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.75]">
-                Zubair builds the systems. Obsessed with AI automation, web architecture,
-                and making businesses run without their founders having to babysit them.
-              </p>
-            </div>
-
-            {/* Hashir */}
-            <div ref={useReveal(150)} className="rounded-[28px] p-8 md:p-12 border border-white/6 bg-[#0B1020] hover:border-lime/20 transition-all">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6">
-                <span className="font-sans font-bold text-[24px] md:text-[28px] text-lime">H</span>
-              </div>
-              <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-white mb-1">Hashir</h3>
-              <p className="font-sans text-[13px] md:text-[14px] text-lime mb-5 font-medium">Co-Founder — Creative Strategy & Brand</p>
-              <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.75]">
-                Hashir ensures everything ZYVONE builds doesn't just work — it looks and
-                feels like something worth trusting. The creative force behind every project.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Principles */}
-      <section className="bg-secondary-bg border-t border-line-dark py-20 md:py-28 px-6">
-        <div className="max-w-[1360px] mx-auto">
-          <div ref={useReveal()}>
-            <p className="font-sans text-[11px] font-medium text-lime uppercase tracking-[0.14em] mb-6">HOW WE WORK</p>
-            <h2 className="font-sans font-bold text-white tracking-[-0.02em] leading-[1.1] mb-16"
-              style={{ fontSize: 'clamp(36px, 4vw, 56px)' }}>
-              Our principles.
-            </h2>
-          </div>
-
-          <div className="max-w-[680px]">
-            {[
-              {
-                num: '01',
-                title: 'Systems over services',
-                body: 'We build things that run without your constant involvement. That\'s the only definition of leverage.'
-              },
-              {
-                num: '02',
-                title: 'Precision over volume',
-                body: 'We take fewer projects and go deeper. Quality is incompatible with an assembly line.'
-              },
-              {
-                num: '03',
-                title: 'Founders, not account managers',
-                body: 'You work with Zubair and Hashir directly. Not a team assembled after you sign.'
-              },
-              {
-                num: '04',
-                title: 'Outcome over output',
-                body: 'We measure success by what changes in your business — revenue, time recovered, systems running.'
-              },
-            ].map((principle, i) => (
-              <div key={i} ref={useReveal(i * 100)} className="flex gap-4 md:gap-6 py-6 md:py-8 border-b border-line-dark">
-                <p className="font-sans font-bold text-[13px] text-lime min-w-[28px] md:min-w-[32px]">{principle.num}</p>
+      {/* Founder Strip */}
+      <RevealWrapper>
+        <section className="mb-20 md:mb-28">
+          <span className="eyebrow-mono block mb-8">THE FOUNDERS</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {founders.map((founder) => (
+              <div
+                key={founder.name}
+                className="card-surface p-6 md:p-8 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 className="font-sans font-semibold text-[18px] md:text-[20px] text-white mb-1.5">{principle.title}</h3>
-                  <p className="font-sans text-[15px] md:text-[16px] text-white/50 leading-[1.7]">{principle.body}</p>
+                  <div className="flex items-center gap-4 mb-4">
+                    {/* Consistent 48px avatar with shared lime border & glow */}
+                    <div className="w-12 h-12 rounded-full bg-[var(--bg)] border border-[var(--accent)] text-[var(--accent)] flex items-center justify-center font-mono font-semibold text-[18px] flex-shrink-0 shadow-[0_0_12px_var(--accent-shadow)]">
+                      {founder.initial}
+                    </div>
+                    <div>
+                      <h3 className="font-sans font-semibold text-[18px] text-[var(--text-primary)]">
+                        {founder.name}
+                      </h3>
+                      <p className="font-mono text-[11px] text-[var(--text-tertiary)] uppercase tracking-wider">
+                        {founder.role}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed mb-6">
+                    {founder.bio}
+                  </p>
+                </div>
+
+                {/* Link Pills */}
+                <div className="flex items-center gap-3 pt-4 border-t border-[var(--border)]">
+                  {founder.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-[11px] px-3 py-1 rounded-full border border-[var(--border)] hover:border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium"
+                    >
+                      {link.label} ↗
+                    </a>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </RevealWrapper>
 
-      {/* CTA */}
-      <section className="bg-primary-bg border-t border-line-dark py-20 md:py-24 px-6 text-center">
-        <div className="max-w-[1360px] mx-auto">
-          <h2 ref={useReveal()} className="font-sans font-bold text-white tracking-[-0.02em] leading-[1.1]"
-            style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>
-            Work with us.
-          </h2>
-          <p ref={useReveal(100)} className="font-sans text-[16px] md:text-[18px] text-white/50 mt-3">
-            Let's figure out if we're the right fit.
-          </p>
-          <div ref={useReveal(200)}>
-            <Link href="/contact"
-              className="inline-flex items-center justify-center gap-2 font-bold text-[14px] px-7 md:px-9 py-4 rounded-full mt-6 md:mt-8 scale-[1.02] transition-all duration-200 min-h-[48px] bg-lime text-black hover:bg-lime/90 cursor-pointer"
-              style={{
-                boxShadow: '0 4px 24px rgba(212, 245, 60, 0.25)'
-              }}>
-              Start a conversation →
-            </Link>
+      {/* Principles */}
+      <RevealWrapper>
+        <section className="mb-24 md:mb-36">
+          <span className="eyebrow-mono block mb-8">OUR PRINCIPLES</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {principles.map((item) => (
+              <div
+                key={item.num}
+                className="card-surface p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="font-mono text-[14px] font-semibold text-[var(--accent)] block mb-4">
+                    {item.num}
+                  </span>
+                  <h3 className="font-sans font-semibold text-[17px] text-[var(--text-primary)] mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="font-sans text-[13px] text-[var(--text-secondary)] leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
+        </section>
+      </RevealWrapper>
+
+      {/* Bottom CTA */}
+      <RevealWrapper>
+        <div className="text-center pt-12 border-t border-[var(--border)]">
+          <h2 className="font-sans font-semibold text-[28px] md:text-[36px] text-[var(--text-primary)] mb-4">
+            Ready to build systems?
+          </h2>
+          <p className="font-sans text-[16px] text-[var(--text-secondary)] mb-8 max-w-[480px] mx-auto">
+            Let&apos;s evaluate your requirements and architect an enduring solution.
+          </p>
+          <Link href="/contact" className="btn-primary">
+            <span>Work with us</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
-      </section>
-    </>
+      </RevealWrapper>
+    </div>
   )
 }
