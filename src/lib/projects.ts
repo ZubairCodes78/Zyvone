@@ -29,7 +29,7 @@ export interface Project {
   beforeImage?: string | null
   afterImage?: string | null
   architecture?: string | null
-  year: '2026' | '2025'
+  year: '2026'
   services: string[]
   stack: string[]
   stats?: ProjectStats
@@ -191,7 +191,7 @@ export const projects: Project[] = [
       '/images/pdfmaster.png',
       '/images/toolmatic.png',
     ],
-    year: '2025',
+    year: '2026',
     services: ['WASM Engineering', 'Client-Side Architecture', 'UI/UX Design'],
     stack: ['Next.js', 'TypeScript', 'Web Workers', 'PDF-Lib', 'WebAssembly'],
     stats: {
@@ -232,7 +232,7 @@ export const projects: Project[] = [
       '/images/cantt-dental-care.png',
       '/images/al-raheem-engineering.png',
     ],
-    year: '2025',
+    year: '2026',
     services: ['Clinical Architecture', 'Local SEO System', 'Conversion UX'],
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Schema.org', 'Vercel'],
     stats: {
@@ -273,7 +273,7 @@ export const projects: Project[] = [
       '/images/al-raheem-engineering.png',
       '/images/cantt-dental-care.png',
     ],
-    year: '2025',
+    year: '2026',
     services: ['B2B Catalog Engine', 'RFQ Pipeline', 'Technical Architecture'],
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel Edge'],
     stats: {
