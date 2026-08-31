@@ -5,15 +5,67 @@ import { RevealWrapper } from '@/components/ui/RevealWrapper'
 import { agencySocials, founderSocials, coFounderSocials } from '@/lib/socials'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About ZYVONE — Digital Product Studio & Technology Company',
   description:
-    'Built by founders. For founders. ZYVONE is a digital product studio and technology company engineering software systems, AI applications, and SaaS infrastructure.',
+    'Built by founders. For founders. ZYVONE is a digital product studio and software technology company engineering SaaS products, AI applications, custom web systems, and digital infrastructure.',
   alternates: {
     canonical: 'https://zyvone.site/about',
   },
 }
 
 export default function AboutPage() {
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://zyvone.site',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'About',
+          item: 'https://zyvone.site/about',
+        },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'ZYVONE',
+      url: 'https://zyvone.site',
+      logo: 'https://zyvone.site/favicon.png',
+      description:
+        'ZYVONE is a digital product studio and software technology company building SaaS products, web applications, AI systems, and automated infrastructure.',
+      founder: [
+        {
+          '@type': 'Person',
+          name: founderSocials.name,
+          jobTitle: founderSocials.role,
+          sameAs: [
+            founderSocials.instagram,
+            founderSocials.linkedin,
+            founderSocials.x,
+            founderSocials.github,
+          ],
+        },
+        {
+          '@type': 'Person',
+          name: coFounderSocials.name,
+          jobTitle: coFounderSocials.role,
+          sameAs: [
+            coFounderSocials.instagram,
+            coFounderSocials.x,
+            coFounderSocials.linkedin,
+          ],
+        },
+      ],
+    },
+  ]
   const principles = [
     {
       num: '01',
@@ -39,6 +91,10 @@ export default function AboutPage() {
 
   return (
     <div className="pt-[140px] md:pt-[180px] pb-24 md:pb-36 px-6 md:px-12 lg:px-16 max-w-[var(--max-w-content)] mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Header — Company Positioning Statement */}
       <section className="max-w-[var(--max-w-hero)] mb-16 md:mb-24 pb-12 border-b border-[var(--border)]">
         <span className="eyebrow-mono block mb-4 text-[var(--accent)]">ABOUT ZYVONE</span>
@@ -181,8 +237,15 @@ export default function AboutPage() {
                     <p className="font-mono text-[12px] font-medium text-[var(--accent)] uppercase tracking-wider mt-0.5">
                       {coFounderSocials.role}
                     </p>
+                    <p className="font-sans text-[13px] text-[var(--text-tertiary)] mt-1 font-medium">
+                      {coFounderSocials.spec}
+                    </p>
                   </div>
                 </div>
+
+                <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-secondary)] leading-relaxed mb-8">
+                  &ldquo;{coFounderSocials.description}&rdquo;
+                </p>
               </div>
 
               {/* Social Icon Links */}
@@ -223,6 +286,80 @@ export default function AboutPage() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+      </RevealWrapper>
+
+      {/* Entity Q&A Overview Section for AI Search & Search Engine Context */}
+      <RevealWrapper>
+        <section className="mb-20 md:mb-28">
+          <div className="mb-10">
+            <span className="eyebrow-mono block mb-3 text-[var(--accent)]">02 / ENTITY OVERVIEW</span>
+            <h2
+              className="font-sans font-semibold text-[var(--text-primary)] tracking-tight mb-3"
+              style={{ fontSize: 'var(--fs-h2)' }}
+            >
+              ABOUT ZYVONE AT A GLANCE
+            </h2>
+            <p className="font-sans text-[15px] text-[var(--text-secondary)] max-w-[680px]">
+              Explicit business entity overview structured for human review and search engine comprehension.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="card-surface p-6 md:p-8">
+              <h3 className="font-sans font-semibold text-[17px] text-[var(--text-primary)] mb-2">
+                What is ZYVONE?
+              </h3>
+              <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                ZYVONE is an integrated digital product studio and software technology company specializing in building digital infrastructure, SaaS products, custom web applications, AI systems, and automation.
+              </p>
+            </div>
+
+            <div className="card-surface p-6 md:p-8">
+              <h3 className="font-sans font-semibold text-[17px] text-[var(--text-primary)] mb-2">
+                Who founded ZYVONE?
+              </h3>
+              <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                ZYVONE was founded by Muhammad Zubair (Founder &amp; Full-Stack SaaS &amp; AI Developer) and Hashir Ahmad (Co-Founder &amp; Marketing Strategist &amp; Web Developer).
+              </p>
+            </div>
+
+            <div className="card-surface p-6 md:p-8">
+              <h3 className="font-sans font-semibold text-[17px] text-[var(--text-primary)] mb-2">
+                What does ZYVONE build?
+              </h3>
+              <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                ZYVONE builds permanent digital infrastructure including SaaS platforms, multi-tenant cloud software, vector RAG search engines, AI workflow pipelines, D2C storefronts, B2B wholesale trade portals, and clinical patient acquisition engines.
+              </p>
+            </div>
+
+            <div className="card-surface p-6 md:p-8">
+              <h3 className="font-sans font-semibold text-[17px] text-[var(--text-primary)] mb-2">
+                What core services does ZYVONE offer?
+              </h3>
+              <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                ZYVONE offers 11 core disciplines: Web Development, Custom Software Development, SaaS Development, SaaS MVP Engineering, AI Development, AI Automation, AI Agent Development, Business Systems, AI Content Systems, Growth Marketing, and E-commerce Platforms.
+              </p>
+            </div>
+
+            <div className="card-surface p-6 md:p-8">
+              <h3 className="font-sans font-semibold text-[17px] text-[var(--text-primary)] mb-2">
+                What products and case studies has ZYVONE deployed?
+              </h3>
+              <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                Verified deployed platforms include WearOmnia (D2C Modest Apparel), Amin Raisat Hosiery (B2B Pure Cotton Trade Portal), Toolmatic (Edge Utilities System), PDFMaster (Client-Side Document Processing Suite), Cantt Dental Care (Patient Engine), and Al Raheem Engineering (Industrial Machinery Catalog).
+              </p>
+            </div>
+
+            <div className="card-surface p-6 md:p-8">
+              <h3 className="font-sans font-semibold text-[17px] text-[var(--text-primary)] mb-2">
+                Where does ZYVONE operate?
+              </h3>
+              <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                ZYVONE is headquartered in Pakistan and serves ambitious founders, tech startups, industrial manufacturers, and clinical practices globally across South Asia, North America, Europe, and the Middle East.
+              </p>
             </div>
           </div>
         </section>

@@ -45,12 +45,16 @@ function CaseStudyModalContent() {
         savedScrollPosition.current = window.scrollY
         document.body.style.overflow = 'hidden'
       }
-      setDisplaySlug(activeSlug)
-      setContentKey((k) => k + 1)
+      queueMicrotask(() => {
+        setDisplaySlug(activeSlug)
+        setContentKey((k) => k + 1)
+      })
       if (scrollRef.current) scrollRef.current.scrollTop = 0
     } else if (displaySlug) {
       document.body.style.overflow = ''
-      setDisplaySlug(null)
+      queueMicrotask(() => {
+        setDisplaySlug(null)
+      })
       if (savedScrollPosition.current) {
         window.scrollTo({ top: savedScrollPosition.current, behavior: 'instant' })
       }

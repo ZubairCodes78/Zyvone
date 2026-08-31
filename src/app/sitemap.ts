@@ -19,10 +19,58 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/capabilities`,
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/web-development`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/saas-development`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/ai-development`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/ai-automation`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/mvp-development`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/custom-software`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/business-systems`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/services/ecommerce-development`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/about`,
@@ -69,17 +117,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
-    url: `${baseUrl}/work?project=${p.slug}`,
+    url: `${baseUrl}/work/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
-    priority: 0.7,
+    priority: 0.8,
   }))
 
   const articleRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
     url: `${baseUrl}/journal/${a.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
-    priority: 0.7,
+    priority: 0.8,
   }))
 
   return [...staticRoutes, ...projectRoutes, ...articleRoutes]

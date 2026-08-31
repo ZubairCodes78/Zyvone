@@ -61,9 +61,10 @@ export default async function ArticlePage({
     image: `https://zyvone.site${article.heroImage}`,
     datePublished: article.dateISO,
     author: {
-      '@type': 'Organization',
-      name: 'ZYVONE',
-      url: 'https://zyvone.site',
+      '@type': 'Person',
+      name: 'Muhammad Zubair',
+      jobTitle: 'Founder, ZYVONE',
+      sameAs: 'https://www.linkedin.com/in/zubair-zyvone/',
     },
     publisher: {
       '@type': 'Organization',

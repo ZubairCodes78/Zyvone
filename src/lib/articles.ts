@@ -126,8 +126,8 @@ export const articles: Article[] = [
     title: 'The Hidden Cost of Manual Work in Growing Businesses',
     shortTitle: 'The Cost of Manual Work',
     category: 'Automation',
-    date: 'Dec 20, 2024',
-    dateISO: '2024-12-20',
+    date: 'Dec 20, 2025',
+    dateISO: '2025-12-20',
     readTime: 5,
     excerpt:
       'Every business has invisible friction: leads that sit in an inbox, invoices created by hand, customer data copied across three spreadsheets. Here is how to audit your operations and eliminate operational drag.',
@@ -223,8 +223,8 @@ export const articles: Article[] = [
     title: 'AI Automation: Where Most Companies Get It Wrong',
     shortTitle: 'AI Automation: Where to Start',
     category: 'AI',
-    date: 'Nov 10, 2024',
-    dateISO: '2024-11-10',
+    date: 'Nov 10, 2025',
+    dateISO: '2025-11-10',
     readTime: 6,
     excerpt:
       'Everyone wants "AI" in their business. Almost nobody knows what that actually means in practice. We break down the difference between AI as a buzzword and AI as an operational infrastructure layer.',
@@ -319,8 +319,8 @@ export const articles: Article[] = [
     title: 'Building for Scale: Architecture Decisions That Matter on Day One',
     shortTitle: 'Building for Scale',
     category: 'Engineering',
-    date: 'Oct 05, 2024',
-    dateISO: '2024-10-05',
+    date: 'Oct 05, 2025',
+    dateISO: '2025-10-05',
     readTime: 6,
     excerpt:
       'Technical debt is not just bad code — it is bad architecture. Here are the foundational technology choices we make on every project to ensure what we build can handle 10x growth without a rewrite.',

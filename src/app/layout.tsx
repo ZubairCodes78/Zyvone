@@ -39,9 +39,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://zyvone.site",
   },
-  title: { default: "ZYVONE — We build systems. Not deliverables.", template: "%s — ZYVONE" },
-  description: "ZYVONE is a digital product studio engineering software systems, web platforms, and automated infrastructure for founders. We build systems. Not deliverables.",
-  keywords: ["systems", "software engineering", "digital product studio", "AI automation", "web development", "Pakistan", "SaaS infrastructure"],
+  title: {
+    default: "ZYVONE — Digital Product Studio | Software, SaaS & AI Development",
+    template: "%s — ZYVONE",
+  },
+  description:
+    "ZYVONE is a digital product studio and software technology company building SaaS products, web applications, AI systems, and automated infrastructure for ambitious founders and enterprises.",
+  keywords: [
+    "ZYVONE",
+    "web development agency",
+    "software development company",
+    "SaaS development company",
+    "SaaS MVP development",
+    "AI development agency",
+    "AI automation agency",
+    "custom software development",
+    "digital product studio",
+    "software house Pakistan",
+  ],
   authors: [{ name: "ZYVONE", url: "https://zyvone.site" }],
   creator: "ZYVONE",
   publisher: "ZYVONE",
@@ -49,14 +64,15 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://zyvone.site",
     siteName: "ZYVONE",
-    title: "ZYVONE — We build systems. Not deliverables.",
-    description: "ZYVONE is a digital product studio engineering software systems, web platforms, and automated infrastructure.",
+    title: "ZYVONE — Digital Product Studio | Software, SaaS & AI Development",
+    description:
+      "ZYVONE is a digital product studio and software technology company building SaaS products, web applications, AI systems, and automated infrastructure.",
     images: [
       {
         url: "https://zyvone.site/og-image.png",
         width: 1200,
         height: 630,
-        alt: "ZYVONE — We build systems. Not deliverables.",
+        alt: "ZYVONE — Digital Product Studio | Software, SaaS & AI Development",
       },
     ],
     locale: "en_US",
@@ -100,7 +116,8 @@ export default function RootLayout({
     name: "ZYVONE",
     url: "https://zyvone.site",
     logo: "https://zyvone.site/favicon.png",
-    description: "ZYVONE is a digital product studio engineering software systems, web platforms, and automated infrastructure. We build systems. Not deliverables.",
+    description:
+      "ZYVONE is a digital product studio and software technology company building SaaS products, web applications, AI systems, and automated infrastructure.",
     address: {
       "@type": "PostalAddress",
       addressCountry: "PK",
@@ -109,12 +126,35 @@ export default function RootLayout({
       "@type": "ContactPoint",
       telephone: "+92 316 7697273",
       contactType: "customer service",
-      availableLanguage: "English",
+      availableLanguage: ["English", "Urdu"],
     },
     sameAs: [
       "https://x.com/zyvone12",
       "https://www.linkedin.com/in/zyvone-limited/",
       "https://www.instagram.com/zyvone.official/",
+    ],
+    founder: [
+      {
+        "@type": "Person",
+        name: "Muhammad Zubair",
+        jobTitle: "Founder, ZYVONE",
+        sameAs: [
+          "https://www.instagram.com/zubair.zyvone/",
+          "https://www.linkedin.com/in/zubair-zyvone/",
+          "https://x.com/ZubairAttari37",
+          "https://github.com/ZubairCodes78",
+        ],
+      },
+      {
+        "@type": "Person",
+        name: "Hashir Ahmad",
+        jobTitle: "Co-Founder, ZYVONE",
+        sameAs: [
+          "https://www.instagram.com/co.founder.zyvone/",
+          "https://x.com/HashirAhmad327",
+          "https://www.linkedin.com/in/hashir-ahmad327/",
+        ],
+      },
     ],
   };
 

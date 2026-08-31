@@ -50,7 +50,7 @@ export default function SocialPage() {
     },
     {
       name: coFounderSocials.name,
-      role: coFounderSocials.role,
+      role: `${coFounderSocials.role} — ${coFounderSocials.spec}`,
       avatarInitial: 'H',
       channels: [
         { name: 'Instagram', handle: '@co.founder.zyvone', url: coFounderSocials.instagram },

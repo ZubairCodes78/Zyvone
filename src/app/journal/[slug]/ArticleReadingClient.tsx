@@ -54,10 +54,10 @@ export default function ArticleReadingClient({
           </div>
           <div>
             <span className="font-sans font-semibold text-[13px] text-[var(--text-primary)] block">
-              ZYVONE Engineering Team
+              Muhammad Zubair
             </span>
             <span className="font-mono text-[11px] text-[var(--text-tertiary)]">
-              Architecture & Systems Research
+              Founder, ZYVONE · Full-Stack SaaS &amp; AI Developer
             </span>
           </div>
         </div>

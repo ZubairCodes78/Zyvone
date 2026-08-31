@@ -48,7 +48,9 @@ export default function Navbar() {
   }, [mobileOpen])
 
   // Close mobile menu on route change
-  useEffect(() => { setMobileOpen(false) }, [pathname])
+  useEffect(() => {
+    queueMicrotask(() => setMobileOpen(false))
+  }, [pathname])
 
   // Escape key closes mobile menu
   useEffect(() => {
