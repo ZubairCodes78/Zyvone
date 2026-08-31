@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { agencySocials } from '@/lib/socials'
 
 export default function Footer() {
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
             <span className="eyebrow-mono mb-4 text-[11px]">Connect With Us</span>
             <div className="flex flex-wrap items-center gap-5">
               <a
-                href="https://www.instagram.com/zyvone.official/"
+                href={agencySocials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-sans text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
@@ -42,17 +43,17 @@ export default function Footer() {
                 <span className="text-[var(--text-tertiary)]">↗</span>
               </a>
               <a
-                href="https://x.com/zyvone12"
+                href={agencySocials.x}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-sans text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-                aria-label="ZYVONE X (formerly Twitter)"
+                aria-label="ZYVONE X"
               >
                 <span>X</span>
                 <span className="text-[var(--text-tertiary)]">↗</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/zyvone-limited/"
+                href={agencySocials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-sans text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"

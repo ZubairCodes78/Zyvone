@@ -3,6 +3,7 @@ import { Hero } from '@/components/home/Hero'
 import { Capabilities } from '@/components/home/Capabilities'
 import { WorkShowcase } from '@/components/home/WorkShowcase'
 import { Process } from '@/components/home/Process'
+import { TeamTeaser } from '@/components/home/TeamTeaser'
 import { FinalCTA } from '@/components/home/FinalCTA'
 import { RevealWrapper } from '@/components/ui/RevealWrapper'
 
@@ -27,7 +28,12 @@ export default function Home() {
         <Process />
       </RevealWrapper>
 
-      {/* SECTION 05 — FINAL CTA */}
+      {/* SECTION 05 — TEAM */}
+      <RevealWrapper>
+        <TeamTeaser />
+      </RevealWrapper>
+
+      {/* SECTION 06 — FINAL CTA */}
       <RevealWrapper>
         <FinalCTA />
       </RevealWrapper>

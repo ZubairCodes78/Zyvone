@@ -306,7 +306,7 @@ export default function StoryPage() {
             &ldquo;The story isn&apos;t finished. This is just where we are.&rdquo;
           </p>
           <p className="eyebrow-mono text-[11px] text-[var(--text-tertiary)] mb-8 font-semibold">
-            — MUHAMMAD ZUBAIR, CO-FOUNDER
+            — MUHAMMAD ZUBAIR, FOUNDER
           </p>
           <Link href="/contact" className="btn-primary">
             <span>Build with us</span>

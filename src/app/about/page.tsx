@@ -2,10 +2,12 @@ import React from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { RevealWrapper } from '@/components/ui/RevealWrapper'
+import { agencySocials, founderSocials, coFounderSocials } from '@/lib/socials'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Built by founders. For founders. ZYVONE is a digital product studio with a specific point of view on how modern businesses should be built.',
+  description:
+    'Built by founders. For founders. ZYVONE is a digital product studio and technology company engineering software systems, AI applications, and SaaS infrastructure.',
   alternates: {
     canonical: 'https://zyvone.site/about',
   },
@@ -35,120 +37,277 @@ export default function AboutPage() {
     },
   ]
 
-  const founders = [
-    {
-      name: 'Muhammad Zubair',
-      role: 'Co-Founder — Strategy & Engineering',
-      bio: 'Leads product architecture, technical strategy and client relationships. Focused on building software systems that compound over time.',
-      initial: 'Z',
-      links: [
-        { label: 'LinkedIn', url: 'https://www.linkedin.com/in/zubaircodes/' },
-        { label: 'X', url: 'https://x.com/zubaircodes78' },
-        { label: 'GitHub', url: 'https://github.com/ZubairCodes78' },
-      ],
-    },
-    {
-      name: 'Hashir Ahmed',
-      role: 'Co-Founder — Design & Systems',
-      bio: 'Leads visual design, UX research and front-end engineering. Translates complex product problems into clear, elegant interfaces.',
-      initial: 'H',
-      links: [
-        { label: 'Instagram', url: 'https://www.instagram.com/co.founder.zyvone/' },
-        { label: 'LinkedIn', url: 'https://www.linkedin.com/in/hashir-ahmad327/' },
-        { label: 'X', url: 'https://x.com/HashirAhmad327' },
-      ],
-    },
-  ]
-
   return (
     <div className="pt-[140px] md:pt-[180px] pb-24 md:pb-36 px-6 md:px-12 lg:px-16 max-w-[var(--max-w-content)] mx-auto">
-      {/* Header */}
-      <section className="max-w-[var(--max-w-hero)] mb-14 md:mb-20 pb-10 border-b border-[var(--border)]">
-        <span className="eyebrow-mono block mb-4">ABOUT ZYVONE</span>
+      {/* Header — Company Positioning Statement */}
+      <section className="max-w-[var(--max-w-hero)] mb-16 md:mb-24 pb-12 border-b border-[var(--border)]">
+        <span className="eyebrow-mono block mb-4 text-[var(--accent)]">ABOUT ZYVONE</span>
         <h1
           className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
           Built by founders.{' '}
-          <span className="font-display-accent">
+          <span className="font-display-accent block sm:inline">
             For founders.
           </span>
         </h1>
-        <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.7]">
-          ZYVONE is not a typical agency. We are a digital product studio with a specific point of view on how modern businesses should be built.
+        <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[20px] leading-[1.7] max-w-[760px]">
+          ZYVONE is a digital product studio and technology company. We engineer SaaS platforms, AI-powered applications, and custom web infrastructure with a systems-first point of view — built to scale, compound, and perform.
         </p>
       </section>
 
-      {/* Philosophy Section */}
+      {/* The People Behind ZYVONE */}
       <RevealWrapper>
-        <section className="max-w-[var(--max-w-text)] mb-20 md:mb-28">
-          <h2
-            className="font-sans font-semibold text-[var(--text-primary)] tracking-tight mb-6"
-            style={{ fontSize: 'var(--fs-h2)' }}
-          >
-            We build systems.{' '}
-            <span className="font-display-accent">
-              Not deliverables.
-            </span>
-          </h2>
-          <div className="space-y-6 font-sans text-[var(--text-secondary)] text-[16px] md:text-[17px] leading-[1.75]">
-            <p>
-              ZYVONE was founded by Zubair and Hashir — two builders who decided the agency model was broken. Agencies sell time. Time doesn&apos;t compound. Systems do.
-            </p>
-            <p>
-              We take a small number of projects. We go deep on each one. We measure success by what changes in your business — not by what we deliver to your inbox.
-            </p>
+        <section className="mb-20 md:mb-28">
+          <div className="mb-10">
+            <span className="eyebrow-mono block mb-3 text-[var(--accent)]">01 / LEADERSHIP</span>
+            <h2
+              className="font-sans font-semibold text-[var(--text-primary)] tracking-tight"
+              style={{ fontSize: 'var(--fs-h2)' }}
+            >
+              THE PEOPLE BEHIND ZYVONE
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Founder Card — MUHAMMAD ZUBAIR */}
+            <div className="card-surface p-7 md:p-10 flex flex-col justify-between group transition-all duration-300 hover:border-[var(--accent)] hover:shadow-[0_0_24px_rgba(200,237,53,0.08)]">
+              <div>
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-[var(--border)]">
+                  <span className="font-mono text-[14px] font-semibold text-[var(--accent)]">
+                    01
+                  </span>
+                  <span className="eyebrow-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
+                    FOUNDER
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-4 md:gap-5 mb-6">
+                  {/* Subtle scaling avatar container */}
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[var(--bg)] border border-[var(--accent)] text-[var(--accent)] flex items-center justify-center font-mono font-bold text-[20px] md:text-[22px] flex-shrink-0 transition-transform duration-300 group-hover:scale-[1.04] shadow-[0_0_12px_var(--accent-shadow)]">
+                    Z
+                  </div>
+
+                  <div>
+                    <h3 className="font-sans font-semibold text-[20px] md:text-[22px] text-[var(--text-primary)] tracking-tight transition-transform duration-300 group-hover:translate-x-1">
+                      {founderSocials.name}
+                    </h3>
+                    <p className="font-mono text-[12px] font-medium text-[var(--accent)] uppercase tracking-wider mt-0.5">
+                      {founderSocials.role}
+                    </p>
+                    <p className="font-sans text-[13px] text-[var(--text-tertiary)] mt-1 font-medium">
+                      {founderSocials.spec}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-secondary)] leading-relaxed mb-8">
+                  &ldquo;{founderSocials.description}&rdquo;
+                </p>
+              </div>
+
+              {/* Social Icon Links */}
+              <div className="pt-6 border-t border-[var(--border)] flex items-center justify-between flex-wrap gap-3">
+                <span className="eyebrow-mono text-[10px] text-[var(--text-tertiary)]">
+                  CONNECT DIRECTLY
+                </span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <a
+                    href={founderSocials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Muhammad Zubair Instagram"
+                    className="font-mono text-[12px] px-3.5 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 flex items-center gap-1 group/link"
+                  >
+                    <span>Instagram</span>
+                    <span className="text-[var(--text-tertiary)] group-hover/link:text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">↗</span>
+                  </a>
+                  <a
+                    href={founderSocials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Muhammad Zubair LinkedIn"
+                    className="font-mono text-[12px] px-3.5 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 flex items-center gap-1 group/link"
+                  >
+                    <span>LinkedIn</span>
+                    <span className="text-[var(--text-tertiary)] group-hover/link:text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">↗</span>
+                  </a>
+                  <a
+                    href={founderSocials.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Muhammad Zubair X"
+                    className="font-mono text-[12px] px-3.5 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 flex items-center gap-1 group/link"
+                  >
+                    <span>X</span>
+                    <span className="text-[var(--text-tertiary)] group-hover/link:text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">↗</span>
+                  </a>
+                  <a
+                    href={founderSocials.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Muhammad Zubair GitHub"
+                    className="font-mono text-[12px] px-3.5 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 flex items-center gap-1 group/link"
+                  >
+                    <span>GitHub</span>
+                    <span className="text-[var(--text-tertiary)] group-hover/link:text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Co-Founder Card — HASHIR AHMAD */}
+            <div className="card-surface p-7 md:p-10 flex flex-col justify-between group transition-all duration-300 hover:border-[var(--accent)] hover:shadow-[0_0_24px_rgba(200,237,53,0.08)]">
+              <div>
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-[var(--border)]">
+                  <span className="font-mono text-[14px] font-semibold text-[var(--accent)]">
+                    02
+                  </span>
+                  <span className="eyebrow-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
+                    CO-FOUNDER
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-4 md:gap-5 mb-6">
+                  {/* Subtle scaling avatar container */}
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[var(--bg)] border border-[var(--accent)] text-[var(--accent)] flex items-center justify-center font-mono font-bold text-[20px] md:text-[22px] flex-shrink-0 transition-transform duration-300 group-hover:scale-[1.04] shadow-[0_0_12px_var(--accent-shadow)]">
+                    H
+                  </div>
+
+                  <div>
+                    <h3 className="font-sans font-semibold text-[20px] md:text-[22px] text-[var(--text-primary)] tracking-tight transition-transform duration-300 group-hover:translate-x-1">
+                      {coFounderSocials.name}
+                    </h3>
+                    <p className="font-mono text-[12px] font-medium text-[var(--accent)] uppercase tracking-wider mt-0.5">
+                      {coFounderSocials.role}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Icon Links */}
+              <div className="pt-6 border-t border-[var(--border)] flex items-center justify-between flex-wrap gap-3 mt-auto">
+                <span className="eyebrow-mono text-[10px] text-[var(--text-tertiary)]">
+                  CONNECT DIRECTLY
+                </span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <a
+                    href={coFounderSocials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Hashir Ahmad Instagram"
+                    className="font-mono text-[12px] px-3.5 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 flex items-center gap-1 group/link"
+                  >
+                    <span>Instagram</span>
+                    <span className="text-[var(--text-tertiary)] group-hover/link:text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">↗</span>
+                  </a>
+                  <a
+                    href={coFounderSocials.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Hashir Ahmad X"
+                    className="font-mono text-[12px] px-3.5 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 flex items-center gap-1 group/link"
+                  >
+                    <span>X</span>
+                    <span className="text-[var(--text-tertiary)] group-hover/link:text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">↗</span>
+                  </a>
+                  <a
+                    href={coFounderSocials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Hashir Ahmad LinkedIn"
+                    className="font-mono text-[12px] px-3.5 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 flex items-center gap-1 group/link"
+                  >
+                    <span>LinkedIn</span>
+                    <span className="text-[var(--text-tertiary)] group-hover/link:text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </RevealWrapper>
 
-      {/* Founder Strip */}
+      {/* Agency Social Identity Section */}
       <RevealWrapper>
-        <section className="mb-20 md:mb-28">
-          <span className="eyebrow-mono block mb-8">THE FOUNDERS</span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {founders.map((founder) => (
-              <div
-                key={founder.name}
-                className="card-surface p-6 md:p-8 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    {/* Consistent 48px avatar with shared lime border & glow */}
-                    <div className="w-12 h-12 rounded-full bg-[var(--bg)] border border-[var(--accent)] text-[var(--accent)] flex items-center justify-center font-mono font-semibold text-[18px] flex-shrink-0 shadow-[0_0_12px_var(--accent-shadow)]">
-                      {founder.initial}
-                    </div>
-                    <div>
-                      <h3 className="font-sans font-semibold text-[18px] text-[var(--text-primary)]">
-                        {founder.name}
-                      </h3>
-                      <p className="font-mono text-[11px] text-[var(--text-tertiary)] uppercase tracking-wider">
-                        {founder.role}
-                      </p>
-                    </div>
-                  </div>
+        <section className="mb-20 md:mb-28 p-8 md:p-10 rounded-[var(--radius-card)] card-surface border border-[var(--border)]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[var(--border)] mb-8">
+            <div>
+              <span className="eyebrow-mono block mb-2 text-[var(--accent)]">
+                AGENCY IDENTITY
+              </span>
+              <h3 className="font-sans font-semibold text-[22px] md:text-[26px] text-[var(--text-primary)] tracking-tight">
+                {agencySocials.name}
+              </h3>
+              <p className="font-sans text-[14px] text-[var(--text-secondary)] mt-1">
+                {agencySocials.tagline}
+              </p>
+            </div>
+            <div className="font-mono text-[12px] text-[var(--accent)] px-3 py-1.5 rounded-full bg-[var(--bg)] border border-[var(--border)] self-start md:self-auto">
+              OFFICIAL CHANNELS
+            </div>
+          </div>
 
-                  <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed mb-6">
-                    {founder.bio}
-                  </p>
-                </div>
-
-                {/* Link Pills */}
-                <div className="flex items-center gap-3 pt-4 border-t border-[var(--border)]">
-                  {founder.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-mono text-[11px] px-3 py-1 rounded-full border border-[var(--border)] hover:border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium"
-                    >
-                      {link.label} ↗
-                    </a>
-                  ))}
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <a
+              href={agencySocials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ZYVONE Official Instagram"
+              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group"
+            >
+              <div>
+                <span className="font-sans font-semibold text-[15px] text-[var(--text-primary)] block group-hover:text-[var(--accent)] transition-colors">
+                  Instagram
+                </span>
+                <span className="font-mono text-[11px] text-[var(--text-tertiary)]">
+                  {agencySocials.handle}
+                </span>
               </div>
-            ))}
+              <span className="font-mono text-[12px] text-[var(--accent)] group-hover:translate-x-0.5 transition-transform">
+                ↗
+              </span>
+            </a>
+
+            <a
+              href={agencySocials.x}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ZYVONE Official X"
+              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group"
+            >
+              <div>
+                <span className="font-sans font-semibold text-[15px] text-[var(--text-primary)] block group-hover:text-[var(--accent)] transition-colors">
+                  X (Twitter)
+                </span>
+                <span className="font-mono text-[11px] text-[var(--text-tertiary)]">
+                  @zyvone12
+                </span>
+              </div>
+              <span className="font-mono text-[12px] text-[var(--accent)] group-hover:translate-x-0.5 transition-transform">
+                ↗
+              </span>
+            </a>
+
+            <a
+              href={agencySocials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ZYVONE Official LinkedIn"
+              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group"
+            >
+              <div>
+                <span className="font-sans font-semibold text-[15px] text-[var(--text-primary)] block group-hover:text-[var(--accent)] transition-colors">
+                  LinkedIn
+                </span>
+                <span className="font-mono text-[11px] text-[var(--text-tertiary)]">
+                  ZYVONE Limited
+                </span>
+              </div>
+              <span className="font-mono text-[12px] text-[var(--accent)] group-hover:translate-x-0.5 transition-transform">
+                ↗
+              </span>
+            </a>
           </div>
         </section>
       </RevealWrapper>
@@ -156,7 +315,7 @@ export default function AboutPage() {
       {/* Principles */}
       <RevealWrapper>
         <section className="mb-24 md:mb-36">
-          <span className="eyebrow-mono block mb-8">OUR PRINCIPLES</span>
+          <span className="eyebrow-mono block mb-8 text-[var(--accent)]">OUR PRINCIPLES</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {principles.map((item) => (
               <div
