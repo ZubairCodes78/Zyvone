@@ -4,35 +4,39 @@ import Link from 'next/link'
 export const serviceCards = [
   {
     num: '01',
-    title: 'AI Automation',
-    desc: 'LLM orchestration, programmatic workflows, autonomous agents, and internal RAG pipelines.',
-    href: '/services/automation',
-    tag: 'INTELLIGENCE & FLOWS',
-    stack: 'OpenAI · Anthropic · n8n · Vector DB',
+    title: 'Digital Product & SaaS Engineering',
+    pillar: 'BUILD',
+    desc: 'Bespoke full-stack web applications, Flutter mobile apps, multi-tenant SaaS platforms, and rapid production MVPs built in Next.js.',
+    href: '/services/web-development',
+    tag: 'PILLAR 01 · BUILD',
+    stack: 'Next.js · Flutter · TypeScript · PostgreSQL · Vercel',
   },
   {
     num: '02',
-    title: 'Web Development',
-    desc: 'Bespoke full-stack web applications, SaaS infrastructure, and digital flagships engineered for scale.',
-    href: '/services/web',
-    tag: 'PLATFORMS & APPS',
-    stack: 'Next.js · TypeScript · Postgres · Vercel',
+    title: 'AI Systems & Agent Automation',
+    pillar: 'INTELLIGENCE',
+    desc: 'Production AI models, autonomous tool-calling agents, cognitive workflow automation, and enterprise WhatsApp triage pipelines.',
+    href: '/services/ai-development',
+    tag: 'PILLAR 02 · INTELLIGENCE',
+    stack: 'OpenAI · Anthropic · LangGraph · Python · Vector RAG',
   },
   {
     num: '03',
-    title: 'AI Content Systems',
-    desc: 'Programmatic asset generation, brand-aligned multi-channel pipelines, and automated publishing.',
-    href: '/services/content',
-    tag: 'PRODUCTION ENGINE',
-    stack: 'Automated Pipelines · Edge AI',
+    title: 'Custom Software & Internal Tools',
+    pillar: 'ENGINEERING',
+    desc: 'Bespoke enterprise software, high-throughput REST/GraphQL APIs, operational cockpits, and mission-critical data pipelines.',
+    href: '/services/custom-software-development',
+    tag: 'PILLAR 03 · ENGINEERING',
+    stack: 'Node.js · Python · FastAPI · Docker · PostgreSQL · Redis',
   },
   {
     num: '04',
-    title: 'Growth & Marketing Systems',
-    desc: 'Deterministic acquisition funnels, local SEO supremacy engines, and automated lead triage.',
-    href: '/services/marketing',
-    tag: 'ACQUISITION INFRASTRUCTURE',
-    stack: 'Conversion UX · Schema · Analytics',
+    title: 'Commerce & Product Design',
+    pillar: 'PRODUCT',
+    desc: 'High-converting custom e-commerce storefronts, automated COD logistics pipelines, and tokenized Figma-to-code UI/UX design systems.',
+    href: '/services/ecommerce-development',
+    tag: 'PILLAR 04 · PRODUCT',
+    stack: 'Headless Shopify · Tailwind CSS · Figma · Logistics APIs',
   },
 ]
 
@@ -42,7 +46,7 @@ export function Capabilities() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <span className="eyebrow-label block mb-3">CAPABILITIES</span>
+          <span className="eyebrow-label block mb-3">CAPABILITIES &amp; SERVICES</span>
           <h2
             className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.15]"
             style={{ fontSize: 'var(--fs-h2)' }}
@@ -50,9 +54,13 @@ export function Capabilities() {
             What we build.
           </h2>
         </div>
-        <p className="font-sans text-[14px] text-[var(--text-secondary)] max-w-[320px]">
-          Four core disciplines combined into cohesive software systems.
-        </p>
+        <Link
+          href="/services"
+          className="font-sans text-[14px] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1.5"
+        >
+          <span>View all 15 services</span>
+          <span aria-hidden="true">→</span>
+        </Link>
       </div>
 
       {/* 4 Cards Grid */}

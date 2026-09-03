@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { projects } from '@/lib/projects'
 import { articles } from '@/lib/articles'
+import { services } from '@/lib/services'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://zyvone.site'
@@ -23,54 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services/web-development`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/services/saas-development`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/services/ai-development`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/services/ai-automation`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/services/mvp-development`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/services/custom-software`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/services/business-systems`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/services/ecommerce-development`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
     },
     {
       url: `${baseUrl}/about`,
@@ -116,6 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
+    url: `${baseUrl}/services/${s.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }))
+
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
     url: `${baseUrl}/work/${p.slug}`,
     lastModified: new Date(),
@@ -130,5 +90,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...projectRoutes, ...articleRoutes]
+  return [...staticRoutes, ...serviceRoutes, ...projectRoutes, ...articleRoutes]
 }

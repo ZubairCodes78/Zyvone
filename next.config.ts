@@ -25,6 +25,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/services/custom-software',
+        destination: '/services/custom-software-development',
+        permanent: true,
+      },
+      {
+        source: '/services/business-systems',
+        destination: '/services/internal-tools',
+        permanent: true,
+      },
+      {
         source: '/capabilities',
         destination: '/services',
         permanent: true,

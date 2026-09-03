@@ -16,13 +16,16 @@ export async function generateMetadata({
   const project = getProject(slug)
   if (!project) return { title: 'Project Not Found' }
 
+  const pageTitle = project.seoTitle || `${project.name || project.shortTitle} — Case Study`
+  const pageDescription = project.seoDescription || project.overview
+
   return {
-    title: `${project.name || project.shortTitle} — Case Study`,
-    description: project.overview,
+    title: pageTitle,
+    description: pageDescription,
     alternates: { canonical: `https://zyvone.site/work/${project.slug}` },
     openGraph: {
       title: `${project.title} | ZYVONE Case Study`,
-      description: project.overview,
+      description: pageDescription,
       url: `https://zyvone.site/work/${project.slug}`,
       siteName: 'ZYVONE',
       images: [
