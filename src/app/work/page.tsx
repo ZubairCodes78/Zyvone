@@ -27,11 +27,16 @@ export default function WorkPage() {
     'ai-agents': projects.filter((p) => p.portfolioCategory === 'ai-agents').length,
   }
 
-  const tabs: { key: 'all' | 'websites' | 'applications' | 'ai-agents'; label: string; count: number }[] = [
+  const tabs: {
+    key: 'all' | 'websites' | 'applications' | 'ai-agents'
+    label: string
+    mobileLabel?: string
+    count: number
+  }[] = [
     { key: 'all', label: 'ALL WORK', count: counts.all },
     { key: 'websites', label: 'WEBSITES', count: counts.websites },
     { key: 'applications', label: 'APPLICATIONS', count: counts.applications },
-    { key: 'ai-agents', label: 'AI AUTOMATION & AGENTS', count: counts['ai-agents'] },
+    { key: 'ai-agents', label: 'AI AUTOMATION & AGENTS', mobileLabel: 'AI / AGENTS', count: counts['ai-agents'] },
   ]
 
   const jsonLd = {
@@ -75,37 +80,53 @@ export default function WorkPage() {
       </div>
 
       {/* Category Navigation Tabs */}
-      <div className="mb-10 pb-4 border-b border-[var(--border)]">
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-2 px-2 max-w-full">
-          {tabs.map((tab) => {
-            const isActive = activeCategory === tab.key
-            return (
-              <button
-                key={tab.key}
-                type="button"
-                onClick={() => setActiveCategory(tab.key)}
-                className={`font-mono text-[12px] sm:text-[13px] px-3.5 sm:px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 min-h-[40px] flex-shrink-0 ${
-                  isActive
-                    ? 'bg-[var(--accent)] text-[#0a0a0a] font-bold shadow-[0_0_16px_rgba(212,245,60,0.2)]'
-                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] border border-transparent hover:border-[var(--border)]'
-                }`}
-              >
-                <span>{tab.label}</span>
-                <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                    isActive ? 'bg-[#0a0a0a]/20 text-[#0a0a0a]' : 'bg-[var(--bg-surface)] text-[var(--text-tertiary)]'
+      <nav aria-label="Portfolio categories" className="mb-8 md:mb-10 pb-0 md:pb-4 md:border-b md:border-[var(--border)]">
+        {/* Contained single responsive container on mobile; clean horizontal row on desktop */}
+        <div className="w-full p-1.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] md:w-auto md:p-0 md:rounded-none md:bg-transparent md:border-0">
+          <div className="grid grid-cols-2 gap-1.5 md:flex md:flex-wrap md:items-center md:gap-2">
+            {tabs.map((tab) => {
+              const isActive = activeCategory === tab.key
+              return (
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveCategory(tab.key)}
+                  aria-pressed={isActive}
+                  aria-label={`${tab.label}, ${tab.count} projects`}
+                  className={`font-mono text-[11px] min-[360px]:text-[12px] sm:text-[13px] px-2.5 sm:px-4 py-2.5 sm:py-2 rounded-xl md:rounded-full transition-all duration-200 cursor-pointer flex items-center justify-center md:justify-start gap-1.5 sm:gap-2 min-h-[44px] md:min-h-[40px] w-full md:w-auto select-none ${
+                    isActive
+                      ? 'bg-[var(--accent)] text-[#0a0a0a] font-bold shadow-[0_0_16px_rgba(212,245,60,0.2)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] border border-transparent hover:border-[var(--border)]'
                   }`}
                 >
-                  {tab.count}
-                </span>
-              </button>
-            )
-          })}
+                  <span className="truncate">
+                    {tab.mobileLabel ? (
+                      <>
+                        <span className="inline md:hidden">{tab.mobileLabel}</span>
+                        <span className="hidden md:inline">{tab.label}</span>
+                      </>
+                    ) : (
+                      tab.label
+                    )}
+                  </span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-mono font-medium flex-shrink-0 transition-colors ${
+                      isActive
+                        ? 'bg-[#0a0a0a]/20 text-[#0a0a0a]'
+                        : 'bg-black/30 md:bg-[var(--bg-surface)] text-[var(--text-tertiary)] border border-white/5'
+                    }`}
+                  >
+                    {tab.count}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* Section Sub-Header */}
-      <div className="flex items-center justify-between pb-3 mb-8">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-8">
         <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)]">
           SHOWING {filteredProjects.length} {filteredProjects.length === 1 ? 'PROJECT' : 'PROJECTS'}
         </span>
