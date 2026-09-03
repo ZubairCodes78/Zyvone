@@ -205,29 +205,68 @@ function CaseStudyModalContent() {
                   fill
                   priority
                   className="object-cover object-top"
+                  unoptimized={project.heroImage.endsWith('.svg')}
                   sizes="(max-width: 900px) 100vw, 900px"
                 />
               </div>
 
+              {/* Workflow Pipeline (For AI Systems & Applications) */}
+              {project.workflowSequence && project.workflowSequence.length > 0 && (
+                <div className="p-4 md:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] min-w-0">
+                  <span className="eyebrow-label text-[10px] text-[var(--accent)] block mb-3 font-semibold tracking-wider">
+                    SYSTEM WORKFLOW &amp; EXECUTION PIPELINE
+                  </span>
+                  <div className="flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                    {project.workflowSequence.map((step, sIdx) => (
+                      <React.Fragment key={sIdx}>
+                        <span className="px-2.5 py-1 rounded bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium">
+                          {step}
+                        </span>
+                        {sIdx < project.workflowSequence!.length - 1 && (
+                          <span className="text-[var(--accent)] font-bold" aria-hidden="true">→</span>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* 2. Metadata Grid Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 p-4 md:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)]">
-                <div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 p-4 md:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] min-w-0">
+                <div className="min-w-0">
                   <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Industry</p>
-                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">{project.industry}</p>
+                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--text-primary)] truncate">{project.industry}</p>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Year</p>
-                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--text-primary)]">{project.year}</p>
+                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--accent)] font-mono">{project.year}</p>
                 </div>
-                <div>
+                <div className="min-w-0 col-span-2 sm:col-span-1">
                   <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Services</p>
-                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--text-primary)] truncate">{project.services.join(', ')}</p>
+                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--text-primary)] leading-tight">{project.services.join(', ')}</p>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Result</p>
                   <p className="font-sans text-[13px] md:text-[14px] font-semibold text-[var(--accent)]">{project.result}</p>
                 </div>
               </div>
+
+              {/* Capabilities List (If available) */}
+              {project.capabilitiesList && project.capabilitiesList.length > 0 && (
+                <div>
+                  <span className="eyebrow-label text-[11px] text-[var(--accent)] block mb-3 font-semibold">
+                    KEY CAPABILITIES &amp; DELIVERABLES
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {project.capabilitiesList.map((cap, cIdx) => (
+                      <div key={cIdx} className="flex items-center gap-2.5 p-2.5 rounded bg-[var(--bg)] border border-[var(--border-subtle)] font-sans text-[13px] text-[var(--text-secondary)]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0" />
+                        <span>{cap}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* 3. Challenge & Approach */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -299,27 +338,29 @@ function CaseStudyModalContent() {
         </div>
 
         {/* Persistent Bottom Bar: Fixed Previous & Next Controls (Always Visible) */}
-        <div className="flex-shrink-0 flex items-center justify-between px-5 md:px-7 py-3 md:py-3.5 border-t border-[var(--border)] bg-[var(--bg-surface)] font-mono text-[12px] z-20">
+        <div className="flex-shrink-0 flex items-center justify-between px-5 md:px-7 py-2.5 md:py-3 border-t border-[var(--border)] bg-[var(--bg-surface)] font-mono text-[12px] z-20 min-h-[52px]">
           <button
             onClick={() => navigateToProject(prevProject.slug)}
-            className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer py-1"
+            className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer py-2 px-1 min-h-[44px]"
+            aria-label={`Previous project: ${prevProject.name || prevProject.shortTitle}`}
           >
-            <span>←</span>
+            <span aria-hidden="true">←</span>
             <span className="hidden sm:inline">{prevProject.name || prevProject.shortTitle}</span>
             <span className="sm:hidden">Prev</span>
           </button>
 
-          <span className="font-mono text-[11px] text-[var(--text-tertiary)]">
+          <span className="font-mono text-[11px] text-[var(--text-tertiary)] px-2">
             {projectIndex + 1} / {projects.length}
           </span>
 
           <button
             onClick={() => navigateToProject(nextProject.slug)}
-            className="flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-hover)] font-semibold transition-colors cursor-pointer py-1"
+            className="flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-hover)] font-semibold transition-colors cursor-pointer py-2 px-1 min-h-[44px]"
+            aria-label={`Next project: ${nextProject.name || nextProject.shortTitle}`}
           >
             <span className="hidden sm:inline">{nextProject.name || nextProject.shortTitle}</span>
             <span className="sm:hidden">Next</span>
-            <span>→</span>
+            <span aria-hidden="true">→</span>
           </button>
         </div>
       </div>

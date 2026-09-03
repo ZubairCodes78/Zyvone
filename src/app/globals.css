@@ -153,11 +153,10 @@ body {
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 15px;
-  /* Prevent label wrapping at any width */
+  line-height: 1.2;
   white-space: nowrap;
-  /* 44px minimum touch target height per a11y guidelines */
   min-height: 44px;
-  padding: 10px 22px;
+  padding: 11px 22px;
   border-radius: var(--radius-btn);
   border: 1px solid var(--accent);
   transition: background-color var(--dur-fast) ease-out,
@@ -165,12 +164,19 @@ body {
               transform var(--dur-fast) ease-out;
   cursor: pointer;
   text-decoration: none;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .btn-primary:hover {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
   transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
 }
 
 .btn-ghost {
@@ -183,9 +189,10 @@ body {
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: 15px;
+  line-height: 1.2;
   white-space: nowrap;
   min-height: 44px;
-  padding: 10px 22px;
+  padding: 11px 22px;
   border-radius: var(--radius-btn);
   border: 1px solid var(--border);
   transition: border-color var(--dur-fast) ease-out,
@@ -193,6 +200,8 @@ body {
               transform var(--dur-fast) ease-out;
   cursor: pointer;
   text-decoration: none;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .btn-ghost:hover {
@@ -201,32 +210,36 @@ body {
   transform: translateY(-1px);
 }
 
-/* ── BUTTON PAIR ROW — responsive stacking ───────────────────── */
-/* When two buttons share a row (.btn-row), they stack full-width  */
-/* below 420px and sit side-by-side (each flexible) above it.     */
+.btn-ghost:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Fluid responsive button scaling on mobile */
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-ghost {
+    font-size: 14px;
+    padding: 10px 18px;
+    gap: 7px;
+  }
+}
+
+@media (max-width: 360px) {
+  .btn-primary,
+  .btn-ghost {
+    font-size: 13.5px;
+    padding: 10px 14px;
+    gap: 6px;
+  }
+}
+
+/* ── BUTTON PAIR ROW — flexible natural layout ────────────────── */
 .btn-row {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-}
-
-.btn-row .btn-primary,
-.btn-row .btn-ghost {
-  flex: 1 1 auto;
-  min-width: 120px;
-}
-
-@media (max-width: 420px) {
-  .btn-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .btn-row .btn-primary,
-  .btn-row .btn-ghost {
-    width: 100%;
-    justify-content: center;
-  }
 }
 
 /* ── FORM FIELDS ────────────────────────────────────────────── */
@@ -271,7 +284,7 @@ button {
   transition-timing-function: var(--ease-out);
 }
 
-/* ── CARD HOVER INTERACTION ─────────────────────────────────── */
+/* ── CARD HOVER INTERACTION & RESPONSIVE CONTAINMENT ──────────── */
 .card-surface {
   background-color: var(--bg-surface);
   border: 1px solid var(--border);
@@ -279,12 +292,19 @@ button {
   transition: transform var(--dur-normal) var(--ease-out),
               border-color var(--dur-normal) var(--ease-out),
               box-shadow var(--dur-normal) var(--ease-out);
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .card-surface:hover {
   transform: translateY(-4px);
   border-color: var(--border-strong);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Ensure flex/grid children inside cards never blow out layout */
+.card-surface > * {
+  min-width: 0;
 }
 
 /* ── SUPPRESS DEV OVERLAYS / COMPILING BADGES ────────────────── */

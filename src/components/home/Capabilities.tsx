@@ -69,7 +69,7 @@ export function Capabilities() {
           <Link
             key={card.num}
             href={card.href}
-            className="card-surface p-7 md:p-8 flex flex-col justify-between group hover:border-[var(--border-strong)] transition-all duration-200"
+            className="card-surface p-6 sm:p-7 md:p-8 flex flex-col justify-between group hover:border-[var(--border-strong)] transition-all duration-200 min-w-0"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -93,13 +93,15 @@ export function Capabilities() {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
-              <span className="font-mono text-[12px] text-[var(--text-tertiary)]">
+            <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col gap-3 min-w-0">
+              <span className="font-mono text-[12px] text-[var(--text-tertiary)] leading-relaxed">
                 {card.stack}
               </span>
-              <span className="font-sans text-[13px] font-medium text-[var(--accent)] group-hover:translate-x-0.5 transition-transform">
-                Explore discipline →
-              </span>
+              <div className="pt-0.5">
+                <span className="font-sans text-[13px] font-medium text-[var(--accent)] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1.5">
+                  Explore discipline →
+                </span>
+              </div>
             </div>
           </Link>
         ))}

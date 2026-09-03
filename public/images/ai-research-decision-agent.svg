@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" style="background:#060B18;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4F53C" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#D4F53C" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="rgba(212,245,60,0.06)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#112040" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#09132A" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="#060B18"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <circle cx="600" cy="337" r="480" fill="url(#bg-glow)"/>
+
+  <!-- Top System Header -->
+  <rect x="80" y="40" width="1040" height="65" rx="12" fill="#0D1B4B" stroke="#D4F53C" stroke-width="1.2"/>
+  <circle cx="120" cy="72" r="6" fill="#22c55e"/>
+  <text x="140" y="78" fill="#FFFFFF" font-size="16" font-weight="700" letter-spacing="1">ZYVONE // AI RESEARCH &amp; DECISION AGENT</text>
+  <rect x="850" y="55" width="250" height="34" rx="17" fill="rgba(212,245,60,0.15)" stroke="#D4F53C" stroke-width="1"/>
+  <circle cx="875" cy="72" r="4" fill="#D4F53C"/>
+  <text x="890" y="77" fill="#D4F53C" font-size="12" font-weight="700">AUTONOMOUS WORKFLOW · 2026</text>
+
+  <!-- Objective Prompt Bar -->
+  <g transform="translate(80, 120)">
+    <rect width="1040" height="60" rx="10" fill="#081024" stroke="rgba(212,245,60,0.3)" stroke-width="1"/>
+    <text x="25" y="26" fill="#D4F53C" font-size="10" font-weight="700">USER OBJECTIVE INPUT</text>
+    <text x="25" y="48" fill="#FFFFFF" font-size="14" font-weight="600">"Analyze the market for AI automation opportunities in Pakistani SMEs, synthesize unit economics &amp; produce decision report."</text>
+  </g>
+
+  <!-- 3-Column Technical Layout: Task Decomposition | Source Synthesis | Recommendations -->
+  
+  <!-- Col 1: Task Decomposition (Width: 320) -->
+  <g transform="translate(80, 195)">
+    <rect width="320" height="435" rx="12" fill="url(#card-grad)" stroke="rgba(212,245,60,0.25)" stroke-width="1"/>
+    <rect x="16" y="16" width="288" height="32" rx="6" fill="#081024"/>
+    <text x="28" y="37" fill="#D4F53C" font-size="11" font-weight="700">TASK DECOMPOSITION &amp; EXECUTION</text>
+
+    <!-- Task 1 (Done) -->
+    <rect x="16" y="60" width="288" height="52" rx="6" fill="#081024" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+    <circle cx="34" cy="86" r="8" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1"/>
+    <text x="34" y="90" fill="#22c55e" font-size="10" text-anchor="middle">✓</text>
+    <text x="52" y="80" fill="#FFFFFF" font-size="11" font-weight="600">1. Define SME Operational Verticals</text>
+    <text x="52" y="98" fill="#22c55e" font-size="10">Completed · 14 sectors mapped</text>
+
+    <!-- Task 2 (Done) -->
+    <rect x="16" y="120" width="288" height="52" rx="6" fill="#081024" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+    <circle cx="34" cy="146" r="8" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1"/>
+    <text x="34" y="150" fill="#22c55e" font-size="10" text-anchor="middle">✓</text>
+    <text x="52" y="140" fill="#FFFFFF" font-size="11" font-weight="600">2. Collect Telemetry &amp; Wage Data</text>
+    <text x="52" y="158" fill="#22c55e" font-size="10">Completed · 48 market data sources</text>
+
+    <!-- Task 3 (Active) -->
+    <rect x="16" y="180" width="288" height="52" rx="6" fill="#081024" stroke="#D4F53C" stroke-width="1.4"/>
+    <circle cx="34" cy="206" r="8" fill="rgba(212,245,60,0.2)" stroke="#D4F53C" stroke-width="1"/>
+    <circle cx="34" cy="206" r="3" fill="#D4F53C"/>
+    <text x="52" y="200" fill="#FFFFFF" font-size="11" font-weight="600">3. Cross-Check Unit Economics</text>
+    <text x="52" y="218" fill="#D4F53C" font-size="10">Active · Synthesizing payback rates</text>
+
+    <!-- Task 4 (Queued) -->
+    <rect x="16" y="240" width="288" height="52" rx="6" fill="#081024" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <circle cx="34" cy="266" r="8" fill="#060B18" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="52" y="260" fill="rgba(255,255,255,0.6)" font-size="11" font-weight="600">4. Identify Primary Bottlenecks</text>
+    <text x="52" y="278" fill="rgba(255,255,255,0.4)" font-size="10">Queued · Dependencies satisfied</text>
+
+    <!-- Task 5 (Queued) -->
+    <rect x="16" y="300" width="288" height="52" rx="6" fill="#081024" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <circle cx="34" cy="326" r="8" fill="#060B18" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="52" y="320" fill="rgba(255,255,255,0.6)" font-size="11" font-weight="600">5. Generate Actionable Synthesis</text>
+    <text x="52" y="338" fill="rgba(255,255,255,0.4)" font-size="10">Queued · Awaiting step 3 completion</text>
+
+    <rect x="16" y="370" width="288" height="45" rx="6" fill="rgba(212,245,60,0.1)"/>
+    <text x="28" y="396" fill="#D4F53C" font-size="11" font-weight="700">STATUS: 5-STEP PLAN 60% EXECUTED</text>
+  </g>
+
+  <!-- Col 2: Source Verification & Synthesis (Width: 380) -->
+  <g transform="translate(420, 195)">
+    <rect width="380" height="435" rx="12" fill="url(#card-grad)" stroke="rgba(212,245,60,0.25)" stroke-width="1"/>
+    <rect x="16" y="16" width="348" height="32" rx="6" fill="#081024"/>
+    <text x="28" y="37" fill="#D4F53C" font-size="11" font-weight="700">SOURCE ANALYSIS &amp; CROSS-CHECKING</text>
+
+    <!-- Confidence Gauge -->
+    <g transform="translate(16, 60)">
+      <rect width="348" height="75" rx="8" fill="#081024" stroke="rgba(212,245,60,0.2)" stroke-width="1"/>
+      <text x="16" y="24" fill="rgba(255,255,255,0.6)" font-size="10">EVIDENCE CONFIDENCE SCORE</text>
+      <text x="16" y="58" fill="#D4F53C" font-size="28" font-weight="800">96.4%</text>
+      <text x="120" y="52" fill="#22c55e" font-size="11">✓ Multi-source corroborated</text>
+      <text x="120" y="68" fill="rgba(255,255,255,0.5)" font-size="10">0 unverified claims permitted</text>
+    </g>
+
+    <!-- Findings Cards -->
+    <text x="20" y="160" fill="#FFFFFF" font-size="12" font-weight="700">SYNTHESIZED MARKET FINDINGS</text>
+
+    <rect x="16" y="175" width="348" height="65" rx="6" fill="#081024" stroke="rgba(212,245,60,0.15)" stroke-width="1"/>
+    <text x="28" y="196" fill="#D4F53C" font-size="11" font-weight="700">FINDING 1: High Inbound Manual Tax</text>
+    <text x="28" y="214" fill="rgba(255,255,255,0.8)" font-size="11">73% of Pakistani manufacturing SMEs spend 3+ hrs/day</text>
+    <text x="28" y="230" fill="rgba(255,255,255,0.8)" font-size="11">manually reconciling WhatsApp orders with Excel.</text>
+
+    <rect x="16" y="250" width="348" height="65" rx="6" fill="#081024" stroke="rgba(212,245,60,0.15)" stroke-width="1"/>
+    <text x="28" y="271" fill="#D4F53C" font-size="11" font-weight="700">FINDING 2: Sub-45-Day Payback Horizon</text>
+    <text x="28" y="289" fill="rgba(255,255,255,0.8)" font-size="11">Deterministic AI workflow implementation delivers</text>
+    <text x="28" y="305" fill="rgba(255,255,255,0.8)" font-size="11">full operational cost recovery in 38 to 44 calendar days.</text>
+
+    <rect x="16" y="325" width="348" height="90" rx="6" fill="#081024" stroke="#22c55e" stroke-width="1"/>
+    <text x="28" y="346" fill="#22c55e" font-size="11" font-weight="700">FINDING 3: Low-Code Fragility Risk</text>
+    <text x="28" y="364" fill="rgba(255,255,255,0.8)" font-size="11">SMEs using fragile no-code zap connectors suffer</text>
+    <text x="28" y="380" fill="rgba(255,255,255,0.8)" font-size="11">14% failure rate. Hardened code pipelines required.</text>
+    <text x="28" y="400" fill="#22c55e" font-size="10">→ Strongly favors ZYVONE custom engineering</text>
+  </g>
+
+  <!-- Col 3: Strategic Recommendations & Report (Width: 280) -->
+  <g transform="translate(820, 195)">
+    <rect width="300" height="435" rx="12" fill="url(#card-grad)" stroke="#D4F53C" stroke-width="1.4"/>
+    <rect x="16" y="16" width="268" height="32" rx="6" fill="#081024"/>
+    <text x="26" y="37" fill="#D4F53C" font-size="11" font-weight="700">DECISION REPORT // OUTPUT</text>
+
+    <text x="20" y="75" fill="#FFFFFF" font-size="14" font-weight="700">STRATEGIC VERDICT</text>
+    
+    <rect x="16" y="90" width="268" height="40" rx="6" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1"/>
+    <text x="26" y="115" fill="#22c55e" font-size="12" font-weight="800">RECOMMENDATION: PROCEED</text>
+
+    <text x="20" y="155" fill="rgba(255,255,255,0.6)" font-size="11">EXECUTIVE ACTIONS:</text>
+    
+    <text x="20" y="180" fill="#FFFFFF" font-size="11" font-weight="600">1. Target Logistics &amp; Textiles</text>
+    <text x="20" y="196" fill="rgba(255,255,255,0.7)" font-size="10">Highest manual transaction volume.</text>
+
+    <text x="20" y="225" fill="#FFFFFF" font-size="11" font-weight="600">2. Deploy WhatsApp + PostgreSQL</text>
+    <text x="20" y="241" fill="rgba(255,255,255,0.7)" font-size="10">Zero user training overhead required.</text>
+
+    <text x="20" y="270" fill="#FFFFFF" font-size="11" font-weight="600">3. Offer 30-Day Payback SLA</text>
+    <text x="20" y="286" fill="rgba(255,255,255,0.7)" font-size="10">Irresistible commercial framing.</text>
+
+    <!-- Report Download Action Box -->
+    <rect x="16" y="325" width="268" height="90" rx="8" fill="#081024" stroke="#D4F53C" stroke-width="1"/>
+    <rect x="30" y="340" width="240" height="34" rx="6" fill="#D4F53C"/>
+    <text x="150" y="362" fill="#060B18" font-size="12" font-weight="800" text-anchor="middle">EXPORT DECISION BRIEF</text>
+    <text x="150" y="395" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle">Structured Markdown &amp; JSON ready</text>
+  </g>
+</svg>

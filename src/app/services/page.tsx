@@ -95,7 +95,7 @@ export default function ServicesPage() {
         <p className="font-sans text-[18px] md:text-[22px] text-[var(--text-secondary)] leading-[1.6] max-w-[780px] mb-8">
           ZYVONE is a serious Digital Product Studio and Software &amp; Technology Company based in Lahore, Pakistan. We build permanent digital infrastructure, SaaS products, AI systems, automation, web applications, and mobile products for founders and forward-thinking businesses.
         </p>
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
           <Link href="/contact" className="btn-primary">
             <span>Start an engineering project →</span>
           </Link>
@@ -223,8 +223,8 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  <div>
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--border-subtle)] mb-5">
+                  <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3.5 min-w-0">
+                    <div className="flex flex-wrap gap-1.5">
                       {service.technologies.slice(0, 4).map((tech) => (
                         <span
                           key={tech}
@@ -235,9 +235,13 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between font-mono text-[11px] text-[var(--accent)] group-hover:translate-x-1 transition-transform">
-                      <span>Explore Discipline →</span>
-                      <span>{service.primaryKeyword}</span>
+                    <div className="flex items-center justify-between gap-2 pt-1 font-mono text-[11px]">
+                      <span className="text-[var(--accent)] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-medium">
+                        Explore Discipline →
+                      </span>
+                      <span className="text-[var(--text-tertiary)] text-[10px] hidden sm:inline truncate max-w-[150px]">
+                        {service.primaryKeyword}
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -400,7 +404,7 @@ export default function ServicesPage() {
           <p className="font-sans text-[15px] md:text-[17px] text-[var(--text-secondary)] mb-8 max-w-[560px] mx-auto leading-relaxed">
             Schedule a technical consultation directly with ZYVONE principal engineers in Lahore. Transparent scoping, production code, and zero fluff.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <Link href="/contact" className="btn-primary">
               <span>Start an Engineering Consultation →</span>
             </Link>

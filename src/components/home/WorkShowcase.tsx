@@ -47,17 +47,18 @@ export function WorkShowcase() {
         {showcaseProjects.map((project) => (
           <div
             key={project.slug}
-            className="card-surface p-6 md:p-7 flex flex-col justify-between group cursor-pointer"
+            className="card-surface p-5 sm:p-6 md:p-7 flex flex-col justify-between group cursor-pointer min-w-0"
             onClick={(e) => openModal(project.slug, e)}
           >
             <div>
               {/* Image with 1.02 hover zoom */}
-              <div className="relative w-full aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] mb-6">
+              <div className="relative w-full aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] mb-5 sm:mb-6">
                 <Image
                   src={project.heroImage}
                   alt={project.title}
                   fill
                   className="object-cover object-top transition-transform duration-[250ms] ease-out group-hover:scale-[1.02]"
+                  unoptimized={project.heroImage.endsWith('.svg')}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-2">
@@ -68,7 +69,7 @@ export function WorkShowcase() {
               </div>
 
               {/* Meta */}
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-2 font-mono text-[11px]">
                 <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)]">{project.year}</span>
                 <span className="text-[var(--text-disabled)]">·</span>
                 <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)]">{project.industry}</span>
@@ -87,20 +88,27 @@ export function WorkShowcase() {
             </div>
 
             <div>
-              {/* Mini-grid metadata for 2-column format */}
-              <div className="grid grid-cols-2 gap-2 pt-4 border-t border-[var(--border-subtle)] mb-5 font-mono text-[11px] text-[var(--text-tertiary)]">
-                <div>Industry: {project.category}</div>
-                <div>Status: {project.resultLabel}</div>
+              {/* Technology Stack & Metadata */}
+              <div className="pt-4 border-t border-[var(--border-subtle)] mb-5 space-y-2.5 min-w-0">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-[var(--text-tertiary)] leading-relaxed">
+                  <span className="text-[var(--text-secondary)] font-medium">Stack:</span>
+                  <span>{project.stack.slice(0, 4).join(' · ')}</span>
+                </div>
+                <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--text-tertiary)]">
+                  <span>Industry: {project.category}</span>
+                  <span className="text-[var(--accent)]">{project.resultLabel}</span>
+                </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              {/* CTA Row - Independent and comfortable */}
+              <div className="flex items-center justify-between gap-4 pt-1">
                 <button
                   type="button"
                   onClick={(e) => openModal(project.slug, e)}
-                  className="font-sans font-semibold text-[13px] text-[var(--accent)] hover:underline inline-flex items-center gap-1.5 cursor-pointer"
+                  className="font-sans font-semibold text-[13px] text-[var(--accent)] hover:underline inline-flex items-center gap-1.5 cursor-pointer min-h-[36px] py-1"
                 >
-                  <span>Case study</span>
-                  <span aria-hidden="true">→</span>
+                  <span>Explore case study</span>
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
                 </button>
 
                 {project.link && (
@@ -109,7 +117,7 @@ export function WorkShowcase() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="font-sans text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] inline-flex items-center gap-1 transition-colors"
+                    className="font-sans text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] inline-flex items-center gap-1 transition-colors min-h-[36px] py-1"
                   >
                     <span>View Live</span>
                     <span>↗</span>

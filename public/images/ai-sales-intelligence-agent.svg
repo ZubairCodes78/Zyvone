@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" style="background:#060B18;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4F53C" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#D4F53C" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="rgba(212,245,60,0.06)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#112040" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#09132A" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="#060B18"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <circle cx="600" cy="337" r="450" fill="url(#bg-glow)"/>
+
+  <!-- Top System Header -->
+  <rect x="80" y="50" width="1040" height="60" rx="12" fill="#0D1B4B" stroke="rgba(212,245,60,0.25)" stroke-width="1"/>
+  <circle cx="120" cy="80" r="6" fill="#D4F53C"/>
+  <text x="140" y="85" fill="#FFFFFF" font-size="16" font-weight="700" letter-spacing="1">ZYVONE // AI SALES INTELLIGENCE AGENT (PROTOTYPE)</text>
+  <rect x="890" y="65" width="200" height="30" rx="15" fill="rgba(212,245,60,0.15)" stroke="#D4F53C" stroke-width="1"/>
+  <text x="990" y="85" fill="#D4F53C" font-size="11" font-weight="700" text-anchor="middle">MULTI-SIGNAL ENGINE · 2026</text>
+
+  <!-- Left: Multi-Signal Ingestion & Analysis Stream -->
+  <g transform="translate(80, 135)">
+    <rect width="490" height="485" rx="12" fill="url(#card-grad)" stroke="rgba(212,245,60,0.25)" stroke-width="1"/>
+    <rect x="20" y="20" width="450" height="36" rx="6" fill="#081024"/>
+    <text x="35" y="44" fill="#D4F53C" font-size="12" font-weight="700">SIGNAL AGGREGATION &amp; CONVERSATION HISTORY</text>
+
+    <!-- Signal 1: Conversation -->
+    <rect x="20" y="70" width="450" height="85" rx="8" fill="#081024" stroke="rgba(212,245,60,0.15)" stroke-width="1"/>
+    <circle cx="40" cy="90" r="4" fill="#22c55e"/>
+    <text x="52" y="94" fill="#22c55e" font-size="11" font-weight="700">CONVERSATION TRANSCRIPT ANALYZED</text>
+    <text x="40" y="116" fill="rgba(255,255,255,0.85)" font-size="12">"We are losing 4 hours daily copying invoices between ERP &amp; WhatsApp"</text>
+    <text x="40" y="136" fill="#D4F53C" font-size="10">Signal Detected: Pain point urgency + operational inefficiency</text>
+
+    <!-- Signal 2: Stakeholder Profile -->
+    <rect x="20" y="165" width="450" height="85" rx="8" fill="#081024" stroke="rgba(212,245,60,0.15)" stroke-width="1"/>
+    <circle cx="40" cy="185" r="4" fill="#D4F53C"/>
+    <text x="52" y="189" fill="#D4F53C" font-size="11" font-weight="700">STAKEHOLDER &amp; AUTHORITY MAPPING</text>
+    <text x="40" y="211" fill="rgba(255,255,255,0.85)" font-size="12">VP of Operations · Authority: Sign-off budget up to $50,000</text>
+    <text x="40" y="231" fill="#22c55e" font-size="10">Signal Detected: Direct decision-maker, no procurement committee lag</text>
+
+    <!-- Signal 3: Engagement Velocity -->
+    <rect x="20" y="260" width="450" height="85" rx="8" fill="#081024" stroke="rgba(212,245,60,0.15)" stroke-width="1"/>
+    <circle cx="40" cy="280" r="4" fill="#22c55e"/>
+    <text x="52" y="284" fill="#22c55e" font-size="11" font-weight="700">ENGAGEMENT VELOCITY</text>
+    <text x="40" y="306" fill="rgba(255,255,255,0.85)" font-size="12">4 portal visits in 48h · Reviewed technical architecture specs 3x</text>
+    <text x="40" y="326" fill="#D4F53C" font-size="10">Signal Detected: Active comparative evaluation in progress</text>
+
+    <!-- Signal Summary Box -->
+    <rect x="20" y="360" width="450" height="105" rx="8" fill="rgba(212,245,60,0.06)" stroke="#D4F53C" stroke-width="1"/>
+    <text x="35" y="385" fill="#D4F53C" font-size="11" font-weight="700">SYNTHESIS: HIGH PROBABILITY OPPORTUNITY</text>
+    <text x="35" y="410" fill="rgba(255,255,255,0.8)" font-size="12">Signals indicate 88% probability of closing within 14 days if</text>
+    <text x="35" y="430" fill="rgba(255,255,255,0.8)" font-size="12">technical proof-of-concept is delivered before Friday.</text>
+  </g>
+
+  <!-- Right: Opportunity Analysis & Recommended Next Action -->
+  <g transform="translate(590, 135)">
+    <rect width="530" height="485" rx="12" fill="url(#card-grad)" stroke="rgba(212,245,60,0.25)" stroke-width="1"/>
+    <rect x="20" y="20" width="490" height="36" rx="6" fill="#081024"/>
+    <text x="35" y="44" fill="#D4F53C" font-size="12" font-weight="700">OPPORTUNITY SCORE &amp; NEXT BEST ACTION</text>
+
+    <!-- Score & Intent Metrics Row -->
+    <g transform="translate(20, 70)">
+      <rect width="235" height="100" rx="8" fill="#081024" stroke="#D4F53C" stroke-width="1"/>
+      <text x="20" y="30" fill="rgba(255,255,255,0.6)" font-size="11">OPPORTUNITY SCORE</text>
+      <text x="20" y="70" fill="#D4F53C" font-size="36" font-weight="800">94<tspan font-size="18">/100</tspan></text>
+      <text x="20" y="90" fill="#22c55e" font-size="10">High Priority Tier 1</text>
+    </g>
+
+    <g transform="translate(275, 70)">
+      <rect width="235" height="100" rx="8" fill="#081024" stroke="rgba(34,197,94,0.5)" stroke-width="1"/>
+      <text x="20" y="30" fill="rgba(255,255,255,0.6)" font-size="11">CHURN / RISK LEVEL</text>
+      <text x="20" y="70" fill="#22c55e" font-size="32" font-weight="800">LOW</text>
+      <text x="20" y="90" fill="rgba(255,255,255,0.6)" font-size="10">No competitor mentions</text>
+    </g>
+
+    <!-- Recommended Next Action (Prominent) -->
+    <rect x="20" y="190" width="490" height="150" rx="10" fill="#081024" stroke="#D4F53C" stroke-width="1.6"/>
+    <rect x="35" y="205" width="170" height="24" rx="4" fill="rgba(212,245,60,0.2)"/>
+    <text x="45" y="222" fill="#D4F53C" font-size="11" font-weight="800">RECOMMENDED ACTION</text>
+
+    <text x="35" y="255" fill="#FFFFFF" font-size="16" font-weight="700">Dispatch ERP Integration Scope Document</text>
+    <text x="35" y="280" fill="rgba(255,255,255,0.75)" font-size="12">Address exact ERP schema concern identified in transcript line 42.</text>
+    <text x="35" y="300" fill="rgba(255,255,255,0.75)" font-size="12">Do not send generic brochure. Offer direct 30-min architecture call.</text>
+    <text x="35" y="325" fill="#D4F53C" font-size="11">Optimal Follow-up Window: Tomorrow at 10:30 AM PKT (Peak response rate)</text>
+
+    <!-- Automated Execution Trigger -->
+    <rect x="20" y="360" width="490" height="105" rx="8" fill="rgba(34,197,94,0.12)" stroke="#22c55e" stroke-width="1"/>
+    <text x="35" y="390" fill="#22c55e" font-size="12" font-weight="700">✓ AGENT PREPARED: CUSTOM PROPOSAL DRAFT GENERATED</text>
+    <text x="35" y="415" fill="rgba(255,255,255,0.8)" font-size="12">Executive summary synthesized with tailored ROI calculations ready</text>
+    <text x="35" y="435" fill="rgba(255,255,255,0.8)" font-size="12">for founder review and instant one-click delivery.</text>
+  </g>
+</svg>

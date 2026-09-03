@@ -139,7 +139,7 @@ export function ServiceDetailView({
           {subtitle}
         </p>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
           <Link href="/contact" className="btn-primary">
             <span>{ctaText}</span>
           </Link>
@@ -482,7 +482,7 @@ export function ServiceDetailView({
           <p className="font-sans text-[15px] md:text-[16px] text-[var(--text-secondary)] mb-8 max-w-[540px] mx-auto leading-relaxed">
             Discuss technical specifications directly with ZYVONE founders in Lahore. We build permanent digital infrastructure with full code ownership.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <Link href="/contact" className="btn-primary">
               <span>Start a Project with ZYVONE →</span>
             </Link>
