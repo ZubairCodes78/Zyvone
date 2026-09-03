@@ -6,6 +6,11 @@ export interface ProjectStats {
 
 export type PortfolioCategory = 'websites' | 'applications' | 'ai-agents'
 
+export interface CoreFeature {
+  title: string
+  description: string
+}
+
 export interface Project {
   slug: string
   id: string
@@ -16,6 +21,7 @@ export interface Project {
   title: string
   shortTitle: string
   tag: string
+  shortTagline: string
   result: string
   resultLabel: string
   link: string | null
@@ -41,6 +47,10 @@ export interface Project {
   seoDescription?: string
   workflowSequence?: string[]
   capabilitiesList?: string[]
+  whatWasBuilt?: string
+  targetAudience?: string
+  coreFeatures?: CoreFeature[]
+  engineeringHighlights?: string[]
 }
 
 export const projects: Project[] = [
@@ -57,6 +67,7 @@ export const projects: Project[] = [
     category: 'E-commerce / Web Experience',
     portfolioCategory: 'websites',
     tag: 'D2C E-Commerce',
+    shortTagline: 'Luxury modest fashion direct-to-consumer storefront.',
     result: 'Nationwide Scale',
     resultLabel: 'Modest D2C Platform',
     link: 'https://wearomnia.com/',
@@ -65,6 +76,20 @@ export const projects: Project[] = [
     challenge: 'Scaling beyond an Instagram boutique resulted in manual DM friction, lost orders, sizing confusion, and inventory mismatch that hindered brand growth.',
     problem: 'Scaling beyond an Instagram boutique resulted in manual DM friction, lost orders, sizing confusion, and inventory mismatch that hindered brand growth.',
     approach: 'We built a bespoke direct-to-consumer digital flagship with editorial visual hierarchy, instant guest checkout with automated COD confirmation, and embedded conversational support.',
+    whatWasBuilt: 'A comprehensive direct-to-consumer e-commerce flagship with dynamic collection filtering, frictionless one-step guest checkout, WhatsApp styling concierge hooks, and automated inventory sync.',
+    targetAudience: 'Fashion-conscious modest wear buyers seeking premium silhouettes, transparent sizing guides, and swift door-to-door delivery.',
+    coreFeatures: [
+      { title: 'Editorial Lookbook Browsing', description: 'Fluid visual merchandising showcasing fabric drape, stitch detail, and complete collection styling.' },
+      { title: 'One-Page Guest Checkout', description: 'Streamlined conversion funnel supporting instant Cash on Delivery validation without forced account creation.' },
+      { title: 'WhatsApp Concierge Integration', description: 'Contextual sizing and pre-order consultation triggers directly connected to customer support agents.' },
+      { title: 'Edge Asset Delivery', description: 'Optimized CDN asset pipeline delivering sub-90ms mobile visual rendering nationwide.' },
+    ],
+    engineeringHighlights: [
+      'Next.js App Router with incremental static regeneration',
+      'Vercel Edge caching and Cloudflare image optimization pipeline',
+      'Transactional WhatsApp Business API triggers for order dispatch notifications',
+      'Sub-100ms Core Web Vitals scoring on low-bandwidth mobile networks',
+    ],
     execution: [
       'Engineered editorial high-fashion design system with fluid typography and rapid image delivery',
       'Built frictionless one-page guest checkout supporting automated nationwide COD logistics',
@@ -101,6 +126,7 @@ export const projects: Project[] = [
     category: 'E-commerce / Web Experience',
     portfolioCategory: 'websites',
     tag: 'D2C & B2B Trade',
+    shortTagline: 'Pure combed cotton retail store and wholesale trade portal.',
     result: 'Direct Manufacturer Channel',
     resultLabel: 'Integrated Commerce',
     link: 'https://aminhosiery.com/',
@@ -109,10 +135,24 @@ export const projects: Project[] = [
     challenge: 'A multi-decade legacy manufacturing operation was entirely reliant on traditional offline distributor channels, missing direct consumer margins and nationwide retail demand.',
     problem: 'A multi-decade legacy manufacturing operation was entirely reliant on traditional offline distributor channels, missing direct consumer margins and nationwide retail demand.',
     approach: 'We engineered a dual-purpose commerce platform featuring multi-variant size selectors, automated multi-piece bundle incentives, Cash on Delivery, and a dedicated bulk trade quotation portal.',
+    whatWasBuilt: 'A dual-engine commerce web system enabling both single-item retail purchases with automatic bundle discount rules and commercial bulk quotation requests for industrial distributors.',
+    targetAudience: 'Retail consumers seeking daily combed cotton apparel alongside commercial distributors procuring factory-direct volume orders.',
+    coreFeatures: [
+      { title: 'Dynamic Bundle Calculator', description: 'Automatic tier discounts (e.g. Free Nationwide Shipping on 3+ pieces) that calculate live in the shopping bag.' },
+      { title: 'Fabric Quality Comparison Matrix', description: 'Visual interactive comparison explaining 100% combed cotton yarn count and double-needle hem durability.' },
+      { title: 'B2B Wholesale Inquiry Engine', description: 'Structured bulk request form routing commercial quotation specs directly to factory management.' },
+      { title: 'Zero-Friction Mobile Checkout', description: 'Address autofill and localized COD dispatch validation built for rapid mobile purchasing.' },
+    ],
+    engineeringHighlights: [
+      'Next.js 16 with optimized server components for lightning catalog rendering',
+      'Custom cart state manager with automatic volume discount evaluation',
+      'Direct WhatsApp order webhook routing for customer preference personalization',
+      'Fully responsive product variant matrix adapting smoothly from phone to desktop',
+    ],
     execution: [
       'Architected hybrid retail and B2B wholesale ordering pipelines in Next.js',
       'Created interactive fabric quality comparison matrix demonstrating combed cotton seam construction',
-      'Implemented automated bundle discounts (e.g. Free Delivery on 3+ pieces) boosting average order value',
+      'Implemented automated bundle discounts boosting average order value',
       'Engineered instant WhatsApp order routing for conversational buyer preferences',
       'Optimized asset delivery pipeline for instant mobile rendering on 3G/4G networks',
     ],
@@ -145,6 +185,7 @@ export const projects: Project[] = [
     category: 'Web Platform / Digital Product',
     portfolioCategory: 'websites',
     tag: 'AI Utilities Platform',
+    shortTagline: 'Edge-first online utilities platform with zero sign-up.',
     result: '50+ Tools Live',
     resultLabel: 'Edge Utility System',
     link: 'https://toolmatic.site',
@@ -153,6 +194,20 @@ export const projects: Project[] = [
     challenge: 'Most SEO tool platforms are either paywalled, sluggish, or bloated with intrusive ads and required sign-ups. The market demanded fast, free, no-login utilities that execute instantly in under 100 milliseconds.',
     problem: 'Most SEO tool platforms are either paywalled, sluggish, or bloated with intrusive ads and required sign-ups. The market demanded fast, free, no-login utilities that execute instantly in under 100 milliseconds.',
     approach: 'We architected a modular edge-first application where each tool operates autonomously with client-side computation and Vercel edge functions, ensuring instantaneous response times and zero server bottlenecks.',
+    whatWasBuilt: 'A high-performance web platform featuring 50+ autonomous edge tools spanning SEO analyzers, text formatters, cryptographic hashing utilities, and programmatic calculators.',
+    targetAudience: 'Developers, digital marketers, technical writers, and students who need instant computational utilities without paywalls or account creation.',
+    coreFeatures: [
+      { title: 'Zero Authentication Barrier', description: 'Immediate tool execution without email capture, cookie paywalls, or onboarding steps.' },
+      { title: 'Sub-80ms Client Computation', description: 'Calculations execute directly in browser memory and edge workers for real-time responsiveness.' },
+      { title: 'Programmatic SEO Engine', description: 'Unique structured schema markup and technical indexing per utility driving compounding organic reach.' },
+      { title: 'Mobile-Optimized Workspace', description: 'Focused utility inputs with one-tap clipboard copying and instant output formatting.' },
+    ],
+    engineeringHighlights: [
+      'Modular micro-tool architecture enabling rapid drop-in utility additions',
+      'Vercel Edge Functions with global CDN edge caching',
+      'Sub-80ms First Contentful Paint across all 50+ distinct tool pages',
+      'Strict client-side privacy with zero telemetry or data retention on user inputs',
+    ],
     execution: [
       'Built in Next.js App Router for optimal Core Web Vitals and instant client interactivity',
       'Engineered 50+ distinct edge utility tools including Meta Tag Generator, Keyword Density Checker, and Word Counter',
@@ -189,6 +244,7 @@ export const projects: Project[] = [
     category: 'Web Application / Digital Tool',
     portfolioCategory: 'websites',
     tag: 'Web Utility Suite',
+    shortTagline: 'Private client-side document processing directly in browser memory.',
     result: 'Zero Server Cost',
     resultLabel: 'Client-Side Suite',
     link: 'https://pdfmaster.site',
@@ -197,6 +253,20 @@ export const projects: Project[] = [
     challenge: 'Mainstream PDF services require file uploads to remote servers, imposing privacy risks, upload wait times, and recurring subscription walls for basic document operations.',
     problem: 'Mainstream PDF services require file uploads to remote servers, imposing privacy risks, upload wait times, and recurring subscription walls for basic document operations.',
     approach: 'We engineered a client-side WebAssembly and Web Worker processing architecture. Documents are processed locally in memory, guaranteeing 100% data privacy and eliminating cloud computing expenses.',
+    whatWasBuilt: 'A privacy-first web document processing suite that parses, splits, merges, watermarks, and reorders PDF files locally using browser Web Workers and WebAssembly.',
+    targetAudience: 'Lawyers, financial analysts, corporate teams, and private users handling sensitive documents that cannot legally or safely be uploaded to external third-party cloud servers.',
+    coreFeatures: [
+      { title: '100% Local Browser Processing', description: 'Zero bytes transferred to external cloud servers. All byte manipulations execute in local RAM.' },
+      { title: 'Multi-Threaded Web Workers', description: 'Heavy binary operations run off the main UI thread, keeping the interface fluid and responsive.' },
+      { title: 'Drag-and-Drop Page Organizer', description: 'Interactive visual page reordering, individual page rotation, and split-range selection.' },
+      { title: 'Offline PWA Capability', description: 'Service worker caching allows full document manipulation even without an active internet connection.' },
+    ],
+    engineeringHighlights: [
+      'Client-side Web Worker pipeline integrating PDF-Lib and WebAssembly engines',
+      'Zero server computing cost regardless of document size or concurrent user spikes',
+      'Memory management routines ensuring fast garbage collection after heavy PDF rendering',
+      'Universal browser support across modern mobile and desktop browsers',
+    ],
     execution: [
       'Engineered client-side Web Worker pipeline integrating PDF-Lib and WebAssembly engines',
       'Achieved zero document transfer to servers — all file processing stays private in browser memory',
@@ -233,6 +303,7 @@ export const projects: Project[] = [
     category: 'Healthcare Website',
     portfolioCategory: 'websites',
     tag: 'Healthcare System',
+    shortTagline: 'High-performance clinic web system and patient acquisition pipeline.',
     result: '#1 Local Rank',
     resultLabel: 'Patient Engine',
     link: 'https://canttdentalcare.com',
@@ -241,6 +312,20 @@ export const projects: Project[] = [
     challenge: 'The clinic was invisible online, relying exclusively on legacy word-of-mouth referrals while competing practices captured local Google search intent.',
     problem: 'The clinic was invisible online, relying exclusively on legacy word-of-mouth referrals while competing practices captured local Google search intent.',
     approach: 'We deployed a high-performance clinical platform with procedure-level medical schema, hyper-local SEO optimization, and a friction-free WhatsApp appointment booking pipeline.',
+    whatWasBuilt: 'A comprehensive medical facility website featuring procedure guides, doctor profiles, patient case galleries, and direct WhatsApp appointment routing.',
+    targetAudience: 'Local patients and families seeking trusted dental consultations, emergency care, orthodontic treatments, and aesthetic dental procedures.',
+    coreFeatures: [
+      { title: 'Medical Procedure Directory', description: 'Structured clinical procedure pages addressing patient FAQs, pricing expectations, and post-care recovery.' },
+      { title: 'One-Tap WhatsApp Triage Booking', description: 'Direct appointment scheduling routing inquiries straight to the front desk reception team.' },
+      { title: 'Local Search Schema Integration', description: 'Rich MedicalBusiness JSON-LD markup and geo-tagged clinic coordinates for Google Maps supremacy.' },
+      { title: 'Sub-Second Page Loads', description: 'Instant page loading on mobile devices ensuring anxious patients find urgent dental help immediately.' },
+    ],
+    engineeringHighlights: [
+      'Next.js static site generation with 100/100 Google Lighthouse performance score',
+      'Comprehensive Schema.org MedicalEntity markup targeting local search terms',
+      'Automated conversion tracking measuring phone dials and WhatsApp consultations',
+      'Accessible high-contrast typography adhering to WCAG healthcare readability standards',
+    ],
     execution: [
       'Built custom Next.js clinical platform with sub-1-second Core Web Vitals performance',
       'Structured detailed medical procedure pages targeting high-intent local healthcare keywords',
@@ -277,6 +362,7 @@ export const projects: Project[] = [
     category: 'Industrial / Business Website',
     portfolioCategory: 'websites',
     tag: 'Industrial B2B Portal',
+    shortTagline: 'Industrial machinery catalog and automated commercial quotation portal.',
     result: 'Global B2B Quotes',
     resultLabel: 'Machinery Catalog',
     link: 'https://alraheemengineering.com',
@@ -285,6 +371,20 @@ export const projects: Project[] = [
     challenge: 'The manufacturing company lacked a structured digital product catalog, making it difficult for domestic and international B2B buyers to evaluate machinery specs and request formal commercial quotations.',
     problem: 'The manufacturing company lacked a structured digital product catalog, making it difficult for domestic and international B2B buyers to evaluate machinery specs and request formal commercial quotations.',
     approach: 'We engineered a technical machinery catalog complete with mechanical specifications, operational video demonstrations, and a structured RFQ (Request for Quote) pipeline.',
+    whatWasBuilt: 'A technical B2B machinery showroom featuring comprehensive mechanical specification sheets, production capacity calculators, and multi-tier quotation request workflows.',
+    targetAudience: 'Industrial procurement directors, factory operations heads, and commercial packaging companies across South Asia and the Middle East.',
+    coreFeatures: [
+      { title: 'Technical Machinery Catalog', description: 'Structured equipment sheets displaying electrical wattage, packaging speeds, and pneumatic pressures.' },
+      { title: 'Formal RFQ Pipeline', description: 'Commercial quotation request workflow capturing facility requirements, delivery timelines, and target volumes.' },
+      { title: 'Shop-Floor Tablet Responsive Layouts', description: 'High-contrast industrial interface optimized for plant engineers browsing on rugged shop-floor tablets.' },
+      { title: 'Instant Inquiry Routing', description: 'Immediate quotation dispatch to company leadership via synchronized email and WhatsApp triggers.' },
+    ],
+    engineeringHighlights: [
+      'Next.js App Router with server-rendered product specifications for high-intent B2B search indexing',
+      'Optimized video player integration for high-definition machinery operational demos',
+      'Multi-language RFQ capture architecture supporting international procurement inquiries',
+      'Vercel edge deployment delivering fast response times for buyers across the Middle East',
+    ],
     execution: [
       'Engineered structured B2B machinery portfolio with rigorous mechanical data specifications',
       'Created custom RFQ consultation workflows for industrial equipment procurement',
@@ -322,17 +422,32 @@ export const projects: Project[] = [
     shortTitle: 'Paletrix',
     title: 'Paletrix — Modern Color Palette Generator & Color Utility App',
     industry: 'Digital Product / Color Utility App',
-    category: 'Color Utility Application',
+    category: 'Color Utility App',
     portfolioCategory: 'applications',
     tag: 'Color Utility App',
+    shortTagline: 'Generate, extract and explore color.',
     result: 'Sub-10ms Extraction',
     resultLabel: 'Color Utility Engine',
     link: null,
-    overview: 'Paletrix is a focused color utility application for generating, exploring and extracting beautiful color palettes.',
-    description: 'Paletrix is a focused color utility application for generating, exploring and extracting beautiful color palettes. Users can generate palettes, extract colors from images and work with individual colors through an intuitive color-focused interface.',
+    overview: 'Paletrix is a focused color utility application for generating, exploring and extracting beautiful color palettes with instant HEX/RGB values and contrast verification.',
+    description: 'Paletrix is a focused color utility application for generating, exploring and extracting beautiful color palettes with instant HEX/RGB values and contrast verification.',
     challenge: 'Designers and frontend developers frequently struggle with bloated, ad-ridden color tools that require signups, lack offline support, and make quick palette generation on mobile tedious.',
     problem: 'Designers and frontend developers frequently struggle with bloated, ad-ridden color tools that require signups, lack offline support, and make quick palette generation on mobile tedious.',
     approach: 'We engineered an offline-first cross-platform application in Flutter featuring mathematical color harmony generation, client-side image color extraction, WCAG contrast verification, and instant one-tap clipboard copying.',
+    whatWasBuilt: 'A native cross-platform mobile utility built with Flutter and Riverpod that computes mathematical color harmonies, extracts dominant colors from user-uploaded images, and validates accessibility contrast.',
+    targetAudience: 'UI/UX designers, mobile app developers, graphic artists, and creative professionals who need instantaneous palette exploration without ads or paywalls.',
+    coreFeatures: [
+      { title: 'Mathematical Color Harmonies', description: 'Generate Monochromatic, Analogous, Complementary, and Triadic palettes algorithmically in sub-10ms.' },
+      { title: 'Image Color Extraction', description: 'Upload photos or design screenshots to isolate dominant hues, vibrant accents, and background neutrals.' },
+      { title: 'Per-Swatch Locking', description: 'Freeze chosen colors while regenerating companion shades to quickly discover harmonic combinations.' },
+      { title: 'WCAG Contrast Verification', description: 'Real-time text legibility ratings (AA / AAA compliance) against light and dark backgrounds.' },
+    ],
+    engineeringHighlights: [
+      'Flutter Riverpod state management ensuring zero input lag and determinism',
+      'Client-side image processing isolating color clusters without server uploads',
+      'Offline-first architecture with persistent local storage via SharedPreferences',
+      'Instant one-tap clipboard copying supporting HEX, RGB, and HSL formats',
+    ],
     execution: [
       'Engineered algorithmic 5-color palette generation across 5 styles: Random, Monochromatic, Analogous, Complementary, and Triadic',
       'Built client-side image color extractor isolating dominant hues, vibrant accents, and nuanced tones from user uploads',
@@ -384,14 +499,29 @@ export const projects: Project[] = [
     category: 'Interactive Game',
     portfolioCategory: 'applications',
     tag: 'Interactive Web Experience',
+    shortTagline: 'Modern responsive arcade recreation running at 60 FPS.',
     result: '60 FPS Smooth Canvas',
     resultLabel: 'Interactive Engine',
     link: null,
-    overview: 'A modern responsive recreation of the classic Snake game, built as an interactive web experience.',
+    overview: 'A modern responsive recreation of the classic Snake game, built as an interactive web experience with clean visuals, intuitive controls, scoring and smooth gameplay.',
     description: 'A modern responsive recreation of the classic Snake game, built as an interactive web experience with clean visuals, intuitive controls, scoring and smooth gameplay.',
     challenge: 'Recreating a classic arcade title on modern responsive web surfaces often results in erratic frame timing, sluggish touch input on mobile devices, and uninspired retro styling.',
     problem: 'Recreating a classic arcade title on modern responsive web surfaces often results in erratic frame timing, sluggish touch input on mobile devices, and uninspired retro styling.',
     approach: 'We architected a bespoke HTML5 Canvas game engine powered by high-precision requestAnimationFrame loops, dual-mode inputs (desktop keyboard and mobile touch D-pad), and a sleek retro-futuristic dark neon aesthetic.',
+    whatWasBuilt: 'A deterministic HTML5 Canvas interactive web arcade title featuring responsive touch controls, variable-speed gameplay mechanics, dynamic audio effects, and persistent score caching.',
+    targetAudience: 'Casual web gamers, developers evaluating frontend canvas rendering benchmarks, and users seeking classic arcade entertainment.',
+    coreFeatures: [
+      { title: 'Deterministic 60 FPS Canvas Engine', description: 'Fixed-timestep game physics loop eliminating frame jitter across varied device refresh rates.' },
+      { title: 'Dual Input Architecture', description: 'Seamless keyboard navigation (Arrow keys, WASD) combined with responsive on-screen mobile touch D-pad.' },
+      { title: 'Progressive Speed Tiering', description: 'Dynamic game difficulty scaling as snake length increases, keeping gameplay engaging.' },
+      { title: 'Persistent High Score', description: 'Automatic local storage persistence preserving personal records between sessions.' },
+    ],
+    engineeringHighlights: [
+      'Custom HTML5 Canvas rendering loop with requestAnimationFrame synchronization',
+      'Web Audio API sound synthesis generating responsive retro acoustic feedback',
+      'Zero-dependency lightweight bundle loading instantly in under 35ms',
+      'Touch event listeners with passive flags preventing screen-drag interruption',
+    ],
     execution: [
       'Built a dedicated 60 FPS HTML5 Canvas rendering pipeline with fixed-timestep physics and zero input lag',
       'Engineered responsive dual input architecture supporting arrow/WASD keyboard controls and touch-optimized on-screen D-pad',
@@ -440,9 +570,10 @@ export const projects: Project[] = [
     shortTitle: 'Dresiva',
     title: 'Dresiva — Outfit Recommendation Application & Style Assistant',
     industry: 'Lifestyle / Fashion Application',
-    category: 'Outfit Recommendation Application',
+    category: 'Outfit Recommendation App',
     portfolioCategory: 'applications',
     tag: 'Personal Stylist App',
+    shortTagline: 'Contextual outfit choices based on skin tone and live weather.',
     result: 'Contextual Matching',
     resultLabel: 'Styling Engine',
     link: null,
@@ -451,6 +582,20 @@ export const projects: Project[] = [
     challenge: 'Daily wardrobe decisions suffer from choice fatigue, color mismatches against individual skin undertones, and impractical clothing choices that ignore fluctuating local weather.',
     problem: 'Daily wardrobe decisions suffer from choice fatigue, color mismatches against individual skin undertones, and impractical clothing choices that ignore fluctuating local weather.',
     approach: 'We engineered an outfit recommendation application integrating skin undertone analysis, localized real-time weather telemetry from Open-Meteo, and a stylist scoring engine evaluating outfit compatibility.',
+    whatWasBuilt: 'A personalized styling application uniting environmental telemetry with personal color theory to synthesize daily outfit recommendations with transparent stylistic rationale.',
+    targetAudience: 'Everyday professionals and style enthusiasts seeking to streamline morning wardrobe decisions and dress confidently for their skin tone and the day\'s weather.',
+    coreFeatures: [
+      { title: 'Skin Undertone Profiling', description: 'Accurate classification (Warm, Cool, Neutral, Deep) unlocking personalized color harmony palettes.' },
+      { title: 'Live Weather Telemetry', description: 'Real-time integration with Open-Meteo tracking temperature, UV index, humidity, and rain probability.' },
+      { title: 'Multi-Factor Stylist Scoring', description: 'Algorithmic compatibility scoring evaluating Color Harmony, Occasion Appropriateness, and Climate Comfort.' },
+      { title: 'Visual Outfit Cards', description: 'Editorial breakdown cards showing top, bottom, outer layer, footwear, and accessory pairings.' },
+    ],
+    engineeringHighlights: [
+      'Node.js and Express backend orchestrating stylist recommendation algorithms',
+      'Open-Meteo API integration delivering localized climate data without user tracking',
+      'Flutter Riverpod state management caching user preferences and wardrobe items',
+      'Cross-platform UI with clean Material 3 cards and fluid wardrobe navigation',
+    ],
     execution: [
       'Engineered skin undertone selection extracting precise color harmony palettes',
       'Integrated Open-Meteo weather API providing live temperature, humidity, UV index, and precipitation telemetry',
@@ -505,6 +650,7 @@ export const projects: Project[] = [
     category: 'AI Automation System',
     portfolioCategory: 'ai-agents',
     tag: 'Workflow Automation',
+    shortTagline: 'Automated customer messaging and notification workflows.',
     result: '0 Manual Overheads',
     resultLabel: 'Event-Driven Pipeline',
     link: null,
@@ -513,6 +659,20 @@ export const projects: Project[] = [
     challenge: 'Growing businesses lose dozens of staff hours every week manually copying order updates into WhatsApp chats, leading to delayed customer notices, missed follow-ups, and human transcription errors.',
     problem: 'Growing businesses lose dozens of staff hours every week manually copying order updates into WhatsApp chats, leading to delayed customer notices, missed follow-ups, and human transcription errors.',
     approach: 'We architected an event-driven automation pipeline connecting business backend events to the Meta WhatsApp Cloud API with zero manual human handling and automated response triage.',
+    whatWasBuilt: 'An enterprise event-driven communication pipeline that listens to backend database webhooks and dispatches verified WhatsApp Cloud API templates with automated customer response handling.',
+    targetAudience: 'E-commerce brands, logistics operators, clinics, and service businesses processing hundreds of daily customer touchpoints.',
+    coreFeatures: [
+      { title: 'Asynchronous Webhook Ingestion', description: 'Captures order placements, status changes, and inquiry events with sub-20ms acknowledgment.' },
+      { title: 'HSM Template Hydration', description: 'Fills approved Meta templates with customer variables, order numbers, and tracking links dynamically.' },
+      { title: 'Multi-Tier Follow-Up Rules', description: 'Triggers timed follow-up reminders if a customer does not confirm delivery within preset windows.' },
+      { title: 'Bi-Directional CRM Sync', description: 'Incoming customer replies update internal CRM and database records with zero manual transcription.' },
+    ],
+    engineeringHighlights: [
+      'Node.js and TypeScript microservice architecture containerized with Docker',
+      'Redis message queue ensuring zero dropped notifications during traffic surges',
+      'Meta WhatsApp Cloud API integration with automatic token refreshing and retry logic',
+      'PostgreSQL logging tracking delivery, read receipts, and response latencies',
+    ],
     execution: [
       'Configured asynchronous webhook ingestion capturing transactional business events in under 25ms',
       'Engineered automated messaging pipelines for real-time customer notifications and delivery tracking',
@@ -563,6 +723,7 @@ export const projects: Project[] = [
     category: 'AI Agent',
     portfolioCategory: 'ai-agents',
     tag: 'Autonomous Sales Agent',
+    shortTagline: 'Real-time intent analysis and automated sales opportunity scoring.',
     result: 'Instant Qualification',
     resultLabel: 'Intent Scoring Agent',
     link: null,
@@ -571,6 +732,20 @@ export const projects: Project[] = [
     challenge: 'Sales teams waste up to 40% of their day reviewing low-budget tire-kickers and generic inquiries while high-value enterprise leads sit waiting for hours in unprocessed queues.',
     problem: 'Sales teams waste up to 40% of their day reviewing low-budget tire-kickers and generic inquiries while high-value enterprise leads sit waiting for hours in unprocessed queues.',
     approach: 'We developed an autonomous AI qualification agent using semantic intent analysis, budgetary thresholding, and automated prioritization algorithms to score leads in under 45 seconds.',
+    whatWasBuilt: 'An autonomous sales qualification agent that ingests inbound lead text, evaluates semantic urgency and budget fit via LLMs, calculates a 0–100 score, and triggers instant sales actions.',
+    targetAudience: 'B2B agencies, software consultancies, and high-ticket service companies handling multiple daily inbound inquiries.',
+    coreFeatures: [
+      { title: 'Semantic Intent Extraction', description: 'Analyzes unstructured lead messages to extract commercial intent, urgency, and specific scope requirements.' },
+      { title: 'Composite 0–100 Lead Scoring', description: 'Calculates probability scores weighing budget readiness, timeline, authority, and company scale.' },
+      { title: 'Priority Tier Categorization', description: 'Segments inquiries into Tier 1 (Immediate Founder Call), Tier 2 (Standard Proposal), or Low Intent.' },
+      { title: 'Automated Calendar Routing', description: 'Instantly provides calendar scheduling links to high-intent leads while notifying sales leadership.' },
+    ],
+    engineeringHighlights: [
+      'Python and FastAPI backend with LangChain intent extraction pipelines',
+      'Structured JSON extraction guaranteeing deterministic schema compliance from LLMs',
+      'PostgreSQL database storing lead records, score factor breakdowns, and audit trails',
+      'Next.js administrative dashboard visualizing incoming lead velocity and score distributions',
+    ],
     execution: [
       'Engineered structured lead intake capturing unstructured form text and conversational messages',
       'Deployed LLM semantic intent extraction identifying customer problem fit, urgency, and budget readiness',
@@ -624,6 +799,7 @@ export const projects: Project[] = [
     category: 'AI Automation',
     portfolioCategory: 'ai-agents',
     tag: 'Automated Content Engine',
+    shortTagline: 'Automated editorial pipeline transforming ideas into channel content.',
     result: 'Zero Hallucinations',
     resultLabel: 'Production Pipeline',
     link: null,
@@ -632,6 +808,20 @@ export const projects: Project[] = [
     challenge: 'Producing high-quality technical editorial content across LinkedIn, Twitter/X, newsletters, and blogs requires tedious manual re-formatting that leads to inconsistent brand voice and irregular posting cycles.',
     problem: 'Producing high-quality technical editorial content across LinkedIn, Twitter/X, newsletters, and blogs requires tedious manual re-formatting that leads to inconsistent brand voice and irregular posting cycles.',
     approach: 'We architected a structured content generation pipeline that ingests a single conceptual brief, enforces strict brand guidelines, and autonomously outputs tailored channel-specific variations ready for human review.',
+    whatWasBuilt: 'A multi-channel automated content pipeline that accepts a single engineering update or outline and generates formatted LinkedIn posts, X threads, and newsletter summaries.',
+    targetAudience: 'Founder-led tech brands, developer advocates, marketing teams, and executives maintaining active authority across multiple social channels.',
+    coreFeatures: [
+      { title: 'Single-Brief Ingestion', description: 'Accepts raw outlines, customer call notes, or code commit messages as conceptual input.' },
+      { title: 'Channel-Specific Adaptation', description: 'Formats outputs specifically for LinkedIn (insight-first), X (punchy threads), and Newsletters (editorial depth).' },
+      { title: 'Brand Tone Guardrails', description: 'Enforces technical precision, eliminating buzzwords, clickbait tropes, and generic marketing fluff.' },
+      { title: 'Review & Staging Interface', description: 'Side-by-side variation preview with one-tap clipboard copying and character count validation.' },
+    ],
+    engineeringHighlights: [
+      'Next.js App Router with streaming responses from Anthropic Claude and OpenAI APIs',
+      'Prompt engineering frameworks with few-shot brand voice anchors',
+      'Tailwind CSS staging dashboard with real-time text editing and variation comparisons',
+      'Vercel Edge Functions ensuring instant sub-second response initialization',
+    ],
     execution: [
       'Created structured input parser accepting raw outlines, meeting summaries, and engineering milestones',
       'Built multi-channel transformation engines generating tailored LinkedIn thought leadership, X threads, and newsletter editions',
@@ -683,6 +873,7 @@ export const projects: Project[] = [
     category: 'Advanced AI Agent',
     portfolioCategory: 'ai-agents',
     tag: 'Sales Intelligence Engine',
+    shortTagline: 'Multi-signal opportunity analysis and next best action recommendation.',
     result: 'Multi-Signal Synthesis',
     resultLabel: 'Decision Prototype',
     link: null,
@@ -691,6 +882,20 @@ export const projects: Project[] = [
     challenge: 'Basic lead scoring tools only examine surface metrics like email domain or job title, completely ignoring conversational nuances, buying timeline signals, and specific technical objections.',
     problem: 'Basic lead scoring tools only examine surface metrics like email domain or job title, completely ignoring conversational nuances, buying timeline signals, and specific technical objections.',
     approach: 'We architected a multi-signal intelligence agent that synthesizes conversation transcripts, stakeholder profiles, and engagement velocity to calculate opportunity scores and prescribe concrete next actions.',
+    whatWasBuilt: 'A prototype intelligence system that aggregates multi-source conversation transcripts, CRM signals, and email threads to score deals and generate prescriptive sales action plans.',
+    targetAudience: 'Enterprise account executives, agency founders, and B2B sales leads managing complex, multi-stakeholder sales cycles.',
+    coreFeatures: [
+      { title: 'Transcript Dialogue Parsing', description: 'Extracts buyer pain points, budget authority, and explicit technical objections from call transcripts.' },
+      { title: 'Multi-Factor Opportunity Scoring', description: 'Calculates dynamic deal health ratings factoring in stakeholder engagement velocity and competitive mentions.' },
+      { title: 'Next Best Action Recommender', description: 'Prescribes precise follow-up angles, suggested proposal structures, and optimal contact timing.' },
+      { title: 'Executive Brief Generation', description: 'Synthesizes concise deal summaries and customized email drafts for immediate executive review.' },
+    ],
+    engineeringHighlights: [
+      'Python and FastAPI backend with LangGraph state orchestration',
+      'Vector database embeddings for semantic search over past customer conversations',
+      'OpenAI GPT-4o integration structured for deterministic reasoning factor output',
+      'PostgreSQL data layer storing historical deal outcomes to improve recommendation accuracy',
+    ],
     execution: [
       'Constructed multi-signal ingestion parsing conversational dialogue, stakeholder roles, and interaction velocity',
       'Engineered buying intent and objection detection identifying exact pain points and technical hesitations',
@@ -745,6 +950,7 @@ export const projects: Project[] = [
     category: 'Advanced Multi-Step AI Agent',
     portfolioCategory: 'ai-agents',
     tag: 'Flagship AI Agent',
+    shortTagline: 'Autonomous task decomposition and decision-ready strategic research.',
     result: 'Multi-Step Synthesis',
     resultLabel: 'Autonomous Research Engine',
     link: null,
@@ -753,6 +959,20 @@ export const projects: Project[] = [
     challenge: 'Executive research and market evaluations require days of manual information gathering, source cross-referencing, pattern recognition, and report writing, delaying strategic business decisions.',
     problem: 'Executive research and market evaluations require days of manual information gathering, source cross-referencing, pattern recognition, and report writing, delaying strategic business decisions.',
     approach: 'We engineered an autonomous multi-step research agent powered by LangGraph state machines and Claude 3.5 Sonnet that accepts an overarching goal, decomposes it into dependency tasks, collects and verifies evidence, and synthesizes an actionable decision brief.',
+    whatWasBuilt: 'A flagship autonomous research agent that orchestrates multi-step task decomposition, queries verified market telemetry, scores evidence confidence, and outputs structured decision reports.',
+    targetAudience: 'Chief Strategy Officers, private equity partners, and technology founders making high-stakes capital allocation and product roadmap decisions.',
+    coreFeatures: [
+      { title: 'Autonomous Task Decomposition', description: 'Deconstructs broad executive goals into sequential sub-tasks with live state tracking (Done / Active / Queued).' },
+      { title: 'Verified Source Telemetry', description: 'Queries verified domain sources via Tavily API, filtering out uncorroborated marketing claims.' },
+      { title: 'Cross-Checking Evidence Engine', description: 'Evaluates claim consistency across independent data points, generating a 0–100% confidence score.' },
+      { title: 'Strategic Decision Brief Export', description: 'Outputs executive recommendations with unit economics, operational risks, and structured Markdown/JSON reports.' },
+    ],
+    engineeringHighlights: [
+      'LangGraph deterministic state graph orchestrating agent execution loops',
+      'Anthropic Claude 3.5 Sonnet for deep analytical reasoning and synthesis',
+      'ChromaDB vector store for retrieval-augmented source document analysis',
+      'FastAPI asynchronous microservice integrated with Next.js web client',
+    ],
     execution: [
       'Architected goal-driven research planner decomposing complex user objectives into sequential sub-tasks',
       'Engineered structured information collection pipelines querying verified market telemetry and domain sources',

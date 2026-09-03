@@ -75,17 +75,17 @@ export default function Navbar() {
       >
         {/* ── iOS GLASS PILL ─────────────────────────────────── */}
         <div
-          className="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? 'px-4 sm:px-5' : 'px-0'}`}
           style={{
             // When scrolled: centered pill with max-width
             // When at top: full-width container
             maxWidth: scrolled ? '860px' : '100%',
             margin: scrolled ? '14px auto 0' : '0 auto',
-            padding: scrolled ? '0 20px' : '0',
           }}
         >
           <nav
             aria-label="Main navigation"
+            className={`${scrolled ? 'px-4 sm:px-6 md:px-7' : 'px-5 sm:px-8 md:px-10'}`}
             style={{
               // ── LIQUID GLASS MATERIAL ──────────────────────
               background: scrolled
@@ -107,7 +107,6 @@ export default function Navbar() {
               boxShadow: scrolled
                 ? '0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.04)'
                 : 'none',
-              padding: scrolled ? '0 28px' : '0 40px',
               transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1)',
               height: scrolled ? '52px' : '68px',
               display: 'flex',
@@ -226,84 +225,108 @@ export default function Navbar() {
 
             {/* ── MOBILE HAMBURGER ──────────────────────────── */}
             <button
-              className="md:hidden flex flex-col justify-center gap-[5px] w-12 h-12 rounded-lg focus-visible:outline-2 focus-visible:outline-lime focus-visible:outline-offset-2"
-              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden flex items-center justify-center w-11 h-11 rounded-lg text-white hover:text-[var(--accent)] hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-lime focus-visible:outline-offset-2 transition-colors"
+              onClick={() => setMobileOpen(true)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              style={{
-                background: mobileOpen ? 'rgba(212,245,60,0.12)' : 'transparent',
-                border: mobileOpen ? '1px solid rgba(212,245,60,0.25)' : '1px solid transparent',
-                transition: 'all 0.2s ease',
-                padding: '6px',
-              }}
+              aria-label="Open navigation menu"
             >
-              {[0, 1, 2].map(i => (
-                <span
-                  key={i}
-                  className="w-full rounded-full bg-white transition-all duration-300 origin-center"
-                  style={{
-                    height: '1.5px',
-                    opacity: i === 1 && mobileOpen ? 0 : 1,
-                    transform: mobileOpen
-                      ? i === 0 ? 'rotate(45deg) translateY(6.5px)'
-                        : i === 2 ? 'rotate(-45deg) translateY(-6.5px)'
-                          : 'none'
-                      : 'none',
-                  }}
-                />
-              ))}
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+              </svg>
             </button>
 
           </nav>
         </div>
       </header>
 
-      {/* ── MOBILE MENU ─────────────────────────────────────── */}
+      {/* ── MOBILE MENU FULLSCREEN OVERLAY ──────────────────── */}
       <div
         id="mobile-nav"
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
         aria-hidden={!mobileOpen}
-        className="fixed inset-0 z-40 flex flex-col items-center justify-center"
+        className="fixed inset-0 z-[100] flex flex-col justify-between"
         style={{
-          background: 'rgba(5,7,10,0.92)',
-          backdropFilter: 'blur(40px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+          background: 'rgba(5, 7, 10, 0.95)',
+          backdropFilter: 'blur(36px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(36px) saturate(180%)',
           opacity: mobileOpen ? 1 : 0,
           visibility: mobileOpen ? 'visible' : 'hidden',
-          transition: 'opacity 0.35s ease, visibility 0.35s ease',
+          transition: 'opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
           pointerEvents: mobileOpen ? 'all' : 'none',
         }}
       >
-        <nav className="flex flex-col items-center gap-2" aria-label="Mobile navigation">
-          {[...NAV_LINKS, { label: 'Contact', href: '/contact' }].map((link, i) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="font-sans font-bold text-white focus-visible:outline-2 focus-visible:outline-lime rounded px-4 py-3 min-h-[48px] flex items-center"
-              style={{
-                fontSize: 'clamp(28px, 7vw, 48px)',
-                lineHeight: '1.1',
-                letterSpacing: '-0.02em',
-                opacity: mobileOpen ? 1 : 0,
-                transform: mobileOpen ? 'none' : 'translateY(20px)',
-                transition: `opacity 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 55 + 80}ms, transform 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 55 + 80}ms, color 0.15s ease`,
-              }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#D4F53C' }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#FFFFFF' }}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Top Header Row: Aligned Logo & 44x44px Close (X) Button */}
+        <div className="w-full flex items-center justify-between px-6 sm:px-8 pt-5 sm:pt-6 pb-4 border-b border-white/5 flex-shrink-0">
+          <Link
+            href="/"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-lime rounded-lg"
+            aria-label="ZYVONE — Home"
+          >
+            <div className="w-7 h-7 flex items-center justify-center">
+              <Image src="/favicon.png" alt="ZYVONE" width={28} height={28} priority />
+            </div>
+            <span className="font-sans font-bold text-[17px] tracking-[0.05em] text-white">
+              ZYVONE
+            </span>
+          </Link>
 
-        <div
-          className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-6"
-          style={{ opacity: mobileOpen ? 1 : 0, transition: 'opacity 0.3s ease 0.5s' }}
-        >
+          {/* Dedicated Close Button: 44x44px touch area, centered 20px X, inside viewport */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close navigation menu"
+            className="w-11 h-11 rounded-full border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-colors cursor-pointer flex-shrink-0 focus-visible:outline-2 focus-visible:outline-lime"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Navigation Links List */}
+        <div className="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center items-center">
+          <nav className="flex flex-col items-center gap-3 my-auto" aria-label="Mobile navigation">
+            {[...NAV_LINKS, { label: 'Contact', href: '/contact' }].map((link, i) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="font-sans font-bold text-white focus-visible:outline-2 focus-visible:outline-lime rounded px-4 py-2.5 min-h-[44px] flex items-center"
+                style={{
+                  fontSize: 'clamp(24px, 6.5vw, 40px)',
+                  lineHeight: '1.15',
+                  letterSpacing: '-0.02em',
+                  opacity: mobileOpen ? 1 : 0,
+                  transform: mobileOpen ? 'none' : 'translateY(16px)',
+                  transition: `opacity 0.35s cubic-bezier(0.16,1,0.3,1) ${i * 45 + 60}ms, transform 0.35s cubic-bezier(0.16,1,0.3,1) ${i * 45 + 60}ms, color 0.15s ease`,
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#D4F53C' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#FFFFFF' }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Action CTA */}
+          <div className="mt-8 mb-4 w-full max-w-[280px]">
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="btn-primary w-full justify-center"
+            >
+              <span>Start a project</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Bottom Social Links Bar */}
+        <div className="pb-8 px-6 flex items-center justify-center gap-6 flex-shrink-0 border-t border-white/5 pt-4">
           {[
             { label: 'Instagram', href: 'https://www.instagram.com/zyvone.official/' },
             { label: 'X', href: 'https://x.com/zyvone12' },
@@ -314,7 +337,7 @@ export default function Navbar() {
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-[13px] font-medium text-white/30 hover:text-white transition-colors duration-200"
+              className="font-sans text-[12px] font-medium text-white/40 hover:text-white transition-colors duration-200"
             >
               {s.label}
             </a>

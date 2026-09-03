@@ -114,148 +114,59 @@ export default function WorkPage() {
         </span>
       </div>
 
-      {/* Projects List */}
+      {/* Projects Grid: 2-Column Minimal Visual Previews */}
       <RevealWrapper>
-        <div className="space-y-10 md:space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 lg:gap-10">
           {filteredProjects.map((project) => (
-            <div
+            <article
               key={project.slug}
-              className="card-surface p-5 sm:p-7 md:p-8 transition-all duration-200 group cursor-pointer min-w-0"
+              className="card-surface p-5 sm:p-6 md:p-7 flex flex-col justify-between group cursor-pointer transition-all duration-300 hover:border-[var(--border-strong)] min-w-0"
               onClick={(e) => openModal(project.slug, e)}
             >
-              {/* Mobile Header (Visible only on < lg) */}
-              <div className="block lg:hidden mb-4 min-w-0">
-                <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-[12px]">
-                  <span className="font-semibold text-[var(--text-tertiary)]">{project.id}</span>
-                  <span className="text-[var(--text-disabled)]">·</span>
-                  <span className="font-semibold text-[var(--accent)]">2026</span>
-                  <span className="text-[var(--text-disabled)]">·</span>
-                  <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)]">{project.category}</span>
+              <div>
+                {/* 1. Project Visual (Dominant Element) */}
+                <div className="relative w-full aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] mb-5 min-w-0">
+                  <Image
+                    src={project.heroImage}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top transition-transform duration-[300ms] ease-out group-hover:scale-[1.03]"
+                    unoptimized={project.heroImage.endsWith('.svg')}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  />
+                  <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[var(--bg-overlay)] backdrop-blur-md border border-[var(--border)] font-mono text-[10px] font-semibold text-[var(--accent)]">
+                      2026
+                    </span>
+                  </div>
                 </div>
 
-                <h2 className="font-sans font-semibold text-[22px] sm:text-[26px] text-[var(--text-primary)] tracking-tight leading-tight mb-2.5 group-hover:text-[var(--accent)] transition-colors uppercase">
+                {/* 2. Project Name */}
+                <h2 className="font-sans font-semibold text-[20px] sm:text-[22px] md:text-[24px] text-[var(--text-primary)] tracking-tight leading-tight mb-1.5 group-hover:text-[var(--accent)] transition-colors uppercase">
                   <Link href={`/work/${project.slug}`} onClick={(e) => openModal(project.slug, e)}>
                     {project.name || project.shortTitle}
                   </Link>
                 </h2>
 
-                <p className="font-sans text-[14px] sm:text-[15px] text-[var(--text-secondary)] leading-[1.6]">
-                  {project.overview}
+                {/* 3. Category */}
+                <p className="eyebrow-label text-[11px] text-[var(--accent)] mb-2.5">
+                  {project.category}
                 </p>
 
-                {/* Mobile Workflow Sequence (If available) */}
-                {project.workflowSequence && (
-                  <div className="mt-3 flex flex-wrap items-center gap-1.5 font-mono text-[10px]">
-                    {project.workflowSequence.map((step, idx) => (
-                      <React.Fragment key={idx}>
-                        <span className="px-2 py-0.5 rounded bg-[var(--bg)] border border-[var(--border)] text-[var(--accent)]">
-                          {step}
-                        </span>
-                        {idx < project.workflowSequence!.length - 1 && (
-                          <span className="text-[var(--text-tertiary)]" aria-hidden="true">→</span>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                )}
+                {/* 4. Short Tagline */}
+                <p className="font-sans text-[14px] sm:text-[15px] text-[var(--text-secondary)] leading-[1.6]">
+                  {project.shortTagline}
+                </p>
               </div>
 
-              {/* Desktop 12-Col Grid & Mobile Media / Bottom section */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center min-w-0">
-                {/* Visual: Image (7/12 on lg) */}
-                <div className="lg:col-span-7 relative aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] min-w-0">
-                  <Image
-                    src={project.heroImage}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-top transition-transform duration-[250ms] ease-out group-hover:scale-[1.02]"
-                    unoptimized={project.heroImage.endsWith('.svg')}
-                    sizes="(max-width: 1024px) 100vw, 58vw"
-                  />
-                  <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-[var(--bg-overlay)] backdrop-blur-md border border-[var(--border)] font-mono text-[11px] font-semibold text-[var(--accent)]">
-                      {project.result}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Copy & Structured Metadata (5/12 on lg) */}
-                <div className="lg:col-span-5 flex flex-col justify-center min-w-0">
-                  {/* Desktop Header (Hidden on < lg) */}
-                  <div className="hidden lg:block min-w-0">
-                    <div className="flex items-center gap-2 mb-2 font-mono text-[12px]">
-                      <span className="font-semibold text-[var(--text-tertiary)]">{project.id}</span>
-                      <span className="text-[var(--text-disabled)]">·</span>
-                      <span className="font-semibold text-[var(--accent)]">2026</span>
-                      <span className="text-[var(--text-disabled)]">·</span>
-                      <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)]">{project.category}</span>
-                    </div>
-
-                    <h2 className="font-sans font-semibold text-[26px] md:text-[28px] text-[var(--text-primary)] tracking-tight leading-tight mb-3 group-hover:text-[var(--accent)] transition-colors uppercase">
-                      <Link href={`/work/${project.slug}`} onClick={(e) => openModal(project.slug, e)}>
-                        {project.name || project.shortTitle}
-                      </Link>
-                    </h2>
-
-                    <p className="font-sans text-[15px] text-[var(--text-secondary)] leading-[1.65] mb-4">
-                      {project.overview}
-                    </p>
-
-                    {/* Desktop Workflow Sequence (If available) */}
-                    {project.workflowSequence && (
-                      <div className="mb-5 flex flex-wrap items-center gap-1.5 font-mono text-[10px]">
-                        {project.workflowSequence.map((step, idx) => (
-                          <React.Fragment key={idx}>
-                            <span className="px-2 py-0.5 rounded bg-[var(--bg)] border border-[var(--border)] text-[var(--accent)]">
-                              {step}
-                            </span>
-                            {idx < project.workflowSequence!.length - 1 && (
-                              <span className="text-[var(--text-tertiary)]" aria-hidden="true">→</span>
-                            )}
-                          </React.Fragment>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Technologies & Metadata */}
-                  <div className="pt-4 lg:pt-4 border-t border-[var(--border-subtle)] mb-5 lg:mb-6 space-y-2 min-w-0">
-                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-[var(--text-tertiary)] leading-relaxed">
-                      <span className="text-[var(--text-secondary)] font-medium">Stack:</span>
-                      <span>{project.stack.join(' · ')}</span>
-                    </div>
-                    <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--text-tertiary)]">
-                      <span>Architecture:</span>
-                      <span className="text-[var(--accent)]">{project.resultLabel}</span>
-                    </div>
-                  </div>
-
-                  {/* CTA Buttons */}
-                  <div className="flex flex-wrap items-center gap-3 pt-1">
-                    <Link
-                      href={`/work/${project.slug}`}
-                      onClick={(e) => openModal(project.slug, e)}
-                      className="btn-primary"
-                    >
-                      <span>{project.portfolioCategory === 'ai-agents' ? 'Explore system' : 'Case study'}</span>
-                      <span aria-hidden="true">→</span>
-                    </Link>
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="btn-ghost"
-                      >
-                        <span>Live site</span>
-                        <span aria-hidden="true">↗</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
+              {/* 5. Explore CTA */}
+              <div className="pt-5 mt-5 border-t border-[var(--border-subtle)] flex items-center justify-between">
+                <span className="font-sans font-medium text-[13px] text-[var(--accent)] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1.5">
+                  <span>Explore project</span>
+                  <span aria-hidden="true">→</span>
+                </span>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </RevealWrapper>

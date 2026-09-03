@@ -45,87 +45,53 @@ export function WorkShowcase() {
       {/* 4 Cards in 2-Column Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {showcaseProjects.map((project) => (
-          <div
+          <article
             key={project.slug}
-            className="card-surface p-5 sm:p-6 md:p-7 flex flex-col justify-between group cursor-pointer min-w-0"
+            className="card-surface p-5 sm:p-6 md:p-7 flex flex-col justify-between group cursor-pointer transition-all duration-300 hover:border-[var(--border-strong)] min-w-0"
             onClick={(e) => openModal(project.slug, e)}
           >
             <div>
-              {/* Image with 1.02 hover zoom */}
-              <div className="relative w-full aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] mb-5 sm:mb-6">
+              {/* 1. Project Visual (Dominant Element) */}
+              <div className="relative w-full aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] mb-5 min-w-0">
                 <Image
                   src={project.heroImage}
                   alt={project.title}
                   fill
-                  className="object-cover object-top transition-transform duration-[250ms] ease-out group-hover:scale-[1.02]"
+                  className="object-cover object-top transition-transform duration-[300ms] ease-out group-hover:scale-[1.03]"
                   unoptimized={project.heroImage.endsWith('.svg')}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-[var(--bg-overlay)] backdrop-blur-md border border-[var(--border)] font-mono text-[11px] font-semibold text-[var(--accent)]">
-                    {project.result}
+                  <span className="px-2.5 py-0.5 rounded-full bg-[var(--bg-overlay)] backdrop-blur-md border border-[var(--border)] font-mono text-[10px] font-semibold text-[var(--accent)]">
+                    2026
                   </span>
                 </div>
               </div>
 
-              {/* Meta */}
-              <div className="flex items-center gap-2 mb-2 font-mono text-[11px]">
-                <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)]">{project.year}</span>
-                <span className="text-[var(--text-disabled)]">·</span>
-                <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)]">{project.industry}</span>
-              </div>
-
-              <h3
-                className="font-sans font-semibold text-[var(--text-primary)] tracking-tight mb-2 group-hover:text-[var(--accent)] transition-colors"
-                style={{ fontSize: 'var(--fs-h3)' }}
-              >
+              {/* 2. Project Name */}
+              <h3 className="font-sans font-semibold text-[20px] sm:text-[22px] md:text-[24px] text-[var(--text-primary)] tracking-tight leading-tight mb-1.5 group-hover:text-[var(--accent)] transition-colors uppercase">
                 {project.name || project.shortTitle}
               </h3>
 
-              <p className="font-sans text-[var(--text-secondary)] text-[14px] leading-relaxed mb-6 line-clamp-2">
-                {project.overview}
+              {/* 3. Category */}
+              <p className="eyebrow-label text-[11px] text-[var(--accent)] mb-2.5">
+                {project.category}
+              </p>
+
+              {/* 4. Short Tagline */}
+              <p className="font-sans text-[14px] sm:text-[15px] text-[var(--text-secondary)] leading-[1.6]">
+                {project.shortTagline}
               </p>
             </div>
 
-            <div>
-              {/* Technology Stack & Metadata */}
-              <div className="pt-4 border-t border-[var(--border-subtle)] mb-5 space-y-2.5 min-w-0">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-[var(--text-tertiary)] leading-relaxed">
-                  <span className="text-[var(--text-secondary)] font-medium">Stack:</span>
-                  <span>{project.stack.slice(0, 4).join(' · ')}</span>
-                </div>
-                <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--text-tertiary)]">
-                  <span>Industry: {project.category}</span>
-                  <span className="text-[var(--accent)]">{project.resultLabel}</span>
-                </div>
-              </div>
-
-              {/* CTA Row - Independent and comfortable */}
-              <div className="flex items-center justify-between gap-4 pt-1">
-                <button
-                  type="button"
-                  onClick={(e) => openModal(project.slug, e)}
-                  className="font-sans font-semibold text-[13px] text-[var(--accent)] hover:underline inline-flex items-center gap-1.5 cursor-pointer min-h-[36px] py-1"
-                >
-                  <span>Explore case study</span>
-                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
-                </button>
-
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="font-sans text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] inline-flex items-center gap-1 transition-colors min-h-[36px] py-1"
-                  >
-                    <span>View Live</span>
-                    <span>↗</span>
-                  </a>
-                )}
-              </div>
+            {/* 5. Explore CTA */}
+            <div className="pt-5 mt-5 border-t border-[var(--border-subtle)] flex items-center justify-between">
+              <span className="font-sans font-medium text-[13px] text-[var(--accent)] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1.5">
+                <span>Explore project</span>
+                <span aria-hidden="true">→</span>
+              </span>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

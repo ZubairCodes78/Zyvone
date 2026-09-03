@@ -180,10 +180,10 @@ function CaseStudyModalContent() {
             <button
               onClick={closeModal}
               aria-label="Close case study modal"
-              className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-[var(--border)] hover:border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] flex items-center justify-center transition-colors cursor-pointer"
+              className="w-11 h-11 rounded-full border border-[var(--border)] hover:border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] flex items-center justify-center transition-colors cursor-pointer flex-shrink-0"
             >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 3L13 13M13 3L3 13" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
               </svg>
             </button>
           </div>
@@ -196,139 +196,216 @@ function CaseStudyModalContent() {
           tabIndex={0}
         >
           {project ? (
-            <div key={`modal-content-${contentKey}`} className="space-y-8 md:space-y-9 animate-fade">
-              {/* 1. Hero Image */}
-              <div className="relative w-full aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] border border-[var(--border)]">
-                <Image
-                  src={project.heroImage}
-                  alt={project.title}
-                  fill
-                  priority
-                  className="object-cover object-top"
-                  unoptimized={project.heroImage.endsWith('.svg')}
-                  sizes="(max-width: 900px) 100vw, 900px"
-                />
-              </div>
+            <div key={`modal-content-${contentKey}`} className="space-y-8 md:space-y-10 animate-fade">
+              {/* 01 — HERO */}
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                  <span className="text-[var(--text-tertiary)]">{project.id}</span>
+                  <span className="text-[var(--text-disabled)]">·</span>
+                  <span className="text-[var(--accent)] font-semibold">2026</span>
+                  <span className="text-[var(--text-disabled)]">·</span>
+                  <span className="eyebrow-label text-[11px] text-[var(--text-secondary)]">{project.category}</span>
+                </div>
 
-              {/* Workflow Pipeline (For AI Systems & Applications) */}
-              {project.workflowSequence && project.workflowSequence.length > 0 && (
-                <div className="p-4 md:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] min-w-0">
-                  <span className="eyebrow-label text-[10px] text-[var(--accent)] block mb-3 font-semibold tracking-wider">
-                    SYSTEM WORKFLOW &amp; EXECUTION PIPELINE
-                  </span>
-                  <div className="flex flex-wrap items-center gap-2 font-mono text-[11px]">
-                    {project.workflowSequence.map((step, sIdx) => (
-                      <React.Fragment key={sIdx}>
-                        <span className="px-2.5 py-1 rounded bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium">
-                          {step}
-                        </span>
-                        {sIdx < project.workflowSequence!.length - 1 && (
-                          <span className="text-[var(--accent)] font-bold" aria-hidden="true">→</span>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-              )}
+                <h1 className="font-sans font-bold text-[26px] sm:text-[32px] md:text-[38px] text-[var(--text-primary)] tracking-tight leading-[1.12]">
+                  {project.title || project.name}
+                </h1>
 
-              {/* 2. Metadata Grid Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 p-4 md:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] min-w-0">
-                <div className="min-w-0">
-                  <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Industry</p>
-                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--text-primary)] truncate">{project.industry}</p>
-                </div>
-                <div className="min-w-0">
-                  <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Year</p>
-                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--accent)] font-mono">{project.year}</p>
-                </div>
-                <div className="min-w-0 col-span-2 sm:col-span-1">
-                  <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Services</p>
-                  <p className="font-sans text-[13px] md:text-[14px] font-medium text-[var(--text-primary)] leading-tight">{project.services.join(', ')}</p>
-                </div>
-                <div className="min-w-0">
-                  <p className="eyebrow-label text-[10px] text-[var(--text-tertiary)] mb-1">Result</p>
-                  <p className="font-sans text-[13px] md:text-[14px] font-semibold text-[var(--accent)]">{project.result}</p>
+                <p className="font-sans text-[15px] sm:text-[17px] text-[var(--text-secondary)] leading-relaxed max-w-3xl">
+                  {project.shortTagline}
+                </p>
+
+                {/* Large Hero Visual */}
+                <div className="relative w-full aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] border border-[var(--border)] mt-4">
+                  <Image
+                    src={project.heroImage}
+                    alt={project.title}
+                    fill
+                    priority
+                    className="object-cover object-top"
+                    unoptimized={project.heroImage.endsWith('.svg')}
+                    sizes="(max-width: 900px) 100vw, 900px"
+                  />
                 </div>
               </div>
 
-              {/* Capabilities List (If available) */}
-              {project.capabilitiesList && project.capabilitiesList.length > 0 && (
-                <div>
-                  <span className="eyebrow-label text-[11px] text-[var(--accent)] block mb-3 font-semibold">
-                    KEY CAPABILITIES &amp; DELIVERABLES
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {project.capabilitiesList.map((cap, cIdx) => (
-                      <div key={cIdx} className="flex items-center gap-2.5 p-2.5 rounded bg-[var(--bg)] border border-[var(--border-subtle)] font-sans text-[13px] text-[var(--text-secondary)]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0" />
-                        <span>{cap}</span>
-                      </div>
-                    ))}
+              {/* 02 — OVERVIEW */}
+              <section className="space-y-3 pt-1">
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                  02 // PROJECT OVERVIEW
+                </span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 sm:p-6 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)]">
+                  <div className="md:col-span-2 space-y-2.5">
+                    <h3 className="font-sans text-[15px] font-semibold text-[var(--text-primary)]">What It Is &amp; Does</h3>
+                    <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                      {project.overview}
+                    </p>
+                  </div>
+                  <div className="space-y-3 border-t md:border-t-0 md:border-l border-[var(--border)] pt-4 md:pt-0 md:pl-5">
+                    <div>
+                      <span className="eyebrow-label text-[10px] text-[var(--text-tertiary)] block mb-1">Target Audience</span>
+                      <p className="font-sans text-[13px] text-[var(--text-primary)] font-medium">
+                        {project.targetAudience || project.industry}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="eyebrow-label text-[10px] text-[var(--text-tertiary)] block mb-1">Core Deliverable</span>
+                      <p className="font-sans text-[13px] text-[var(--accent)] font-semibold">
+                        {project.result}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              )}
+              </section>
 
-              {/* 3. Challenge & Approach */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div>
-                  <span className="eyebrow-label text-[11px] text-[var(--accent)] block mb-2 font-semibold">THE CHALLENGE</span>
-                  <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-secondary)] leading-[1.7]">
+              {/* 03 — THE IDEA / PROBLEM */}
+              <section className="space-y-3 pt-1">
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                  {project.portfolioCategory === 'websites' ? '03 // BUSINESS OBJECTIVE & CHALLENGE' : project.portfolioCategory === 'applications' ? '03 // PRODUCT IDEA & PROBLEM' : '03 // THE BUSINESS PROBLEM'}
+                </span>
+                <div className="p-5 sm:p-6 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)]">
+                  <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
                     {project.challenge || project.problem}
                   </p>
                 </div>
+              </section>
 
-                <div>
-                  <span className="eyebrow-label text-[11px] text-[var(--accent)] block mb-2 font-semibold">OUR APPROACH</span>
-                  <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-secondary)] leading-[1.7]">
-                    {project.approach}
+              {/* 04 — WHAT WAS BUILT */}
+              <section className="space-y-3 pt-1">
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                  04 // WHAT WAS BUILT
+                </span>
+                <div className="p-5 sm:p-6 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)]">
+                  <p className="font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
+                    {project.whatWasBuilt || project.description}
                   </p>
                 </div>
-              </div>
+              </section>
 
-              {/* 4. What We Engineered */}
-              <div>
-                <span className="eyebrow-label text-[11px] text-[var(--accent)] block mb-3 font-semibold">WHAT WE ENGINEERED</span>
-                <ul className="space-y-2.5">
-                  {project.execution.map((step, sIdx) => (
-                    <li key={sIdx} className="flex items-start gap-2.5 font-sans text-[14px] text-[var(--text-secondary)] leading-relaxed">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] mt-2 flex-shrink-0" />
-                      <span>{step}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* 05 — KEY FEATURES */}
+              {project.coreFeatures && project.coreFeatures.length > 0 && (
+                <section className="space-y-3 pt-1">
+                  <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                    05 // KEY FEATURES &amp; FUNCTIONALITY
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    {project.coreFeatures.map((feat, idx) => (
+                      <div key={idx} className="p-4 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] space-y-1.5">
+                        <h4 className="font-sans text-[13px] font-semibold text-[var(--text-primary)] flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] flex-shrink-0" />
+                          <span>{feat.title}</span>
+                        </h4>
+                        <p className="font-sans text-[12.5px] text-[var(--text-secondary)] leading-relaxed">
+                          {feat.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
 
-              {/* 5. Outcome & Reflection */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="p-5 md:p-6 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)]">
-                  <span className="eyebrow-label text-[10px] text-[var(--text-tertiary)] block mb-2">OUTCOME</span>
-                  <p className="font-sans text-[13px] md:text-[14px] text-[var(--text-primary)] leading-[1.7]">
-                    {project.outcome}
-                  </p>
-                </div>
+              {/* 06 — PRODUCT EXPERIENCE & WORKFLOW (Category-Tailored) */}
+              <section className="space-y-3 pt-1">
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                  {project.portfolioCategory === 'ai-agents' ? '06 // AUTOMATION WORKFLOW PIPELINE' : project.portfolioCategory === 'applications' ? '06 // PRODUCT INTERACTION FLOW' : '06 // DIGITAL EXPERIENCE & RESPONSIVE ARCHITECTURE'}
+                </span>
 
-                <div className="p-5 md:p-6 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] border-l-2 border-l-[var(--accent)]">
-                  <span className="eyebrow-label text-[10px] text-[var(--text-tertiary)] block mb-2">REFLECTION</span>
-                  <p className="font-serif italic text-[14px] md:text-[15px] text-[var(--text-primary)] leading-[1.6]">
-                    &ldquo;{project.reflection}&rdquo;
-                  </p>
-                </div>
-              </div>
-
-              {/* 6. Technology Stack */}
-              <div className="pb-2">
-                <span className="eyebrow-label text-[11px] text-[var(--text-tertiary)] block mb-3">TECHNOLOGY STACK</span>
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.map((tech, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="font-mono text-[12px] px-3 py-1.5 rounded-md bg-[var(--bg)] border border-[var(--border)] text-[var(--text-secondary)]"
-                    >
-                      {tech}
+                {/* Workflow Diagram for AI projects & Applications */}
+                {project.workflowSequence && project.workflowSequence.length > 0 && (
+                  <div className="p-4 sm:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] space-y-3">
+                    <span className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider block">
+                      Execution Flow: Input → Processing → Output
                     </span>
-                  ))}
+                    <div className="flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                      {project.workflowSequence.map((step, sIdx) => (
+                        <React.Fragment key={sIdx}>
+                          <span className="px-2.5 py-1 rounded bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text-primary)] font-medium">
+                            {step}
+                          </span>
+                          {sIdx < project.workflowSequence!.length - 1 && (
+                            <span className="text-[var(--accent)] font-bold" aria-hidden="true">→</span>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Gallery Images if multiple exist */}
+                {project.gallery && project.gallery.length > 1 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    {project.gallery.map((imgSrc, gIdx) => (
+                      <div key={gIdx} className="relative aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden bg-[var(--bg)] border border-[var(--border)]">
+                        <Image
+                          src={imgSrc}
+                          alt={`${project.name} preview ${gIdx + 1}`}
+                          fill
+                          className="object-cover object-top"
+                          unoptimized={imgSrc.endsWith('.svg')}
+                          sizes="(max-width: 768px) 100vw, 450px"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+
+              {/* 07 — TECHNOLOGY */}
+              <section className="space-y-3 pt-1">
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                  07 // VERIFIED TECHNOLOGY STACK
+                </span>
+                <div className="p-4 sm:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)]">
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="font-mono text-[12px] px-3 py-1.5 rounded bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text-primary)] font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </section>
+
+              {/* 08 — DEVELOPMENT & ENGINEERING */}
+              <section className="space-y-3 pt-1">
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                  08 // DEVELOPMENT &amp; ENGINEERING
+                </span>
+                <div className="p-4 sm:p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)]">
+                  <ul className="space-y-2.5">
+                    {(project.engineeringHighlights || project.execution).map((hl, hIdx) => (
+                      <li key={hIdx} className="flex items-start gap-2.5 font-sans text-[13.5px] text-[var(--text-secondary)] leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] mt-2 flex-shrink-0" />
+                        <span>{hl}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+
+              {/* 09 — OUTCOME & REFLECTION */}
+              <section className="space-y-3 pt-1 pb-2">
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--accent)]">
+                  09 // OUTCOME &amp; REFLECTION
+                </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] space-y-2">
+                    <span className="eyebrow-label text-[10px] text-[var(--text-tertiary)] block">OUTCOME</span>
+                    <p className="font-sans text-[13.5px] text-[var(--text-primary)] leading-relaxed">
+                      {project.outcome}
+                    </p>
+                  </div>
+                  <div className="p-5 rounded-[var(--radius-card)] bg-[var(--bg)] border border-[var(--border)] border-l-2 border-l-[var(--accent)] space-y-2">
+                    <span className="eyebrow-label text-[10px] text-[var(--text-tertiary)] block">REFLECTION</span>
+                    <p className="font-serif italic text-[14px] text-[var(--text-primary)] leading-relaxed">
+                      &ldquo;{project.reflection}&rdquo;
+                    </p>
+                  </div>
+                </div>
+              </section>
             </div>
           ) : (
             <div className="py-20 text-center text-[var(--text-tertiary)]">
