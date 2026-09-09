@@ -99,7 +99,7 @@ export default function AboutPage() {
       <section className="max-w-[var(--max-w-hero)] mb-16 md:mb-24 pb-12 border-b border-[var(--border)]">
         <span className="eyebrow-mono block mb-4 text-[var(--accent)]">ABOUT ZYVONE</span>
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
           Built by founders.{' '}

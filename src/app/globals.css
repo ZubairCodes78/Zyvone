@@ -19,35 +19,36 @@
   --accent-hover: #d5ff5b;
   --accent-shadow: rgba(200, 237, 53, 0.15);
 
-  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: var(--font-newsreader), "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-instrument-serif), "Instrument Serif", Georgia, Cambria, serif;
+  --font-newsreader: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
 
-  --fs-display: clamp(42px, 6.5vw, 76px);
-  --fs-h1:      clamp(32px, 4.5vw, 48px);
-  --fs-h2:      clamp(24px, 3vw, 32px);
-  --fs-h3:      clamp(18px, 2vw, 22px);
-  --fs-body:    17px;
+  --fs-display: clamp(44px, 7vw, 84px);
+  --fs-h1: clamp(34px, 4.8vw, 54px);
+  --fs-h2: clamp(26px, 3.2vw, 36px);
+  --fs-h3: clamp(18px, 2vw, 22px);
+  --fs-body: 17px;
   --fs-body-sm: 14px;
-  --fs-meta:    12px;
-  --fs-mono:    13px;
+  --fs-meta: 12px;
+  --fs-mono: 13px;
 
-  --lh-display: 1.04;
-  --lh-h1: 1.08;
-  --lh-h2: 1.2;
+  --lh-display: 1.02;
+  --lh-h1: 1.06;
+  --lh-h2: 1.18;
   --lh-h3: 1.3;
   --lh-body: 1.6;
 
   --tracking-eyebrow: 0.08em;
-  --tracking-tight: -0.02em;
+  --tracking-tight: -0.025em;
 
   --max-w-outer: 1280px;
   --max-w-content: 1200px;
-  --max-w-text:    760px;
-  --max-w-hero:    840px;
+  --max-w-text: 760px;
+  --max-w-hero: 840px;
 
   --section-y-desktop: 120px;
-  --section-y-mobile:  64px;
+  --section-y-mobile: 64px;
 
   --radius-btn: 8px;
   --radius-card: 14px;
@@ -92,23 +93,40 @@ body {
   box-shadow: 0 0 10px var(--accent-shadow) !important;
 }
 
-/* ── SIGNATURE DISPLAY ACCENT (WEIGHT 600 SEMIBOLD) ─────────── */
+/* ── SIGNATURE EDITORIAL ACCENT (INSTRUMENT SERIF ITALIC 400) ── */
 .font-display-accent {
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 400 !important;
   color: var(--accent) !important;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   display: inline-block;
 }
 
-/* ── GLOBAL RULE: ACCENT TEXT ENFORCES 600 SEMIBOLD ─────────── */
+.font-serif-accent {
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  color: var(--accent) !important;
+  letter-spacing: -0.01em;
+  display: inline-block;
+}
+
+.font-serif-italic {
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em;
+  display: inline-block;
+}
+
+/* ── GLOBAL RULE: ACCENT TEXT ENFORCES 600 SEMIBOLD (SANS/UI) ── */
 .text-accent,
 .text-lime,
 [data-accent-text],
 .accent-text {
   color: var(--accent) !important;
-  font-weight: 600 !important;
+  font-weight: 600;
 }
 
 /* ── TYPOGRAPHY UTILITIES ───────────────────────────────────── */
@@ -161,8 +179,8 @@ body {
   border-radius: var(--radius-btn);
   border: 1px solid var(--accent);
   transition: background-color var(--dur-fast) ease-out,
-              border-color var(--dur-fast) ease-out,
-              transform var(--dur-fast) ease-out;
+    border-color var(--dur-fast) ease-out,
+    transform var(--dur-fast) ease-out;
   cursor: pointer;
   text-decoration: none;
   box-sizing: border-box;
@@ -197,8 +215,8 @@ body {
   border-radius: var(--radius-btn);
   border: 1px solid var(--border);
   transition: border-color var(--dur-fast) ease-out,
-              background-color var(--dur-fast) ease-out,
-              transform var(--dur-fast) ease-out;
+    background-color var(--dur-fast) ease-out,
+    transform var(--dur-fast) ease-out;
   cursor: pointer;
   text-decoration: none;
   box-sizing: border-box;
@@ -218,6 +236,7 @@ body {
 
 /* Fluid responsive button scaling on mobile while strictly preserving 44px touch target */
 @media (max-width: 480px) {
+
   .btn-primary,
   .btn-ghost {
     font-size: 14px;
@@ -228,6 +247,7 @@ body {
 }
 
 @media (max-width: 360px) {
+
   .btn-primary,
   .btn-ghost {
     font-size: 13.5px;
@@ -251,8 +271,9 @@ body {
     align-items: stretch;
     width: 100%;
   }
-  .btn-row > .btn-primary,
-  .btn-row > .btn-ghost {
+
+  .btn-row>.btn-primary,
+  .btn-row>.btn-ghost {
     width: 100%;
     justify-content: center;
   }
@@ -270,7 +291,7 @@ body {
   font-family: var(--font-sans);
   font-size: 14px;
   transition: border-color var(--dur-normal) var(--ease-out),
-              box-shadow var(--dur-normal) var(--ease-out);
+    box-shadow var(--dur-normal) var(--ease-out);
   cursor: text;
   outline: none;
 }
@@ -306,8 +327,8 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   transition: transform var(--dur-normal) var(--ease-out),
-              border-color var(--dur-normal) var(--ease-out),
-              box-shadow var(--dur-normal) var(--ease-out);
+    border-color var(--dur-normal) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out);
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -319,7 +340,7 @@ button {
 }
 
 /* Ensure flex/grid children inside cards never blow out layout */
-.card-surface > * {
+.card-surface>* {
   min-width: 0;
 }
 
@@ -341,6 +362,7 @@ nextjs-portal,
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -351,13 +373,28 @@ nextjs-portal,
   animation: fadeInUp var(--dur-reveal) var(--ease-out) forwards;
 }
 
-.stagger-1 { animation: fadeInUp 450ms var(--ease-out) 0ms forwards; }
-.stagger-2 { animation: fadeInUp 450ms var(--ease-out) 70ms forwards; }
-.stagger-3 { animation: fadeInUp 450ms var(--ease-out) 140ms forwards; }
-.stagger-4 { animation: fadeInUp 450ms var(--ease-out) 210ms forwards; }
-.stagger-5 { animation: fadeInUp 450ms var(--ease-out) 280ms forwards; }
+.stagger-1 {
+  animation: fadeInUp 450ms var(--ease-out) 0ms forwards;
+}
+
+.stagger-2 {
+  animation: fadeInUp 450ms var(--ease-out) 70ms forwards;
+}
+
+.stagger-3 {
+  animation: fadeInUp 450ms var(--ease-out) 140ms forwards;
+}
+
+.stagger-4 {
+  animation: fadeInUp 450ms var(--ease-out) 210ms forwards;
+}
+
+.stagger-5 {
+  animation: fadeInUp 450ms var(--ease-out) 280ms forwards;
+}
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

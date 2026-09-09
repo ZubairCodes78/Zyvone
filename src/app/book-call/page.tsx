@@ -51,11 +51,11 @@ export default function BookCall() {
             Book a call
           </p>
           <h1
-            className="font-sans font-semibold text-white tracking-[-0.03em] leading-[0.95] mb-8"
+            className="font-sans font-bold text-white tracking-[-0.03em] leading-[0.95] mb-8"
             style={{ fontSize: 'clamp(38px, 5.5vw, 72px)' }}
           >
             Free 15-minute<br />
-            <span className="font-display italic text-white/75">audit.</span>
+            <span className="font-serif-accent">audit.</span>
           </h1>
           <p className="font-sans text-[17px] sm:text-[19px] text-[#EDEDED]/45 max-w-lg leading-[1.75]">
             No pitch. No pressure. Just clarity on what&apos;s possible for your business.

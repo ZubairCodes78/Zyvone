@@ -8,10 +8,10 @@ export function FinalCTA() {
         <div className="max-w-[640px]">
           <span className="eyebrow-label block mb-3">BUILD WITH ZYVONE</span>
           <h2
-            className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.1] mb-4"
+            className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.1] mb-4"
             style={{ fontSize: 'var(--fs-h2)' }}
           >
-            Serious about building systems that compound?
+            Serious about building systems that <span className="font-serif-accent">compound?</span>
           </h2>
           <p className="font-sans text-[16px] text-[var(--text-secondary)] leading-[1.6]">
             We architect, engineer, and deploy software platforms and automated digital infrastructure that eliminate operational drag and scale without limits.

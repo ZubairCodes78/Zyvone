@@ -27,7 +27,7 @@ export function InfrastructureVisual() {
     { x: 200, y: 60, r: 5, label: 'Interface' },
     { x: 100, y: 160, r: 4, label: 'Logic' },
     { x: 300, y: 160, r: 4, label: 'Services' },
-    { x: 60,  y: 260, r: 3, label: 'Data' },
+    { x: 60, y: 260, r: 3, label: 'Data' },
     { x: 200, y: 260, r: 4, label: 'Compute' },
     { x: 340, y: 260, r: 3, label: 'Storage' },
     { x: 130, y: 355, r: 3.5, label: 'Edge' },

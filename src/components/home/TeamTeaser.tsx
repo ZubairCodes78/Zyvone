@@ -11,12 +11,12 @@ export function TeamTeaser() {
             THE PEOPLE BEHIND ZYVONE
           </span>
           <h2
-            className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.12]"
+            className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.12]"
             style={{ fontSize: 'var(--fs-h2)' }}
           >
-            BUILT BY PEOPLE.{' '}
+            BUILT BY PEOPLE. DESIGNED FOR{' '}
             <span className="font-display-accent block sm:inline">
-              DESIGNED FOR WHAT&apos;S NEXT.
+              WHAT&apos;S NEXT.
             </span>
           </h2>
         </div>

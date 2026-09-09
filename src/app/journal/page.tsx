@@ -27,10 +27,10 @@ export default function JournalPage() {
       <section className="max-w-[var(--max-w-hero)] mb-16 md:mb-20 pb-10 border-b border-[var(--border)]">
         <span className="eyebrow-label block mb-4">JOURNAL</span>
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
-          Thinking in public.
+          Thinking in <span className="font-serif-accent">public.</span>
         </h1>
         <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.6]">
           Observations, technical blueprints, and operational frameworks from engineering digital systems.

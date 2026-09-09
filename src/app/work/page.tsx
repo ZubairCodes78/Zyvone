@@ -33,11 +33,11 @@ export default function WorkPage() {
     mobileLabel?: string
     count: number
   }[] = [
-    { key: 'all', label: 'ALL WORK', count: counts.all },
-    { key: 'websites', label: 'WEBSITES', count: counts.websites },
-    { key: 'applications', label: 'APPLICATIONS', count: counts.applications },
-    { key: 'ai-agents', label: 'AI AUTOMATION & AGENTS', mobileLabel: 'AI / AGENTS', count: counts['ai-agents'] },
-  ]
+      { key: 'all', label: 'ALL WORK', count: counts.all },
+      { key: 'websites', label: 'WEBSITES', count: counts.websites },
+      { key: 'applications', label: 'APPLICATIONS', count: counts.applications },
+      { key: 'ai-agents', label: 'AI AUTOMATION & AGENTS', mobileLabel: 'AI / AGENTS', count: counts['ai-agents'] },
+    ]
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -69,10 +69,10 @@ export default function WorkPage() {
       <div className="max-w-[var(--max-w-hero)] mb-10 md:mb-14">
         <span className="eyebrow-label block mb-4">SELECTED WORK</span>
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
-          Work
+          Selected <span className="font-serif-accent">Work.</span>
         </h1>
         <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.6]">
           A curated selection of digital products, software, systems and digital experiences.
@@ -93,28 +93,17 @@ export default function WorkPage() {
                   onClick={() => setActiveCategory(tab.key)}
                   aria-pressed={isActive}
                   aria-label={`${tab.label}, ${tab.count} projects`}
-                  className={`font-mono text-[11px] min-[360px]:text-[12px] sm:text-[13px] px-2.5 sm:px-4 py-2.5 sm:py-2 rounded-xl md:rounded-full transition-all duration-200 cursor-pointer flex items-center justify-center md:justify-start gap-1.5 sm:gap-2 min-h-[44px] md:min-h-[40px] w-full md:w-auto select-none ${
-                    isActive
+                  className={`font-mono text-[11px] min-[360px]:text-[12px] sm:text-[13px] px-2.5 sm:px-4 py-2.5 sm:py-2 rounded-xl md:rounded-full transition-all duration-200 cursor-pointer flex items-center justify-center md:justify-start gap-1.5 sm:gap-2 min-h-[44px] md:min-h-[40px] w-full md:w-auto select-none ${isActive
                       ? 'bg-[var(--accent)] text-[#0a0a0a] font-bold shadow-[0_0_16px_rgba(212,245,60,0.2)]'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] border border-transparent hover:border-[var(--border)]'
-                  }`}
-                >
-                  <span className="truncate">
-                    {tab.mobileLabel ? (
-                      <>
-                        <span className="inline md:hidden">{tab.mobileLabel}</span>
-                        <span className="hidden md:inline">{tab.label}</span>
-                      </>
-                    ) : (
-                      tab.label
-                    )}
-                  </span>
-                  <span
-                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-mono font-medium flex-shrink-0 transition-colors ${
-                      isActive
-                        ? 'bg-[#0a0a0a]/20 text-[#0a0a0a]'
-                        : 'bg-black/30 md:bg-[var(--bg-surface)] text-[var(--text-tertiary)] border border-white/5'
                     }`}
+                >
+                  <span>{tab.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${isActive
+                        ? 'bg-[#0a0a0a] text-[var(--accent)]'
+                        : 'bg-[var(--bg-elevated)] text-[var(--text-tertiary)]'
+                      }`}
                   >
                     {tab.count}
                   </span>
@@ -125,8 +114,8 @@ export default function WorkPage() {
         </div>
       </nav>
 
-      {/* Section Sub-Header */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-8">
+      {/* Meta indicator bar */}
+      <div className="flex items-center justify-between pb-6 mb-8 border-b border-[var(--border)]">
         <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)]">
           SHOWING {filteredProjects.length} {filteredProjects.length === 1 ? 'PROJECT' : 'PROJECTS'}
         </span>
@@ -163,7 +152,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* 2. Project Name */}
-                <h2 className="font-sans font-semibold text-[20px] sm:text-[22px] md:text-[24px] text-[var(--text-primary)] tracking-tight leading-tight mb-1.5 group-hover:text-[var(--accent)] transition-colors uppercase">
+                <h2 className="font-sans font-bold text-[20px] sm:text-[22px] md:text-[24px] text-[var(--text-primary)] tracking-tight leading-tight mb-1.5 group-hover:text-[var(--accent)] transition-colors uppercase">
                   <Link href={`/work/${project.slug}`} onClick={(e) => openModal(project.slug, e)}>
                     {project.name || project.shortTitle}
                   </Link>

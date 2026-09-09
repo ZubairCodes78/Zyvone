@@ -48,10 +48,10 @@ export function Capabilities() {
         <div>
           <span className="eyebrow-label block mb-3">CAPABILITIES &amp; SERVICES</span>
           <h2
-            className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.15]"
+            className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.15]"
             style={{ fontSize: 'var(--fs-h2)' }}
           >
-            What we build.
+            What we <span className="font-serif-accent">build.</span>
           </h2>
         </div>
         <Link

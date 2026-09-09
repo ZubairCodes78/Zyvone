@@ -46,11 +46,11 @@ export default function ContactPage() {
       <section className="max-w-[var(--max-w-hero)] mb-16 md:mb-20 pb-10 border-b border-[var(--border)]">
         <span className="eyebrow-label block mb-4">START A PROJECT</span>
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
           Let&apos;s build your{' '}
-          <span className="font-serif italic font-normal text-[var(--accent)] inline-block">
+          <span className="font-serif-accent">
             system.
           </span>
         </h1>

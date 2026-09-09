@@ -27,10 +27,10 @@ export function WorkShowcase() {
         <div>
           <span className="eyebrow-label block mb-3">SELECTED WORK</span>
           <h2
-            className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.15]"
+            className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.15]"
             style={{ fontSize: 'var(--fs-h2)' }}
           >
-            Built to run.
+            Built to <span className="font-serif-accent">run.</span>
           </h2>
         </div>
         <Link
@@ -69,7 +69,7 @@ export function WorkShowcase() {
               </div>
 
               {/* 2. Project Name */}
-              <h3 className="font-sans font-semibold text-[20px] sm:text-[22px] md:text-[24px] text-[var(--text-primary)] tracking-tight leading-tight mb-1.5 group-hover:text-[var(--accent)] transition-colors uppercase">
+              <h3 className="font-sans font-bold text-[20px] sm:text-[22px] md:text-[24px] text-[var(--text-primary)] tracking-tight leading-tight mb-1.5 group-hover:text-[var(--accent)] transition-colors uppercase">
                 {project.name || project.shortTitle}
               </h3>
 

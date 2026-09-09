@@ -92,10 +92,10 @@ export default function CapabilitiesPage() {
       <div className="max-w-[var(--max-w-hero)] mb-16 md:mb-24">
         <span className="eyebrow-mono block mb-4">CAPABILITIES</span>
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-[-0.02em] leading-[1.05] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.05] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
-          What we build.
+          What we <span className="font-serif-accent">build.</span>
         </h1>
         <p className="font-sans text-[var(--text-secondary)] text-[17px] md:text-[19px] leading-[1.6]">
           Six disciplines. Combined into a single system per project.

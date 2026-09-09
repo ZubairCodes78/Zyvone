@@ -21,7 +21,11 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["business", "technology", "productivity"],
+  "categories": [
+    "business",
+    "technology",
+    "productivity"
+  ],
   "screenshots": [],
   "shortcuts": [
     {
@@ -29,14 +33,24 @@
       "short_name": "Contact",
       "description": "Get in touch with ZYVONE",
       "url": "/contact",
-      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Work",
       "short_name": "Work",
       "description": "View our projects",
       "url": "/work",
-      "icons": [{ "src": "/favicon.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "96x96"
+        }
+      ]
     }
   ]
 }

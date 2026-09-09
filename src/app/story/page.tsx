@@ -103,7 +103,7 @@ export default function StoryPage() {
       <section className="max-w-[var(--max-w-hero)] mb-12 md:mb-16 pb-8 border-b border-[var(--border)]">
         <span className="eyebrow-mono block mb-4">OUR STORY</span>
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
           From college friends to{' '}
@@ -116,7 +116,7 @@ export default function StoryPage() {
 
       {/* Timeline Section with Non-Overlapping Vertical Side Rail */}
       <section ref={timelineRef} className="relative mb-20 md:mb-28">
-        
+
         {/* Main Layout: Rail Column + Chapter Cards Column */}
         <div className="flex gap-6 lg:gap-12 relative">
 
@@ -124,7 +124,7 @@ export default function StoryPage() {
           <div className="hidden lg:block w-[100px] flex-shrink-0 relative select-none" aria-hidden="true">
             <div className="sticky top-[170px] py-2">
               <div className="relative flex flex-col items-start justify-between h-[360px]">
-                
+
                 {/* Fixed Vertical Line Track (positioned at left: 72px) */}
                 <div className="absolute top-3 bottom-3 left-[72px] -translate-x-1/2 w-[2px] bg-[var(--border-strong)] rounded-full z-0" />
 
@@ -154,8 +154,8 @@ export default function StoryPage() {
                             color: isActive
                               ? 'var(--accent)'
                               : isPassed
-                              ? 'var(--accent)'
-                              : 'var(--text-tertiary)',
+                                ? 'var(--accent)'
+                                : 'var(--text-tertiary)',
                             opacity: isActive ? 1 : isPassed ? 0.75 : 0.35,
                           }}
                         >
@@ -173,8 +173,8 @@ export default function StoryPage() {
                             background: isActive
                               ? 'var(--accent)'
                               : isPassed
-                              ? 'var(--accent)'
-                              : 'var(--border-strong)',
+                                ? 'var(--accent)'
+                                : 'var(--border-strong)',
                             border: isActive ? '3px solid var(--bg)' : 'none',
                             boxShadow: isActive
                               ? '0 0 0 4px rgba(200,237,53,0.18), 0 0 16px rgba(200,237,53,0.38)'

@@ -129,7 +129,7 @@ export function ServiceDetailView({
         </div>
 
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
           {title}
@@ -185,11 +185,13 @@ export function ServiceDetailView({
             >
               What We Build
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* Flex-wrap layout: auto-centers last row regardless of item count */}
+            <div className="flex flex-wrap justify-center gap-5">
               {whatWeBuild.map((item, idx) => (
                 <div
                   key={idx}
                   className="card-surface p-6 border border-[var(--border)] flex items-start gap-4"
+                  style={{ flex: '1 1 280px', maxWidth: '400px' }}
                 >
                   <span className="w-2 h-2 rounded-full bg-[var(--accent)] mt-2.5 flex-shrink-0" />
                   <div>
@@ -221,11 +223,13 @@ export function ServiceDetailView({
               The Friction We Eliminate
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 2-col on smaller screens, auto-centers with flexbox */}
+            <div className="flex flex-wrap justify-center gap-6">
               {problems.map((item, idx) => (
                 <div
                   key={idx}
                   className="card-surface p-7 md:p-8 flex flex-col justify-between border border-[var(--border)]"
+                  style={{ flex: '1 1 380px', maxWidth: '620px' }}
                 >
                   <div>
                     <div className="font-mono text-[11px] text-red-400 font-semibold uppercase tracking-wider mb-2">
@@ -262,9 +266,14 @@ export function ServiceDetailView({
               Core Architectural Capabilities
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Flex-wrap layout: auto-centers last row regardless of item count */}
+            <div className="flex flex-wrap justify-center gap-6">
               {capabilities.map((cap, i) => (
-                <div key={i} className="card-surface p-6 flex flex-col justify-between border border-[var(--border)]">
+                <div
+                  key={i}
+                  className="card-surface p-6 flex flex-col justify-between border border-[var(--border)]"
+                  style={{ flex: '1 1 280px', maxWidth: '400px' }}
+                >
                   <div>
                     <span className="font-mono text-[11px] text-[var(--accent)] block mb-3 font-semibold">
                       CAPABILITY 0{i + 1}
@@ -300,11 +309,13 @@ export function ServiceDetailView({
               We execute in disciplined, transparent engineering cycles with continuous feedback, verifiable milestones, and zero architectural surprises.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* Flex-wrap layout: auto-centers last row regardless of item count */}
+            <div className="flex flex-wrap justify-center gap-5">
               {approach.map((stepItem) => (
                 <div
                   key={stepItem.step}
                   className="card-surface p-6 border border-[var(--border)] flex flex-col justify-between"
+                  style={{ flex: '1 1 220px', maxWidth: '300px' }}
                 >
                   <div>
                     <span className="font-mono text-[12px] text-[var(--accent)] font-semibold block mb-2">

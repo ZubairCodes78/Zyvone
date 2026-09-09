@@ -38,7 +38,7 @@ export default function ArticleReadingClient({
         </div>
 
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-[-0.02em] leading-[1.05] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.05] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
           {article.title}

@@ -24,10 +24,10 @@ export function Process() {
       <div className="max-w-[var(--max-w-hero)] mb-14">
         <span className="eyebrow-label block mb-3">HOW WE WORK</span>
         <h2
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.15]"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.15]"
           style={{ fontSize: 'var(--fs-h2)' }}
         >
-          We build systems that compound.
+          We build systems that <span className="font-serif-accent">compound.</span>
         </h2>
       </div>
 

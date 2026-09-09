@@ -87,10 +87,10 @@ export default function ServicesPage() {
           DISCIPLINES &amp; ARCHITECTURE
         </span>
         <h1
-          className="font-sans font-semibold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
+          className="font-sans font-bold text-[var(--text-primary)] tracking-tight leading-[1.08] mb-6"
           style={{ fontSize: 'var(--fs-h1)' }}
         >
-          Software, Systems &amp; AI Engineering
+          Software, Systems &amp; <span className="font-serif-accent">AI Engineering</span>
         </h1>
         <p className="font-sans text-[18px] md:text-[22px] text-[var(--text-secondary)] leading-[1.6] max-w-[780px] mb-8">
           ZYVONE is a serious Digital Product Studio and Software &amp; Technology Company based in Lahore, Pakistan. We build permanent digital infrastructure, SaaS products, AI systems, automation, web applications, and mobile products for founders and forward-thinking businesses.
@@ -111,10 +111,10 @@ export default function ServicesPage() {
           <div>
             <span className="eyebrow-mono block mb-2 text-[var(--accent)]">THE 4 PILLARS</span>
             <h2
-              className="font-sans font-semibold text-[var(--text-primary)] tracking-tight"
+              className="font-sans font-bold text-[var(--text-primary)] tracking-tight"
               style={{ fontSize: 'var(--fs-h2)' }}
             >
-              Strategic Engineering Pillars
+              Strategic Engineering <span className="font-serif-accent">Pillars</span>
             </h2>
           </div>
           <span className="font-mono text-[12px] text-[var(--text-tertiary)]">
