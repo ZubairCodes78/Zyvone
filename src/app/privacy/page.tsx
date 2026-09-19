@@ -1,3 +1,13 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'ZYVONE privacy policy outlining our principles on data collection, privacy-first processing, and client data protection.',
+  alternates: {
+    canonical: 'https://zyvone.site/privacy',
+  },
+}
+
 export default function Privacy() {
   return (
     <div className="bg-secondary-bg min-h-screen py-28 px-6">
@@ -6,7 +16,7 @@ export default function Privacy() {
           Privacy Policy
         </h1>
         <p className="font-sans text-[14px] text-text-secondary mb-8">
-          Last updated: January 2025
+          Last updated: January 2026
         </p>
         
         <div className="space-y-8">

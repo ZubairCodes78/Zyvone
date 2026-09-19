@@ -76,17 +76,11 @@ export function ServiceDetailView({
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
+      '@id': `${canonicalUrl}#service`,
       name: `${title} - ZYVONE`,
       serviceType: title,
       provider: {
-        '@type': 'Organization',
-        name: 'ZYVONE',
-        url: 'https://zyvone.site',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Lahore',
-          addressCountry: 'PK',
-        },
+        '@id': 'https://zyvone.site/#organization',
       },
       description: subtitle,
       url: canonicalUrl,

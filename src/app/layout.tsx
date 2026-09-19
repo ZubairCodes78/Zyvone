@@ -114,6 +114,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://zyvone.site/#organization",
     name: "ZYVONE",
     url: "https://zyvone.site",
     logo: "https://zyvone.site/favicon.png",
@@ -121,6 +122,7 @@ export default function RootLayout({
       "ZYVONE is a digital product studio and software technology company building SaaS products, web applications, AI systems, and automated infrastructure.",
     address: {
       "@type": "PostalAddress",
+      addressLocality: "Lahore",
       addressCountry: "PK",
     },
     contactPoint: {
@@ -134,11 +136,22 @@ export default function RootLayout({
       "https://www.linkedin.com/in/zyvone-limited/",
       "https://www.instagram.com/zyvone.official/",
     ],
+    knowsAbout: [
+      "SaaS Development",
+      "AI Systems",
+      "AI Agents",
+      "Custom Software Development",
+      "Web Applications",
+      "Business Automation",
+      "Next.js App Router",
+      "Cloud Architecture",
+    ],
     founder: [
       {
         "@type": "Person",
+        "@id": "https://zyvone.site/#zubair",
         name: "Muhammad Zubair",
-        jobTitle: "Founder, ZYVONE",
+        jobTitle: "Founder, ZYVONE | Full-Stack SaaS & AI Developer",
         sameAs: [
           "https://www.instagram.com/zubair.zyvone/",
           "https://www.linkedin.com/in/zubair-zyvone/",
@@ -148,8 +161,9 @@ export default function RootLayout({
       },
       {
         "@type": "Person",
+        "@id": "https://zyvone.site/#hashir",
         name: "Hashir Ahmad",
-        jobTitle: "Co-Founder, ZYVONE",
+        jobTitle: "Co-Founder, ZYVONE | Marketing Strategist & Web Developer",
         sameAs: [
           "https://www.instagram.com/co.founder.zyvone/",
           "https://x.com/HashirAhmad327",

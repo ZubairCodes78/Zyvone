@@ -18,12 +18,24 @@ function CaseStudyModalContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
 
+  // Track if this session started as a direct landing on /work/[slug]
+  const isDirectLanding = useRef<boolean>(pathname.startsWith('/work/'))
+
+  // Once pathname leaves /work/[slug], direct landing state is cleared for all future interactions
+  useEffect(() => {
+    if (!pathname.startsWith('/work/')) {
+      isDirectLanding.current = false
+    }
+  }, [pathname])
+
   // Detect project slug from pathname (/work/[slug]) or query param (?project=[slug])
   let activeSlug: string | null = null
   if (pathname.startsWith('/work/')) {
     const slugFromPath = pathname.replace('/work/', '').split('/')[0]
     if (slugFromPath && projects.some((p) => p.slug === slugFromPath)) {
-      activeSlug = slugFromPath
+      if (!isDirectLanding.current || searchParams.get('modal') === 'true') {
+        activeSlug = slugFromPath
+      }
     }
   } else if (searchParams.get('project')) {
     activeSlug = searchParams.get('project')

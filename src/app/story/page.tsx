@@ -30,15 +30,15 @@ const chapters = [
   {
     year: '2025',
     chapter: 'CHAPTER 04',
-    title: 'The shift to enterprise software and platforms.',
-    body: 'We scaled production with flagship platforms — Toolmatic, PDFMaster, healthcare systems for Cantt Dental Care, and industrial machinery catalogs for Al Raheem Engineering — validating our systems-first doctrine.',
+    title: 'From client services to scalable software engines.',
+    body: 'We engineered our core proprietary frameworks, modular edge APIs, and automated infrastructure protocols, laying the technical foundation to build autonomous digital platforms and enterprise-grade systems.',
     image: '/images/story/chapter-4-enterprise.svg',
   },
   {
     year: '2026',
     chapter: 'CHAPTER 05',
-    title: 'ZYVONE — A digital company for serious builders.',
-    body: 'ZYVONE stands as an integrated digital product studio. We partner with ambitious founders worldwide to design, engineer, and deploy the software systems, platforms, and commerce engines their businesses run on.',
+    title: 'ZYVONE — The Digital Product Studio & Technology Company.',
+    body: 'ZYVONE ships production software systems — flagship platforms like Toolmatic and PDFMaster, medical systems for Cantt Dental Care, enterprise commerce for WearOmnia, and autonomous AI agents powering modern businesses globally.',
     image: '/images/story/chapter-5-zyvone-range.svg',
   },
 ]

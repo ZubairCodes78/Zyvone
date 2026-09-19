@@ -1,3 +1,13 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'ZYVONE terms of service outlining our client engagement terms, intellectual property, and engineering services agreements.',
+  alternates: {
+    canonical: 'https://zyvone.site/terms',
+  },
+}
+
 export default function Terms() {
   return (
     <div className="bg-secondary-bg min-h-screen py-28 px-6">
@@ -6,7 +16,7 @@ export default function Terms() {
           Terms of Service
         </h1>
         <p className="font-sans text-[14px] text-text-secondary mb-8">
-          Last updated: January 2025
+          Last updated: January 2026
         </p>
 
         <div className="space-y-8">
@@ -20,7 +30,7 @@ export default function Terms() {
           <section>
             <h2 className="font-sans font-semibold text-[20px] text-text-primary mb-3">Services</h2>
             <p className="font-sans text-[16px] text-text-secondary leading-[1.8]">
-              ZYVONE provides digital services including AI automation, web development, content creation, and marketing systems. Specific deliverables and timelines will be outlined in project agreements.
+              ZYVONE provides digital product and software technology services including SaaS engineering, custom software development, web applications, and autonomous AI systems. Specific deliverables, architecture, and timelines are governed by mutual project agreements.
             </p>
           </section>
 

@@ -9,61 +9,79 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-01'),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/work`,
-      lastModified: new Date(),
+      url: `${baseUrl}/services`,
+      lastModified: new Date('2026-03-01'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
+      url: `${baseUrl}/work`,
+      lastModified: new Date('2026-03-01'),
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/applications`,
+      lastModified: new Date('2026-03-01'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/ai-agents`,
+      lastModified: new Date('2026-03-01'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-02-15'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/story`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-02-15'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/journal`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-01'),
       changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date('2026-02-15'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/book-call`,
+      lastModified: new Date('2026-02-15'),
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/social`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-02-15'),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-01-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-01-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
@@ -71,21 +89,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
     url: `${baseUrl}/services/${s.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date('2026-02-20'),
     changeFrequency: 'weekly',
     priority: 0.85,
   }))
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
     url: `${baseUrl}/work/${p.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date('2026-02-15'),
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
   const articleRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
     url: `${baseUrl}/journal/${a.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date(a.dateISO || '2026-02-01'),
     changeFrequency: 'monthly',
     priority: 0.8,
   }))

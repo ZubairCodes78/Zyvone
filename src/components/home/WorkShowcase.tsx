@@ -70,7 +70,9 @@ export function WorkShowcase() {
 
               {/* 2. Project Name */}
               <h3 className="font-sans font-bold text-[20px] sm:text-[22px] md:text-[24px] text-[var(--text-primary)] tracking-tight leading-tight mb-1.5 group-hover:text-[var(--accent)] transition-colors uppercase">
-                {project.name || project.shortTitle}
+                <Link href={`/work/${project.slug}`} onClick={(e) => openModal(project.slug, e)}>
+                  {project.name || project.shortTitle}
+                </Link>
               </h3>
 
               {/* 3. Category */}
@@ -86,10 +88,14 @@ export function WorkShowcase() {
 
             {/* 5. Explore CTA */}
             <div className="pt-5 mt-5 border-t border-[var(--border-subtle)] flex items-center justify-between">
-              <span className="font-sans font-medium text-[13px] text-[var(--accent)] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1.5">
+              <Link
+                href={`/work/${project.slug}`}
+                onClick={(e) => openModal(project.slug, e)}
+                className="font-sans font-medium text-[13px] text-[var(--accent)] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1.5"
+              >
                 <span>Explore project</span>
                 <span aria-hidden="true">→</span>
-              </span>
+              </Link>
             </div>
           </article>
         ))}

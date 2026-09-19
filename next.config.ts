@@ -35,6 +35,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/services/ai-agents',
+        destination: '/services/ai-agent-development',
+        permanent: true,
+      },
+      {
+        source: '/services/saas',
+        destination: '/services/saas-development',
+        permanent: true,
+      },
+      {
+        source: '/services/mvp',
+        destination: '/services/mvp-development',
+        permanent: true,
+      },
+      {
+        source: '/services/ecommerce',
+        destination: '/services/ecommerce-development',
+        permanent: true,
+      },
+      {
         source: '/capabilities',
         destination: '/services',
         permanent: true,

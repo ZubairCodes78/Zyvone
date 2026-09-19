@@ -304,11 +304,11 @@ export const projects: Project[] = [
     portfolioCategory: 'websites',
     tag: 'Healthcare System',
     shortTagline: 'High-performance clinic web system and patient acquisition pipeline.',
-    result: '#1 Local Rank',
+    result: 'Top Local Reach',
     resultLabel: 'Patient Engine',
     link: 'https://canttdentalcare.com',
-    overview: 'A digital patient acquisition platform and modern clinical web system for a premier dental healthcare facility, engineered for localized search supremacy.',
-    description: 'A digital patient acquisition platform and modern clinical web system for a premier dental healthcare facility, engineered for localized search supremacy.',
+    overview: 'A digital patient acquisition platform and modern clinical web system for a premier dental healthcare facility, engineered for localized search performance and streamlined booking.',
+    description: 'A digital patient acquisition platform and modern clinical web system for a premier dental healthcare facility, engineered for localized search performance and streamlined booking.',
     challenge: 'The clinic was invisible online, relying exclusively on legacy word-of-mouth referrals while competing practices captured local Google search intent.',
     problem: 'The clinic was invisible online, relying exclusively on legacy word-of-mouth referrals while competing practices captured local Google search intent.',
     approach: 'We deployed a high-performance clinical platform with procedure-level medical schema, hyper-local SEO optimization, and a friction-free WhatsApp appointment booking pipeline.',
@@ -317,7 +317,7 @@ export const projects: Project[] = [
     coreFeatures: [
       { title: 'Medical Procedure Directory', description: 'Structured clinical procedure pages addressing patient FAQs, pricing expectations, and post-care recovery.' },
       { title: 'One-Tap WhatsApp Triage Booking', description: 'Direct appointment scheduling routing inquiries straight to the front desk reception team.' },
-      { title: 'Local Search Schema Integration', description: 'Rich MedicalBusiness JSON-LD markup and geo-tagged clinic coordinates for Google Maps supremacy.' },
+      { title: 'Local Search Schema Integration', description: 'Rich MedicalBusiness JSON-LD markup and geo-tagged clinic coordinates for localized search engine discovery and Google Maps visibility.' },
       { title: 'Sub-Second Page Loads', description: 'Instant page loading on mobile devices ensuring anxious patients find urgent dental help immediately.' },
     ],
     engineeringHighlights: [
@@ -333,7 +333,7 @@ export const projects: Project[] = [
       'Implemented comprehensive MedicalBusiness schema markup and Google Business Profile optimization',
       'Configured automated analytics tracking for patient acquisition attribution',
     ],
-    outcome: 'Ranked #1 on Google for primary regional dental search terms within 60 days, driving a 300% surge in verified direct patient consultations.',
+    outcome: 'Established prominent organic visibility across regional dental search terms and streamlined patient inquiries through an automated direct triage pipeline.',
     reflection: 'A local business website is not a digital brochure — it is an automated patient acquisition pipeline.',
     heroImage: '/images/cantt-dental-care.png',
     gallery: [

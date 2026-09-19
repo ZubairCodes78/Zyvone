@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#0D0D0D"/>
+  <rect x="15" y="15" width="770" height="420" rx="12" fill="#141414" stroke="#242424" stroke-width="1.5"/>
+  
+  <text x="45" y="55" fill="#C8ED35" font-family="monospace" font-size="12" font-weight="bold">OPERATIONAL ARCHITECTURE // 09</text>
+  <text x="45" y="85" fill="#F2F1EC" font-family="sans-serif" font-size="20" font-weight="600">How to Build Internal Business Tools That Scale Efficiency</text>
+
+  <g transform="translate(45, 120)">
+    <!-- Column 1: RBAC & Security -->
+    <rect x="0" y="0" width="220" height="245" rx="8" fill="#161616" stroke="#2D2D2D"/>
+    <text x="25" y="40" fill="#F2F1EC" font-family="sans-serif" font-size="14" font-weight="bold">01 // Access &amp; Audit</text>
+    <text x="25" y="65" fill="#C8ED35" font-family="monospace" font-size="10">STRICT SECURITY</text>
+    <text x="25" y="105" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Granular Role-Based Access</text>
+    <text x="25" y="130" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Immutable Audit Logging</text>
+    <text x="25" y="155" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Session Revocation</text>
+    <text x="25" y="180" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Zero Trust Authentication</text>
+
+    <!-- Column 2: Data Grids & State -->
+    <rect x="245" y="0" width="220" height="245" rx="8" fill="#161616" stroke="#2D2D2D"/>
+    <text x="270" y="40" fill="#F2F1EC" font-family="sans-serif" font-size="14" font-weight="bold">02 // Reactive Grids</text>
+    <text x="270" y="65" fill="#C8ED35" font-family="monospace" font-size="10">HIGH-VOLUME UX</text>
+    <text x="270" y="105" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Virtualized Data Tables</text>
+    <text x="270" y="130" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Instant Multi-Filter Queries</text>
+    <text x="270" y="155" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Bulk Batch Action Triggers</text>
+    <text x="270" y="180" fill="#AAAAAA" font-family="sans-serif" font-size="12">• Optimistic UI Updates</text>
+
+    <!-- Column 3: Backend Sync -->
+    <rect x="490" y="0" width="220" height="245" rx="8" fill="#152215" stroke="#254425"/>
+    <text x="515" y="40" fill="#C8ED35" font-family="sans-serif" font-size="14" font-weight="bold">03 // Engine Sync</text>
+    <text x="515" y="65" fill="#A0CCA0" font-family="monospace" font-size="10">OPERATIONAL LEVERAGE</text>
+    <text x="515" y="105" fill="#E0FFE0" font-family="sans-serif" font-size="12">• Direct DB Connection Pool</text>
+    <text x="515" y="130" fill="#E0FFE0" font-family="sans-serif" font-size="12">• Third-Party API Webhooks</text>
+    <text x="515" y="155" fill="#E0FFE0" font-family="sans-serif" font-size="12">• Automated Daily Reconcile</text>
+    <text x="515" y="180" fill="#E0FFE0" font-family="sans-serif" font-size="12">• Zero Spreadsheet Clutter</text>
+  </g>
+</svg>

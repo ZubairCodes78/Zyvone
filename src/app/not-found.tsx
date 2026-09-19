@@ -1,5 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '404 - System Not Found | ZYVONE',
+  description: 'The requested system route does not exist or has been relocated to a new canonical address.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function NotFound() {
   return (
@@ -24,8 +34,8 @@ export default function NotFound() {
           <span>Return to Homepage</span>
           <span aria-hidden="true">→</span>
         </Link>
-        <Link href="/capabilities" className="btn-ghost">
-          <span>Explore Capabilities</span>
+        <Link href="/services" className="btn-ghost">
+          <span>Explore Services</span>
         </Link>
       </div>
     </div>

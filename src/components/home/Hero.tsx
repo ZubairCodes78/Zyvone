@@ -14,6 +14,7 @@ export function Hero() {
 
         {/* Headline — Two distinct type treatments stacked in tight lockup with staggered reveal */}
         <h1 className="flex flex-col items-center tracking-tight leading-[1.02] mb-6">
+          <span className="sr-only">ZYVONE — Digital Product Studio &amp; Software Technology Company: </span>
           <span
             className="font-sans font-extrabold text-[var(--text-primary)] block opacity-0 stagger-2"
             style={{ fontSize: 'var(--fs-display)' }}

@@ -78,8 +78,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/capabilities" className="font-sans text-[14px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                  Capabilities
+                <Link href="/services" className="font-sans text-[14px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+                  Services
                 </Link>
               </li>
               <li>
