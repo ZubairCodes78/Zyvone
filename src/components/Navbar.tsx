@@ -330,7 +330,7 @@ export default function Navbar() {
           {[
             { label: 'Instagram', href: 'https://www.instagram.com/zyvone.official/' },
             { label: 'X', href: 'https://x.com/zyvone12' },
-            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zyvone-limited/' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/company/zyvonetech/posts/?feedView=all' },
           ].map(s => (
             <a
               key={s.label}

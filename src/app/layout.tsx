@@ -133,7 +133,7 @@ export default function RootLayout({
     },
     sameAs: [
       "https://x.com/zyvone12",
-      "https://www.linkedin.com/in/zyvone-limited/",
+      "https://www.linkedin.com/company/zyvonetech/posts/?feedView=all",
       "https://www.instagram.com/zyvone.official/",
     ],
     knowsAbout: [

@@ -4,7 +4,7 @@ export const agencySocials = {
   handle: '@zyvone.official',
   instagram: 'https://www.instagram.com/zyvone.official/',
   x: 'https://x.com/zyvone12',
-  linkedin: 'https://www.linkedin.com/in/zyvone-limited/',
+  linkedin: 'https://www.linkedin.com/company/zyvonetech/posts/?feedView=all',
 }
 
 export const founderSocials = {
