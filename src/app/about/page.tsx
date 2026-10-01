@@ -385,13 +385,13 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <a
               href={agencySocials.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="ZYVONE Official Instagram"
-              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group"
+              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group min-h-[44px]"
             >
               <div>
                 <span className="font-sans font-semibold text-[15px] text-[var(--text-primary)] block group-hover:text-[var(--accent)] transition-colors">
@@ -407,11 +407,31 @@ export default function AboutPage() {
             </a>
 
             <a
+              href={agencySocials.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit ZYVONE on Facebook"
+              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group min-h-[44px]"
+            >
+              <div>
+                <span className="font-sans font-semibold text-[15px] text-[var(--text-primary)] block group-hover:text-[var(--accent)] transition-colors">
+                  Facebook
+                </span>
+                <span className="font-mono text-[11px] text-[var(--text-tertiary)]">
+                  ZYVONE
+                </span>
+              </div>
+              <span className="font-mono text-[12px] text-[var(--accent)] group-hover:translate-x-0.5 transition-transform">
+                ↗
+              </span>
+            </a>
+
+            <a
               href={agencySocials.x}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="ZYVONE Official X"
-              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group"
+              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group min-h-[44px]"
             >
               <div>
                 <span className="font-sans font-semibold text-[15px] text-[var(--text-primary)] block group-hover:text-[var(--accent)] transition-colors">
@@ -431,7 +451,7 @@ export default function AboutPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="ZYVONE Official LinkedIn"
-              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group"
+              className="p-5 rounded-lg bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-200 flex items-center justify-between group min-h-[44px]"
             >
               <div>
                 <span className="font-sans font-semibold text-[15px] text-[var(--text-primary)] block group-hover:text-[var(--accent)] transition-colors">

@@ -21,6 +21,13 @@ export default function SocialPage() {
       action: 'Follow',
     },
     {
+      name: 'Facebook',
+      handle: 'ZYVONE',
+      url: agencySocials.facebook,
+      desc: 'Official company announcements, updates, and community.',
+      action: 'Follow',
+    },
+    {
       name: 'X (Twitter)',
       handle: '@zyvone12',
       url: agencySocials.x,
@@ -82,14 +89,14 @@ export default function SocialPage() {
           <span className="eyebrow-mono block mb-6 text-[var(--accent)]">
             ZYVONE OFFICIAL AGENCY CHANNELS
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {companySocials.map((channel) => (
               <a
                 key={channel.name}
                 href={channel.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`ZYVONE ${channel.name}`}
+                aria-label={channel.name === 'Facebook' ? 'Visit ZYVONE on Facebook' : `ZYVONE ${channel.name}`}
                 className="card-surface p-6 flex flex-col justify-between group hover:border-[var(--accent)] transition-all duration-300"
               >
                 <div>

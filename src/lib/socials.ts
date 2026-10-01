@@ -3,6 +3,7 @@ export const agencySocials = {
   tagline: 'Digital Product Studio / Technology Company',
   handle: '@zyvone.official',
   instagram: 'https://www.instagram.com/zyvone.official/',
+  facebook: 'https://www.facebook.com/profile.php?id=61594944182257',
   x: 'https://x.com/zyvone12',
   linkedin: 'https://www.linkedin.com/company/zyvonetech/posts/?feedView=all',
 }

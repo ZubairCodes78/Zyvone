@@ -135,6 +135,7 @@ export default function RootLayout({
       "https://x.com/zyvone12",
       "https://www.linkedin.com/company/zyvonetech/posts/?feedView=all",
       "https://www.instagram.com/zyvone.official/",
+      "https://www.facebook.com/profile.php?id=61594944182257",
     ],
     knowsAbout: [
       "SaaS Development",
